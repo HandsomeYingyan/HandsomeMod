@@ -50,6 +50,7 @@ https://github.com/coolsnowwolf/lede
 -Add some router not yet in openwrt offcial source.
 -Change some source mirrors (Build faster in China).
 -Remove ImageBuilder.
+-Add some basic modules to support gpu and drm.(Wayland and lima on the way!)
 
 ##----------
 ##Planing... 

@@ -28,6 +28,7 @@ chosen applications for your target system.
 
 
 The orginal code come form openwrt 19.07.
+
 https://github.com/openwrt/openwrt
 
 
@@ -35,31 +36,51 @@ https://github.com/openwrt/openwrt
 
 
 -Use mac to distinguish different handsomemod device(wifi ssid).
+
 -Use Nginx instead of uhttpd.
+
 -Enalbe CAKE Network Queue Management in default config.
+
 -Add https://github.com/Chion82/netfilter-full-cone-nat.git and Enable in default config.
+
 -Use ucl and upx to reduce image size.
+
 -Add some router not yet in openwrt offcial source.
+
 -Change some source mirrors (Build faster in China).
+
 -Remove ImageBuilder.
+
 -Add some basic modules to support gpu and drm.(Wayland and lima on the way!)
+
 
 
 ## Planing... 
 
 
 -A Offcial Website.
+
 -A Friendly Guide App For Newbie(Like me) Setting Network.
+
 -Hack Tools (Like kali or blackarch) feed And Luci-apps.
+
 -Wayland Support.
+
 -Make Luci more simpier to use.
+
 -Make Mainline Kernel More Friendly To Old Mips Device.
+
 -Make Hardware Hacking More Friendly In Openwrt.
+
 -Closed Source Binary Driver Feeds For Mainline Kernel(Like qca-wifi or mtk-sdk-openwrt).
+
 -Lighttpd Support for Luci.
+
 -Build Guide In WSL.
 
+
 Ps:Please Report Bugs at openwrt offcial github site! Or https://bugs.openwrt.org/
+
 I Just A Newbie in Openwrt.. 
 
 Future Release Will Based On Openwrt Latest Stable Version.

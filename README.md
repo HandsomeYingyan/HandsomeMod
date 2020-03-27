@@ -1,7 +1,7 @@
-###|_| _  _  _| _ _  _ _  _ |\/| _  _|
-###| |(_|| |(_|_\(_)| | |(/_|  |(_)(_|
-### ----------------------------------
-##HandsomeYingyan's Mod on Openwrt!
+##|_| _  _  _| _ _  _ _  _ |\/| _  _|
+##| |(_|| |(_|_\(_)| | |(/_|  |(_)(_|
+## ----------------------------------
+#HandsomeYingyan's Mod on Openwrt!
 
 ###Warning!!
 ##This Project is unstable and un-fully tested right now!

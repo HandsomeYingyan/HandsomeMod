@@ -1,10 +1,10 @@
-##|_| _  _  _| _ _  _ _  _ |\/| _  _|
-##| |(_|| |(_|_\(_)| | |(/_|  |(_)(_|
-## ----------------------------------
-#HandsomeYingyan's Mod on Openwrt!
+## |_| _  _  _| _ _  _ _  _ |\/| _  _|
+## | |(_|| |(_|_\(_)| | |(/_|  |(_)(_|
+##  ----------------------------------
+# HandsomeYingyan's Mod on Openwrt!
 
-###Warning!!
-##This Project is unstable and un-fully tested right now!
+### Warning!!
+## This Project is unstable and un-fully tested right now!
 
 This is the buildsystem for the HandsomeMod Linux distribution.
 
@@ -27,20 +27,15 @@ toolchain, target system & firmware packages.
 the cross-compile toolchain and then cross-compile the Linux kernel & all
 chosen applications for your target system.
 
+## Thanks
 
-##---------
-##Thanks
-##---------
 
 The orginal code come form openwrt 19.07.
 https://github.com/openwrt/openwrt
 
-Part of the package comes form lean's lede project.
-https://github.com/coolsnowwolf/lede
 
-##---------
-##What is Moded?
-##---------
+#  What is Moded?
+
 
 -Use mac to distinguish different handsomemod device(wifi ssid).
 -Use Nginx instead of uhttpd.
@@ -52,9 +47,9 @@ https://github.com/coolsnowwolf/lede
 -Remove ImageBuilder.
 -Add some basic modules to support gpu and drm.(Wayland and lima on the way!)
 
-##----------
-##Planing... 
-##----------
+
+## Planing... 
+
 
 -A Offcial Website.
 -A Friendly Guide App For Newbie(Like me) Setting Network.

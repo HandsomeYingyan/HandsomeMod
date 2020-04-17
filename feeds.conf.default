@@ -5,3 +5,6 @@ src-git telephony https://git.openwrt.org/feed/telephony.git;openwrt-19.07
 
 # lean's and other dalao's package
 src-git extra https://github.com/HandsomeYingyan/extra.git
+
+# Handsome Feeds (still testing)
+src-git handsomefeed https://github.com/HandsomeYingyan/handsomefeed.git

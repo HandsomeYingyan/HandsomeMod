@@ -1,0 +1,71 @@
+From 869888f1f22eff9180dea867141230dbede41332 Mon Sep 17 00:00:00 2001
+Message-Id: <869888f1f22eff9180dea867141230dbede41332.1587150133.git.zanussi@kernel.org>
+In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From: "Steven Rostedt (VMware)" <rostedt@goodmis.org>
+Date: Sun, 22 Mar 2020 00:00:28 +0100
+Subject: [PATCH 505/506] irq_work: Fix checking of IRQ_WORK_LAZY flag set on
+ non PREEMPT_RT
+
+[ Upstream 4.19-rt commit a854c3525b7082189996a41c1dc057dcb138e305 ]
+
+When CONFIG_PREEMPT_RT_FULL is not set, some of the checks for using
+lazy_list are not properly made as the IRQ_WORK_LAZY is not checked. There's
+two locations that need this update, so a use_lazy_list() helper function is
+added and used in both locations.
+
+Link: https://lore.kernel.org/r/20200321230028.GA22058@duo.ucw.cz
+Reported-by: Pavel Machek <pavel@denx.de>
+Signed-off-by: Steven Rostedt (VMware) <rostedt@goodmis.org>
+Signed-off-by: Tom Zanussi <zanussi@kernel.org>
+---
+ kernel/irq_work.c | 12 +++++++++---
+ 1 file changed, 9 insertions(+), 3 deletions(-)
+
+diff --git a/kernel/irq_work.c b/kernel/irq_work.c
+index 2899ba0d23d1..838b56cef5fe 100644
+--- a/kernel/irq_work.c
++++ b/kernel/irq_work.c
+@@ -57,6 +57,12 @@ void __weak arch_irq_work_raise(void)
+ 	 */
+ }
+ 
++static inline bool use_lazy_list(struct irq_work *work)
++{
++	return (IS_ENABLED(CONFIG_PREEMPT_RT_FULL) && !(work->flags & IRQ_WORK_HARD_IRQ))
++		|| (work->flags & IRQ_WORK_LAZY);
++}
++
+ #ifdef CONFIG_SMP
+ /*
+  * Enqueue the irq_work @work on @cpu unless it's already pending
+@@ -78,7 +84,7 @@ bool irq_work_queue_on(struct irq_work *work, int cpu)
+ 	if (!irq_work_claim(work))
+ 		return false;
+ 
+-	if (IS_ENABLED(CONFIG_PREEMPT_RT_FULL) && !(work->flags & IRQ_WORK_HARD_IRQ))
++	if (use_lazy_list(work))
+ 		list = &per_cpu(lazy_list, cpu);
+ 	else
+ 		list = &per_cpu(raised_list, cpu);
+@@ -95,7 +101,7 @@ EXPORT_SYMBOL_GPL(irq_work_queue_on);
+ bool irq_work_queue(struct irq_work *work)
+ {
+ 	struct llist_head *list;
+-	bool lazy_work, realtime = IS_ENABLED(CONFIG_PREEMPT_RT_FULL);
++	bool lazy_work;
+ 
+ 	/* Only queue if not already pending */
+ 	if (!irq_work_claim(work))
+@@ -106,7 +112,7 @@ bool irq_work_queue(struct irq_work *work)
+ 
+ 	lazy_work = work->flags & IRQ_WORK_LAZY;
+ 
+-	if (lazy_work || (realtime && !(work->flags & IRQ_WORK_HARD_IRQ)))
++	if (use_lazy_list(work))
+ 		list = this_cpu_ptr(&lazy_list);
+ 	else
+ 		list = this_cpu_ptr(&raised_list);
+-- 
+2.17.1
+

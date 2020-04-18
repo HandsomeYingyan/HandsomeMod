@@ -1,0 +1,37 @@
+From 4de15f64acbf11fff02921f0053f75276d5089a9 Mon Sep 17 00:00:00 2001
+Message-Id: <4de15f64acbf11fff02921f0053f75276d5089a9.1587150132.git.zanussi@kernel.org>
+In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From: Steven Rostedt <srostedt@redhat.com>
+Date: Fri, 3 Jul 2009 08:44:29 -0500
+Subject: [PATCH 149/506] ata: Do not disable interrupts in ide code for
+ preempt-rt
+
+Use the local_irq_*_nort variants.
+
+Signed-off-by: Steven Rostedt <srostedt@redhat.com>
+Signed-off-by: Ingo Molnar <mingo@elte.hu>
+Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+---
+ drivers/ata/libata-sff.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/ata/libata-sff.c b/drivers/ata/libata-sff.c
+index 8c36ff0c2dd4..795cf2f1fe8a 100644
+--- a/drivers/ata/libata-sff.c
++++ b/drivers/ata/libata-sff.c
+@@ -679,9 +679,9 @@ unsigned int ata_sff_data_xfer_noirq(struct ata_queued_cmd *qc, unsigned char *b
+ 	unsigned long flags;
+ 	unsigned int consumed;
+ 
+-	local_irq_save(flags);
++	local_irq_save_nort(flags);
+ 	consumed = ata_sff_data_xfer32(qc, buf, buflen, rw);
+-	local_irq_restore(flags);
++	local_irq_restore_nort(flags);
+ 
+ 	return consumed;
+ }
+-- 
+2.17.1
+

@@ -1,0 +1,38 @@
+From 65704de9a9f49ca43fe54eb073a1221df49333b5 Mon Sep 17 00:00:00 2001
+Message-Id: <65704de9a9f49ca43fe54eb073a1221df49333b5.1587150132.git.zanussi@kernel.org>
+In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From: Thomas Gleixner <tglx@linutronix.de>
+Date: Sun, 19 Jul 2009 08:44:27 -0500
+Subject: [PATCH 273/506] fs: namespace preemption fix
+
+On RT we cannot loop with preemption disabled here as
+mnt_make_readonly() might have been preempted. We can safely enable
+preemption while waiting for MNT_WRITE_HOLD to be cleared. Safe on !RT
+as well.
+
+Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+---
+ fs/namespace.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/fs/namespace.c b/fs/namespace.c
+index e9c13eedd739..47bfbb592a2c 100644
+--- a/fs/namespace.c
++++ b/fs/namespace.c
+@@ -353,8 +353,11 @@ int __mnt_want_write(struct vfsmount *m)
+ 	 * incremented count after it has set MNT_WRITE_HOLD.
+ 	 */
+ 	smp_mb();
+-	while (ACCESS_ONCE(mnt->mnt.mnt_flags) & MNT_WRITE_HOLD)
++	while (ACCESS_ONCE(mnt->mnt.mnt_flags) & MNT_WRITE_HOLD) {
++		preempt_enable();
+ 		cpu_relax();
++		preempt_disable();
++	}
+ 	/*
+ 	 * After the slowpath clears MNT_WRITE_HOLD, mnt_is_readonly will
+ 	 * be set to match its requirements. So we must not load that until
+-- 
+2.17.1
+

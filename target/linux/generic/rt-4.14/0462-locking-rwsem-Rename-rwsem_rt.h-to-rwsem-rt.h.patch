@@ -1,0 +1,40 @@
+From 71962c7fc97524ecc821d0be15ecdb846424af9a Mon Sep 17 00:00:00 2001
+Message-Id: <71962c7fc97524ecc821d0be15ecdb846424af9a.1587150133.git.zanussi@kernel.org>
+In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Date: Tue, 30 Apr 2019 18:15:19 +0200
+Subject: [PATCH 462/506] locking/rwsem: Rename rwsem_rt.h to rwsem-rt.h
+
+[ Upstream commit fc7a6bdcce83ce162c32d991f0ac8e56ea260f5b ]
+
+Rename rwsem_rt.h to rwsem-rt.h to remain consistent with rwsem-rt.c.
+
+Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Signed-off-by: Tom Zanussi <zanussi@kernel.org>
+---
+ include/linux/{rwsem_rt.h => rwsem-rt.h} | 0
+ include/linux/rwsem.h                    | 2 +-
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+ rename include/linux/{rwsem_rt.h => rwsem-rt.h} (100%)
+
+diff --git a/include/linux/rwsem_rt.h b/include/linux/rwsem-rt.h
+similarity index 100%
+rename from include/linux/rwsem_rt.h
+rename to include/linux/rwsem-rt.h
+diff --git a/include/linux/rwsem.h b/include/linux/rwsem.h
+index 513df11a364e..ac0857d60e04 100644
+--- a/include/linux/rwsem.h
++++ b/include/linux/rwsem.h
+@@ -21,7 +21,7 @@
+ #endif
+ 
+ #ifdef CONFIG_PREEMPT_RT_FULL
+-#include <linux/rwsem_rt.h>
++#include <linux/rwsem-rt.h>
+ #else /* PREEMPT_RT_FULL */
+ 
+ struct rw_semaphore;
+-- 
+2.17.1
+

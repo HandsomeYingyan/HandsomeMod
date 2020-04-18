@@ -25,6 +25,12 @@ config KERNEL_BUILD_DOMAIN
 config KERNEL_PRINTK
 	bool "Enable support for printk"
 	default y
+	
+config KERNEL_PREEMPT_RT
+	bool "Add PREEMPT_RT Patches"
+	default y
+	help
+	  Add PREEMPT_RT patch while building,You still need to enable it use kernel_menuconfig.
 
 config KERNEL_CRASHLOG
 	bool "Crash logging"

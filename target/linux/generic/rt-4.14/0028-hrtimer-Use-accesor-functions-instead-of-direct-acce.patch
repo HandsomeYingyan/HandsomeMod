@@ -1,0 +1,45 @@
+From 34572f78704dfb0882ea4c64fd93728e47ab70ca Mon Sep 17 00:00:00 2001
+Message-Id: <34572f78704dfb0882ea4c64fd93728e47ab70ca.1587150132.git.zanussi@kernel.org>
+In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From: Anna-Maria Gleixner <anna-maria@linutronix.de>
+Date: Wed, 20 Dec 2017 17:13:03 +0100
+Subject: [PATCH 028/506] hrtimer: Use accesor functions instead of direct
+ access
+
+__hrtimer_hres_active() is now available unconditionally. Replace the
+direct access to hrtimer_cpu_base.hres_active.
+
+No functional change.
+
+Signed-off-by: Anna-Maria Gleixner <anna-maria@linutronix.de>
+Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+---
+ kernel/time/hrtimer.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/kernel/time/hrtimer.c b/kernel/time/hrtimer.c
+index 39aadc65b895..4fafcbe663f4 100644
+--- a/kernel/time/hrtimer.c
++++ b/kernel/time/hrtimer.c
+@@ -564,7 +564,7 @@ hrtimer_force_reprogram(struct hrtimer_cpu_base *cpu_base, int skip_equal)
+ {
+ 	ktime_t expires_next;
+ 
+-	if (!cpu_base->hres_active)
++	if (!__hrtimer_hres_active(cpu_base))
+ 		return;
+ 
+ 	expires_next = __hrtimer_get_next_event(cpu_base);
+@@ -675,7 +675,7 @@ static void retrigger_next_event(void *arg)
+ {
+ 	struct hrtimer_cpu_base *base = this_cpu_ptr(&hrtimer_bases);
+ 
+-	if (!base->hres_active)
++	if (!__hrtimer_hres_active(base))
+ 		return;
+ 
+ 	raw_spin_lock(&base->lock);
+-- 
+2.17.1
+

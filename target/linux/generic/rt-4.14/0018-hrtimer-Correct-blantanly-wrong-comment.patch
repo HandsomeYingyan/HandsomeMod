@@ -1,0 +1,45 @@
+From c90a1a7f93c935dc2a4db29fc6c7679b81f5949d Mon Sep 17 00:00:00 2001
+Message-Id: <c90a1a7f93c935dc2a4db29fc6c7679b81f5949d.1587150132.git.zanussi@kernel.org>
+In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From: Thomas Gleixner <tglx@linutronix.de>
+Date: Wed, 20 Dec 2017 17:12:51 +0100
+Subject: [PATCH 018/506] hrtimer: Correct blantanly wrong comment
+
+The protection of a hrtimer which runs its callback against migration to a
+different CPU has nothing to do with hard interrupt context.
+
+The protection against migration of a hrtimer running the expiry callback
+is the pointer in the cpu_base which holds a pointer to the currently
+running timer. This pointer is evaluated in the code which potentially
+switches the timer base and makes sure it's kept on the CPU on which the
+callback is running.
+
+Reported-by: Anna-Maria Gleixner <anna-maria@linutronix.de>
+Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+Signed-off-by: Anna-Maria Gleixner <anna-maria@linutronix.de>
+Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+---
+ kernel/time/hrtimer.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/kernel/time/hrtimer.c b/kernel/time/hrtimer.c
+index 4af9bf1a96a4..845c9913fbff 100644
+--- a/kernel/time/hrtimer.c
++++ b/kernel/time/hrtimer.c
+@@ -1207,9 +1207,9 @@ static void __run_hrtimer(struct hrtimer_cpu_base *cpu_base,
+ 		timer->is_rel = false;
+ 
+ 	/*
+-	 * Because we run timers from hardirq context, there is no chance
+-	 * they get migrated to another cpu, therefore its safe to unlock
+-	 * the timer base.
++	 * The timer is marked as running in the cpu base, so it is
++	 * protected against migration to a different CPU even if the lock
++	 * is dropped.
+ 	 */
+ 	raw_spin_unlock(&cpu_base->lock);
+ 	trace_hrtimer_expire_entry(timer, now);
+-- 
+2.17.1
+

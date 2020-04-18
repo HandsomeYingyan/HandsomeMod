@@ -1,0 +1,47 @@
+From 5e77b47b146948db83311b585629524332c5814e Mon Sep 17 00:00:00 2001
+Message-Id: <5e77b47b146948db83311b585629524332c5814e.1587150132.git.zanussi@kernel.org>
+In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From: Thomas Gleixner <tglx@linutronix.de>
+Date: Fri, 22 Jul 2011 08:07:08 +0200
+Subject: [PATCH 157/506] signal: Make __lock_task_sighand() RT aware
+
+local_irq_save() + spin_lock(&sighand->siglock) does not work on
+-RT. Use the nort variants.
+
+Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+---
+ kernel/signal.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/kernel/signal.c b/kernel/signal.c
+index a562ca0b6db7..68e759d19427 100644
+--- a/kernel/signal.c
++++ b/kernel/signal.c
+@@ -1357,12 +1357,12 @@ struct sighand_struct *__lock_task_sighand(struct task_struct *tsk,
+ 		 * Disable interrupts early to avoid deadlocks.
+ 		 * See rcu_read_unlock() comment header for details.
+ 		 */
+-		local_irq_save(*flags);
++		local_irq_save_nort(*flags);
+ 		rcu_read_lock();
+ 		sighand = rcu_dereference(tsk->sighand);
+ 		if (unlikely(sighand == NULL)) {
+ 			rcu_read_unlock();
+-			local_irq_restore(*flags);
++			local_irq_restore_nort(*flags);
+ 			break;
+ 		}
+ 		/*
+@@ -1383,7 +1383,7 @@ struct sighand_struct *__lock_task_sighand(struct task_struct *tsk,
+ 		}
+ 		spin_unlock(&sighand->siglock);
+ 		rcu_read_unlock();
+-		local_irq_restore(*flags);
++		local_irq_restore_nort(*flags);
+ 	}
+ 
+ 	return sighand;
+-- 
+2.17.1
+

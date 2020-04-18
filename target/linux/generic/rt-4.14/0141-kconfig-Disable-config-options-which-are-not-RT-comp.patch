@@ -1,0 +1,45 @@
+From d4459b0fe56c6902b4d700260394b21a4c4d80b9 Mon Sep 17 00:00:00 2001
+Message-Id: <d4459b0fe56c6902b4d700260394b21a4c4d80b9.1587150132.git.zanussi@kernel.org>
+In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From: Thomas Gleixner <tglx@linutronix.de>
+Date: Sun, 24 Jul 2011 12:11:43 +0200
+Subject: [PATCH 141/506] kconfig: Disable config options which are not RT
+ compatible
+
+Disable stuff which is known to have issues on RT
+
+Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+---
+ arch/Kconfig | 1 +
+ mm/Kconfig   | 2 +-
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/arch/Kconfig b/arch/Kconfig
+index 77b3e21c4844..69d6f3793ae7 100644
+--- a/arch/Kconfig
++++ b/arch/Kconfig
+@@ -20,6 +20,7 @@ config OPROFILE
+ 	tristate "OProfile system profiling"
+ 	depends on PROFILING
+ 	depends on HAVE_OPROFILE
++	depends on !PREEMPT_RT_FULL
+ 	select RING_BUFFER
+ 	select RING_BUFFER_ALLOW_SWAP
+ 	help
+diff --git a/mm/Kconfig b/mm/Kconfig
+index cc4d633947bf..205bc66922a5 100644
+--- a/mm/Kconfig
++++ b/mm/Kconfig
+@@ -385,7 +385,7 @@ config NOMMU_INITIAL_TRIM_EXCESS
+ 
+ config TRANSPARENT_HUGEPAGE
+ 	bool "Transparent Hugepage Support"
+-	depends on HAVE_ARCH_TRANSPARENT_HUGEPAGE
++	depends on HAVE_ARCH_TRANSPARENT_HUGEPAGE && !PREEMPT_RT_FULL
+ 	select COMPACTION
+ 	select RADIX_TREE_MULTIORDER
+ 	help
+-- 
+2.17.1
+

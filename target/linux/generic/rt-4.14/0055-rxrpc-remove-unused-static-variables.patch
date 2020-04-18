@@ -1,0 +1,35 @@
+From 9b16bfa3a88ee3070a3cf65b9020f43d9ccb95da Mon Sep 17 00:00:00 2001
+Message-Id: <9b16bfa3a88ee3070a3cf65b9020f43d9ccb95da.1587150132.git.zanussi@kernel.org>
+In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Date: Fri, 21 Oct 2016 10:54:50 +0200
+Subject: [PATCH 055/506] rxrpc: remove unused static variables
+
+The rxrpc_security_methods and rxrpc_security_sem user has been removed
+in 648af7fca159 ("rxrpc: Absorb the rxkad security module"). This was
+noticed by kbuild test robot for the -RT tree but is also true for !RT.
+
+Reported-by: kbuild test robot <fengguang.wu@intel.com>
+Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+---
+ net/rxrpc/security.c | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/net/rxrpc/security.c b/net/rxrpc/security.c
+index e9f428351293..c4479afe8ae7 100644
+--- a/net/rxrpc/security.c
++++ b/net/rxrpc/security.c
+@@ -19,9 +19,6 @@
+ #include <keys/rxrpc-type.h>
+ #include "ar-internal.h"
+ 
+-static LIST_HEAD(rxrpc_security_methods);
+-static DECLARE_RWSEM(rxrpc_security_sem);
+-
+ static const struct rxrpc_security *rxrpc_security_types[] = {
+ 	[RXRPC_SECURITY_NONE]	= &rxrpc_no_security,
+ #ifdef CONFIG_RXKAD
+-- 
+2.17.1
+

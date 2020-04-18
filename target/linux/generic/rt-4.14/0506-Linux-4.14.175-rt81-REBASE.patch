@@ -1,0 +1,23 @@
+From b02f8f51c6d109570fe30ccf3a28276804b585a5 Mon Sep 17 00:00:00 2001
+Message-Id: <b02f8f51c6d109570fe30ccf3a28276804b585a5.1587150133.git.zanussi@kernel.org>
+In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From: Tom Zanussi <zanussi@kernel.org>
+Date: Fri, 10 Apr 2020 09:09:54 -0500
+Subject: [PATCH 506/506] Linux 4.14.175-rt81 REBASE
+
+Signed-off-by: Tom Zanussi <zanussi@kernel.org>
+---
+ localversion-rt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/localversion-rt b/localversion-rt
+index 90290c642ed5..8269ec129c0c 100644
+--- a/localversion-rt
++++ b/localversion-rt
+@@ -1 +1 @@
+--rt29
++-rt81
+-- 
+2.17.1
+

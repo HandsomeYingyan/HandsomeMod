@@ -1,0 +1,52 @@
+From a6cc83b44232d95a49eeaca4c6ce1872e9ea6260 Mon Sep 17 00:00:00 2001
+Message-Id: <a6cc83b44232d95a49eeaca4c6ce1872e9ea6260.1587150133.git.zanussi@kernel.org>
+In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From: Juri Lelli <juri.lelli@redhat.com>
+Date: Wed, 31 Jul 2019 12:37:15 +0200
+Subject: [PATCH 497/506] sched/deadline: Ensure inactive_timer runs in hardirq
+ context
+
+[ Upstream commit ba94e7aed7405c58251b1380e6e7d73aa8284b41 ]
+
+SCHED_DEADLINE inactive timer needs to run in hardirq context (as
+dl_task_timer already does) on PREEMPT_RT
+
+Change the mode to HRTIMER_MODE_REL_HARD.
+
+[ tglx: Fixed up the start site, so mode debugging works ]
+
+Signed-off-by: Juri Lelli <juri.lelli@redhat.com>
+Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+Link: https://lkml.kernel.org/r/20190731103715.4047-1-juri.lelli@redhat.com
+Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Signed-off-by: Tom Zanussi <zanussi@kernel.org>
+---
+ kernel/sched/deadline.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
+index eb68f7fb8a36..7b04e54bea01 100644
+--- a/kernel/sched/deadline.c
++++ b/kernel/sched/deadline.c
+@@ -252,7 +252,7 @@ static void task_non_contending(struct task_struct *p)
+ 
+ 	dl_se->dl_non_contending = 1;
+ 	get_task_struct(p);
+-	hrtimer_start(timer, ns_to_ktime(zerolag_time), HRTIMER_MODE_REL);
++	hrtimer_start(timer, ns_to_ktime(zerolag_time), HRTIMER_MODE_REL_HARD);
+ }
+ 
+ static void task_contending(struct sched_dl_entity *dl_se, int flags)
+@@ -1234,7 +1234,7 @@ void init_dl_inactive_task_timer(struct sched_dl_entity *dl_se)
+ {
+ 	struct hrtimer *timer = &dl_se->inactive_timer;
+ 
+-	hrtimer_init(timer, CLOCK_MONOTONIC, HRTIMER_MODE_REL);
++	hrtimer_init(timer, CLOCK_MONOTONIC, HRTIMER_MODE_REL_HARD);
+ 	timer->function = inactive_task_timer;
+ }
+ 
+-- 
+2.17.1
+

@@ -1,0 +1,39 @@
+From 239f295df35f11bc6805e34337993126526a56e2 Mon Sep 17 00:00:00 2001
+Message-Id: <239f295df35f11bc6805e34337993126526a56e2.1587150132.git.zanussi@kernel.org>
+In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From: Thomas Gleixner <tglx@linutronix.de>
+Date: Wed, 29 Jun 2011 11:01:51 +0200
+Subject: [PATCH 222/506] stop_machine: Use raw spinlocks
+
+Use raw-locks in stomp_machine() to allow locking in irq-off regions.
+
+Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+---
+ kernel/stop_machine.c | 10 +---------
+ 1 file changed, 1 insertion(+), 9 deletions(-)
+
+diff --git a/kernel/stop_machine.c b/kernel/stop_machine.c
+index f8d1ae9ed7be..56f2f2e01229 100644
+--- a/kernel/stop_machine.c
++++ b/kernel/stop_machine.c
+@@ -503,15 +503,7 @@ static void cpu_stopper_thread(unsigned int cpu)
+ 		struct cpu_stop_done *done = work->done;
+ 		int ret;
+ 
+-		/*
+-		 * Wait until the stopper finished scheduling on all
+-		 * cpus
+-		 */
+-		lg_global_lock(&stop_cpus_lock);
+-		/*
+-		 * Let other cpu threads continue as well
+-		 */
+-		lg_global_unlock(&stop_cpus_lock);
++		/* XXX */
+ 
+ 		/* cpu stop callbacks must not sleep, make in_atomic() == T */
+ 		preempt_count_inc();
+-- 
+2.17.1
+

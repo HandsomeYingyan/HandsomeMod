@@ -17,10 +17,10 @@ diff --git a/net/core/skbuff.c b/net/core/skbuff.c
 index b1933e1f3aef..f882a5d7c75e 100644
 --- a/net/core/skbuff.c
 +++ b/net/core/skbuff.c
-@@ -63,6 +63,7 @@
- #include <linux/errqueue.h>
+@@ -64,6 +64,7 @@
  #include <linux/prefetch.h>
  #include <linux/if_vlan.h>
+ #include <linux/if.h>
 +#include <linux/locallock.h>
  
  #include <net/protocol.h>

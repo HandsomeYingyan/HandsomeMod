@@ -104,6 +104,7 @@ define Kernel/Patch/Default
 	$(call PatchDir,$(LINUX_DIR),$(GENERIC_BACKPORT_DIR),generic-backport/)
 	$(call PatchDir,$(LINUX_DIR),$(GENERIC_PATCH_DIR),generic/)
 	$(call PatchDir,$(LINUX_DIR),$(GENERIC_HACK_DIR),generic-hack/)
+	$(call PatchDir,$(LINUX_DIR),$(GENERIC_RT_DIR),generic-rt/)
 	$(call PatchDir,$(LINUX_DIR),$(PATCH_DIR),platform/)
 endef
 

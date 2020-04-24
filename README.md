@@ -51,9 +51,9 @@ https://github.com/openwrt/openwrt
 
 -Remove ImageBuilder.
 
--Add some basic modules to support gpu and drm(X86 Only Now).
+-Add some basic modules to support gpu and drm.
 
--Add linux realtime patches
+-Add rt-linux patches
 
 
 

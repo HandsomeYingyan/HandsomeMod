@@ -9,4 +9,4 @@ include $(TOPDIR)/rules.mk
 
 BOARDNAME:=Allwinner F1CX00s
 CPU_TYPE:=arm926ej-s
-HAS_FPU := N
+

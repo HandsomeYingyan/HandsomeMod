@@ -1,6 +1,7 @@
 #
 # Copyright (C) 2013-2016 OpenWrt.org
 # Copyright (C) 2017 Yousong Zhou
+# Copyright (C) 2020 HandsomeMod Project
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -247,6 +248,14 @@ define U-Boot/orangepi_pc2
   UENV:=a64
 endef
 
+define U-Boot/licheepi_nano
+  BUILD_SUBTARGET:=arm9
+  NAME:=Lichee Pi Nano
+  BUILD_DEVICES:=suniv-f1c100s-licheepi-nano
+  UENV:=licheepi-nano
+endef
+
+
 UBOOT_TARGETS := \
 	A10-OLinuXino-Lime \
 	A13-OLinuXino \
@@ -282,7 +291,8 @@ UBOOT_TARGETS := \
 	pine64_plus \
 	Sinovoip_BPI_M2_Plus \
 	sopine_baseboard \
-	orangepi_zero_plus
+	orangepi_zero_plus \
+	licheepi_nano 
 
 UBOOT_CONFIGURE_VARS += USE_PRIVATE_LIBGCC=yes
 

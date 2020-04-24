@@ -1,0 +1,50 @@
+From a7821071b68528a1d484ebe4a88730ed16de2b43 Mon Sep 17 00:00:00 2001
+From: Icenowy Zheng <icenowy@aosc.io>
+Date: Thu, 18 Jan 2018 14:28:13 +0800
+Subject: [PATCH] musb: sunxi: add support for the suniv MUSB controller
+
+The suniv SoC has a MUSB controller like the one in A33, but with a SRAM
+region to be claimed.
+
+Add support for it.
+
+Signed-off-by: Icenowy Zheng <icenowy@aosc.io>
+---
+ drivers/usb/musb/sunxi.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/usb/musb/sunxi.c b/drivers/usb/musb/sunxi.c
+index dc353e24d53c..0560519f06f1 100644
+--- a/drivers/usb/musb/sunxi.c
++++ b/drivers/usb/musb/sunxi.c
+@@ -729,14 +729,17 @@ static int sunxi_musb_probe(struct platform_device *pdev)
+ 	INIT_WORK(&glue->work, sunxi_musb_work);
+ 	glue->host_nb.notifier_call = sunxi_musb_host_notifier;
+ 
+-	if (of_device_is_compatible(np, "allwinner,sun4i-a10-musb"))
++	if (of_device_is_compatible(np, "allwinner,sun4i-a10-musb") ||
++	    of_device_is_compatible(np, "allwinner,suniv-f1c100s-musb")) {
+ 		set_bit(SUNXI_MUSB_FL_HAS_SRAM, &glue->flags);
++	}
+ 
+ 	if (of_device_is_compatible(np, "allwinner,sun6i-a31-musb"))
+ 		set_bit(SUNXI_MUSB_FL_HAS_RESET, &glue->flags);
+ 
+ 	if (of_device_is_compatible(np, "allwinner,sun8i-a33-musb") ||
+-	    of_device_is_compatible(np, "allwinner,sun8i-h3-musb")) {
++	    of_device_is_compatible(np, "allwinner,sun8i-h3-musb") ||
++	    of_device_is_compatible(np, "allwinner,suniv-f1c100s-musb")) {
+ 		set_bit(SUNXI_MUSB_FL_HAS_RESET, &glue->flags);
+ 		set_bit(SUNXI_MUSB_FL_NO_CONFIGDATA, &glue->flags);
+ 	}
+@@ -827,6 +830,7 @@ static int sunxi_musb_remove(struct platform_device *pdev)
+ }
+ 
+ static const struct of_device_id sunxi_musb_match[] = {
++	{ .compatible = "allwinner,suniv-f1c100s-musb", },
+ 	{ .compatible = "allwinner,sun4i-a10-musb", },
+ 	{ .compatible = "allwinner,sun6i-a31-musb", },
+ 	{ .compatible = "allwinner,sun8i-a33-musb", },
+-- 
+2.11.0
+

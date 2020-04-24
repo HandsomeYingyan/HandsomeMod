@@ -1,0 +1,32 @@
+From 0fd7e40a7de8ec96d149ee97bbcc5c8798d02de9 Mon Sep 17 00:00:00 2001
+From: Icenowy Zheng <icenowy@aosc.io>
+Date: Thu, 18 Jan 2018 14:02:34 +0800
+Subject: [PATCH] clocksource/drivers/sun4i: register as sched_clock on suniv
+
+The suniv chip (newer F-series Allwinner SoCs) is based on ARM926EJ-S
+CPU, thus it has no architecture timer.
+
+Register sun4i_timer as sched_clock on it.
+
+Signed-off-by: Icenowy Zheng <icenowy@aosc.io>
+---
+ drivers/clocksource/sun4i_timer.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/clocksource/sun4i_timer.c b/drivers/clocksource/sun4i_timer.c
+index 6b57187fe79d..3da46b2d3ba8 100644
+--- a/drivers/clocksource/sun4i_timer.c
++++ b/drivers/clocksource/sun4i_timer.c
+@@ -186,7 +186,8 @@ static int __init sun4i_timer_init(struct device_node *node)
+ 	 */
+ 	if (of_machine_is_compatible("allwinner,sun4i-a10") ||
+ 	    of_machine_is_compatible("allwinner,sun5i-a13") ||
+-	    of_machine_is_compatible("allwinner,sun5i-a10s"))
++	    of_machine_is_compatible("allwinner,sun5i-a10s") ||
++	    of_machine_is_compatible("allwinner,suniv"))
+ 		sched_clock_register(sun4i_timer_sched_read, 32,
+ 				     timer_of_rate(&to));
+ 
+-- 
+2.11.0
+

@@ -1,0 +1,44 @@
+From 72d18b1b40a59fd8316d121ba6359e76aeb74602 Mon Sep 17 00:00:00 2001
+From: handsomeyingyan <handsomeyingyan@github.com>
+Date: Fri, 10 Apr 2020 16:08:22 +0800
+Subject: [PATCH] Switch Uart
+
+---
+ arch/arm/boot/dts/suniv-f1c100s-licheepi-nano.dts | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+
+diff --git a/arch/arm/boot/dts/suniv-f1c100s-licheepi-nano.dts b/arch/arm/boot/dts/suniv-f1c100s-licheepi-nano.dts
+index 5b05937179052..21615f98db3bf 100644
+--- a/arch/arm/boot/dts/suniv-f1c100s-licheepi-nano.dts
++++ b/arch/arm/boot/dts/suniv-f1c100s-licheepi-nano.dts
+@@ -14,12 +14,12 @@
+ 		     "allwinner,suniv";
+ 
+ 	aliases {
+-		serial0 = &uart0;
++		serial1 = &uart1;
+ 		spi0 = &spi0;
+ 	};
+ 
+ 	chosen {
+-		stdout-path = "serial0:115200n8";
++		stdout-path = "serial1:115200n8";
+ 	};
+ 
+ 	reg_vcc3v3: vcc3v3 {
+@@ -60,12 +60,13 @@
+ 	};
+ };
+ 
+-&uart0 {
++&uart1 {
+ 	pinctrl-names = "default";
+-	pinctrl-0 = <&uart0_pins_a>;
++	pinctrl-0 = <&uart1_pins_a>;
+ 	status = "okay";
+ };
+ 
++
+ &usb_otg {
+ 	dr_mode = "otg";
+ 	status = "okay";

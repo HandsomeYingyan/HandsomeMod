@@ -1,0 +1,43 @@
+From 5c53a41c2cc2399a9e8e2baf55f553c39c3672e0 Mon Sep 17 00:00:00 2001
+From: Icenowy Zheng <icenowy@aosc.io>
+Date: Fri, 19 Jan 2018 21:29:12 +0800
+Subject: [PATCH] ARM: suniv: f1c100s: add MMC support for Lichee Pi Nano
+
+The Lichee Pi Nano board has a MicroSD slot which is connected to the MMC0
+controller of the F1C100s SoC.
+
+Add support for it.
+
+Signed-off-by: Icenowy Zheng <icenowy@aosc.io>
+---
+ arch/arm/boot/dts/suniv-f1c100s-licheepi-nano.dts | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+
+diff --git a/arch/arm/boot/dts/suniv-f1c100s-licheepi-nano.dts b/arch/arm/boot/dts/suniv-f1c100s-licheepi-nano.dts
+index d54cded8e33e..4aca448b0d33 100644
+--- a/arch/arm/boot/dts/suniv-f1c100s-licheepi-nano.dts
++++ b/arch/arm/boot/dts/suniv-f1c100s-licheepi-nano.dts
+@@ -20,6 +20,20 @@
+ 	chosen {
+ 		stdout-path = "serial0:115200n8";
+ 	};
++
++	reg_vcc3v3: vcc3v3 {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc3v3";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++	};
++};
++
++&mmc0 {
++	vmmc-supply = <&reg_vcc3v3>;
++	bus-width = <4>;
++	broken-cd;
++	status = "okay";
+ };
+ 
+ &otg_sram {
+-- 
+2.11.0
+

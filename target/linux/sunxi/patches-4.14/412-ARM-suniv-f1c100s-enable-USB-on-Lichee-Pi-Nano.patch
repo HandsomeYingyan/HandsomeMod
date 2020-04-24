@@ -1,0 +1,54 @@
+From 4e3ae0253a724a39efb783dddd7c6e1ef8f5d7bf Mon Sep 17 00:00:00 2001
+From: Icenowy Zheng <icenowy@aosc.io>
+Date: Thu, 18 Jan 2018 14:29:57 +0800
+Subject: [PATCH] ARM: suniv: f1c100s: enable USB on Lichee Pi Nano
+
+Lichee Pi Nano has a Micro-USB connector, with its D+, D- pins connected
+to the USB pins of the SoC and ID pin connected to PE2 GPIO.
+
+Enable the USB functionality.
+
+Signed-off-by: Icenowy Zheng <icenowy@aosc.io>
+---
+ arch/arm/boot/dts/suniv-f1c100s-licheepi-nano.dts | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+
+diff --git a/arch/arm/boot/dts/suniv-f1c100s-licheepi-nano.dts b/arch/arm/boot/dts/suniv-f1c100s-licheepi-nano.dts
+index 11c891716acc..d54cded8e33e 100644
+--- a/arch/arm/boot/dts/suniv-f1c100s-licheepi-nano.dts
++++ b/arch/arm/boot/dts/suniv-f1c100s-licheepi-nano.dts
+@@ -6,6 +6,8 @@
+ /dts-v1/;
+ #include "suniv-f1c100s.dtsi"
+ 
++#include <dt-bindings/gpio/gpio.h>
++
+ / {
+ 	model = "Lichee Pi Nano";
+ 	compatible = "licheepi,licheepi-nano", "allwinner,suniv-f1c100s",
+@@ -20,8 +22,22 @@
+ 	};
+ };
+ 
++&otg_sram {
++	status = "okay";
++};
++
+ &uart0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&uart0_pins_a>;
+ 	status = "okay";
+ };
++
++&usb_otg {
++	dr_mode = "otg";
++	status = "okay";
++};
++
++&usbphy {
++	usb0_id_det-gpio = <&pio 4 2 GPIO_ACTIVE_HIGH>; /* PE2 */
++	status = "okay";
++};
+-- 
+2.11.0
+

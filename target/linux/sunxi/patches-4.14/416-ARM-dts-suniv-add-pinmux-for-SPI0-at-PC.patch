@@ -1,0 +1,34 @@
+From 406b78ac5df9e9575eb44855b9ed09482acc9cfd Mon Sep 17 00:00:00 2001
+From: Icenowy Zheng <icenowy@aosc.io>
+Date: Sat, 20 Jan 2018 00:26:07 +0800
+Subject: [PATCH] ARM: dts: suniv: add pinmux for SPI0 at PC
+
+There's a pin group for SPI0 at PC bank on suniv SoC, which is the
+bootable SPI0 pinmux.
+
+Add the device tree node for this pinmux.
+
+Signed-off-by: Icenowy Zheng <icenowy@aosc.io>
+---
+ arch/arm/boot/dts/suniv.dtsi | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/arch/arm/boot/dts/suniv.dtsi b/arch/arm/boot/dts/suniv.dtsi
+index 3ea712da2a7e..94a03c312e19 100644
+--- a/arch/arm/boot/dts/suniv.dtsi
++++ b/arch/arm/boot/dts/suniv.dtsi
+@@ -164,6 +164,11 @@
+ 			#interrupt-cells = <3>;
+ 			#gpio-cells = <3>;
+ 
++			spi0_pins_a: spi0-pins-pc {
++				pins = "PC0", "PC1", "PC2", "PC3";
++				function = "spi0";
++			};
++
+ 			uart0_pins_a: uart-pins-pe {
+ 				pins = "PE0", "PE1";
+ 				function = "uart0";
+-- 
+2.11.0
+

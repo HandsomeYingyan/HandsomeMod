@@ -1,0 +1,45 @@
+From bb8a70e6dce376c3bd170d495943e339abd76249 Mon Sep 17 00:00:00 2001
+From: Icenowy Zheng <icenowy@aosc.io>
+Date: Fri, 19 Jan 2018 17:31:37 +0800
+Subject: [PATCH] clocksource: sun4i: add a compatible for suniv
+
+The suniv (new F-series) chip has a timer with less functionality than
+the A10 timer, e.g. it has only 3 channels.
+
+Add a new compatible for it. As we didn't use the extra channels on A10
+either now, the code needn't to be changed.
+
+Signed-off-by: Icenowy Zheng <icenowy@aosc.io>
+---
+ Documentation/devicetree/bindings/timer/allwinner,sun4i-timer.txt | 4 +++-
+ drivers/clocksource/sun4i_timer.c                                 | 2 ++
+ 2 files changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/Documentation/devicetree/bindings/timer/allwinner,sun4i-timer.txt b/Documentation/devicetree/bindings/timer/allwinner,sun4i-timer.txt
+index 5c2e23574ca0..5d4916c0ab4d 100644
+--- a/Documentation/devicetree/bindings/timer/allwinner,sun4i-timer.txt
++++ b/Documentation/devicetree/bindings/timer/allwinner,sun4i-timer.txt
+@@ -2,7 +2,9 @@ Allwinner A1X SoCs Timer Controller
+ 
+ Required properties:
+ 
+-- compatible : should be "allwinner,sun4i-a10-timer"
++- compatible : should be one of
++	"allwinner,suniv-f1c100s-timer"
++	"allwinner,sun4i-a10-timer"
+ - reg : Specifies base physical address and size of the registers.
+ - interrupts : The interrupt of the first timer
+ - clocks: phandle to the source clock (usually a 24 MHz fixed clock)
+diff --git a/drivers/clocksource/sun4i_timer.c b/drivers/clocksource/sun4i_timer.c
+index 6e0180aaf784..6b57187fe79d 100644
+--- a/drivers/clocksource/sun4i_timer.c
++++ b/drivers/clocksource/sun4i_timer.c
+@@ -218,3 +218,5 @@ static int __init sun4i_timer_init(struct device_node *node)
+ }
+ TIMER_OF_DECLARE(sun4i, "allwinner,sun4i-a10-timer",
+ 		       sun4i_timer_init);
++TIMER_OF_DECLARE(suniv, "allwinner,suniv-f1c100s-timer",
++		       sun4i_timer_init);
+-- 
+2.11.0
+

@@ -1,0 +1,39 @@
+From cfc5d3d1a864234d11650d405fa5e6ec1afffccc Mon Sep 17 00:00:00 2001
+From: Icenowy Zheng <icenowy@aosc.io>
+Date: Sat, 20 Jan 2018 05:30:11 +0800
+Subject: [PATCH] ARM: dts: suniv: add pinmux node for RGB666
+
+The suniv SoC has a RGB888 LCD interface, with RGB666 interface at PD
+bank and the extra pins at PE bank. Lichee Pi Nano board just uses
+RGB666.
+
+Add pinmux node for RGB666.
+
+Signed-off-by: Icenowy Zheng <icenowy@aosc.io>
+---
+ arch/arm/boot/dts/suniv.dtsi | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/arch/arm/boot/dts/suniv.dtsi b/arch/arm/boot/dts/suniv.dtsi
+index 9cddc3582914..d78576606b68 100644
+--- a/arch/arm/boot/dts/suniv.dtsi
++++ b/arch/arm/boot/dts/suniv.dtsi
+@@ -211,6 +211,15 @@
+ 				function = "spi0";
+ 			};
+ 
++			lcd_rgb666_pins: lcd-rgb666-pins {
++				pins = "PD0", "PD1", "PD2", "PD3", "PD4",
++				       "PD5", "PD6", "PD7", "PD8", "PD9",
++				       "PD10", "PD11", "PD12", "PD13", "PD14",
++				       "PD15", "PD16", "PD17", "PD18", "PD19",
++				       "PD20", "PD21";
++				function = "lcd";
++			};
++
+ 			uart0_pins_a: uart-pins-pe {
+ 				pins = "PE0", "PE1";
+ 				function = "uart0";
+-- 
+2.11.0
+

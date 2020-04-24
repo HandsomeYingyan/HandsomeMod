@@ -1,0 +1,82 @@
+From 9e3fb5fab98bde37736ea43f1098183a72d882d2 Mon Sep 17 00:00:00 2001
+From: Icenowy Zheng <icenowy@aosc.io>
+Date: Fri, 19 Jan 2018 21:27:44 +0800
+Subject: [PATCH] ARM: dts: suniv: add support for MMC controllers
+
+The suniv SoC has two MMC controllers like the ones in A20/A23/A33 SoC.
+
+Add device tree nodes for them.
+
+Signed-off-by: Icenowy Zheng <icenowy@aosc.io>
+---
+ arch/arm/boot/dts/suniv.dtsi | 47 ++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 47 insertions(+)
+
+diff --git a/arch/arm/boot/dts/suniv.dtsi b/arch/arm/boot/dts/suniv.dtsi
+index 34ba86b1eb84..6647a9c09ff2 100644
+--- a/arch/arm/boot/dts/suniv.dtsi
++++ b/arch/arm/boot/dts/suniv.dtsi
+@@ -69,6 +69,48 @@
+ 			};
+ 		};
+ 
++		mmc0: mmc@1c0f000 {
++			compatible = "allwinner,suniv-f1c100s-mmc",
++				     "allwinner,sun7i-a20-mmc";
++			reg = <0x01c0f000 0x1000>;
++			clocks = <&ccu CLK_BUS_MMC0>,
++				 <&ccu CLK_MMC0>,
++				 <&ccu CLK_MMC0_OUTPUT>,
++				 <&ccu CLK_MMC0_SAMPLE>;
++			clock-names = "ahb",
++				      "mmc",
++				      "output",
++				      "sample";
++			resets = <&ccu RST_BUS_MMC0>;
++			reset-names = "ahb";
++			interrupts = <23>;
++			pinctrl-names = "default";
++			pinctrl-0 = <&mmc0_pins>;
++			status = "disabled";
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++
++		mmc1: mmc@1c10000 {
++			compatible = "allwinner,suniv-f1c100s-mmc",
++				     "allwinner,sun7i-a20-mmc";
++			reg = <0x01c10000 0x1000>;
++			clocks = <&ccu CLK_BUS_MMC1>,
++				 <&ccu CLK_MMC1>,
++				 <&ccu CLK_MMC1_OUTPUT>,
++				 <&ccu CLK_MMC1_SAMPLE>;
++			clock-names = "ahb",
++				      "mmc",
++				      "output",
++				      "sample";
++			resets = <&ccu RST_BUS_MMC1>;
++			reset-names = "ahb";
++			interrupts = <24>;
++			status = "disabled";
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++
+ 		ccu: clock@1c20000 {
+ 			compatible = "allwinner,suniv-f1c100s-ccu";
+ 			reg = <0x01c20000 0x400>;
+@@ -100,6 +142,11 @@
+ 				pins = "PE0", "PE1";
+ 				function = "uart0";
+ 			};
++
++			mmc0_pins: mmc0-pins {
++				pins = "PF0", "PF1", "PF2", "PF3", "PF4", "PF5";
++				function = "mmc0";
++			};
+ 		};
+ 
+ 		timer@1c20c00 {
+-- 
+2.11.0
+

@@ -1,6 +1,7 @@
 #
 # Copyright (C) 2013-2016 OpenWrt.org
 # Copyright (C) 2016 Yousong Zhou
+# Copyroght (C) 2020 HandsomeMod Project
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -19,7 +20,8 @@ define Build/sunxi-sdcard
 
 	mcopy -i $@.boot $(STAGING_DIR_IMAGE)/$(DEVICE_NAME)-boot.scr ::boot.scr
 	mcopy -i $@.boot $(DTS_DIR)/$(SUNXI_DTS).dtb ::dtb
-	mcopy -i $@.boot $(IMAGE_KERNEL) ::uImage
+	$(if $(KERNEL_COMPRESS), mcopy -i $@.boot $(KDIR)/zImage ::zImage, \
+	    mcopy -i $@.boot $(IMAGE_KERNEL) ::uImage)
 	./gen_sunxi_sdcard_img.sh $@ \
 		$@.boot \
 		$(IMAGE_ROOTFS) \
@@ -42,5 +44,6 @@ endef
 include cortex-a7.mk
 include cortex-a8.mk
 include cortex-a53.mk
+include arm9.mk
 
 $(eval $(call BuildImage))

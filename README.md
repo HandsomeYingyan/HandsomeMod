@@ -55,6 +55,10 @@ https://github.com/openwrt/openwrt
 
 -Add rt-linux patches
 
+-Add Wayland and Xorg Support (alpha ver)
+
+-Add littlevgl Support (still testing)
+
 
 
 ## Planing... 
@@ -65,8 +69,6 @@ https://github.com/openwrt/openwrt
 -A Friendly Guide App For Newbie(Like me) Setting Network.
 
 -Hack Tools (Like kali or blackarch) feed And Luci-apps.
-
--Wayland Support.
 
 -Make Luci more simpier to use.
 
@@ -79,6 +81,16 @@ https://github.com/openwrt/openwrt
 -Lighttpd Support for Luci.
 
 -Build Guide In WSL.
+
+-A lightweight littlevgl-based graphics layer
+
+-Update Xorg to current version
+
+-Make latest mesa working
+
+-Add Mali gpu blobs
+
+-Better Support for allwinner f1c100s
 
 
 Ps:Please Report Bugs at openwrt offcial github site! Or https://bugs.openwrt.org/

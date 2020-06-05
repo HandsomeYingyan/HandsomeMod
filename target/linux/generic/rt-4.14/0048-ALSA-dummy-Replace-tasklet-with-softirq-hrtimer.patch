@@ -1,7 +1,4 @@
-From cd491bb72cb2663cf60de133b68970d8bcfe5a7c Mon Sep 17 00:00:00 2001
-Message-Id: <cd491bb72cb2663cf60de133b68970d8bcfe5a7c.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From ffbce77e13223cd087fd2f3f6c40c2e628207479 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Thu, 23 Nov 2017 16:39:15 +0100
 Subject: [PATCH 048/506] ALSA/dummy: Replace tasklet with softirq hrtimer
@@ -104,5 +101,5 @@ index aeb65d7d4cb3..738d5e327105 100644
  }
  
 -- 
-2.17.1
+2.25.3
 

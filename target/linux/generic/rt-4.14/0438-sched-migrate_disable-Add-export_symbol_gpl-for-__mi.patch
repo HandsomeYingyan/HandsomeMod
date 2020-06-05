@@ -1,7 +1,4 @@
-From f16d1d7e2a5fb885a6b701f6abb0889de64ca269 Mon Sep 17 00:00:00 2001
-Message-Id: <f16d1d7e2a5fb885a6b701f6abb0889de64ca269.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From b00c61ed91962763db6744fa73f28eb869840c47 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 9 Oct 2018 17:34:50 +0200
 Subject: [PATCH 438/506] sched/migrate_disable: Add export_symbol_gpl for
@@ -39,5 +36,5 @@ index 72f25985b490..9e4d006d5f9e 100644
  
  static void __do_set_cpus_allowed_tail(struct task_struct *p,
 -- 
-2.17.1
+2.25.3
 

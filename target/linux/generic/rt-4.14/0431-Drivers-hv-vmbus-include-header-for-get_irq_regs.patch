@@ -1,7 +1,4 @@
-From a93f980da04d9c9f99c49a581c3cb4fd687fe3d9 Mon Sep 17 00:00:00 2001
-Message-Id: <a93f980da04d9c9f99c49a581c3cb4fd687fe3d9.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From d6e84b169525d89f599a640a68a89f22b1bcf8aa Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 29 Aug 2018 21:59:04 +0200
 Subject: [PATCH 431/506] Drivers: hv: vmbus: include header for get_irq_regs()
@@ -41,5 +38,5 @@ index a166de6efd99..2e9fe163a6e8 100644
  /*
   * Timeout for services such as KVP and fcopy.
 -- 
-2.17.1
+2.25.3
 

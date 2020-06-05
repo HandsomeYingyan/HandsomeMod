@@ -1,7 +1,4 @@
-From 11bf825290cb94e883cc50d9b81957e6ae1663cd Mon Sep 17 00:00:00 2001
-Message-Id: <11bf825290cb94e883cc50d9b81957e6ae1663cd.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From b12ca1cb92cea5d2df2ebffe1179319ffceafae9 Mon Sep 17 00:00:00 2001
 From: Anna-Maria Gleixner <anna-maria@linutronix.de>
 Date: Wed, 20 Dec 2017 17:13:14 +0100
 Subject: [PATCH 039/506] hrtimer: Use irqsave/irqrestore around
@@ -150,5 +147,5 @@ index b9b56943f9b6..f2f4a4fe1c02 100644
  
  /*
 -- 
-2.17.1
+2.25.3
 

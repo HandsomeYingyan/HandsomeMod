@@ -1,7 +1,4 @@
-From f0b96579c709cbdef3a973b65b22bbdf9f1304c9 Mon Sep 17 00:00:00 2001
-Message-Id: <f0b96579c709cbdef3a973b65b22bbdf9f1304c9.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From ce7004c647d40911a534f266521fe5057d4e8de8 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 28 Mar 2018 11:15:19 +0200
 Subject: [PATCH 202/506] posix-timers: move the rcu head out of the union
@@ -59,5 +56,5 @@ index bc5c197e1d68..74083d1c7529 100644
  
  static int common_timer_create(struct k_itimer *new_timer)
 -- 
-2.17.1
+2.25.3
 

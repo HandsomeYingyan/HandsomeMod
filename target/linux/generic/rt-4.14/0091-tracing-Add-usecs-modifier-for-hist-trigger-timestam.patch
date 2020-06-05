@@ -1,7 +1,4 @@
-From 07b9aed872eb3dc17ff829dc6ee8bbc401085e5b Mon Sep 17 00:00:00 2001
-Message-Id: <07b9aed872eb3dc17ff829dc6ee8bbc401085e5b.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From d814aabb1154f313f006686bdd34c760e5843b50 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:48 -0600
 Subject: [PATCH 091/506] tracing: Add usecs modifier for hist trigger
@@ -169,5 +166,5 @@ index 30a3290be575..a15593e0436c 100644
  	return flags_str;
  }
 -- 
-2.17.1
+2.25.3
 

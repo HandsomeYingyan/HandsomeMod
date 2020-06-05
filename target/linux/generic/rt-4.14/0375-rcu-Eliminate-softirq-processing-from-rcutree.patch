@@ -1,7 +1,4 @@
-From 16038eaa99e4632ebcc1e77a20c7cb1570ec5d8f Mon Sep 17 00:00:00 2001
-Message-Id: <16038eaa99e4632ebcc1e77a20c7cb1570ec5d8f.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 13bad94d545395c2bc0b8c73774f9d5f4c3848a4 Mon Sep 17 00:00:00 2001
 From: "Paul E. McKenney" <paulmck@linux.vnet.ibm.com>
 Date: Mon, 4 Nov 2013 13:21:10 -0800
 Subject: [PATCH 375/506] rcu: Eliminate softirq processing from rcutree
@@ -438,5 +435,5 @@ index 09c739703533..17ee8d1f38c4 100644
  {
  	return false;
 -- 
-2.17.1
+2.25.3
 

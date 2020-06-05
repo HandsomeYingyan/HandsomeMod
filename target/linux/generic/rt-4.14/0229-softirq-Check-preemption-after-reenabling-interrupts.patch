@@ -1,7 +1,4 @@
-From ebf77b558e3c77bf0e3ccc6a9235d418ac2444c6 Mon Sep 17 00:00:00 2001
-Message-Id: <ebf77b558e3c77bf0e3ccc6a9235d418ac2444c6.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 3c58cbf3b999a90465e95ef97cee5a7334535bcf Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Sun, 13 Nov 2011 17:17:09 +0100
 Subject: [PATCH 229/506] softirq: Check preemption after reenabling interrupts
@@ -119,7 +116,7 @@ index 86a709954f5a..9c069ef83d6d 100644
  	return 0;
  }
 diff --git a/net/core/dev.c b/net/core/dev.c
-index 36d926d2d5f0..2e9aabf8c5e0 100644
+index 4f32a3251b64..b9c995f23428 100644
 --- a/net/core/dev.c
 +++ b/net/core/dev.c
 @@ -2460,6 +2460,7 @@ static void __netif_reschedule(struct Qdisc *q)
@@ -138,7 +135,7 @@ index 36d926d2d5f0..2e9aabf8c5e0 100644
  }
  EXPORT_SYMBOL(__dev_kfree_skb_irq);
  
-@@ -3904,6 +3906,7 @@ static int enqueue_to_backlog(struct sk_buff *skb, int cpu,
+@@ -3905,6 +3907,7 @@ static int enqueue_to_backlog(struct sk_buff *skb, int cpu,
  	rps_unlock(sd);
  
  	local_irq_restore(flags);
@@ -146,7 +143,7 @@ index 36d926d2d5f0..2e9aabf8c5e0 100644
  
  	atomic_long_inc(&skb->dev->rx_dropped);
  	kfree_skb(skb);
-@@ -5157,12 +5160,14 @@ static void net_rps_action_and_irq_enable(struct softnet_data *sd)
+@@ -5158,12 +5161,14 @@ static void net_rps_action_and_irq_enable(struct softnet_data *sd)
  		sd->rps_ipi_list = NULL;
  
  		local_irq_enable();
@@ -161,7 +158,7 @@ index 36d926d2d5f0..2e9aabf8c5e0 100644
  }
  
  static bool sd_has_rps_ipi_waiting(struct softnet_data *sd)
-@@ -5240,6 +5245,7 @@ void __napi_schedule(struct napi_struct *n)
+@@ -5241,6 +5246,7 @@ void __napi_schedule(struct napi_struct *n)
  	local_irq_save(flags);
  	____napi_schedule(this_cpu_ptr(&softnet_data), n);
  	local_irq_restore(flags);
@@ -169,7 +166,7 @@ index 36d926d2d5f0..2e9aabf8c5e0 100644
  }
  EXPORT_SYMBOL(__napi_schedule);
  
-@@ -8465,6 +8471,7 @@ static int dev_cpu_dead(unsigned int oldcpu)
+@@ -8466,6 +8472,7 @@ static int dev_cpu_dead(unsigned int oldcpu)
  
  	raise_softirq_irqoff(NET_TX_SOFTIRQ);
  	local_irq_enable();
@@ -178,5 +175,5 @@ index 36d926d2d5f0..2e9aabf8c5e0 100644
  #ifdef CONFIG_RPS
  	remsd = oldsd->rps_ipi_list;
 -- 
-2.17.1
+2.25.3
 

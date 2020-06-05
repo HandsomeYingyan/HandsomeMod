@@ -1,7 +1,4 @@
-From c3377a11582fd7b043e9d546b24d8510fea6691e Mon Sep 17 00:00:00 2001
-Message-Id: <c3377a11582fd7b043e9d546b24d8510fea6691e.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 4c1d133e7dfd77fdd80c7a76fabe737d334b68a2 Mon Sep 17 00:00:00 2001
 From: Vedang Patel <vedang.patel@intel.com>
 Date: Mon, 15 Jan 2018 20:51:38 -0600
 Subject: [PATCH 081/506] tracing: Remove code which merges duplicates
@@ -201,5 +198,5 @@ index 5b5bbf8ae550..de57887c0670 100644
  	void			(*elt_clear)(struct tracing_map_elt *elt);
  	void			(*elt_init)(struct tracing_map_elt *elt);
 -- 
-2.17.1
+2.25.3
 

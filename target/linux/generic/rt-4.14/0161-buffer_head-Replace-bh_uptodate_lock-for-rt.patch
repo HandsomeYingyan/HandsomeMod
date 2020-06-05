@@ -1,7 +1,4 @@
-From 3f3c823dc16d90a06f332852fe0fe5e8e693dcca Mon Sep 17 00:00:00 2001
-Message-Id: <3f3c823dc16d90a06f332852fe0fe5e8e693dcca.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From e9bd89980784be819faf8eddf04c65ef88fa1ed9 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 18 Mar 2011 09:18:52 +0100
 Subject: [PATCH 161/506] buffer_head: Replace bh_uptodate_lock for -rt
@@ -19,7 +16,7 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  5 files changed, 48 insertions(+), 29 deletions(-)
 
 diff --git a/fs/buffer.c b/fs/buffer.c
-index bdca7b10e239..ce1bbc779c75 100644
+index cae7f24a0410..940f9e1e6751 100644
 --- a/fs/buffer.c
 +++ b/fs/buffer.c
 @@ -303,8 +303,7 @@ static void end_buffer_async_read(struct buffer_head *bh, int uptodate)
@@ -81,7 +78,7 @@ index bdca7b10e239..ce1bbc779c75 100644
  }
  EXPORT_SYMBOL(end_buffer_async_write);
  
-@@ -3425,6 +3417,7 @@ struct buffer_head *alloc_buffer_head(gfp_t gfp_flags)
+@@ -3436,6 +3428,7 @@ struct buffer_head *alloc_buffer_head(gfp_t gfp_flags)
  	struct buffer_head *ret = kmem_cache_zalloc(bh_cachep, gfp_flags);
  	if (ret) {
  		INIT_LIST_HEAD(&ret->b_assoc_buffers);
@@ -173,7 +170,7 @@ index b0cccf8a81a8..eaa4383defec 100644
  	if (!busy)
  		end_page_writeback(bvec->bv_page);
 diff --git a/include/linux/buffer_head.h b/include/linux/buffer_head.h
-index afa37f807f12..d0bd1957e8b6 100644
+index 2e1077ea77db..6342dfe7b609 100644
 --- a/include/linux/buffer_head.h
 +++ b/include/linux/buffer_head.h
 @@ -76,8 +76,42 @@ struct buffer_head {
@@ -220,5 +217,5 @@ index afa37f807f12..d0bd1957e8b6 100644
   * macro tricks to expand the set_buffer_foo(), clear_buffer_foo()
   * and buffer_foo() functions.
 -- 
-2.17.1
+2.25.3
 

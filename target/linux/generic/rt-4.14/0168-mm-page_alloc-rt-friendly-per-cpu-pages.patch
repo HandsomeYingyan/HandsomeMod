@@ -1,7 +1,4 @@
-From 3544e6dc5699808ba7ad899142c9889fa660f97c Mon Sep 17 00:00:00 2001
-Message-Id: <3544e6dc5699808ba7ad899142c9889fa660f97c.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 4f52584277c35e305e2a3003ce80e99bfd83f122 Mon Sep 17 00:00:00 2001
 From: Ingo Molnar <mingo@elte.hu>
 Date: Fri, 3 Jul 2009 08:29:37 -0500
 Subject: [PATCH 168/506] mm: page_alloc: rt-friendly per-cpu pages
@@ -20,7 +17,7 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  1 file changed, 39 insertions(+), 16 deletions(-)
 
 diff --git a/mm/page_alloc.c b/mm/page_alloc.c
-index 6f71518a4558..ec1096c8db99 100644
+index 08af4e3de6fb..29b6c036910f 100644
 --- a/mm/page_alloc.c
 +++ b/mm/page_alloc.c
 @@ -61,6 +61,7 @@
@@ -219,5 +216,5 @@ index 6f71518a4558..ec1096c8db99 100644
  
  #ifdef CONFIG_MEMORY_HOTREMOVE
 -- 
-2.17.1
+2.25.3
 

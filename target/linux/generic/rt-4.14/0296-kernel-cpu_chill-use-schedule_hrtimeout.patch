@@ -1,7 +1,4 @@
-From a34ff1e8ddff491b5c06c1729e0056b250be4cf6 Mon Sep 17 00:00:00 2001
-Message-Id: <a34ff1e8ddff491b5c06c1729e0056b250be4cf6.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From c1241ed4ed72c5f71e39283ff4aa346124efce1b Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 16 Mar 2018 13:07:59 +0100
 Subject: [PATCH 296/506] kernel/cpu_chill: use schedule_hrtimeout()
@@ -45,5 +42,5 @@ index a5e6151c02b8..3918bfd34646 100644
  		current->flags &= ~PF_NOFREEZE;
  }
 -- 
-2.17.1
+2.25.3
 

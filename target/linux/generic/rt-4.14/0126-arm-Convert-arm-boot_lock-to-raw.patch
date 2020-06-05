@@ -1,7 +1,4 @@
-From 857796344df32a10653c2dbfbae6e42aa4f499b4 Mon Sep 17 00:00:00 2001
-Message-Id: <857796344df32a10653c2dbfbae6e42aa4f499b4.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From d1a5a47c568d97529f85072507b96c8344e6427b Mon Sep 17 00:00:00 2001
 From: Frank Rowand <frank.rowand@am.sony.com>
 Date: Mon, 19 Sep 2011 14:51:14 -0700
 Subject: [PATCH 126/506] arm: Convert arm boot_lock to raw
@@ -426,5 +423,5 @@ index c2366510187a..6b60f582b738 100644
  	return pen_release != -1 ? -ENOSYS : 0;
  }
 -- 
-2.17.1
+2.25.3
 

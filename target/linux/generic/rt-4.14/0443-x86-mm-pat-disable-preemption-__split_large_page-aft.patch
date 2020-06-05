@@ -1,7 +1,4 @@
-From bc0c3989311c6b14d39ecaf2b511a37f0a398b04 Mon Sep 17 00:00:00 2001
-Message-Id: <bc0c3989311c6b14d39ecaf2b511a37f0a398b04.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From a7e4ad7a4a564b039c48d4de57e66c420534a586 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 11 Dec 2018 21:53:43 +0100
 Subject: [PATCH 443/506] x86/mm/pat: disable preemption __split_large_page()
@@ -63,5 +60,5 @@ index eaee1a7ed0b5..06baa8ccb282 100644
  
  	return 0;
 -- 
-2.17.1
+2.25.3
 

@@ -1,7 +1,4 @@
-From 83371545edef0d67c89cbb2cbdfd10c4b39d2383 Mon Sep 17 00:00:00 2001
-Message-Id: <83371545edef0d67c89cbb2cbdfd10c4b39d2383.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 27995562805d57e45b6e721e60f503dc8adb3143 Mon Sep 17 00:00:00 2001
 From: Mike Galbraith <umgwanakikbuti@gmail.com>
 Date: Sun, 16 Oct 2016 05:08:30 +0200
 Subject: [PATCH 379/506] ftrace: Fix trace header alignment
@@ -50,5 +47,5 @@ index a3cf02e2bb1c..0e18103a2d85 100644
  
  static void print_event_info(struct trace_buffer *buf, struct seq_file *m)
 -- 
-2.17.1
+2.25.3
 

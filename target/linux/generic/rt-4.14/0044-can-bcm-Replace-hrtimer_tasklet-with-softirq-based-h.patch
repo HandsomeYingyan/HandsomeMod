@@ -1,7 +1,4 @@
-From 9c281afa43e23b290ff22f518c71bd442b820041 Mon Sep 17 00:00:00 2001
-Message-Id: <9c281afa43e23b290ff22f518c71bd442b820041.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From b0f10d4f881d449d17b82688eccd77bf66f4cced Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Thu, 23 Nov 2017 16:39:11 +0100
 Subject: [PATCH 044/506] can/bcm: Replace hrtimer_tasklet with softirq based
@@ -320,5 +317,5 @@ index 12d851c4604d..9d0305a14777 100644
  
  	/* now we can register for can_ids, if we added a new bcm_op */
 -- 
-2.17.1
+2.25.3
 

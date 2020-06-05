@@ -1,7 +1,4 @@
-From 3c8408da167a3a866b61a921fadd480948ab8c2b Mon Sep 17 00:00:00 2001
-Message-Id: <3c8408da167a3a866b61a921fadd480948ab8c2b.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 98d879c2aa818b56d19b61a9f5806b9047d8a261 Mon Sep 17 00:00:00 2001
 From: Anna-Maria Gleixner <anna-maria@linutronix.de>
 Date: Wed, 20 Dec 2017 17:13:16 +0100
 Subject: [PATCH 041/506] hrtimer: Prepare handling of hard and softirq based
@@ -121,5 +118,5 @@ index 48bb599fa6fa..8f6811499993 100644
  }
  
 -- 
-2.17.1
+2.25.3
 

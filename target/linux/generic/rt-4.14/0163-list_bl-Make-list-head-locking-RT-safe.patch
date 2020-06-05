@@ -1,7 +1,4 @@
-From c0923081a2cd1c32163b176d0422581dad7822cb Mon Sep 17 00:00:00 2001
-Message-Id: <c0923081a2cd1c32163b176d0422581dad7822cb.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 40106055c9351b3643ceb6ff5f15c824286983c7 Mon Sep 17 00:00:00 2001
 From: Paul Gortmaker <paul.gortmaker@windriver.com>
 Date: Fri, 21 Jun 2013 15:07:25 -0400
 Subject: [PATCH 163/506] list_bl: Make list head locking RT safe
@@ -119,5 +116,5 @@ index 3fc2cc57ba1b..69b659259bac 100644
  
  static inline bool hlist_bl_is_locked(struct hlist_bl_head *b)
 -- 
-2.17.1
+2.25.3
 

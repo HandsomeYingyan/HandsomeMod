@@ -1,7 +1,4 @@
-From d41714f8e53df86feaa0634cd6a8c88219f9e01c Mon Sep 17 00:00:00 2001
-Message-Id: <d41714f8e53df86feaa0634cd6a8c88219f9e01c.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 30a31e88a499ff986ec56085dfb218dba64f04ca Mon Sep 17 00:00:00 2001
 From: Mike Galbraith <umgwanakikbuti@gmail.com>
 Date: Thu, 20 Oct 2016 11:15:22 +0200
 Subject: [PATCH 389/506] drivers/zram: Don't disable preemption in
@@ -105,5 +102,5 @@ index 6b66f95eceb6..658a3e814dc8 100644
  
  	/* Should NEVER happen. Return bio error if it does. */
 -- 
-2.17.1
+2.25.3
 

@@ -1,7 +1,4 @@
-From 7d129696db45c871aed17368c57f1fd979e4a0ef Mon Sep 17 00:00:00 2001
-Message-Id: <7d129696db45c871aed17368c57f1fd979e4a0ef.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From feaecb1d41c8b413019059594a2a0f64e5cb3b69 Mon Sep 17 00:00:00 2001
 From: Jason Wessel <jason.wessel@windriver.com>
 Date: Thu, 28 Jul 2011 12:42:23 -0500
 Subject: [PATCH 339/506] kgdb/serial: Short term workaround
@@ -84,5 +81,5 @@ index 6a4b41484afe..197cb422f6e1 100644
  	return r;
  }
 -- 
-2.17.1
+2.25.3
 

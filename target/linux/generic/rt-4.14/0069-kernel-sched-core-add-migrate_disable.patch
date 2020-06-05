@@ -1,7 +1,4 @@
-From d4127d1578a064dd712a69a88b2a8c4bfced8e63 Mon Sep 17 00:00:00 2001
-Message-Id: <d4127d1578a064dd712a69a88b2a8c4bfced8e63.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From de1ec70206a962701fe2cca7781961a36690e44c Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Sat, 27 May 2017 19:02:06 +0200
 Subject: [PATCH 069/506] kernel/sched/core: add migrate_disable()
@@ -56,7 +53,7 @@ index 5bd3f151da78..81c69aeab662 100644
  
  #ifdef MODULE
 diff --git a/include/linux/sched.h b/include/linux/sched.h
-index 8cfee2ebc8b7..a554e738c5b6 100644
+index 56802b60b9a3..12eab8e38eab 100644
 --- a/include/linux/sched.h
 +++ b/include/linux/sched.h
 @@ -620,6 +620,13 @@ struct task_struct {
@@ -264,5 +261,5 @@ index 187c04a34ba1..0e32561fc311 100644
  #undef PN
  #undef __PN
 -- 
-2.17.1
+2.25.3
 

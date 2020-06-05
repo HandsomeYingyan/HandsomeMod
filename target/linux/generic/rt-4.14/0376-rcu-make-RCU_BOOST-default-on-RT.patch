@@ -1,7 +1,4 @@
-From fa4710c3bf009f577e86ee5dbf0974724d5b17b1 Mon Sep 17 00:00:00 2001
-Message-Id: <fa4710c3bf009f577e86ee5dbf0974724d5b17b1.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From aef18a10863a1be4894cd299affef8837f6d7305 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 21 Mar 2014 20:19:05 +0100
 Subject: [PATCH 376/506] rcu: make RCU_BOOST default on RT
@@ -39,5 +36,5 @@ index 644264be90f0..0be2c96fb640 100644
  	  This option boosts the priority of preempted RCU readers that
  	  block the current preemptible RCU grace period for too long.
 -- 
-2.17.1
+2.25.3
 

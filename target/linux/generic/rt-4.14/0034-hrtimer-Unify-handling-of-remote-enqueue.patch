@@ -1,7 +1,4 @@
-From 13411b08a1d9a52b8d125fbff09d3e067e37c624 Mon Sep 17 00:00:00 2001
-Message-Id: <13411b08a1d9a52b8d125fbff09d3e067e37c624.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 93516aeaeda58f304745fa0ca453cea96c2f8d51 Mon Sep 17 00:00:00 2001
 From: Anna-Maria Gleixner <anna-maria@linutronix.de>
 Date: Wed, 20 Dec 2017 17:13:09 +0100
 Subject: [PATCH 034/506] hrtimer: Unify handling of remote enqueue
@@ -157,5 +154,5 @@ index dc7e43d54d4b..4948dd0567a0 100644
  
  static unsigned long round_jiffies_common(unsigned long j, int cpu,
 -- 
-2.17.1
+2.25.3
 

@@ -1,7 +1,4 @@
-From f485bb47015a7c99a9829a1d55de6f412cf7960f Mon Sep 17 00:00:00 2001
-Message-Id: <f485bb47015a7c99a9829a1d55de6f412cf7960f.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 24d6d457f1587b56e3db96f7da8f264822eec179 Mon Sep 17 00:00:00 2001
 From: Daniel Wagner <daniel.wagner@bmw-carit.de>
 Date: Fri, 11 Jul 2014 15:26:11 +0200
 Subject: [PATCH 192/506] work-simple: Simple work queue implemenation
@@ -244,5 +241,5 @@ index 000000000000..1950f40ca725
 +}
 +EXPORT_SYMBOL_GPL(swork_put);
 -- 
-2.17.1
+2.25.3
 

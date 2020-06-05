@@ -1,7 +1,4 @@
-From f7f288b51d1a583dac80992dad68cee0a7cffa25 Mon Sep 17 00:00:00 2001
-Message-Id: <f7f288b51d1a583dac80992dad68cee0a7cffa25.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From d84e45e689c4defec72bb56ac2f236ea2fb71d2e Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 27 Jun 2014 16:24:52 +0200
 Subject: [PATCH 403/506] workqueue: Prevent deadlock/stall on RT
@@ -206,5 +203,5 @@ index 80743305176b..d549eca19f8f 100644
  	wake_up_process(worker->task);
  }
 -- 
-2.17.1
+2.25.3
 

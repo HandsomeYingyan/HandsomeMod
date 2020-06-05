@@ -1,7 +1,4 @@
-From ad2108bcc49043854d024f87499f31167c4eb828 Mon Sep 17 00:00:00 2001
-Message-Id: <ad2108bcc49043854d024f87499f31167c4eb828.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From dca85857599ed2ee852262566323d690fd76eba9 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 31 Aug 2016 17:54:09 +0200
 Subject: [PATCH 322/506] net: add a lock around icmp_sk()
@@ -70,5 +67,5 @@ index 995ef3d23368..8ddec562ac4b 100644
  out:;
  }
 -- 
-2.17.1
+2.25.3
 

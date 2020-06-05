@@ -1,7 +1,4 @@
-From 0e1f824d9f5969ef2eb546d30fd8ce054cd8474c Mon Sep 17 00:00:00 2001
-Message-Id: <0e1f824d9f5969ef2eb546d30fd8ce054cd8474c.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 4a98c4a547e76e60802c18135c5547b82d0491ee Mon Sep 17 00:00:00 2001
 From: Anna-Maria Gleixner <anna-maria@linutronix.de>
 Date: Wed, 20 Dec 2017 17:13:18 +0100
 Subject: [PATCH 043/506] hrtimer: Implement SOFT/HARD clock base selection
@@ -60,5 +57,5 @@ index 4c63780758d9..0b07f1b9f3b2 100644
  void hrtimer_init(struct hrtimer *timer, clockid_t clock_id,
  		  enum hrtimer_mode mode)
 -- 
-2.17.1
+2.25.3
 

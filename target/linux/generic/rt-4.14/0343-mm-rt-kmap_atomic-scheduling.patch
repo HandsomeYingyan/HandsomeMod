@@ -1,7 +1,4 @@
-From 719f2f054aed3c6bf7f1c74aab93e74b49a33438 Mon Sep 17 00:00:00 2001
-Message-Id: <719f2f054aed3c6bf7f1c74aab93e74b49a33438.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 2aba95fbc93bee6d128fa4e924efe55b5b688597 Mon Sep 17 00:00:00 2001
 From: Peter Zijlstra <peterz@infradead.org>
 Date: Thu, 28 Jul 2011 10:43:51 +0200
 Subject: [PATCH 343/506] mm, rt: kmap_atomic scheduling
@@ -232,7 +229,7 @@ index 776f90f3a1cd..cfcd7b7ab205 100644
  }
  
 diff --git a/include/linux/sched.h b/include/linux/sched.h
-index cd5be2f65364..5cd9cb9e9496 100644
+index f29b3b2350a9..54b8c559c105 100644
 --- a/include/linux/sched.h
 +++ b/include/linux/sched.h
 @@ -27,6 +27,7 @@
@@ -305,5 +302,5 @@ index 59db3223a5d6..22aa3ddbd87b 100644
  unsigned int nr_free_highpages (void)
  {
 -- 
-2.17.1
+2.25.3
 

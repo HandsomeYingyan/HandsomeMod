@@ -1,7 +1,4 @@
-From 60b7d9c066c6e8f70b27dce9a63946b9444c388e Mon Sep 17 00:00:00 2001
-Message-Id: <60b7d9c066c6e8f70b27dce9a63946b9444c388e.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 6fc5ede650fc406aa6921cbe8918e40eafdbe09d Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Thu, 12 Oct 2017 17:11:19 +0200
 Subject: [PATCH 252/506] rtmutex: add sleeping lock implementation
@@ -105,7 +102,7 @@ index a355289b1fa1..138bd1e183e0 100644
   * rt_mutex_is_locked - is the mutex locked
   * @lock: the mutex to be queried
 diff --git a/include/linux/sched.h b/include/linux/sched.h
-index 953cf7c999d6..99948cf120b7 100644
+index a785d7c45b8f..d089dd49e7c5 100644
 --- a/include/linux/sched.h
 +++ b/include/linux/sched.h
 @@ -133,6 +133,11 @@ struct task_group;
@@ -1224,5 +1221,5 @@ index 3abea51a4c22..b9fdc1f03196 100644
  	}
  }
 -- 
-2.17.1
+2.25.3
 

@@ -1,7 +1,4 @@
-From c50f4c7a7a6b2ede695406168ab9d9cc6996bf5d Mon Sep 17 00:00:00 2001
-Message-Id: <c50f4c7a7a6b2ede695406168ab9d9cc6996bf5d.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From e51d7a2773fa15682cc4da84f422c5c82231c95d Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Mon, 20 Jun 2011 09:03:47 +0200
 Subject: [PATCH 148/506] rt: Add local irq locks
@@ -339,5 +336,5 @@ index 296bbe49d5d1..4414796e3941 100644
  #define PCPU_MIN_UNIT_SIZE		PFN_ALIGN(32 << 10)
  
 -- 
-2.17.1
+2.25.3
 

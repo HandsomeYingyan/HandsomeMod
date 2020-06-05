@@ -1,7 +1,4 @@
-From a07ee8c0f73a931e366c6548b7af178a19bad786 Mon Sep 17 00:00:00 2001
-Message-Id: <a07ee8c0f73a931e366c6548b7af178a19bad786.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From ce961d5017247aab71e12be0c1415c4c045f9daf Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Thu, 12 Oct 2017 17:17:03 +0200
 Subject: [PATCH 253/506] rtmutex: add mutex implementation based on rtmutex
@@ -381,5 +378,5 @@ index 000000000000..4f81595c0f52
 +}
 +EXPORT_SYMBOL(atomic_dec_and_mutex_lock);
 -- 
-2.17.1
+2.25.3
 

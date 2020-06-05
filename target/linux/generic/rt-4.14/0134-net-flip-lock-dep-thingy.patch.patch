@@ -1,7 +1,4 @@
-From f4bff5a7b47ce91c2eb21424004ebc1e94c2c44e Mon Sep 17 00:00:00 2001
-Message-Id: <f4bff5a7b47ce91c2eb21424004ebc1e94c2c44e.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 041372f8b34bc13d5d935c73d935df7bb06c0871 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Tue, 28 Jun 2011 10:59:58 +0200
 Subject: [PATCH 134/506] net-flip-lock-dep-thingy.patch
@@ -116,5 +113,5 @@ index d2cb2051d045..72f77800f48f 100644
  EXPORT_SYMBOL(lock_sock_nested);
  
 -- 
-2.17.1
+2.25.3
 

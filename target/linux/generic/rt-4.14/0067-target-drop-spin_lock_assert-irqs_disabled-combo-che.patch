@@ -1,7 +1,4 @@
-From a8a9e31a9650d0b5b1e67bbc6548ec6c95a1c4cf Mon Sep 17 00:00:00 2001
-Message-Id: <a8a9e31a9650d0b5b1e67bbc6548ec6c95a1c4cf.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 2c23e3f3af2a21bd2a2c524ba5b0f45cecdf983a Mon Sep 17 00:00:00 2001
 From: "bigeasy@linutronix.de" <bigeasy@linutronix.de>
 Date: Fri, 23 Mar 2018 18:17:36 +0100
 Subject: [PATCH 067/506] target: drop spin_lock_assert() + irqs_disabled()
@@ -67,5 +64,5 @@ index 0d0be7d8b9d6..f652e58e2988 100644
  		return 0;
  	/*
 -- 
-2.17.1
+2.25.3
 

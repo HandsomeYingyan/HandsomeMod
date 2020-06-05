@@ -1,7 +1,4 @@
-From b9a53991f0ee4e0e772000935cab3fc901116abd Mon Sep 17 00:00:00 2001
-Message-Id: <b9a53991f0ee4e0e772000935cab3fc901116abd.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From f25431922c95fda070e8ba8fb4f1917aa1d947f5 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 22 Mar 2018 16:22:42 +0100
 Subject: [PATCH 016/506] iommu/amd: Return proper error code in
@@ -45,5 +42,5 @@ index 7e6a223c22a7..75eafeb26e0d 100644
  	} else {
  		index = alloc_irq_index(devid, nr_irqs);
 -- 
-2.17.1
+2.25.3
 

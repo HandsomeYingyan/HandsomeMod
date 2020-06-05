@@ -1,7 +1,4 @@
-From de7a5e7a1193330e93a0e698b1be9a8fba247b5a Mon Sep 17 00:00:00 2001
-Message-Id: <de7a5e7a1193330e93a0e698b1be9a8fba247b5a.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 5bf81982919c6e6f3d0911fe241f42d494fcaead Mon Sep 17 00:00:00 2001
 From: Oleg Nesterov <oleg@redhat.com>
 Date: Tue, 14 Jul 2015 14:26:34 +0200
 Subject: [PATCH 158/506] signal/x86: Delay calling signals in atomic
@@ -82,7 +79,7 @@ index 5f9012ff52ed..7c7846cbab45 100644
  typedef sigset_t compat_sigset_t;
  #endif
 diff --git a/include/linux/sched.h b/include/linux/sched.h
-index df4393b954fe..b65a9c017fb9 100644
+index 7e445688c5e7..c1c029a773ca 100644
 --- a/include/linux/sched.h
 +++ b/include/linux/sched.h
 @@ -835,6 +835,10 @@ struct task_struct {
@@ -97,7 +94,7 @@ index df4393b954fe..b65a9c017fb9 100644
  	size_t				sas_ss_size;
  	unsigned int			sas_ss_flags;
 diff --git a/kernel/signal.c b/kernel/signal.c
-index 68e759d19427..b5dd145b4a26 100644
+index c46dbbcc374a..cbb69501af99 100644
 --- a/kernel/signal.c
 +++ b/kernel/signal.c
 @@ -1293,8 +1293,8 @@ int do_send_sig_info(int sig, struct siginfo *info, struct task_struct *p,
@@ -152,5 +149,5 @@ index 68e759d19427..b5dd145b4a26 100644
   * Nuke all other threads in the group.
   */
 -- 
-2.17.1
+2.25.3
 

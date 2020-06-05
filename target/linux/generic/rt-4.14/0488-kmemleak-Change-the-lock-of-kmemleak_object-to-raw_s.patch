@@ -1,7 +1,4 @@
-From b43dd9489a2ee2dd931167ab757877c1293fc0b2 Mon Sep 17 00:00:00 2001
-Message-Id: <b43dd9489a2ee2dd931167ab757877c1293fc0b2.1587150133.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From c31ad2b7815e15ea71a1a747cf14ccad87d9c06d Mon Sep 17 00:00:00 2001
 From: Liu Haitao <haitao.liu@windriver.com>
 Date: Fri, 27 Sep 2019 16:22:30 +0800
 Subject: [PATCH 488/506] kmemleak: Change the lock of kmemleak_object to
@@ -291,5 +288,5 @@ index c18e23619f95..17718a11782b 100644
  	rcu_read_unlock();
  
 -- 
-2.17.1
+2.25.3
 

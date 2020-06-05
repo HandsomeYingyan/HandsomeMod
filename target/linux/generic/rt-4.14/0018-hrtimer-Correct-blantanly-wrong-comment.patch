@@ -1,7 +1,4 @@
-From c90a1a7f93c935dc2a4db29fc6c7679b81f5949d Mon Sep 17 00:00:00 2001
-Message-Id: <c90a1a7f93c935dc2a4db29fc6c7679b81f5949d.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From b76a7c0e2cefacd81cd2ad08b61eaaa1c5144bd7 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 20 Dec 2017 17:12:51 +0100
 Subject: [PATCH 018/506] hrtimer: Correct blantanly wrong comment
@@ -41,5 +38,5 @@ index 4af9bf1a96a4..845c9913fbff 100644
  	raw_spin_unlock(&cpu_base->lock);
  	trace_hrtimer_expire_entry(timer, now);
 -- 
-2.17.1
+2.25.3
 

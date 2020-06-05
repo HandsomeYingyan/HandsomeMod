@@ -1,7 +1,4 @@
-From 1107cbb4de88d8d7832aaa8a64d4352d1be1bf8a Mon Sep 17 00:00:00 2001
-Message-Id: <1107cbb4de88d8d7832aaa8a64d4352d1be1bf8a.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From d2e12fe92cafb46a8a54b96f8e1198b7cc8e3f9e Mon Sep 17 00:00:00 2001
 From: Josh Cartwright <josh.cartwright@ni.com>
 Date: Wed, 28 Jan 2015 13:08:45 -0600
 Subject: [PATCH 370/506] lockdep: selftest: fix warnings due to missing
@@ -147,5 +144,5 @@ index 7a452887c9c3..075e225f4111 100644
   * read-lock / write-lock recursion that is unsafe.
   */
 -- 
-2.17.1
+2.25.3
 

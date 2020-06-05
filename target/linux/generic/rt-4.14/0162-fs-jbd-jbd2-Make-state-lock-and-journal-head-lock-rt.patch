@@ -1,7 +1,4 @@
-From 662ab314f09425af60b2013a14d5874ab53d3312 Mon Sep 17 00:00:00 2001
-Message-Id: <662ab314f09425af60b2013a14d5874ab53d3312.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 982a75571683fb8cc1687f194b8fb5cfd8030dfd Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 18 Mar 2011 10:11:25 +0100
 Subject: [PATCH 162/506] fs: jbd/jbd2: Make state lock and journal head lock
@@ -21,7 +18,7 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  2 files changed, 32 insertions(+)
 
 diff --git a/include/linux/buffer_head.h b/include/linux/buffer_head.h
-index d0bd1957e8b6..48505fade7e1 100644
+index 6342dfe7b609..100a342880d1 100644
 --- a/include/linux/buffer_head.h
 +++ b/include/linux/buffer_head.h
 @@ -78,6 +78,10 @@ struct buffer_head {
@@ -108,5 +105,5 @@ index cb41329a3ee4..4b8cdea07e62 100644
  
  #define J_ASSERT(assert)	BUG_ON(!(assert))
 -- 
-2.17.1
+2.25.3
 

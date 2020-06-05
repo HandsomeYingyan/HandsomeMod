@@ -1,7 +1,4 @@
-From df41f81aa24a0289920f176e9b90574d4eacbe22 Mon Sep 17 00:00:00 2001
-Message-Id: <df41f81aa24a0289920f176e9b90574d4eacbe22.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 895838d1280f744d30527ccf233076936ee08ab1 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 26 Jul 2018 15:06:10 +0200
 Subject: [PATCH 424/506] efi: Allow efi=runtime
@@ -18,7 +15,7 @@ Signed-off-by: Steven Rostedt (VMware) <rostedt@goodmis.org>
  1 file changed, 3 insertions(+)
 
 diff --git a/drivers/firmware/efi/efi.c b/drivers/firmware/efi/efi.c
-index f50072b51aef..f6cdcdd1e9df 100644
+index b39b7e6d4e4d..55ac2a258dee 100644
 --- a/drivers/firmware/efi/efi.c
 +++ b/drivers/firmware/efi/efi.c
 @@ -100,6 +100,9 @@ static int __init parse_efi_cmdline(char *str)
@@ -32,5 +29,5 @@ index f50072b51aef..f6cdcdd1e9df 100644
  }
  early_param("efi", parse_efi_cmdline);
 -- 
-2.17.1
+2.25.3
 

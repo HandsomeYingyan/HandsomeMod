@@ -1,7 +1,4 @@
-From 1b597037201cb77aada8ad362181e65d535980a2 Mon Sep 17 00:00:00 2001
-Message-Id: <1b597037201cb77aada8ad362181e65d535980a2.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 8e93ecb22d4fc9eba5c42a894a74b21475bc3e8f Mon Sep 17 00:00:00 2001
 From: Anna-Maria Gleixner <anna-maria@linutronix.de>
 Date: Wed, 20 Dec 2017 17:13:07 +0100
 Subject: [PATCH 032/506] hrtimer: Make hrtimer_force_reprogramm()
@@ -110,5 +107,5 @@ index 9222119e7de3..2d49c27aa2cd 100644
  
  #endif /* CONFIG_HIGH_RES_TIMERS */
 -- 
-2.17.1
+2.25.3
 

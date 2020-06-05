@@ -1,7 +1,4 @@
-From 71962c7fc97524ecc821d0be15ecdb846424af9a Mon Sep 17 00:00:00 2001
-Message-Id: <71962c7fc97524ecc821d0be15ecdb846424af9a.1587150133.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 8cd1f3a8caf4c7874f16749ed1301da7738f4aa9 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 30 Apr 2019 18:15:19 +0200
 Subject: [PATCH 462/506] locking/rwsem: Rename rwsem_rt.h to rwsem-rt.h
@@ -36,5 +33,5 @@ index 513df11a364e..ac0857d60e04 100644
  
  struct rw_semaphore;
 -- 
-2.17.1
+2.25.3
 

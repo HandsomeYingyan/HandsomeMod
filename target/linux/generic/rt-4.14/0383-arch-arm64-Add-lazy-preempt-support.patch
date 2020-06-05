@@ -1,7 +1,4 @@
-From bf172a1e7d45cb4f8c8a9310b2881fba7a94fb51 Mon Sep 17 00:00:00 2001
-Message-Id: <bf172a1e7d45cb4f8c8a9310b2881fba7a94fb51.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 449f316e153a0e1dd33a63f5a450b6cba4623f05 Mon Sep 17 00:00:00 2001
 From: Anders Roxell <anders.roxell@linaro.org>
 Date: Thu, 14 May 2015 17:52:17 +0200
 Subject: [PATCH 383/506] arch/arm64: Add lazy preempt support
@@ -89,7 +86,7 @@ diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
 index c1ffa95c0ad2..c60ecb5a3916 100644
 --- a/arch/arm64/kernel/entry.S
 +++ b/arch/arm64/kernel/entry.S
-@@ -637,11 +637,16 @@ el1_irq:
+@@ -637,11 +637,16 @@ ENDPROC(el1_sync)
  
  #ifdef CONFIG_PREEMPT
  	ldr	w24, [tsk, #TSK_TI_PREEMPT]	// get preempt count
@@ -109,7 +106,7 @@ index c1ffa95c0ad2..c60ecb5a3916 100644
  #endif
  #ifdef CONFIG_TRACE_IRQFLAGS
  	bl	trace_hardirqs_on
-@@ -655,6 +660,7 @@ el1_preempt:
+@@ -655,6 +660,7 @@ ENDPROC(el1_irq)
  1:	bl	preempt_schedule_irq		// irq en/disable is done inside
  	ldr	x0, [tsk, #TSK_TI_FLAGS]	// get new tasks TI_FLAGS
  	tbnz	x0, #TIF_NEED_RESCHED, 1b	// needs rescheduling?
@@ -131,5 +128,5 @@ index 43442b3a463f..81bf9545a589 100644
  		} else {
  			local_irq_enable();
 -- 
-2.17.1
+2.25.3
 

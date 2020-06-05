@@ -1,7 +1,4 @@
-From 01333f1adf0221e14eefa449f1848b2c258d2b39 Mon Sep 17 00:00:00 2001
-Message-Id: <01333f1adf0221e14eefa449f1848b2c258d2b39.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From d458fe846c35a1e3b573b230ccb19393934b3ddd Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 4 Oct 2017 10:24:23 +0200
 Subject: [PATCH 392/506] pci/switchtec: Don't use completion's wait queue
@@ -26,7 +23,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 13 insertions(+), 9 deletions(-)
 
 diff --git a/drivers/pci/switch/switchtec.c b/drivers/pci/switch/switchtec.c
-index bf229b442e72..1b7d56cbc54d 100644
+index 6ef0d4b756f0..1b7d56cbc54d 100644
 --- a/drivers/pci/switch/switchtec.c
 +++ b/drivers/pci/switch/switchtec.c
 @@ -308,10 +308,11 @@ struct switchtec_user {
@@ -113,5 +110,5 @@ index bf229b442e72..1b7d56cbc54d 100644
  		stuser_put(stuser);
  	}
 -- 
-2.17.1
+2.25.3
 

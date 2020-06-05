@@ -1,7 +1,4 @@
-From b1d8fb000329f152d845ff3ef83324ae45675603 Mon Sep 17 00:00:00 2001
-Message-Id: <b1d8fb000329f152d845ff3ef83324ae45675603.1587150133.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From d6e75f4508f8ea7a786f2c28af66ad133f9e1636 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 19 Nov 2019 09:25:04 +0100
 Subject: [PATCH 490/506] locking: Make spinlock_t and rwlock_t a RCU section
@@ -127,5 +124,5 @@ index c3b91205161c..0ae8c62ea832 100644
  }
  EXPORT_SYMBOL(rt_write_unlock);
 -- 
-2.17.1
+2.25.3
 

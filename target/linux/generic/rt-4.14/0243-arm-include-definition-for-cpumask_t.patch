@@ -1,7 +1,4 @@
-From 8b5517bce892d25e862676e2530a8fb5ae1c956d Mon Sep 17 00:00:00 2001
-Message-Id: <8b5517bce892d25e862676e2530a8fb5ae1c956d.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 12735ad0057476f245b8609122e688b08fa58b3f Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 22 Dec 2016 17:28:33 +0100
 Subject: [PATCH 243/506] arm: include definition for cpumask_t
@@ -29,5 +26,5 @@ index 2de321e89b94..0edd36f372e5 100644
  struct pt_regs;
  
 -- 
-2.17.1
+2.25.3
 

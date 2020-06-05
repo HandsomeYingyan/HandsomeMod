@@ -1,7 +1,4 @@
-From 4442609b8e238f488abd4b594a0ed33d5b1ab347 Mon Sep 17 00:00:00 2001
-Message-Id: <4442609b8e238f488abd4b594a0ed33d5b1ab347.1587150133.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 15b0c661c618473bffb64d6d77f1fa73dcdc297f Mon Sep 17 00:00:00 2001
 From: Peter Zijlstra <peterz@infradead.org>
 Date: Mon, 30 Sep 2019 18:15:44 +0200
 Subject: [PATCH 486/506] locking/rtmutex: Clean ->pi_blocked_on in the error
@@ -100,5 +97,5 @@ index 1177f2815040..4bc01a2a9a88 100644
  	raw_spin_unlock_irq(&lock->wait_lock);
  
 -- 
-2.17.1
+2.25.3
 

@@ -1,7 +1,4 @@
-From 05faf9a37264314c4c7541d491a23b753e78b1bd Mon Sep 17 00:00:00 2001
-Message-Id: <05faf9a37264314c4c7541d491a23b753e78b1bd.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 7847bf9703537a8c79796c4286c9115178822251 Mon Sep 17 00:00:00 2001
 From: "Steven Rostedt (VMware)" <rostedt@goodmis.org>
 Date: Thu, 21 Sep 2017 16:22:49 -0400
 Subject: [PATCH 070/506] tracing: Reverse the order of trace_types_lock and
@@ -198,5 +195,5 @@ index 2b0a01b2be2d..421166a39253 100644
  }
  
 -- 
-2.17.1
+2.25.3
 

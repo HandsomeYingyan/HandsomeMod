@@ -1,7 +1,4 @@
-From 11aaaae3675a6537707854af8941f1b3771c68f8 Mon Sep 17 00:00:00 2001
-Message-Id: <11aaaae3675a6537707854af8941f1b3771c68f8.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 13f579227daa4afd7d5895ee2100bbf72d1aaa13 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:52:06 -0600
 Subject: [PATCH 109/506] tracing: Add inter-event hist trigger Documentation
@@ -410,5 +407,5 @@ index 0aec2d8e166b..df08882d091c 100644
 +          Entries: 2
 +          Dropped: 0
 -- 
-2.17.1
+2.25.3
 

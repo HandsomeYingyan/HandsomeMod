@@ -1,7 +1,4 @@
-From a05c2ca9eb0057003a804b7ceb25f08b1746c367 Mon Sep 17 00:00:00 2001
-Message-Id: <a05c2ca9eb0057003a804b7ceb25f08b1746c367.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 30f14f9ea07a8270245a59a6b9dde272616d0078 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 13 Sep 2017 12:32:34 +0200
 Subject: [PATCH 279/506] fs/dcache: bringt back explicit INIT_HLIST_BL_HEAD
@@ -57,5 +54,5 @@ index 9ac1290ae44f..3ec5213fcd16 100644
  
  /* SLAB cache for __getname() consumers */
 -- 
-2.17.1
+2.25.3
 

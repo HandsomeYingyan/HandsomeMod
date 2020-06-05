@@ -1,7 +1,4 @@
-From 172c19c619398e6c2c4bdf38b4c32f7130e7b8e6 Mon Sep 17 00:00:00 2001
-Message-Id: <172c19c619398e6c2c4bdf38b4c32f7130e7b8e6.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From f8edefa98b23041f5c78f28ca819b1fea7ff040e Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 12 Oct 2017 18:37:12 +0200
 Subject: [PATCH 373/506] srcu: replace local_irqsave() with a locallock
@@ -75,5 +72,5 @@ index c9d1f0e5f899..0e3b2bd3f2ac 100644
  		srcu_funnel_gp_start(sp, sdp, s, do_norm);
  	else if (needexp)
 -- 
-2.17.1
+2.25.3
 

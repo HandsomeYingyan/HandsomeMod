@@ -1,7 +1,4 @@
-From 81c170ad6fa1116ce5545e3bd9c9f77819a204e8 Mon Sep 17 00:00:00 2001
-Message-Id: <81c170ad6fa1116ce5545e3bd9c9f77819a204e8.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From f3c16f705058a3c63959a5b7d2c009112808af47 Mon Sep 17 00:00:00 2001
 From: Sven-Thorsten Dietrich <sdietrich@novell.com>
 Date: Fri, 3 Jul 2009 08:30:35 -0500
 Subject: [PATCH 151/506] infiniband: Mellanox IB driver patch use _nort()
@@ -45,5 +42,5 @@ index 9b3f47ae2016..8327b598d909 100644
  	ipoib_mcast_remove_list(&remove_list);
  
 -- 
-2.17.1
+2.25.3
 

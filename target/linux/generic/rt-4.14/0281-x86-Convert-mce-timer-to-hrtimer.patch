@@ -1,7 +1,4 @@
-From 2854f1475133761a0ac8981e3cbbbf1500b6ee3a Mon Sep 17 00:00:00 2001
-Message-Id: <2854f1475133761a0ac8981e3cbbbf1500b6ee3a.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 78752604db1325e39b77ed7ecf4dfc965f67d18b Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Mon, 13 Dec 2010 16:33:39 +0100
 Subject: [PATCH 281/506] x86: Convert mce timer to hrtimer
@@ -172,5 +169,5 @@ index 95c09db1bba2..dbbb8d6eeaaa 100644
  	mce_device_remove(cpu);
  	return 0;
 -- 
-2.17.1
+2.25.3
 

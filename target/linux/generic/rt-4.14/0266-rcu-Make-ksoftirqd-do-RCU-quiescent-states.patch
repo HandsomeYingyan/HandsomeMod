@@ -1,7 +1,4 @@
-From 36625108acd3c46000bf3bc01a579b2ad4449a75 Mon Sep 17 00:00:00 2001
-Message-Id: <36625108acd3c46000bf3bc01a579b2ad4449a75.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 047e1ab2d622ce1bfd41ddf9215db9094f1c674a Mon Sep 17 00:00:00 2001
 From: "Paul E. McKenney" <paulmck@linux.vnet.ibm.com>
 Date: Wed, 5 Oct 2011 11:45:18 -0700
 Subject: [PATCH 266/506] rcu: Make ksoftirqd do RCU quiescent states
@@ -116,5 +113,5 @@ index 157593d080c5..65efae0cf087 100644
  /*
   * Prepare a CPU for idle from an RCU perspective.  The first major task
 -- 
-2.17.1
+2.25.3
 

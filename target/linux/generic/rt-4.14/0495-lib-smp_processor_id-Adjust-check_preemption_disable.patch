@@ -1,7 +1,4 @@
-From 5cfb5425f9c9d0bf7e421762c506abe725f5b4b0 Mon Sep 17 00:00:00 2001
-Message-Id: <5cfb5425f9c9d0bf7e421762c506abe725f5b4b0.1587150133.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 995e6509784071caf524fa951738bc78ca1f4262 Mon Sep 17 00:00:00 2001
 From: Daniel Wagner <dwagner@suse.de>
 Date: Mon, 16 Dec 2019 16:15:57 +0100
 Subject: [PATCH 495/506] lib/smp_processor_id: Adjust
@@ -39,5 +36,5 @@ index 7a0c19c282cc..3ceb2cc1516b 100644
  	if (current->nr_cpus_allowed == 1)
  		goto out;
 -- 
-2.17.1
+2.25.3
 

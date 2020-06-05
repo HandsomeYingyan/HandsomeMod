@@ -1,7 +1,4 @@
-From cf0af22ee15a2f9cc5537834f68ad8428fbe8441 Mon Sep 17 00:00:00 2001
-Message-Id: <cf0af22ee15a2f9cc5537834f68ad8428fbe8441.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From ba7da1908bf7040d8ba1b45b463cbea169bafa14 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 29 Jun 2011 20:06:39 +0200
 Subject: [PATCH 248/506] rtmutex: Avoid include hell
@@ -28,5 +25,5 @@ index 81ece6a8291a..a355289b1fa1 100644
  extern int max_lock_depth; /* for sysctl */
  
 -- 
-2.17.1
+2.25.3
 

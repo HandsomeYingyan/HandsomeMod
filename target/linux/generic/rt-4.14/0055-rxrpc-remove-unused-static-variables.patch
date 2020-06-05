@@ -1,7 +1,4 @@
-From 9b16bfa3a88ee3070a3cf65b9020f43d9ccb95da Mon Sep 17 00:00:00 2001
-Message-Id: <9b16bfa3a88ee3070a3cf65b9020f43d9ccb95da.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 46f2dd490b2b3c1d27b9433484cbc104dff4cea6 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 21 Oct 2016 10:54:50 +0200
 Subject: [PATCH 055/506] rxrpc: remove unused static variables
@@ -31,5 +28,5 @@ index e9f428351293..c4479afe8ae7 100644
  	[RXRPC_SECURITY_NONE]	= &rxrpc_no_security,
  #ifdef CONFIG_RXKAD
 -- 
-2.17.1
+2.25.3
 

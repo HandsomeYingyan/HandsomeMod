@@ -1,7 +1,4 @@
-From 9f0837f7206dc4deaf96d94bef8d956d2b3b451c Mon Sep 17 00:00:00 2001
-Message-Id: <9f0837f7206dc4deaf96d94bef8d956d2b3b451c.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 6b8f9a3bf09f54ce4b9156c31b732deed6670ed9 Mon Sep 17 00:00:00 2001
 From: Mike Galbraith <umgwanakikbuti@gmail.com>
 Date: Thu, 31 Mar 2016 04:08:28 +0200
 Subject: [PATCH 388/506] drivers/block/zram: Replace bit spinlocks with
@@ -83,5 +80,5 @@ index 31762db861e3..a417c96b8f3f 100644
  
  struct zram_stats {
 -- 
-2.17.1
+2.25.3
 

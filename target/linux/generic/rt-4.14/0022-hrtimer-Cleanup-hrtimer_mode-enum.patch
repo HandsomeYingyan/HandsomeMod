@@ -1,7 +1,4 @@
-From 9356d757dff1dcd335a14c136ed359556b57e451 Mon Sep 17 00:00:00 2001
-Message-Id: <9356d757dff1dcd335a14c136ed359556b57e451.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From bd502ce698ecc9615637b66035111d74d36c409a Mon Sep 17 00:00:00 2001
 From: Anna-Maria Gleixner <anna-maria@linutronix.de>
 Date: Wed, 20 Dec 2017 17:12:56 +0100
 Subject: [PATCH 022/506] hrtimer: Cleanup hrtimer_mode enum
@@ -50,5 +47,5 @@ index eba6e5f768a6..37388cc94848 100644
  
  /*
 -- 
-2.17.1
+2.25.3
 

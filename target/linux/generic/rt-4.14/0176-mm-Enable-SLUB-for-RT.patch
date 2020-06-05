@@ -1,7 +1,4 @@
-From f5d963dd50820dff93aa755500c087e37740ea72 Mon Sep 17 00:00:00 2001
-Message-Id: <f5d963dd50820dff93aa755500c087e37740ea72.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From b3fc438cd01097e6a384c5bdb095124f89d21b2a Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Thu, 25 Oct 2012 10:32:35 +0100
 Subject: [PATCH 176/506] mm: Enable SLUB for RT
@@ -32,7 +29,7 @@ index 485d9fbb8802..f3b06c48bf39 100644
  #ifdef CONFIG_SLAB
  	struct list_head slabs_partial;	/* partial list first, better asm code */
 diff --git a/mm/slub.c b/mm/slub.c
-index 958a8f7a3c25..516cb47f0d5d 100644
+index 3c1a16f03b2b..57b9f8a74441 100644
 --- a/mm/slub.c
 +++ b/mm/slub.c
 @@ -1179,7 +1179,7 @@ static noinline int free_debug_processing(
@@ -480,5 +477,5 @@ index 958a8f7a3c25..516cb47f0d5d 100644
  
  	for (i = 0; i < t.count; i++) {
 -- 
-2.17.1
+2.25.3
 

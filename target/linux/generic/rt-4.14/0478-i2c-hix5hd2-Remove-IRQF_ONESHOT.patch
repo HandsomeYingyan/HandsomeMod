@@ -1,7 +1,4 @@
-From 09c106098fcace26a54ee2cfbb13bef2f50600bc Mon Sep 17 00:00:00 2001
-Message-Id: <09c106098fcace26a54ee2cfbb13bef2f50600bc.1587150133.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From bce29b68fcdf1aae295e4a6cfdf6b58ae382b0ba Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 13 Aug 2019 12:30:37 +0200
 Subject: [PATCH 478/506] i2c: hix5hd2: Remove IRQF_ONESHOT
@@ -40,5 +37,5 @@ index aa5c55bd8b11..72f159745aeb 100644
  		dev_err(&pdev->dev, "cannot request HS-I2C IRQ %d\n", irq);
  		goto err_clk;
 -- 
-2.17.1
+2.25.3
 

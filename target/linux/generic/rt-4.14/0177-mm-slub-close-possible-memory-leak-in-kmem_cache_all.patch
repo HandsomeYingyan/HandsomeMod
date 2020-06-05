@@ -1,7 +1,4 @@
-From c670b8649f2ff2b899e33113c3f509e5820f575b Mon Sep 17 00:00:00 2001
-Message-Id: <c670b8649f2ff2b899e33113c3f509e5820f575b.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 6df27e017d977663a5ec0e5644911d8b694bcf3d Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 13 Dec 2017 12:44:14 +0100
 Subject: [PATCH 177/506] mm/slub: close possible memory-leak in
@@ -18,7 +15,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 1 insertion(+)
 
 diff --git a/mm/slub.c b/mm/slub.c
-index 516cb47f0d5d..606399cb9f72 100644
+index 57b9f8a74441..5ce431a1b7cd 100644
 --- a/mm/slub.c
 +++ b/mm/slub.c
 @@ -3237,6 +3237,7 @@ int kmem_cache_alloc_bulk(struct kmem_cache *s, gfp_t flags, size_t size,
@@ -30,5 +27,5 @@ index 516cb47f0d5d..606399cb9f72 100644
  	__kmem_cache_free_bulk(s, i, p);
  	return 0;
 -- 
-2.17.1
+2.25.3
 

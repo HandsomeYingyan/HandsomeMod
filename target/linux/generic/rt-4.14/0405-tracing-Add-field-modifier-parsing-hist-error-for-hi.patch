@@ -1,7 +1,4 @@
-From 33e677995878c7f3bcc67c9a0fc1c73deb491204 Mon Sep 17 00:00:00 2001
-Message-Id: <33e677995878c7f3bcc67c9a0fc1c73deb491204.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 3e317d9a3149c38da4c9bb4c1e17f5c87ec65399 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Thu, 26 Apr 2018 20:04:49 -0500
 Subject: [PATCH 405/506] tracing: Add field modifier parsing hist error for
@@ -51,5 +48,5 @@ index 819b9f1acd03..954b5f2d55ca 100644
  			goto out;
  		}
 -- 
-2.17.1
+2.25.3
 

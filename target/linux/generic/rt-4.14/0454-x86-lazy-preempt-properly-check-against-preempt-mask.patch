@@ -1,7 +1,4 @@
-From 5a1636caf0e8b0459aabafdfc58de74c177cefc9 Mon Sep 17 00:00:00 2001
-Message-Id: <5a1636caf0e8b0459aabafdfc58de74c177cefc9.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 67fd0a8be18a550e9dba5afc1907f8eb89d6c006 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Mon, 18 Feb 2019 16:57:09 +0100
 Subject: [PATCH 454/506] x86: lazy-preempt: properly check against
@@ -34,5 +31,5 @@ index 22992c837795..f66708779274 100644
  	if (current_thread_info()->preempt_lazy_count)
  		return false;
 -- 
-2.17.1
+2.25.3
 

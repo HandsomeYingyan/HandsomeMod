@@ -1,7 +1,4 @@
-From f7d61184691103dafece25f2167a048ce0d8864e Mon Sep 17 00:00:00 2001
-Message-Id: <f7d61184691103dafece25f2167a048ce0d8864e.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 3f99a7e04f09c57256e5929e88588ed802f7ed3b Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Sat, 27 May 2017 19:02:06 +0200
 Subject: [PATCH 136/506] net/core: disable NET_RX_BUSY_POLL
@@ -36,5 +33,5 @@ index 9dba2715919d..9c7b38379c09 100644
  config BQL
  	bool
 -- 
-2.17.1
+2.25.3
 

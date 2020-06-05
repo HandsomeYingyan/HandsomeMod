@@ -1,7 +1,4 @@
-From 8836c98900e58c2d66cf5028232cd1a6087a4846 Mon Sep 17 00:00:00 2001
-Message-Id: <8836c98900e58c2d66cf5028232cd1a6087a4846.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 202b571d1f611b59d1e1a2dd0608f26925baecda Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Mon, 21 Nov 2016 19:31:08 +0100
 Subject: [PATCH 209/506] kernel/sched: move stack + kprobe clean up to
@@ -67,5 +64,5 @@ index 78ab9f0f7f07..c9d7a178ece3 100644
  	}
  
 -- 
-2.17.1
+2.25.3
 

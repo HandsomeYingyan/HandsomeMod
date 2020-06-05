@@ -1,7 +1,4 @@
-From a67e6d1ac405c7c0ce70cc6064025589866a415a Mon Sep 17 00:00:00 2001
-Message-Id: <a67e6d1ac405c7c0ce70cc6064025589866a415a.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From ab729e4ae37ebb5d0ca73a1740939613b748ed1b Mon Sep 17 00:00:00 2001
 From: Ingo Molnar <mingo@elte.hu>
 Date: Fri, 3 Jul 2009 08:29:57 -0500
 Subject: [PATCH 165/506] genirq: Disable irqpoll on -rt
@@ -41,5 +38,5 @@ index 987d7bca4864..75347fb1dfea 100644
  	printk(KERN_WARNING "Misrouted IRQ fixup and polling support "
  				"enabled\n");
 -- 
-2.17.1
+2.25.3
 

@@ -1,7 +1,4 @@
-From bcf3b74f3081daf6c2c69d474aedc4fac67fdb8e Mon Sep 17 00:00:00 2001
-Message-Id: <bcf3b74f3081daf6c2c69d474aedc4fac67fdb8e.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From d45dbbb2c61d6a49a560b510271c4e60a600ef80 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Sat, 19 Sep 2015 10:15:00 +0200
 Subject: [PATCH 344/506] mm: rt: Fix generic kmap_atomic for RT
@@ -45,5 +42,5 @@ index cfcd7b7ab205..8f248e2137eb 100644
  
  #define kmap_atomic_pfn(pfn)	kmap_atomic(pfn_to_page(pfn))
 -- 
-2.17.1
+2.25.3
 

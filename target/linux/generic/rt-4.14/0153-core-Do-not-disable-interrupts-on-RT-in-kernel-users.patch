@@ -1,7 +1,4 @@
-From c1162cdf349c47929e30f993e793e33a7fa095a0 Mon Sep 17 00:00:00 2001
-Message-Id: <c1162cdf349c47929e30f993e793e33a7fa095a0.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From d11d66d2c440266d571044db27812ae389ac4310 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Tue, 21 Jul 2009 23:06:05 +0200
 Subject: [PATCH 153/506] core: Do not disable interrupts on RT in
@@ -34,5 +31,5 @@ index 00281add65b2..f4cf1841f2fd 100644
  
  struct user_struct *alloc_uid(kuid_t uid)
 -- 
-2.17.1
+2.25.3
 

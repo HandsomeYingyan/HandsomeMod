@@ -1,7 +1,4 @@
-From b66b82b38f4851250a38789b242b0d5bd3b1074b Mon Sep 17 00:00:00 2001
-Message-Id: <b66b82b38f4851250a38789b242b0d5bd3b1074b.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 9d5bb17bf82201b893a31669dd1c88ff5e7666ab Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 22 Feb 2012 12:03:30 +0100
 Subject: [PATCH 311/506] seqlock: Prevent rt starvation
@@ -192,5 +189,5 @@ index e89273f9a0bc..4f5f4e3fac21 100644
  {
  	unsigned int seq;
 -- 
-2.17.1
+2.25.3
 

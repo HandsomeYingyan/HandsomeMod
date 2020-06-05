@@ -1,7 +1,4 @@
-From 88e31f7f0bb44f556cde4ab1e0b63b903e2c22d6 Mon Sep 17 00:00:00 2001
-Message-Id: <88e31f7f0bb44f556cde4ab1e0b63b903e2c22d6.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From fd3e253dc62fe328f88f33ee73bbd858743a4d3b Mon Sep 17 00:00:00 2001
 From: Peter Zijlstra <peterz@infradead.org>
 Date: Wed, 23 Nov 2016 16:29:32 +0100
 Subject: [PATCH 272/506] locking/percpu-rwsem: Remove preempt_disable variants
@@ -224,5 +221,5 @@ index 79b99d653e03..fb44e237316d 100644
  extern void percpu_up_write(struct percpu_rw_semaphore *);
  
 -- 
-2.17.1
+2.25.3
 

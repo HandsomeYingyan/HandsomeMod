@@ -1,7 +1,4 @@
-From 29909b6eb0684fade2a1ba9e3bfab8aaafe83a6f Mon Sep 17 00:00:00 2001
-Message-Id: <29909b6eb0684fade2a1ba9e3bfab8aaafe83a6f.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From e5308cfa3d73394e6917ed764dbd6afe4c05e9a1 Mon Sep 17 00:00:00 2001
 From: "Paul E. McKenney" <paulmck@linux.vnet.ibm.com>
 Date: Tue, 19 Sep 2017 15:36:42 -0700
 Subject: [PATCH 002/506] rcu: Suppress lockdep false-positive ->boost_mtx
@@ -55,5 +52,5 @@ index 8b3102d22823..181e2487c8b8 100644
  		/*
  		 * If this was the last task on the expedited lists,
 -- 
-2.17.1
+2.25.3
 

@@ -1,7 +1,4 @@
-From c801187777e0bd33941f4226eee7d2470eb615d0 Mon Sep 17 00:00:00 2001
-Message-Id: <c801187777e0bd33941f4226eee7d2470eb615d0.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From ef0bef7a80ec579f5ef1677e3099975504ffef40 Mon Sep 17 00:00:00 2001
 From: Priyanka Jain <Priyanka.Jain@freescale.com>
 Date: Thu, 17 May 2012 09:35:11 +0530
 Subject: [PATCH 363/506] net: Remove preemption disabling in netif_rx()
@@ -38,10 +35,10 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  1 file changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/net/core/dev.c b/net/core/dev.c
-index 37cff1a59e7e..9c8328ce50ce 100644
+index 33b427eab3c7..d80df673ef85 100644
 --- a/net/core/dev.c
 +++ b/net/core/dev.c
-@@ -4068,7 +4068,7 @@ static int netif_rx_internal(struct sk_buff *skb)
+@@ -4069,7 +4069,7 @@ static int netif_rx_internal(struct sk_buff *skb)
  		struct rps_dev_flow voidflow, *rflow = &voidflow;
  		int cpu;
  
@@ -50,7 +47,7 @@ index 37cff1a59e7e..9c8328ce50ce 100644
  		rcu_read_lock();
  
  		cpu = get_rps_cpu(skb->dev, skb, &rflow);
-@@ -4078,14 +4078,14 @@ static int netif_rx_internal(struct sk_buff *skb)
+@@ -4079,14 +4079,14 @@ static int netif_rx_internal(struct sk_buff *skb)
  		ret = enqueue_to_backlog(skb, cpu, &rflow->last_qtail);
  
  		rcu_read_unlock();
@@ -69,5 +66,5 @@ index 37cff1a59e7e..9c8328ce50ce 100644
  	return ret;
  }
 -- 
-2.17.1
+2.25.3
 

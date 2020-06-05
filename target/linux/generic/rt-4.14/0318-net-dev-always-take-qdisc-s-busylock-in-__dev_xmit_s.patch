@@ -1,7 +1,4 @@
-From 7bea669d04737c8e9d267e67fc6466efa7398a00 Mon Sep 17 00:00:00 2001
-Message-Id: <7bea669d04737c8e9d267e67fc6466efa7398a00.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From cdfa0b2886304fd2342571e8fbd6c5b75c5987bb Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 30 Mar 2016 13:36:29 +0200
 Subject: [PATCH 318/506] net: dev: always take qdisc's busylock in
@@ -24,7 +21,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 4 insertions(+)
 
 diff --git a/net/core/dev.c b/net/core/dev.c
-index 606eedbbd569..dc5de086ec6b 100644
+index fa90ff5d2a05..2705d98668cc 100644
 --- a/net/core/dev.c
 +++ b/net/core/dev.c
 @@ -3199,7 +3199,11 @@ static inline int __dev_xmit_skb(struct sk_buff *skb, struct Qdisc *q,
@@ -40,5 +37,5 @@ index 606eedbbd569..dc5de086ec6b 100644
  		spin_lock(&q->busylock);
  
 -- 
-2.17.1
+2.25.3
 

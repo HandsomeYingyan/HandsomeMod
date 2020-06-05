@@ -1,7 +1,4 @@
-From bc1d3468c94d9bd373bcd0014a7111e791d3a3d9 Mon Sep 17 00:00:00 2001
-Message-Id: <bc1d3468c94d9bd373bcd0014a7111e791d3a3d9.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From fa45f7ccaad79b0d17ad17c327f1279d763a5fbe Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Tue, 31 Jan 2012 13:01:27 +0100
 Subject: [PATCH 233/506] genirq: Allow disabling of softirq processing in irq
@@ -159,5 +156,5 @@ index 9b56981ccc8d..5650395b8d6a 100644
  {
  	return current->flags & PF_IN_SOFTIRQ;
 -- 
-2.17.1
+2.25.3
 

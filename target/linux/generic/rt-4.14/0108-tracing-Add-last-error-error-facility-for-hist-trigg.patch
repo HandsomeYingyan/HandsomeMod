@@ -1,7 +1,4 @@
-From 72a04583de04162d3381e8b31e9bb3eee2dad6a0 Mon Sep 17 00:00:00 2001
-Message-Id: <72a04583de04162d3381e8b31e9bb3eee2dad6a0.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 31ff66cec00049639561e019f453d21b5b07d586 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:52:05 -0600
 Subject: [PATCH 108/506] tracing: Add 'last error' error facility for hist
@@ -509,5 +506,5 @@ index cc587bf7ea42..bd33cec2b100 100644
   out_unreg:
  	cmd_ops->unreg(glob+1, trigger_ops, trigger_data, file);
 -- 
-2.17.1
+2.25.3
 

@@ -1,7 +1,4 @@
-From bbe318b8b7ea33979a08c5181168a37e01ebe540 Mon Sep 17 00:00:00 2001
-Message-Id: <bbe318b8b7ea33979a08c5181168a37e01ebe540.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From d35c56af936979bf9276e01cfe5183d7d551a5b3 Mon Sep 17 00:00:00 2001
 From: Ingo Molnar <mingo@elte.hu>
 Date: Fri, 3 Jul 2009 08:29:34 -0500
 Subject: [PATCH 187/506] timers: Prepare for full preemption
@@ -174,5 +171,5 @@ index 4948dd0567a0..ba158a53bd00 100644
  }
  
 -- 
-2.17.1
+2.25.3
 

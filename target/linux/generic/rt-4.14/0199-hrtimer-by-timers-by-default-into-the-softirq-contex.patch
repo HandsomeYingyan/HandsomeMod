@@ -1,7 +1,4 @@
-From d943b454696adfa9e40433b82ecc54ec1192a3b6 Mon Sep 17 00:00:00 2001
-Message-Id: <d943b454696adfa9e40433b82ecc54ec1192a3b6.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From a37dbec256a4eb52745e9ffcfeab1496a5133530 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 3 Jul 2009 08:44:31 -0500
 Subject: [PATCH 199/506] hrtimer: by timers by default into the softirq
@@ -236,5 +233,5 @@ index e4db5d54c07c..263a900e0b11 100644
  	hrtimer_start(hrtimer, ns_to_ktime(sample_period),
  		      HRTIMER_MODE_REL_PINNED);
 -- 
-2.17.1
+2.25.3
 

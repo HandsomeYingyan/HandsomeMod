@@ -1,7 +1,4 @@
-From 6349b0f3d4038d95df16ca6ed0be0f4d510abe72 Mon Sep 17 00:00:00 2001
-Message-Id: <6349b0f3d4038d95df16ca6ed0be0f4d510abe72.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 1565b91829572b9c02496420f405bec0a924481e Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 15 Jan 2016 16:33:34 +0100
 Subject: [PATCH 365/506] net/core: protect users of napi_alloc_cache against
@@ -117,5 +114,5 @@ index f882a5d7c75e..f31c44b06ff9 100644
  void __kfree_skb_defer(struct sk_buff *skb)
  {
 -- 
-2.17.1
+2.25.3
 

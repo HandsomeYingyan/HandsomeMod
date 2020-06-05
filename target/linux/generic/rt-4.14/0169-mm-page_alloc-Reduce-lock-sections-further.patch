@@ -1,7 +1,4 @@
-From bc4e995ecf3953a2bb716428dbe8dcfb38da9208 Mon Sep 17 00:00:00 2001
-Message-Id: <bc4e995ecf3953a2bb716428dbe8dcfb38da9208.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 5abc71ccac09c3e00ea975a8e32be18a3d339a7b Mon Sep 17 00:00:00 2001
 From: Peter Zijlstra <peterz@infradead.org>
 Date: Fri, 3 Jul 2009 08:44:37 -0500
 Subject: [PATCH 169/506] mm: page_alloc: Reduce lock sections further
@@ -16,7 +13,7 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  1 file changed, 65 insertions(+), 28 deletions(-)
 
 diff --git a/mm/page_alloc.c b/mm/page_alloc.c
-index ec1096c8db99..e7f9ca9835ba 100644
+index 29b6c036910f..8f787a567203 100644
 --- a/mm/page_alloc.c
 +++ b/mm/page_alloc.c
 @@ -1107,7 +1107,7 @@ static bool bulkfree_pcp_prepare(struct page *page)
@@ -202,5 +199,5 @@ index ec1096c8db99..e7f9ca9835ba 100644
  
  out:
 -- 
-2.17.1
+2.25.3
 

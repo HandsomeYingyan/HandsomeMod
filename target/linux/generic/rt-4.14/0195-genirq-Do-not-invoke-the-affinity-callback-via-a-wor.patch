@@ -1,7 +1,4 @@
-From f34a3d91b15dad9f957877105369e8b301a8c178 Mon Sep 17 00:00:00 2001
-Message-Id: <f34a3d91b15dad9f957877105369e8b301a8c178.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 694a76f6a64082eef43f2059ac4a16652b117909 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 21 Aug 2013 17:48:46 +0200
 Subject: [PATCH 195/506] genirq: Do not invoke the affinity callback via a
@@ -141,5 +138,5 @@ index 15cc36696ab6..9a2ee2b42ece 100644
  	}
  
 -- 
-2.17.1
+2.25.3
 

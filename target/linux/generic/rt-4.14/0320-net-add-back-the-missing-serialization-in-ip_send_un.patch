@@ -1,7 +1,4 @@
-From 9e4207e8a88d383ab0e52eca0121a1fb6aa5fc03 Mon Sep 17 00:00:00 2001
-Message-Id: <9e4207e8a88d383ab0e52eca0121a1fb6aa5fc03.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From f9d61eb25f833ea8c59b80621315e1e33f8223b4 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 31 Aug 2016 17:21:56 +0200
 Subject: [PATCH 320/506] net: add back the missing serialization in
@@ -97,5 +94,5 @@ index b4f0fc34b0ed..6c0f0116793b 100644
  
  static void tcp_v4_timewait_ack(struct sock *sk, struct sk_buff *skb)
 -- 
-2.17.1
+2.25.3
 

@@ -1,7 +1,4 @@
-From 58d84440555353289fd062786b2e56e6b245c2b4 Mon Sep 17 00:00:00 2001
-Message-Id: <58d84440555353289fd062786b2e56e6b245c2b4.1587150133.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From da84a88835b7e0ff992dc9807e77173f2981b279 Mon Sep 17 00:00:00 2001
 From: Scott Wood <swood@redhat.com>
 Date: Sat, 27 Jul 2019 00:56:32 -0500
 Subject: [PATCH 481/506] sched: __set_cpus_allowed_ptr: Check cpus_mask, not
@@ -37,5 +34,5 @@ index fcff75934bdc..8d6badac9225 100644
  
  	dest_cpu = cpumask_any_and(cpu_valid_mask, new_mask);
 -- 
-2.17.1
+2.25.3
 

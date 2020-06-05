@@ -1,7 +1,4 @@
-From 5da9621c51fed3903015833fcffb2d377c6c5a86 Mon Sep 17 00:00:00 2001
-Message-Id: <5da9621c51fed3903015833fcffb2d377c6c5a86.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From b7279cfe21ebf563c6e512ae68a243cc2706f17e Mon Sep 17 00:00:00 2001
 From: Peter Zijlstra <peterz@infradead.org>
 Date: Wed, 7 Jun 2017 10:12:45 +0200
 Subject: [PATCH 212/506] sched: Remove TASK_ALL
@@ -22,7 +19,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 1 deletion(-)
 
 diff --git a/include/linux/sched.h b/include/linux/sched.h
-index 951d76ddd8c5..7d1a365b5ac6 100644
+index db6e27c6af1b..fbfbeb7c8e6c 100644
 --- a/include/linux/sched.h
 +++ b/include/linux/sched.h
 @@ -93,7 +93,6 @@ struct task_group;
@@ -34,5 +31,5 @@ index 951d76ddd8c5..7d1a365b5ac6 100644
  /* get_task_state(): */
  #define TASK_REPORT			(TASK_RUNNING | TASK_INTERRUPTIBLE | \
 -- 
-2.17.1
+2.25.3
 

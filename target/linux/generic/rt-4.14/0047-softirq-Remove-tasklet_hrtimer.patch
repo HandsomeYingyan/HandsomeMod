@@ -1,7 +1,4 @@
-From 10e81747af46fe328b57192c5170f8837517e0ea Mon Sep 17 00:00:00 2001
-Message-Id: <10e81747af46fe328b57192c5170f8837517e0ea.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 8ee7b8c7bd13b45238fc1b13d97d2d749d14709b Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Thu, 23 Nov 2017 16:39:14 +0100
 Subject: [PATCH 047/506] softirq: Remove tasklet_hrtimer
@@ -116,5 +113,5 @@ index a4c87cf27f9d..1a5dfc8dcf49 100644
  {
  	int cpu;
 -- 
-2.17.1
+2.25.3
 

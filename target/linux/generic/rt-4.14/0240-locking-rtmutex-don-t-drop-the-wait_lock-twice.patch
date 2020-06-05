@@ -1,7 +1,4 @@
-From a51de0ef3c89d3d09f564145d900b52a0bd1b0bd Mon Sep 17 00:00:00 2001
-Message-Id: <a51de0ef3c89d3d09f564145d900b52a0bd1b0bd.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From bb88c0cb349c245a8dac16bf3cd50c2844a3d9dc Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 7 Sep 2017 12:38:47 +0200
 Subject: [PATCH 240/506] locking/rtmutex: don't drop the wait_lock twice
@@ -34,5 +31,5 @@ index 38b14a4280bb..a697bc097951 100644
  	}
  	task->pi_blocked_on = PI_REQUEUE_INPROGRESS;
 -- 
-2.17.1
+2.25.3
 

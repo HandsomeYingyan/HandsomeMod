@@ -1,7 +1,4 @@
-From 7227bdd204371289abcfa3e7ed8cd34b7414b8f1 Mon Sep 17 00:00:00 2001
-Message-Id: <7227bdd204371289abcfa3e7ed8cd34b7414b8f1.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 2961783fd1c2e2a5983cbb546711fc2c8b415113 Mon Sep 17 00:00:00 2001
 From: "Steven Rostedt (VMware)" <rostedt@goodmis.org>
 Date: Thu, 18 Jan 2018 15:42:09 -0500
 Subject: [PATCH 113/506] ring-buffer: Fix duplicate results in mapping context
@@ -41,5 +38,5 @@ index b7d9d7b27a3b..608d73e77e9b 100644
  	if (unlikely(val & (1 << bit)))
  		return 1;
 -- 
-2.17.1
+2.25.3
 

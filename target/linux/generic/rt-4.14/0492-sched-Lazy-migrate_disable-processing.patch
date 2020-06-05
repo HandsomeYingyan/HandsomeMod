@@ -1,7 +1,4 @@
-From db775c9d94d1660c042cc2cbdf7f50e681638c4c Mon Sep 17 00:00:00 2001
-Message-Id: <db775c9d94d1660c042cc2cbdf7f50e681638c4c.1587150133.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 7841fa15febf27e8a4712413b042b7e65b38d0d0 Mon Sep 17 00:00:00 2001
 From: Scott Wood <swood@redhat.com>
 Date: Sat, 12 Oct 2019 01:52:13 -0500
 Subject: [PATCH 492/506] sched: Lazy migrate_disable processing
@@ -101,7 +98,7 @@ index ee3ff961b84c..3f7aa4dc7e1f 100644
  	.active_mm	= &init_mm,					\
  	.restart_block = {						\
 diff --git a/include/linux/sched.h b/include/linux/sched.h
-index 2bf136617d19..6e3eded72d8e 100644
+index 45a1d8a08bd1..0faf621b1624 100644
 --- a/include/linux/sched.h
 +++ b/include/linux/sched.h
 @@ -229,6 +229,8 @@ extern void io_schedule_finish(int token);
@@ -140,7 +137,7 @@ index 2bf136617d19..6e3eded72d8e 100644
 +
  #endif
 diff --git a/kernel/cpu.c b/kernel/cpu.c
-index d9e9f9d6909d..12e527e81b37 100644
+index de221ddfa4b7..c0c6a3604c1f 100644
 --- a/kernel/cpu.c
 +++ b/kernel/cpu.c
 @@ -75,11 +75,6 @@ static DEFINE_PER_CPU(struct cpuhp_cpu_state, cpuhp_state) = {
@@ -602,10 +599,10 @@ index 46324d2099e3..6066dc7bd7b2 100644
 +}
  #endif
 diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
-index 4ec44bcf7d6d..04c41c997a0e 100644
+index bfa7836a5a53..d816eee9715b 100644
 --- a/kernel/sched/sched.h
 +++ b/kernel/sched/sched.h
-@@ -811,6 +811,10 @@ struct rq {
+@@ -817,6 +817,10 @@ struct rq {
  	/* Must be inspected within a rcu lock section */
  	struct cpuidle_state *idle_state;
  #endif
@@ -631,5 +628,5 @@ index 9f3c8bb62e57..7a0c19c282cc 100644
  		goto out;
  
 -- 
-2.17.1
+2.25.3
 

@@ -1,7 +1,4 @@
-From 0a2b7ff5af4bb1e62f14a8ca5bb64060a7d3010d Mon Sep 17 00:00:00 2001
-Message-Id: <0a2b7ff5af4bb1e62f14a8ca5bb64060a7d3010d.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From f8adfd9d0a1dcfc23f899322483d9071ddb16ada Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Thu, 26 Apr 2018 20:04:47 -0500
 Subject: [PATCH 407/506] tracing: Restore proper field flag printing when
@@ -67,5 +64,5 @@ index 2bca2fc2c62b..c8a21580652f 100644
  
  static int event_hist_trigger_print(struct seq_file *m,
 -- 
-2.17.1
+2.25.3
 

@@ -1,7 +1,4 @@
-From 27c40d940ca1b1bc5271b2451e69eb345eeebed5 Mon Sep 17 00:00:00 2001
-Message-Id: <27c40d940ca1b1bc5271b2451e69eb345eeebed5.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 430a0438d53cf5d1bb876739948c2d3d91b2114f Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 22 Mar 2018 16:22:34 +0100
 Subject: [PATCH 008/506] iommu/amd: Turn dev_data_list into a lock less list
@@ -91,7 +88,7 @@ index 89f47a94d355..908b60ae10ef 100644
  
  static int __last_alias(struct pci_dev *pdev, u16 alias, void *data)
 diff --git a/drivers/iommu/amd_iommu_types.h b/drivers/iommu/amd_iommu_types.h
-index aadd3c6f0120..419655af60d2 100644
+index ebe2b8faa40b..2a140eea223e 100644
 --- a/drivers/iommu/amd_iommu_types.h
 +++ b/drivers/iommu/amd_iommu_types.h
 @@ -627,7 +627,7 @@ struct devid_map {
@@ -104,5 +101,5 @@ index aadd3c6f0120..419655af60d2 100644
  	u16 devid;			  /* PCI Device ID */
  	u16 alias;			  /* Alias Device ID */
 -- 
-2.17.1
+2.25.3
 

@@ -1,7 +1,4 @@
-From e309a1870587c4ba69f8e494b84838786fc38bf6 Mon Sep 17 00:00:00 2001
-Message-Id: <e309a1870587c4ba69f8e494b84838786fc38bf6.1587150133.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From a96587b5c20549001b6b49d0a2acd92506ced1eb Mon Sep 17 00:00:00 2001
 From: Scott Wood <swood@redhat.com>
 Date: Sat, 12 Oct 2019 01:52:14 -0500
 Subject: [PATCH 493/506] sched: migrate_enable: Use stop_one_cpu_nowait()
@@ -122,5 +119,5 @@ index 56f2f2e01229..0e2fc590ba88 100644
  
  	wake_up_q(&wakeq);
 -- 
-2.17.1
+2.25.3
 

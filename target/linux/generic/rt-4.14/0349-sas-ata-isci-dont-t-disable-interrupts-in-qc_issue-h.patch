@@ -1,7 +1,4 @@
-From 2c0a49bbd4ee97fc45553ee18348da8157fd54e0 Mon Sep 17 00:00:00 2001
-Message-Id: <2c0a49bbd4ee97fc45553ee18348da8157fd54e0.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From b14732f4f169d28fc2c4e2cf0923a8272858c391 Mon Sep 17 00:00:00 2001
 From: Paul Gortmaker <paul.gortmaker@windriver.com>
 Date: Sat, 14 Feb 2015 11:01:16 -0500
 Subject: [PATCH 349/506] sas-ata/isci: dont't disable interrupts in qc_issue
@@ -84,5 +81,5 @@ index 70be4425ae0b..a23ef685deac 100644
  }
  
 -- 
-2.17.1
+2.25.3
 

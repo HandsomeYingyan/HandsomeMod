@@ -1,7 +1,4 @@
-From 2014fbc0e1c1d1dd91fa1c867e6bfb612b778574 Mon Sep 17 00:00:00 2001
-Message-Id: <2014fbc0e1c1d1dd91fa1c867e6bfb612b778574.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From ca7fe3b0d6b25586d72ba16c741e6645b228bb1d Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 5 Jul 2018 14:44:51 +0200
 Subject: [PATCH 420/506] sched/migrate_disable: fallback to preempt_disable()
@@ -76,7 +73,7 @@ index 0591df500e9d..6728662a81e8 100644
  {
  	return 0;
 diff --git a/include/linux/sched.h b/include/linux/sched.h
-index 4a67ab54b4d2..2bf136617d19 100644
+index 5d68c69fb7a5..45a1d8a08bd1 100644
 --- a/include/linux/sched.h
 +++ b/include/linux/sched.h
 @@ -626,7 +626,7 @@ struct task_struct {
@@ -205,5 +202,5 @@ index 0e32561fc311..acb86b06b55c 100644
  #endif
  	P(nr_cpus_allowed);
 -- 
-2.17.1
+2.25.3
 

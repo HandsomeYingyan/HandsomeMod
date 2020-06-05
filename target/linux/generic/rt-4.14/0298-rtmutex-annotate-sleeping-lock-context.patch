@@ -1,7 +1,4 @@
-From 217447087471376e9e0ac53afc50f78976d553cd Mon Sep 17 00:00:00 2001
-Message-Id: <217447087471376e9e0ac53afc50f78976d553cd.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From c148c5790e1e87274aa24072a63efeb60bb78858 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 3 May 2018 17:16:26 +0200
 Subject: [PATCH 298/506] rtmutex: annotate sleeping lock context
@@ -35,7 +32,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  5 files changed, 50 insertions(+), 10 deletions(-)
 
 diff --git a/include/linux/sched.h b/include/linux/sched.h
-index 18afed33078e..65b5544d3212 100644
+index 1a1f218db37a..00c915b9aafd 100644
 --- a/include/linux/sched.h
 +++ b/include/linux/sched.h
 @@ -638,6 +638,9 @@ struct task_struct {
@@ -242,5 +239,5 @@ index 8a3fc165ef68..fc718dfa3360 100644
  		current->flags &= ~PF_NOFREEZE;
  }
 -- 
-2.17.1
+2.25.3
 

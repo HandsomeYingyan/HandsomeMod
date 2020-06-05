@@ -1,7 +1,4 @@
-From 424f6df90995063aa14fc9c3fe52074ccff782da Mon Sep 17 00:00:00 2001
-Message-Id: <424f6df90995063aa14fc9c3fe52074ccff782da.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 7a958109ecd568f8a01ea6d19b70dd021dae1da9 Mon Sep 17 00:00:00 2001
 From: Julien Grall <julien.grall@arm.com>
 Date: Wed, 13 Mar 2019 11:40:34 +0000
 Subject: [PATCH 456/506] tty/sysrq: Convert show_lock to raw_spinlock_t
@@ -63,5 +60,5 @@ index 4c716ddd6599..47666c180ef9 100644
  
  static void sysrq_showregs_othercpus(struct work_struct *dummy)
 -- 
-2.17.1
+2.25.3
 

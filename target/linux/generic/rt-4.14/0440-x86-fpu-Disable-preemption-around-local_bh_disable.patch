@@ -1,7 +1,4 @@
-From fafedcb83bd9130e10c0afe925c979cb64bcc341 Mon Sep 17 00:00:00 2001
-Message-Id: <fafedcb83bd9130e10c0afe925c979cb64bcc341.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 92c5e1d5fd2f5a6b28d9fc6f02510b514d201b5c Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 11 Dec 2018 15:10:33 +0100
 Subject: [PATCH 440/506] x86/fpu: Disable preemption around local_bh_disable()
@@ -39,5 +36,5 @@ index d99a8ee9e185..5e0274a94133 100644
  		return err;
  	} else {
 -- 
-2.17.1
+2.25.3
 

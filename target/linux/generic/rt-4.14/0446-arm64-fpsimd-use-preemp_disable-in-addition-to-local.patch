@@ -1,7 +1,4 @@
-From 49ee0fd36a7539c133159ae243524234067fd9c6 Mon Sep 17 00:00:00 2001
-Message-Id: <49ee0fd36a7539c133159ae243524234067fd9c6.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 952b01300d593df1d4aa0264e0affea766e48eda Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 25 Jul 2018 14:02:38 +0200
 Subject: [PATCH 446/506] arm64: fpsimd: use preemp_disable in addition to
@@ -111,5 +108,5 @@ index 4cd962f6c430..6cf375d5df41 100644
  EXPORT_SYMBOL(kernel_neon_begin);
  
 -- 
-2.17.1
+2.25.3
 

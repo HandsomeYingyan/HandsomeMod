@@ -1,7 +1,4 @@
-From 3993a4f8c6da0d9c9022d06eae1d404b3a61495b Mon Sep 17 00:00:00 2001
-Message-Id: <3993a4f8c6da0d9c9022d06eae1d404b3a61495b.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From a3c8813425d5ea9cfafde2a57ceafbf1d5b1e0d7 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 20 Mar 2013 18:06:20 +0100
 Subject: [PATCH 367/506] net: Add a mutex around devnet_rename_seq
@@ -24,7 +21,7 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  1 file changed, 20 insertions(+), 14 deletions(-)
 
 diff --git a/net/core/dev.c b/net/core/dev.c
-index 9c8328ce50ce..abc88087bbf0 100644
+index d80df673ef85..54aac77b0997 100644
 --- a/net/core/dev.c
 +++ b/net/core/dev.c
 @@ -195,6 +195,7 @@ static unsigned int napi_gen_id = NR_CPUS;
@@ -111,5 +108,5 @@ index 9c8328ce50ce..abc88087bbf0 100644
  
  /**
 -- 
-2.17.1
+2.25.3
 

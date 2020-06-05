@@ -1,7 +1,4 @@
-From 1c6db5243278fc6511b0ebf545f062feb48c807c Mon Sep 17 00:00:00 2001
-Message-Id: <1c6db5243278fc6511b0ebf545f062feb48c807c.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From c2e2cb140735342a31fe08cb3143374d69281c2e Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:42 -0600
 Subject: [PATCH 085/506] tracing: Give event triggers access to
@@ -140,7 +137,7 @@ index 3c396e72eba9..2dcc53bffa55 100644
  
  static struct event_trigger_ops hist_enable_trigger_ops = {
 diff --git a/kernel/trace/trace_events_trigger.c b/kernel/trace/trace_events_trigger.c
-index 31e91efe243e..139a7aedead3 100644
+index 6fb5eb7b57dc..810960a7bdbe 100644
 --- a/kernel/trace/trace_events_trigger.c
 +++ b/kernel/trace/trace_events_trigger.c
 @@ -63,7 +63,8 @@ void trigger_data_free(struct event_trigger_data *data)
@@ -258,7 +255,7 @@ index 31e91efe243e..139a7aedead3 100644
  }
  
  static int
-@@ -1146,13 +1153,15 @@ static __init int register_trigger_snapshot_cmd(void) { return 0; }
+@@ -1142,13 +1149,15 @@ static __init int register_trigger_snapshot_cmd(void) { return 0; }
  #define STACK_SKIP 3
  
  static void
@@ -276,7 +273,7 @@ index 31e91efe243e..139a7aedead3 100644
  {
  	if (!data->count)
  		return;
-@@ -1160,7 +1169,7 @@ stacktrace_count_trigger(struct event_trigger_data *data, void *rec)
+@@ -1156,7 +1165,7 @@ stacktrace_count_trigger(struct event_trigger_data *data, void *rec)
  	if (data->count != -1)
  		(data->count)--;
  
@@ -285,7 +282,7 @@ index 31e91efe243e..139a7aedead3 100644
  }
  
  static int
-@@ -1222,7 +1231,8 @@ static __init void unregister_trigger_traceon_traceoff_cmds(void)
+@@ -1218,7 +1227,8 @@ static __init void unregister_trigger_traceon_traceoff_cmds(void)
  }
  
  static void
@@ -295,7 +292,7 @@ index 31e91efe243e..139a7aedead3 100644
  {
  	struct enable_trigger_data *enable_data = data->private_data;
  
-@@ -1233,7 +1243,8 @@ event_enable_trigger(struct event_trigger_data *data, void *rec)
+@@ -1229,7 +1239,8 @@ event_enable_trigger(struct event_trigger_data *data, void *rec)
  }
  
  static void
@@ -305,7 +302,7 @@ index 31e91efe243e..139a7aedead3 100644
  {
  	struct enable_trigger_data *enable_data = data->private_data;
  
-@@ -1247,7 +1258,7 @@ event_enable_count_trigger(struct event_trigger_data *data, void *rec)
+@@ -1243,7 +1254,7 @@ event_enable_count_trigger(struct event_trigger_data *data, void *rec)
  	if (data->count != -1)
  		(data->count)--;
  
@@ -315,5 +312,5 @@ index 31e91efe243e..139a7aedead3 100644
  
  int event_enable_trigger_print(struct seq_file *m,
 -- 
-2.17.1
+2.25.3
 

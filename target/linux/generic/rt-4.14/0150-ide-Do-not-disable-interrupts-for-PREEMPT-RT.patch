@@ -1,7 +1,4 @@
-From 78bfd0a0bdf72a8064349098d1a68088b1422a30 Mon Sep 17 00:00:00 2001
-Message-Id: <78bfd0a0bdf72a8064349098d1a68088b1422a30.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 8429a9211a75a88c3f4f486b9e600a11a8c80e84 Mon Sep 17 00:00:00 2001
 From: Ingo Molnar <mingo@elte.hu>
 Date: Fri, 3 Jul 2009 08:30:16 -0500
 Subject: [PATCH 150/506] ide: Do not disable interrupts for PREEMPT-RT
@@ -185,5 +182,5 @@ index 4efe4c6e956c..7eae3aa1def7 100644
  	ide_set_handler(drive, &task_pio_intr, WAIT_WORSTCASE);
  
 -- 
-2.17.1
+2.25.3
 

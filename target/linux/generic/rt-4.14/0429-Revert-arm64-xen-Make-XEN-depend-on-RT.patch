@@ -1,7 +1,4 @@
-From 1d86cc46cd62e72c9d19c7623d984bcbfd896a7f Mon Sep 17 00:00:00 2001
-Message-Id: <1d86cc46cd62e72c9d19c7623d984bcbfd896a7f.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 1ae3d6782e1f7f0a8ef0e6d79be2e26931cbc3a5 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 2 Aug 2018 17:11:01 +0200
 Subject: [PATCH 429/506] Revert "arm64/xen: Make XEN depend on !RT"
@@ -32,5 +29,5 @@ index 30b28eb72986..a55792388ded 100644
  	select PARAVIRT
  	help
 -- 
-2.17.1
+2.25.3
 

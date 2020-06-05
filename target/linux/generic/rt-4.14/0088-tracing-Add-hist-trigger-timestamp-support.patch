@@ -1,7 +1,4 @@
-From ba63f492613de78837d80c7ed17551233c27f948 Mon Sep 17 00:00:00 2001
-Message-Id: <ba63f492613de78837d80c7ed17551233c27f948.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 942614896afec312fc61ff3550321d8d1989f846 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:45 -0600
 Subject: [PATCH 088/506] tracing: Add hist trigger timestamp support
@@ -251,5 +248,5 @@ index 10ec08942aa6..48d2fdd47083 100644
  				test->ops->free(test->ops, test);
  		}
 -- 
-2.17.1
+2.25.3
 

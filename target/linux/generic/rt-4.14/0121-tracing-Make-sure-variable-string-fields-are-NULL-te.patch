@@ -1,7 +1,4 @@
-From 5612a31c457c7932a3ae7bd4bc9cb50afe3ba4ec Mon Sep 17 00:00:00 2001
-Message-Id: <5612a31c457c7932a3ae7bd4bc9cb50afe3ba4ec.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 524e3d4e4f5e246ec1415a1f9a75fc0d14f478af Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Wed, 28 Mar 2018 15:10:56 -0500
 Subject: [PATCH 121/506] tracing: Make sure variable string fields are
@@ -41,5 +38,5 @@ index d9657b4b3f22..819b9f1acd03 100644
  		}
  		tracing_map_set_var(elt, var_idx, var_val);
 -- 
-2.17.1
+2.25.3
 

@@ -1,7 +1,4 @@
-From 5a07bec4e063bfff91ddf0163dddc48efbfe6867 Mon Sep 17 00:00:00 2001
-Message-Id: <5a07bec4e063bfff91ddf0163dddc48efbfe6867.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 7c54983a8fb636671b98f4243fb0d900ffdcbee2 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Tue, 31 May 2011 16:59:16 +0200
 Subject: [PATCH 206/506] sched: Move task_struct cleanup to RCU
@@ -17,7 +14,7 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  3 files changed, 27 insertions(+), 2 deletions(-)
 
 diff --git a/include/linux/sched.h b/include/linux/sched.h
-index 0aae40678490..e5164abe3c1a 100644
+index f576421c56a4..6a8610f59f81 100644
 --- a/include/linux/sched.h
 +++ b/include/linux/sched.h
 @@ -1135,6 +1135,9 @@ struct task_struct {
@@ -94,5 +91,5 @@ index 80b04ab07b34..d07b8b451f3a 100644
  void __init __weak arch_task_cache_init(void) { }
  
 -- 
-2.17.1
+2.25.3
 

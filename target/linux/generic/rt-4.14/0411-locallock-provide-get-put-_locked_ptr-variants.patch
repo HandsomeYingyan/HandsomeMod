@@ -1,7 +1,4 @@
-From 4b50a331004164a9bd10e379ec9a1e6bd7434e13 Mon Sep 17 00:00:00 2001
-Message-Id: <4b50a331004164a9bd10e379ec9a1e6bd7434e13.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From dc1f76a87f1850dc3680dbe9376a2b2cc0461d8d Mon Sep 17 00:00:00 2001
 From: Julia Cartwright <julia@ni.com>
 Date: Mon, 7 May 2018 08:58:56 -0500
 Subject: [PATCH 411/506] locallock: provide {get,put}_locked_ptr() variants
@@ -50,5 +47,5 @@ index d658c2552601..921eab83cd34 100644
  #define local_lock_cpu(lvar)			get_cpu()
  #define local_unlock_cpu(lvar)			put_cpu()
 -- 
-2.17.1
+2.25.3
 

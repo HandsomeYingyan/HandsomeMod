@@ -1,7 +1,4 @@
-From ca29ccd6cf0ae88616a0500bad9b5ec399168354 Mon Sep 17 00:00:00 2001
-Message-Id: <ca29ccd6cf0ae88616a0500bad9b5ec399168354.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From c25c0af3b1b35a9d1eb83a6ab8e7febd3a9643dc Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 26 Feb 2019 12:31:10 +0100
 Subject: [PATCH 455/506] hrtimer: cpu_chill(): save task state in
@@ -64,5 +61,5 @@ index daa552e4efd9..2b5365446331 100644
  EXPORT_SYMBOL(cpu_chill);
  #endif
 -- 
-2.17.1
+2.25.3
 

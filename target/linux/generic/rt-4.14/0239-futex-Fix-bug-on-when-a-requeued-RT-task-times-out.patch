@@ -1,7 +1,4 @@
-From 9154a6077d2ac5c87e1b903dffb2aeacf47eb12c Mon Sep 17 00:00:00 2001
-Message-Id: <9154a6077d2ac5c87e1b903dffb2aeacf47eb12c.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From f48c20fe98d47adb5a9179f0a9809a6123e5bf11 Mon Sep 17 00:00:00 2001
 From: Steven Rostedt <rostedt@goodmis.org>
 Date: Tue, 14 Jul 2015 14:26:34 +0200
 Subject: [PATCH 239/506] futex: Fix bug on when a requeued RT task times out
@@ -120,5 +117,5 @@ index fa218cdff5eb..509df18215f8 100644
  extern struct task_struct *rt_mutex_next_owner(struct rt_mutex *lock);
  extern void rt_mutex_init_proxy_locked(struct rt_mutex *lock,
 -- 
-2.17.1
+2.25.3
 

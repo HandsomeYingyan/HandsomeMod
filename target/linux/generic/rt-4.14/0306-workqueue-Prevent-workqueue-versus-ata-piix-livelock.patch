@@ -1,7 +1,4 @@
-From aad0c911b80a7cdd5ed520ea49795a1e52b9e019 Mon Sep 17 00:00:00 2001
-Message-Id: <aad0c911b80a7cdd5ed520ea49795a1e52b9e019.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 2429276dd9f28b95adb68f6a5a611aadfb2fba9e Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Mon, 1 Jul 2013 11:02:42 +0200
 Subject: [PATCH 306/506] workqueue: Prevent workqueue versus ata-piix livelock
@@ -137,5 +134,5 @@ index 060a1e794d0f..1934f654af24 100644
  }
  
 -- 
-2.17.1
+2.25.3
 

@@ -1,7 +1,4 @@
-From 846c74b4cf5e86a32a8dfb5febf25d8c8cd6cd7a Mon Sep 17 00:00:00 2001
-Message-Id: <846c74b4cf5e86a32a8dfb5febf25d8c8cd6cd7a.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 775bbee6121320576d4eb90c7a15022e6ee7c7be Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 9 Nov 2018 15:02:49 +0100
 Subject: [PATCH 439/506] rcu: make RCU_BOOST default on RT without EXPERT
@@ -41,5 +38,5 @@ index 0be2c96fb640..a243a78ff38c 100644
  	help
  	  This option boosts the priority of preempted RCU readers that
 -- 
-2.17.1
+2.25.3
 

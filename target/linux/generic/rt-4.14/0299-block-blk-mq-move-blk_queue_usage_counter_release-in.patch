@@ -1,7 +1,4 @@
-From 267735943c7b2324de148e735ef144f844216856 Mon Sep 17 00:00:00 2001
-Message-Id: <267735943c7b2324de148e735ef144f844216856.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 525bf2c2fcfa6309430330544b812415f81d7b5e Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 13 Mar 2018 13:49:16 +0100
 Subject: [PATCH 299/506] block: blk-mq: move blk_queue_usage_counter_release()
@@ -119,5 +116,5 @@ index 8b5caf9066c6..e112c0cbcfb7 100644
  	struct list_head	all_q_node;
  
 -- 
-2.17.1
+2.25.3
 

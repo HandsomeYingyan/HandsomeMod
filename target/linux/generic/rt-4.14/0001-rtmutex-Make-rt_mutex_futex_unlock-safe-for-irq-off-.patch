@@ -1,5 +1,4 @@
-From 05c07aad7517537dec221029782bf891341897c5 Mon Sep 17 00:00:00 2001
-Message-Id: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 2331c6e3793b9564b5952a3fa0d35d1d0f2e8664 Mon Sep 17 00:00:00 2001
 From: Boqun Feng <boqun.feng@gmail.com>
 Date: Fri, 9 Mar 2018 14:56:28 +0800
 Subject: [PATCH 001/506] rtmutex: Make rt_mutex_futex_unlock() safe for
@@ -124,5 +123,5 @@ index 71c554a9e17f..b4a83a6d6417 100644
  	if (postunlock)
  		rt_mutex_postunlock(&wake_q);
 -- 
-2.17.1
+2.25.3
 

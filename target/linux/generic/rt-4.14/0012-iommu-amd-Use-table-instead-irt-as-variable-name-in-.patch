@@ -1,7 +1,4 @@
-From d6b6daf70821bc879bb1500282c0996f9237ee46 Mon Sep 17 00:00:00 2001
-Message-Id: <d6b6daf70821bc879bb1500282c0996f9237ee46.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From d8c2909ae065fdbd32817823182a783226fa9027 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 22 Mar 2018 16:22:38 +0100
 Subject: [PATCH 012/506] iommu/amd: Use `table' instead `irt' as variable name
@@ -57,5 +54,5 @@ index 84825004152e..3319f7b6868f 100644
  	iommu_flush_irt(iommu, devid);
  	iommu_completion_wait(iommu);
 -- 
-2.17.1
+2.25.3
 

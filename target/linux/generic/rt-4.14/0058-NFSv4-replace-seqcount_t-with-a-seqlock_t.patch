@@ -1,7 +1,4 @@
-From 66734e3323cbeb93588cd28bc24a0a1fdfad11fa Mon Sep 17 00:00:00 2001
-Message-Id: <66734e3323cbeb93588cd28bc24a0a1fdfad11fa.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From d1d7c5ad3a802c1472a4e89efb9d4640a5551c69 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 28 Oct 2016 23:05:11 +0200
 Subject: [PATCH 058/506] NFSv4: replace seqcount_t with a seqlock_t
@@ -134,5 +131,5 @@ index f92bfc787c5f..76658b54d02b 100644
  }
  
 -- 
-2.17.1
+2.25.3
 

@@ -1,7 +1,4 @@
-From fefbf1fb4f9b9a8d164c8a255ca886a27ee19cd1 Mon Sep 17 00:00:00 2001
-Message-Id: <fefbf1fb4f9b9a8d164c8a255ca886a27ee19cd1.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From c0048d0db5bfbc51b536bcb9d1e8d26a28b27e8d Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 21 Sep 2017 14:25:13 +0200
 Subject: [PATCH 261/506] RCU: we need to skip that warning but only on
@@ -40,5 +37,5 @@ index 181e2487c8b8..787321ad4f5f 100644
  	    !t->rcu_read_unlock_special.b.blocked) {
  
 -- 
-2.17.1
+2.25.3
 

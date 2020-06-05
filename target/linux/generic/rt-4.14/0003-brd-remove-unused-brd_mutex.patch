@@ -1,7 +1,4 @@
-From e4b9a79c827071279c9e32505fa7b94aa0734bc4 Mon Sep 17 00:00:00 2001
-Message-Id: <e4b9a79c827071279c9e32505fa7b94aa0734bc4.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 9f94a46a5042fac609a5db0a868b50f6a19b43da Mon Sep 17 00:00:00 2001
 From: Mikulas Patocka <mpatocka@redhat.com>
 Date: Fri, 10 Nov 2017 12:29:34 -0500
 Subject: [PATCH 003/506] brd: remove unused brd_mutex
@@ -31,5 +28,5 @@ index 0129b1921cb3..b469b876168b 100644
  {
  	pgoff_t idx;
 -- 
-2.17.1
+2.25.3
 

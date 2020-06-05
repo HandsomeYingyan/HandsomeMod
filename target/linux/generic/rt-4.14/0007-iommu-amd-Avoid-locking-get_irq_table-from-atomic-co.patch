@@ -1,7 +1,4 @@
-From c4585ce3143b627d74c8e31f00df51183a6011b1 Mon Sep 17 00:00:00 2001
-Message-Id: <c4585ce3143b627d74c8e31f00df51183a6011b1.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From a638d4d28f8cd5ca8279ba9357d699f28da09f05 Mon Sep 17 00:00:00 2001
 From: Scott Wood <swood@redhat.com>
 Date: Wed, 14 Feb 2018 17:36:28 -0600
 Subject: [PATCH 007/506] iommu/amd: Avoid locking get_irq_table() from atomic
@@ -121,5 +118,5 @@ index 9ddc79b13d5e..89f47a94d355 100644
  		return -ENODEV;
  
 -- 
-2.17.1
+2.25.3
 

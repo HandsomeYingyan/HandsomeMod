@@ -1,7 +1,4 @@
-From 17256c6b5b16f68dd110338b0dd37ae767df3bf9 Mon Sep 17 00:00:00 2001
-Message-Id: <17256c6b5b16f68dd110338b0dd37ae767df3bf9.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 076de13920e0c33dba1fab404524b3bf207ea70c Mon Sep 17 00:00:00 2001
 From: Peter Zijlstra <peterz@infradead.org>
 Date: Fri, 21 Aug 2009 11:56:45 +0200
 Subject: [PATCH 188/506] timer: delay waking softirqs from the jiffy tick
@@ -79,5 +76,5 @@ index ba158a53bd00..311e7d6f45fc 100644
  		run_posix_cpu_timers(p);
  }
 -- 
-2.17.1
+2.25.3
 

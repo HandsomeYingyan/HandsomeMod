@@ -1,7 +1,4 @@
-From 6f2f64a637bdc459ed61dedf9410e7ea7b5bbcfd Mon Sep 17 00:00:00 2001
-Message-Id: <6f2f64a637bdc459ed61dedf9410e7ea7b5bbcfd.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 38e8b5a202b7ca2d1045db6d694a4748da9bdcc3 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:35 -0600
 Subject: [PATCH 078/506] tracing: Move hist trigger Documentation to
@@ -26,7 +23,7 @@ diff --git a/Documentation/trace/events.txt b/Documentation/trace/events.txt
 index 2cc08d4a326e..e28f7f29f2b3 100644
 --- a/Documentation/trace/events.txt
 +++ b/Documentation/trace/events.txt
-@@ -517,1550 +517,4 @@ The following commands are supported:
+@@ -517,1550 +517,4 @@ triggers (you have to use '!' for each one added.)
    totals derived from one or more trace event format fields and/or
    event counts (hitcount).
  
@@ -3153,5 +3150,5 @@ index 000000000000..b2145f44b190
 +        Entries: 7
 +        Dropped: 0
 -- 
-2.17.1
+2.25.3
 

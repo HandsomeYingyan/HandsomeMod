@@ -1,7 +1,4 @@
-From df448232985255edb960c498593fdbc5084ef788 Mon Sep 17 00:00:00 2001
-Message-Id: <df448232985255edb960c498593fdbc5084ef788.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From c79b1119612d0a5562f5c79376d25f7c87a1deae Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 21 Sep 2017 17:21:40 +0200
 Subject: [PATCH 060/506] iommu/iova: Use raw_cpu_ptr() instead of
@@ -47,5 +44,5 @@ index 4edf65dbbcab..f26649d50c80 100644
  EXPORT_SYMBOL_GPL(queue_iova);
  
 -- 
-2.17.1
+2.25.3
 

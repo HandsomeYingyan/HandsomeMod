@@ -1,7 +1,4 @@
-From f0f98b1e251d51291d11143f1b3c303db8c525e6 Mon Sep 17 00:00:00 2001
-Message-Id: <f0f98b1e251d51291d11143f1b3c303db8c525e6.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From f9d6516ba00b71bcf88bcd7eaa793a1309f40cdc Mon Sep 17 00:00:00 2001
 From: Anna-Maria Gleixner <anna-maria@linutronix.de>
 Date: Wed, 20 Dec 2017 17:13:05 +0100
 Subject: [PATCH 030/506] hrtimer: Make hrtimer_cpu_base.next_timer handling
@@ -104,5 +101,5 @@ index 8636d2552e9a..b4ba6f91c8fd 100644
  	}
  	/*
 -- 
-2.17.1
+2.25.3
 

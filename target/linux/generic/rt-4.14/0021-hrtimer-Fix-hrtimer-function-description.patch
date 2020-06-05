@@ -1,7 +1,4 @@
-From 2ab712d239784ed8b392b61a634d97dacfaf6862 Mon Sep 17 00:00:00 2001
-Message-Id: <2ab712d239784ed8b392b61a634d97dacfaf6862.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From b27bdf6fef290d79a4c3bb0fdc2e0eb96166cefe Mon Sep 17 00:00:00 2001
 From: Anna-Maria Gleixner <anna-maria@linutronix.de>
 Date: Wed, 20 Dec 2017 17:12:54 +0100
 Subject: [PATCH 021/506] hrtimer: Fix hrtimer function description
@@ -67,5 +64,5 @@ index 9ef664675c52..f71f0869a0df 100644
  void hrtimer_init(struct hrtimer *timer, clockid_t clock_id,
  		  enum hrtimer_mode mode)
 -- 
-2.17.1
+2.25.3
 

@@ -1,7 +1,4 @@
-From 22bf15adb00cbfaaea0f666cc5fe6d917671a0bf Mon Sep 17 00:00:00 2001
-Message-Id: <22bf15adb00cbfaaea0f666cc5fe6d917671a0bf.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From b2ed019f61179f27cd188fb404e2c26ee4c0af66 Mon Sep 17 00:00:00 2001
 From: Steven Rostedt <rostedt@goodmis.org>
 Date: Wed, 13 Feb 2013 09:26:05 -0500
 Subject: [PATCH 355/506] acpi/rt: Convert acpi_gbl_hardware lock back to a
@@ -187,5 +184,5 @@ index 1b473efd9eb6..89ee5e1dac48 100644
   * OSL interfaces used by debugger/disassembler
   */
 -- 
-2.17.1
+2.25.3
 

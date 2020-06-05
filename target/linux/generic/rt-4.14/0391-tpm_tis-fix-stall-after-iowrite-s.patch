@@ -1,7 +1,4 @@
-From 7ef1e75f916248552121a14fe0746a8845d7fca3 Mon Sep 17 00:00:00 2001
-Message-Id: <7ef1e75f916248552121a14fe0746a8845d7fca3.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 73d7d33f9c52bafd0a167bd741392c8513518c59 Mon Sep 17 00:00:00 2001
 From: Haris Okanovic <haris.okanovic@ni.com>
 Date: Tue, 15 Aug 2017 15:13:08 -0500
 Subject: [PATCH 391/506] tpm_tis: fix stall after iowrite*()s
@@ -82,5 +79,5 @@ index 50b59a69dc33..cbdb0a6c5337 100644
  	return 0;
  }
 -- 
-2.17.1
+2.25.3
 

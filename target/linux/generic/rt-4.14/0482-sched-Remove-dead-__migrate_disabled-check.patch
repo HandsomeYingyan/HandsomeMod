@@ -1,7 +1,4 @@
-From 24b45aa507106cf64240329aef89c587c3fd1172 Mon Sep 17 00:00:00 2001
-Message-Id: <24b45aa507106cf64240329aef89c587c3fd1172.1587150133.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 49a09e61afa68c221281913e1c5e692e537b151e Mon Sep 17 00:00:00 2001
 From: Scott Wood <swood@redhat.com>
 Date: Sat, 27 Jul 2019 00:56:33 -0500
 Subject: [PATCH 482/506] sched: Remove dead __migrate_disabled() check
@@ -40,5 +37,5 @@ index 8d6badac9225..4708129e8df1 100644
  		struct migration_arg arg = { p, dest_cpu };
  		/* Need help from migration thread: drop lock and wait. */
 -- 
-2.17.1
+2.25.3
 

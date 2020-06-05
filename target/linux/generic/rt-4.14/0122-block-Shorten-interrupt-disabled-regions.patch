@@ -1,7 +1,4 @@
-From 2122ed24839dee3c0f36f9eae0813fa86b63a083 Mon Sep 17 00:00:00 2001
-Message-Id: <2122ed24839dee3c0f36f9eae0813fa86b63a083.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From a76f62f9af9112081e40f76fec798e68d50916b4 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 22 Jun 2011 19:47:02 +0200
 Subject: [PATCH 122/506] block: Shorten interrupt disabled regions
@@ -101,5 +98,5 @@ index 4e04c79aa2c2..0a8eedac9469 100644
  
  void blk_finish_plug(struct blk_plug *plug)
 -- 
-2.17.1
+2.25.3
 

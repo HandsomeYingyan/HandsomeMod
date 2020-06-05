@@ -1,7 +1,4 @@
-From 53fca9c06e1c61484e3feafcfc059b151af961b5 Mon Sep 17 00:00:00 2001
-Message-Id: <53fca9c06e1c61484e3feafcfc059b151af961b5.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 25c1ab38508330f3f31228292c0e63ce7d1a1f19 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Thu, 15 Jul 2010 10:29:00 +0200
 Subject: [PATCH 133/506] suspend: Prevent might sleep splats
@@ -114,5 +111,5 @@ index c0bc2c89697a..0d3dab53c527 100644
  	BUG_ON(irqs_disabled());
  
 -- 
-2.17.1
+2.25.3
 

@@ -1,7 +1,4 @@
-From c97ae7827b1f53a67b17dff8825beb0f36d1df1c Mon Sep 17 00:00:00 2001
-Message-Id: <c97ae7827b1f53a67b17dff8825beb0f36d1df1c.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 933f4009c27cf047652cae05db1f1f6fbc98387d Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Tue, 21 Jul 2009 22:34:14 +0200
 Subject: [PATCH 145/506] rt: local_irq_* variants depending on RT/!RT
@@ -58,5 +55,5 @@ index 46cb57d5eb13..7834117a1ef5 100644
 +
  #endif
 -- 
-2.17.1
+2.25.3
 

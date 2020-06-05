@@ -1,7 +1,4 @@
-From a7f7698bc18af7e5ab17b6ed9e52a249d09be40a Mon Sep 17 00:00:00 2001
-Message-Id: <a7f7698bc18af7e5ab17b6ed9e52a249d09be40a.1587150133.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 961636328d39b4a4bb96b751d1ce10a69b7341a1 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 26 Jun 2019 17:44:27 +0200
 Subject: [PATCH 472/506] Revert "futex: workaround migrate_disable/enable in
@@ -71,5 +68,5 @@ index 2f85db3d6cd3..f40427ddaaf3 100644
  
  		/*
 -- 
-2.17.1
+2.25.3
 

@@ -1,7 +1,4 @@
-From 65951f2886676331424a2631e766daa2822a4e9c Mon Sep 17 00:00:00 2001
-Message-Id: <65951f2886676331424a2631e766daa2822a4e9c.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From a97bc84b2669c902cd1d5e10cefdd8d206f57555 Mon Sep 17 00:00:00 2001
 From: Julia Cartwright <julia@ni.com>
 Date: Thu, 26 Apr 2018 15:02:03 -0500
 Subject: [PATCH 416/506] seqlock: provide the same ordering semantics as
@@ -38,5 +35,5 @@ index a59751276b94..107079a2d7ed 100644
  }
  #endif
 -- 
-2.17.1
+2.25.3
 

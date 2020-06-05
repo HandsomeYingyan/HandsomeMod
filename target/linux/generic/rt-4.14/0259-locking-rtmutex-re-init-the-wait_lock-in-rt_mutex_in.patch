@@ -1,7 +1,4 @@
-From 6e4cf24f7686ce488f5a2efdb12ee557abfd844f Mon Sep 17 00:00:00 2001
-Message-Id: <6e4cf24f7686ce488f5a2efdb12ee557abfd844f.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 00970d1fa4aef639b689d0327352189e2f31f950 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 16 Nov 2017 16:48:48 +0100
 Subject: [PATCH 259/506] locking/rtmutex: re-init the wait_lock in
@@ -37,5 +34,5 @@ index b20b81f244fc..0407766b40fd 100644
  	rt_mutex_set_owner(lock, proxy_owner);
  }
 -- 
-2.17.1
+2.25.3
 

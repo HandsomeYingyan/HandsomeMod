@@ -1,7 +1,4 @@
-From ff357969044ddbbc3cdb8471519f49013d88d223 Mon Sep 17 00:00:00 2001
-Message-Id: <ff357969044ddbbc3cdb8471519f49013d88d223.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 0503be06fb5f47d5f79fb79606c12e0cc222e124 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Wed, 28 Mar 2018 15:10:54 -0500
 Subject: [PATCH 119/506] tracing: Don't add flag strings when displaying
@@ -39,5 +36,5 @@ index 4ca105960413..2a12c3ab2a48 100644
  
  		if (flags_str) {
 -- 
-2.17.1
+2.25.3
 

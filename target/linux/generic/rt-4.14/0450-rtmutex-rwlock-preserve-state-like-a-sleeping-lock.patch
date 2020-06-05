@@ -1,7 +1,4 @@
-From a8ef1c00b9f74966ff322eba20237da249d9520e Mon Sep 17 00:00:00 2001
-Message-Id: <a8ef1c00b9f74966ff322eba20237da249d9520e.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 87b85707c611e7505cfccd4d83a69afb29b33c0a Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 11 Jan 2019 21:16:31 +0100
 Subject: [PATCH 450/506] rtmutex/rwlock: preserve state like a sleeping lock
@@ -34,5 +31,5 @@ index f2e155b2c4a8..c3b91205161c 100644
  	/*
  	 * The slowlock() above is guaranteed to return with the rtmutex is
 -- 
-2.17.1
+2.25.3
 

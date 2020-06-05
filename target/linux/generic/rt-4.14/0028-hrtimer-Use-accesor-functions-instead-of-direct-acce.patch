@@ -1,7 +1,4 @@
-From 34572f78704dfb0882ea4c64fd93728e47ab70ca Mon Sep 17 00:00:00 2001
-Message-Id: <34572f78704dfb0882ea4c64fd93728e47ab70ca.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 034c130594f6489ea01dc721dd90a6e178c813ac Mon Sep 17 00:00:00 2001
 From: Anna-Maria Gleixner <anna-maria@linutronix.de>
 Date: Wed, 20 Dec 2017 17:13:03 +0100
 Subject: [PATCH 028/506] hrtimer: Use accesor functions instead of direct
@@ -41,5 +38,5 @@ index 39aadc65b895..4fafcbe663f4 100644
  
  	raw_spin_lock(&base->lock);
 -- 
-2.17.1
+2.25.3
 

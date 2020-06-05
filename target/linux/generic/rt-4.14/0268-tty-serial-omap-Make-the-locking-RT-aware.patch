@@ -1,7 +1,4 @@
-From e3ba9ef12488bbdbe9f2ee303fa260d77be12f93 Mon Sep 17 00:00:00 2001
-Message-Id: <e3ba9ef12488bbdbe9f2ee303fa260d77be12f93.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From ff26f1a42204ed9ca7a73d84a344a37a1dde4688 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Thu, 28 Jul 2011 13:32:57 +0200
 Subject: [PATCH 268/506] tty/serial/omap: Make the locking RT aware
@@ -47,5 +44,5 @@ index 26a22b100df1..69117e355bcd 100644
  
  static int __init
 -- 
-2.17.1
+2.25.3
 

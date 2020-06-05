@@ -1,7 +1,4 @@
-From 8829b844b13b06dfd3cda006b53a57aaa9550f8b Mon Sep 17 00:00:00 2001
-Message-Id: <8829b844b13b06dfd3cda006b53a57aaa9550f8b.1587150133.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 808f3844cc40d4bbad15a3255ec2412d48463ec4 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 26 Jun 2019 11:59:44 +0200
 Subject: [PATCH 473/506] futex: Make the futex_hash_bucket lock raw
@@ -351,5 +348,5 @@ index f40427ddaaf3..65f6b121e8c4 100644
  
  	return 0;
 -- 
-2.17.1
+2.25.3
 

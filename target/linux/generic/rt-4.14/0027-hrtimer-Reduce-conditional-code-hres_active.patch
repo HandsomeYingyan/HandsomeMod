@@ -1,7 +1,4 @@
-From a4a4ae70959c22d253d27165d05a62f2595413ec Mon Sep 17 00:00:00 2001
-Message-Id: <a4a4ae70959c22d253d27165d05a62f2595413ec.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 9c24d98e26e6eae3b1ee0d04c1db024632cdf089 Mon Sep 17 00:00:00 2001
 From: Anna-Maria Gleixner <anna-maria@linutronix.de>
 Date: Wed, 20 Dec 2017 17:13:02 +0100
 Subject: [PATCH 027/506] hrtimer: Reduce conditional code (hres_active)
@@ -156,5 +153,5 @@ index 84c890a7db24..39aadc65b895 100644
  	return 0;
  }
 -- 
-2.17.1
+2.25.3
 

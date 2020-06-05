@@ -1,7 +1,4 @@
-From 5d8607cd8ecb1f0f0c67d2978c7ac4eb686e805d Mon Sep 17 00:00:00 2001
-Message-Id: <5d8607cd8ecb1f0f0c67d2978c7ac4eb686e805d.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 8244cbcefb2ed8cc7ff6bcac55c73156611bf6e7 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:54 -0600
 Subject: [PATCH 097/506] tracing: Pass tracing_map_elt to hist_field accessor
@@ -230,5 +227,5 @@ index c0f5c88f08ce..b3c9f452a520 100644
  				key = (void *)(unsigned long)field_contents;
  				use_compound_key = true;
 -- 
-2.17.1
+2.25.3
 

@@ -1,7 +1,4 @@
-From dc3d58685b13e4388895f191e6c6e39fba601d9d Mon Sep 17 00:00:00 2001
-Message-Id: <dc3d58685b13e4388895f191e6c6e39fba601d9d.1587150133.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From e9ce5e8ee67f2ca6a343b36ab421f7a48d3d6730 Mon Sep 17 00:00:00 2001
 From: Corey Minyard <cminyard@mvista.com>
 Date: Thu, 9 May 2019 14:33:20 -0500
 Subject: [PATCH 463/506] sched/completion: Fix a lockup in
@@ -69,5 +66,5 @@ index 0fe2982e46a0..ac6d5efcd6ff 100644
  			raw_spin_unlock_irq(&x->wait.lock);
  			timeout = action(timeout);
 -- 
-2.17.1
+2.25.3
 

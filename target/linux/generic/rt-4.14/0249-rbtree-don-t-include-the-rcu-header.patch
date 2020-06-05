@@ -1,7 +1,4 @@
-From 59770afd46168915a254b923b9e06a268e1d6002 Mon Sep 17 00:00:00 2001
-Message-Id: <59770afd46168915a254b923b9e06a268e1d6002.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From b56dd3f08d6f04ef394b6826482fecd1ab35b04e Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 3 May 2018 17:46:31 +0200
 Subject: [PATCH 249/506] rbtree: don't include the rcu header
@@ -173,5 +170,5 @@ index 5e6d424d3a54..c69b56bb6869 100644
   * rcu_swap_protected() - swap an RCU and a regular pointer
   * @rcu_ptr: RCU pointer
 -- 
-2.17.1
+2.25.3
 

@@ -1,7 +1,4 @@
-From fc3601fe48f8f7ecab7751b01f15d05b97bccfd1 Mon Sep 17 00:00:00 2001
-Message-Id: <fc3601fe48f8f7ecab7751b01f15d05b97bccfd1.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 710d1a8cc828e124ae4adca2a407e7dc8a2c55c7 Mon Sep 17 00:00:00 2001
 From: Mike Galbraith <umgwanakikbuti@gmail.com>
 Date: Wed, 18 Feb 2015 16:05:28 +0100
 Subject: [PATCH 312/506] sunrpc: Make svc_xprt_do_enqueue() use
@@ -68,5 +65,5 @@ index 7e5f849b44cd..bd0807267791 100644
  	trace_svc_xprt_do_enqueue(xprt, rqstp);
  }
 -- 
-2.17.1
+2.25.3
 

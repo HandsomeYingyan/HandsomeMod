@@ -1,7 +1,4 @@
-From 23db529aad7f0ea872b2b204bebea2fb5b59b103 Mon Sep 17 00:00:00 2001
-Message-Id: <23db529aad7f0ea872b2b204bebea2fb5b59b103.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From f642e271790f995a50d0a30d49668f223df30f88 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 5 Oct 2017 14:38:52 +0200
 Subject: [PATCH 062/506] xen/9pfs: don't inclide rwlock.h directly.
@@ -33,5 +30,5 @@ index ea9f1773abc8..4bebdbfd2eeb 100644
  #include <net/9p/client.h>
  #include <net/9p/transport.h>
 -- 
-2.17.1
+2.25.3
 

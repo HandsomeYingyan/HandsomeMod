@@ -1,7 +1,4 @@
-From 5b13365fcd05149432a59dc73cec553205f1f8ce Mon Sep 17 00:00:00 2001
-Message-Id: <5b13365fcd05149432a59dc73cec553205f1f8ce.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 43adc6f8a7f6c90e9f80e8244be1885d0947c38b Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Thu, 4 Oct 2012 14:20:47 +0100
 Subject: [PATCH 231/506] softirq: Split softirq locks
@@ -181,7 +178,7 @@ index a3b19af35e3d..2983043d2194 100644
  #define in_task()		(!(preempt_count() & \
  				   (NMI_MASK | HARDIRQ_MASK | SOFTIRQ_OFFSET)))
 diff --git a/include/linux/sched.h b/include/linux/sched.h
-index 1f175ab28d64..953cf7c999d6 100644
+index 6742c8d746f0..a785d7c45b8f 100644
 --- a/include/linux/sched.h
 +++ b/include/linux/sched.h
 @@ -1138,6 +1138,8 @@ struct task_struct {
@@ -833,10 +830,10 @@ index 580de4dfd7c8..1f1285b80ed1 100644
  	}
  
 diff --git a/net/core/dev.c b/net/core/dev.c
-index 2e9aabf8c5e0..7374f0f9a353 100644
+index b9c995f23428..6627a038a616 100644
 --- a/net/core/dev.c
 +++ b/net/core/dev.c
-@@ -4110,11 +4110,9 @@ int netif_rx_ni(struct sk_buff *skb)
+@@ -4111,11 +4111,9 @@ int netif_rx_ni(struct sk_buff *skb)
  
  	trace_netif_rx_ni_entry(skb);
  
@@ -851,5 +848,5 @@ index 2e9aabf8c5e0..7374f0f9a353 100644
  	return err;
  }
 -- 
-2.17.1
+2.25.3
 

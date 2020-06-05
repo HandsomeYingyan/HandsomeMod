@@ -1,7 +1,4 @@
-From 285d25ffc667440b43ff7c535c57f178e2b870a0 Mon Sep 17 00:00:00 2001
-Message-Id: <285d25ffc667440b43ff7c535c57f178e2b870a0.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 29f8025f306e10b2bc2b981c281a3587bfe913ed Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 30 May 2017 16:39:01 +0200
 Subject: [PATCH 359/506] char/random: don't print that the init is done
@@ -149,7 +146,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 6 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/char/random.c b/drivers/char/random.c
-index ecba3ec2b1aa..459e222aad28 100644
+index b54aad26a359..e610ec881bec 100644
 --- a/drivers/char/random.c
 +++ b/drivers/char/random.c
 @@ -857,7 +857,7 @@ static int crng_fast_load(const char *cp, size_t len)
@@ -185,5 +182,5 @@ index ecba3ec2b1aa..459e222aad28 100644
  		}
  	}
 -- 
-2.17.1
+2.25.3
 

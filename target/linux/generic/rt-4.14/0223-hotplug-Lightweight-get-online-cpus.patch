@@ -1,7 +1,4 @@
-From f15b76cebaed70b9bb96346a9247f6e5501c8738 Mon Sep 17 00:00:00 2001
-Message-Id: <f15b76cebaed70b9bb96346a9247f6e5501c8738.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 2f77ab1e6a7c6b1a0a2fc602b7a755dd2bf89977 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 15 Jun 2011 12:36:06 +0200
 Subject: [PATCH 223/506] hotplug: Lightweight get online cpus
@@ -45,7 +42,7 @@ index 67e8ba81c35f..580c1b5bee1e 100644
  
  /* Wrappers which go away once all code is converted */
 diff --git a/kernel/cpu.c b/kernel/cpu.c
-index 96c0a868232e..088542eb325e 100644
+index d8c77bfb6e7e..cc3af57d9e4b 100644
 --- a/kernel/cpu.c
 +++ b/kernel/cpu.c
 @@ -288,6 +288,21 @@ static int cpu_hotplug_disabled;
@@ -99,5 +96,5 @@ index 915123f2039e..3abea51a4c22 100644
  }
  EXPORT_SYMBOL(migrate_enable);
 -- 
-2.17.1
+2.25.3
 

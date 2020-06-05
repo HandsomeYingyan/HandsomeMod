@@ -1,7 +1,4 @@
-From 143eb49fd85f34c3c5ba078101d8b4031cb94b1a Mon Sep 17 00:00:00 2001
-Message-Id: <143eb49fd85f34c3c5ba078101d8b4031cb94b1a.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 9fbae2eb5f97123ac4380fdd5f34377f7a176512 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 5 Oct 2017 14:38:52 +0200
 Subject: [PATCH 061/506] greybus: audio: don't inclide rwlock.h directly.
@@ -35,5 +32,5 @@ index ed7c32542cb3..510129cfdc18 100644
  
  #include "audio_manager.h"
 -- 
-2.17.1
+2.25.3
 

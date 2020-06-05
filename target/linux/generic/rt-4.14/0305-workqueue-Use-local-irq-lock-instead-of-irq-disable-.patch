@@ -1,7 +1,4 @@
-From 1acb986713641f3727a73854c641ffae5966dca0 Mon Sep 17 00:00:00 2001
-Message-Id: <1acb986713641f3727a73854c641ffae5966dca0.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From a19cd7268b1f751f8789abd12588b78bdde6a9f4 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Sun, 17 Jul 2011 21:42:26 +0200
 Subject: [PATCH 305/506] workqueue: Use local irq lock instead of irq disable
@@ -164,5 +161,5 @@ index d922f110b3c9..060a1e794d0f 100644
  }
  
 -- 
-2.17.1
+2.25.3
 

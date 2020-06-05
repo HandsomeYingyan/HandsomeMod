@@ -1,7 +1,4 @@
-From 68eb33d2ec4e17ad4984bdd0de64ff9506d3ba0d Mon Sep 17 00:00:00 2001
-Message-Id: <68eb33d2ec4e17ad4984bdd0de64ff9506d3ba0d.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 0713f5b64b7875de9be50277e44620f20be277c6 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:52 -0600
 Subject: [PATCH 095/506] tracing: Add simple expression support to hist
@@ -633,5 +630,5 @@ index e5a29aae5c6f..0894f6c4e072 100644
  
  		if (hist_data->fields[i]->flags & HIST_FIELD_FL_HEX) {
 -- 
-2.17.1
+2.25.3
 

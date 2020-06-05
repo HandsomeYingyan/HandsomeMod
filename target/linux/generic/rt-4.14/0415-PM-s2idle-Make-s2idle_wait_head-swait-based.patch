@@ -1,7 +1,4 @@
-From 6f400bb3cb72d32ce5ae6632601e4142d2c12dac Mon Sep 17 00:00:00 2001
-Message-Id: <6f400bb3cb72d32ce5ae6632601e4142d2c12dac.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 1c8f0cd4506870cc11de3760b7889cb877da4d24 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 25 May 2018 10:05:13 +0200
 Subject: [PATCH 415/506] PM / s2idle: Make s2idle_wait_head swait based
@@ -61,5 +58,5 @@ index 999236413460..b89605fe0e88 100644
  	raw_spin_unlock_irqrestore(&s2idle_lock, flags);
  }
 -- 
-2.17.1
+2.25.3
 

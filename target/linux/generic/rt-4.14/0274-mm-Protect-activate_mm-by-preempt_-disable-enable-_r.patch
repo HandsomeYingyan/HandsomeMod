@@ -1,7 +1,4 @@
-From 4aa0fdb454b8b09f289d04eec9bc8a48f508f88c Mon Sep 17 00:00:00 2001
-Message-Id: <4aa0fdb454b8b09f289d04eec9bc8a48f508f88c.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 3d3c2fa190d011943c01d94b2a463ffd5dce7e15 Mon Sep 17 00:00:00 2001
 From: Yong Zhang <yong.zhang0@gmail.com>
 Date: Tue, 15 May 2012 13:53:56 +0800
 Subject: [PATCH 274/506] mm: Protect activate_mm() by
@@ -40,7 +37,7 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  2 files changed, 4 insertions(+)
 
 diff --git a/fs/exec.c b/fs/exec.c
-index 7def97f6aac2..244c0e0cce7b 100644
+index f687e7d59beb..4ed53cb84ce4 100644
 --- a/fs/exec.c
 +++ b/fs/exec.c
 @@ -1024,12 +1024,14 @@ static int exec_mmap(struct mm_struct *mm)
@@ -79,5 +76,5 @@ index 3e612ae748e9..d0ccc070979f 100644
  #ifdef finish_arch_post_lock_switch
  	finish_arch_post_lock_switch();
 -- 
-2.17.1
+2.25.3
 

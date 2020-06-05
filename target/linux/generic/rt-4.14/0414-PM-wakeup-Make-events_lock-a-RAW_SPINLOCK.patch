@@ -1,7 +1,4 @@
-From 7caf269b879571fb198cfdacc4bf10fc1e2d241d Mon Sep 17 00:00:00 2001
-Message-Id: <7caf269b879571fb198cfdacc4bf10fc1e2d241d.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From b261103d4da37d40542436c24299b84907de1462 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 25 May 2018 09:57:42 +0200
 Subject: [PATCH 414/506] PM / wakeup: Make events_lock a RAW_SPINLOCK
@@ -90,5 +87,5 @@ index 877b2a1767a5..d19f0c3548ac 100644
  }
  
 -- 
-2.17.1
+2.25.3
 

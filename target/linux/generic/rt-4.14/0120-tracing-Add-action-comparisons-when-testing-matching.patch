@@ -1,7 +1,4 @@
-From 91eb4eb2ef58efd893824dbd2121f9762add3900 Mon Sep 17 00:00:00 2001
-Message-Id: <91eb4eb2ef58efd893824dbd2121f9762add3900.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From f785621562b9faebc17e2d225cdbfa422749bf9a Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Wed, 28 Mar 2018 15:10:55 -0500
 Subject: [PATCH 120/506] tracing: Add action comparisons when testing matching
@@ -89,5 +86,5 @@ index 2a12c3ab2a48..d9657b4b3f22 100644
  }
  
 -- 
-2.17.1
+2.25.3
 

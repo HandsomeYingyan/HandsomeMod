@@ -1,7 +1,4 @@
-From 07d387e2cba68e3a6f8f3f581438aa50fda3a98e Mon Sep 17 00:00:00 2001
-Message-Id: <07d387e2cba68e3a6f8f3f581438aa50fda3a98e.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From b1d4955c4b1d91bc4b17fdaf9b9143f24f107c8a Mon Sep 17 00:00:00 2001
 From: "Wolfgang M. Reimer" <linuxball@gmail.com>
 Date: Tue, 21 Jul 2015 16:20:07 +0200
 Subject: [PATCH 244/506] locking: locktorture: Do NOT include rwlock.h
@@ -20,7 +17,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 1 deletion(-)
 
 diff --git a/kernel/locking/locktorture.c b/kernel/locking/locktorture.c
-index 6dca260eeccf..5d01ac590d4c 100644
+index 032868be3259..4e438533b2aa 100644
 --- a/kernel/locking/locktorture.c
 +++ b/kernel/locking/locktorture.c
 @@ -26,7 +26,6 @@
@@ -32,5 +29,5 @@ index 6dca260eeccf..5d01ac590d4c 100644
  #include <linux/rwsem.h>
  #include <linux/smp.h>
 -- 
-2.17.1
+2.25.3
 

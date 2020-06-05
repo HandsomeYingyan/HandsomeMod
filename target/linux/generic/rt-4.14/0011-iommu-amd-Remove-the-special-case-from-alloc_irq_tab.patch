@@ -1,7 +1,4 @@
-From 4e0a91bc3804e59eb5d8ab0208a49c4ff52d1a15 Mon Sep 17 00:00:00 2001
-Message-Id: <4e0a91bc3804e59eb5d8ab0208a49c4ff52d1a15.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 01bf88f630e5a67d53fad88ef6f51a59063a8176 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 22 Mar 2018 16:22:37 +0100
 Subject: [PATCH 011/506] iommu/amd: Remove the special case from
@@ -99,5 +96,5 @@ index b267f404688d..84825004152e 100644
  		index = alloc_irq_index(devid, nr_irqs);
  	}
 -- 
-2.17.1
+2.25.3
 

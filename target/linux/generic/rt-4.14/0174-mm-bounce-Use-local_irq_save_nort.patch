@@ -1,7 +1,4 @@
-From 2dfe0d817834f8c5ce1c125fb8e4065908f64aa3 Mon Sep 17 00:00:00 2001
-Message-Id: <2dfe0d817834f8c5ce1c125fb8e4065908f64aa3.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 3f4f71ffda533033717c24e49a91dbc042e1eb9f Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 9 Jan 2013 10:33:09 +0100
 Subject: [PATCH 174/506] mm: bounce: Use local_irq_save_nort
@@ -32,5 +29,5 @@ index 1d05c422c932..0101ffefddc4 100644
  
  #else /* CONFIG_HIGHMEM */
 -- 
-2.17.1
+2.25.3
 

@@ -1,7 +1,4 @@
-From 9c0794e8e149c37c58066b2c4689dc16c2f09f63 Mon Sep 17 00:00:00 2001
-Message-Id: <9c0794e8e149c37c58066b2c4689dc16c2f09f63.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 22c1ad6e827ca13c6f62de2b61054b966eead9d8 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 29 Jan 2015 17:19:44 +0100
 Subject: [PATCH 156/506] mm/workingset: Do not protect workingset_shadow_nodes
@@ -195,5 +192,5 @@ index b997c9de28f6..e252cc69a3d4 100644
  	return ret;
  }
 -- 
-2.17.1
+2.25.3
 

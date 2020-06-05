@@ -1,7 +1,4 @@
-From aec74ab2c910284d8bad647874f73da9de430a4a Mon Sep 17 00:00:00 2001
-Message-Id: <aec74ab2c910284d8bad647874f73da9de430a4a.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 283740e4768e0789771320a5bf4f617068997338 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 19 Feb 2019 16:59:15 +0100
 Subject: [PATCH 453/506] hrtimer: Don't lose state in cpu_chill()
@@ -49,5 +46,5 @@ index afc7e705ef1b..daa552e4efd9 100644
  EXPORT_SYMBOL(cpu_chill);
  #endif
 -- 
-2.17.1
+2.25.3
 

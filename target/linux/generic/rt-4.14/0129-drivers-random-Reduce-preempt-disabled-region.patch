@@ -1,7 +1,4 @@
-From 95f11a8800f6ece607e84839f1472379c52f837e Mon Sep 17 00:00:00 2001
-Message-Id: <95f11a8800f6ece607e84839f1472379c52f837e.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From cdb770f42284e6773b5b1fca556a006f5a53d62f Mon Sep 17 00:00:00 2001
 From: Ingo Molnar <mingo@elte.hu>
 Date: Fri, 3 Jul 2009 08:29:30 -0500
 Subject: [PATCH 129/506] drivers: random: Reduce preempt disabled region
@@ -15,7 +12,7 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  1 file changed, 3 deletions(-)
 
 diff --git a/drivers/char/random.c b/drivers/char/random.c
-index e6efa07e9f9e..1a25be4d6914 100644
+index 868d2620b7ac..6a13079f5931 100644
 --- a/drivers/char/random.c
 +++ b/drivers/char/random.c
 @@ -1122,8 +1122,6 @@ static void add_timer_randomness(struct timer_rand_state *state, unsigned num)
@@ -36,5 +33,5 @@ index e6efa07e9f9e..1a25be4d6914 100644
  
  void add_input_randomness(unsigned int type, unsigned int code,
 -- 
-2.17.1
+2.25.3
 

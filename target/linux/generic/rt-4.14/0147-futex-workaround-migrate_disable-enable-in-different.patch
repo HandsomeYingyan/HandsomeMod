@@ -1,7 +1,4 @@
-From 9b53d1f6022c80e24b934e9d42eb39da1ca0986c Mon Sep 17 00:00:00 2001
-Message-Id: <9b53d1f6022c80e24b934e9d42eb39da1ca0986c.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 174f0634efbba3a3ce48f78c55e820e676578884 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 8 Mar 2017 14:23:35 +0100
 Subject: [PATCH 147/506] futex: workaround migrate_disable/enable in different
@@ -68,5 +65,5 @@ index 2921ebaa1467..0cf33372e196 100644
  
  		/*
 -- 
-2.17.1
+2.25.3
 

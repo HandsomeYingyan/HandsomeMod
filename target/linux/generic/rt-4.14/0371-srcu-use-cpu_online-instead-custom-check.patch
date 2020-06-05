@@ -1,7 +1,4 @@
-From 36172ff87d80b75ed0b8ade89838e6ead6692a3f Mon Sep 17 00:00:00 2001
-Message-Id: <36172ff87d80b75ed0b8ade89838e6ead6692a3f.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From fa885d6752b8961ad59e09a9d4716cce3c829024 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 13 Sep 2017 14:43:41 +0200
 Subject: [PATCH 371/506] srcu: use cpu_online() instead custom check
@@ -106,5 +103,5 @@ index 74c47a6d60cb..9efab68fc1f2 100644
  }
  
 -- 
-2.17.1
+2.25.3
 

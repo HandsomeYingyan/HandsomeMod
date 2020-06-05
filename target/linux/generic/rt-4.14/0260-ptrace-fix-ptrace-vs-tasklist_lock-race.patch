@@ -1,7 +1,4 @@
-From 3f0fc1baf5aa47afdc6511def08e9fd3c27bfbf8 Mon Sep 17 00:00:00 2001
-Message-Id: <3f0fc1baf5aa47afdc6511def08e9fd3c27bfbf8.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 11cf797ce2f0c98f7d80672417992e6d768ad5b7 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 29 Aug 2013 18:21:04 +0200
 Subject: [PATCH 260/506] ptrace: fix ptrace vs tasklist_lock race
@@ -33,7 +30,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  3 files changed, 68 insertions(+), 7 deletions(-)
 
 diff --git a/include/linux/sched.h b/include/linux/sched.h
-index 99948cf120b7..3a3a986d926f 100644
+index d089dd49e7c5..5eb1f9c1bc93 100644
 --- a/include/linux/sched.h
 +++ b/include/linux/sched.h
 @@ -100,12 +100,8 @@ struct task_group;
@@ -164,5 +161,5 @@ index b9fdc1f03196..48d1dddcfe48 100644
  		task_rq_unlock(rq, p, &rf);
  
 -- 
-2.17.1
+2.25.3
 

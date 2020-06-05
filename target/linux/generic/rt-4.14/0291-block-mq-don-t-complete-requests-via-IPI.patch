@@ -1,7 +1,4 @@
-From bbd2bf97907e74e3ad2ea86a383c2dc3f0f05947 Mon Sep 17 00:00:00 2001
-Message-Id: <bbd2bf97907e74e3ad2ea86a383c2dc3f0f05947.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 85543b545ddca2c88a63b3415657f8015a4360c3 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 29 Jan 2015 15:10:08 +0100
 Subject: [PATCH 291/506] block/mq: don't complete requests via IPI
@@ -32,7 +29,7 @@ index 15c312083579..d4c6ab419d28 100644
  	rq->q = q;
  	rq->__sector = (sector_t) -1;
 diff --git a/block/blk-mq.c b/block/blk-mq.c
-index d6dc746eeab1..a6314b82273e 100644
+index 45001d4220f3..b41bbd3dfdd3 100644
 --- a/block/blk-mq.c
 +++ b/block/blk-mq.c
 @@ -339,6 +339,9 @@ static struct request *blk_mq_rq_ctx_init(struct blk_mq_alloc_data *data,
@@ -117,5 +114,5 @@ index ad940102451c..8b5caf9066c6 100644
  		struct __call_single_data csd;
  		u64 fifo_time;
 -- 
-2.17.1
+2.25.3
 

@@ -1,7 +1,4 @@
-From 4f61f0df9dfe650296160f00f2fa86a5caf6323a Mon Sep 17 00:00:00 2001
-Message-Id: <4f61f0df9dfe650296160f00f2fa86a5caf6323a.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 48e6d8948bbbc6ce6414f73b2a1a8ef10b94ded3 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:51 -0600
 Subject: [PATCH 094/506] tracing: Move get_hist_field_flags()
@@ -82,5 +79,5 @@ index 638717fe069b..e5a29aae5c6f 100644
  {
  	const char *field_name = hist_field_name(hist_field, 0);
 -- 
-2.17.1
+2.25.3
 

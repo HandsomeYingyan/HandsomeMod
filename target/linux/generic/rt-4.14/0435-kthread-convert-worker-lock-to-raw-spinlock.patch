@@ -1,7 +1,4 @@
-From 81684f4d6aaa15eae5b62ed85a32a1a9ba7c05d2 Mon Sep 17 00:00:00 2001
-Message-Id: <81684f4d6aaa15eae5b62ed85a32a1a9ba7c05d2.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 7470f8bd53f4d32c5c0b39551c33ae50a2941c3d Mon Sep 17 00:00:00 2001
 From: Julia Cartwright <julia@ni.com>
 Date: Fri, 28 Sep 2018 21:03:51 +0000
 Subject: [PATCH 435/506] kthread: convert worker lock to raw spinlock
@@ -204,5 +201,5 @@ index 4e6d85b63201..430fd79cd3fe 100644
  	return ret;
  }
 -- 
-2.17.1
+2.25.3
 

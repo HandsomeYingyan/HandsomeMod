@@ -1,7 +1,4 @@
-From f5af84d1c8b7427254780580159000c20f4c0e1d Mon Sep 17 00:00:00 2001
-Message-Id: <f5af84d1c8b7427254780580159000c20f4c0e1d.1587150133.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From a0a4c7105c07dffff3e34b558a66888bc00ca285 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 26 Jun 2019 17:44:21 +0200
 Subject: [PATCH 471/506] Revert "rtmutex: Handle the various new futex race
@@ -256,5 +253,5 @@ index 53ca0242101a..2f6662d052d6 100644
  extern void rt_mutex_init_proxy_locked(struct rt_mutex *lock,
  				       struct task_struct *proxy_owner);
 -- 
-2.17.1
+2.25.3
 

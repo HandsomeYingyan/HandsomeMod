@@ -1,7 +1,4 @@
-From 15a98236cfa130618b0a684dbdfc8a05e5651b02 Mon Sep 17 00:00:00 2001
-Message-Id: <15a98236cfa130618b0a684dbdfc8a05e5651b02.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 088d04de8a8923b25413929e93893a8167d26c44 Mon Sep 17 00:00:00 2001
 From: Mike Galbraith <umgwanakikbuti@gmail.com>
 Date: Tue, 22 Mar 2016 11:16:09 +0100
 Subject: [PATCH 184/506] mm/zsmalloc: copy with get_cpu_var() and locking
@@ -201,5 +198,5 @@ index c6df483b3751..acf16268762d 100644
  	migrate_read_unlock(zspage);
  	unpin_tag(handle);
 -- 
-2.17.1
+2.25.3
 

@@ -1,7 +1,4 @@
-From 770c3c6cf29e99b312a9e75b3b866aa6ada8158b Mon Sep 17 00:00:00 2001
-Message-Id: <770c3c6cf29e99b312a9e75b3b866aa6ada8158b.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From ae2cd7196d93bb11ad4c65034777d9b04d5511f7 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Tue, 14 Jul 2015 14:26:34 +0200
 Subject: [PATCH 331/506] powerpc: Use generic rwsem on RT
@@ -31,5 +28,5 @@ index 277e4ffb928b..d5ca79439868 100644
  config GENERIC_LOCKBREAK
  	bool
 -- 
-2.17.1
+2.25.3
 

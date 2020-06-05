@@ -1,7 +1,4 @@
-From a06d116a878c7faf48643432b24fbd4164520148 Mon Sep 17 00:00:00 2001
-Message-Id: <a06d116a878c7faf48643432b24fbd4164520148.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From ae7ba659f5503a8195b7aa65a03af2e8fdc4ef84 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 9 Feb 2016 18:17:18 +0100
 Subject: [PATCH 232/506] kernel: softirq: unlock with irqs on
@@ -32,5 +29,5 @@ index 92fbc06bce6f..9b56981ccc8d 100644
  }
  
 -- 
-2.17.1
+2.25.3
 

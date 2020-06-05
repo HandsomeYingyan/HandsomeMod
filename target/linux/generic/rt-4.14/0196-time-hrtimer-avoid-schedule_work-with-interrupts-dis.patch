@@ -1,7 +1,4 @@
-From c73fdc3ccc8ace9191bc535713e73f1f290a1cb2 Mon Sep 17 00:00:00 2001
-Message-Id: <c73fdc3ccc8ace9191bc535713e73f1f290a1cb2.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From cfefb49ce10255e1827bb07bb6fdbc78753b3d92 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 15 Nov 2017 17:29:51 +0100
 Subject: [PATCH 196/506] time/hrtimer: avoid schedule_work() with interrupts
@@ -58,5 +55,5 @@ index 311e7d6f45fc..b7247ef0075a 100644
  			    void __user *buffer, size_t *lenp,
  			    loff_t *ppos)
 -- 
-2.17.1
+2.25.3
 

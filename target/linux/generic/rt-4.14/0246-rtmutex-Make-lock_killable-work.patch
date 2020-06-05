@@ -1,7 +1,4 @@
-From 986ef931b8709048847e4a373323cf8171341ef5 Mon Sep 17 00:00:00 2001
-Message-Id: <986ef931b8709048847e4a373323cf8171341ef5.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 7c31d31f71f651a0828176cde2293016331fd7b5 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Sat, 1 Apr 2017 12:50:59 +0200
 Subject: [PATCH 246/506] rtmutex: Make lock_killable work
@@ -49,5 +46,5 @@ index 1a7fdfdfae1b..d870f79a4fce 100644
  
  		raw_spin_unlock_irq(&lock->wait_lock);
 -- 
-2.17.1
+2.25.3
 

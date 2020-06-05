@@ -1,7 +1,4 @@
-From 3bb717b28aab65c5e93abd733c54a8237e85ffdf Mon Sep 17 00:00:00 2001
-Message-Id: <3bb717b28aab65c5e93abd733c54a8237e85ffdf.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 3ee0de572cae0271f9f9a8df1efcf7b07c920e70 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 14 Sep 2016 17:36:35 +0200
 Subject: [PATCH 319/506] net/Qdisc: use a seqlock instead seqcount
@@ -292,5 +289,5 @@ index 1bf76f10f722..0309c52095d8 100644
  	sch->ops = ops;
  	sch->enqueue = ops->enqueue;
 -- 
-2.17.1
+2.25.3
 

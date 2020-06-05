@@ -1,7 +1,4 @@
-From 6371f7e42e90151315bc6719b2d9a9f381852fb6 Mon Sep 17 00:00:00 2001
-Message-Id: <6371f7e42e90151315bc6719b2d9a9f381852fb6.1587150133.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 421d240c9a6425573f2286d05931ccf7406332b4 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 17 May 2019 23:22:34 +0200
 Subject: [PATCH 464/506] locking/lockdep: Don't complain about incorrect name
@@ -35,7 +32,7 @@ Signed-off-by: Tom Zanussi <zanussi@kernel.org>
  1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/kernel/locking/lockdep.c b/kernel/locking/lockdep.c
-index 62a60402e55c..35c025237c35 100644
+index f3733140edc6..e3e13f4810a0 100644
 --- a/kernel/locking/lockdep.c
 +++ b/kernel/locking/lockdep.c
 @@ -719,7 +719,8 @@ look_up_lock_class(struct lockdep_map *lock, unsigned int subclass)
@@ -49,5 +46,5 @@ index 62a60402e55c..35c025237c35 100644
  		}
  	}
 -- 
-2.17.1
+2.25.3
 

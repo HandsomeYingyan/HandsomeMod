@@ -1,7 +1,4 @@
-From a94ce62e50887bdb27ded71a5198f922472af540 Mon Sep 17 00:00:00 2001
-Message-Id: <a94ce62e50887bdb27ded71a5198f922472af540.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 51b91b15fe8edc0d41c5fc3accd49b795f8a72f1 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 3 Jul 2009 08:44:56 -0500
 Subject: [PATCH 128/506] signals: Allow rt tasks to cache one sigqueue struct
@@ -19,7 +16,7 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  5 files changed, 71 insertions(+), 6 deletions(-)
 
 diff --git a/include/linux/sched.h b/include/linux/sched.h
-index a554e738c5b6..df4393b954fe 100644
+index 12eab8e38eab..7e445688c5e7 100644
 --- a/include/linux/sched.h
 +++ b/include/linux/sched.h
 @@ -828,6 +828,8 @@ struct task_struct {
@@ -69,7 +66,7 @@ index e9a7b4c009a0..f31492506f0e 100644
  	p->utime = p->stime = p->gtime = 0;
  #ifdef CONFIG_ARCH_HAS_SCALED_CPUTIME
 diff --git a/kernel/signal.c b/kernel/signal.c
-index 4ac293d32ea9..a562ca0b6db7 100644
+index 8c40b863b299..1e58bd251538 100644
 --- a/kernel/signal.c
 +++ b/kernel/signal.c
 @@ -19,6 +19,7 @@
@@ -213,5 +210,5 @@ index 4ac293d32ea9..a562ca0b6db7 100644
  	if (q)
  		q->flags |= SIGQUEUE_PREALLOC;
 -- 
-2.17.1
+2.25.3
 

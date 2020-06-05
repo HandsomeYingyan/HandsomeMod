@@ -1,7 +1,4 @@
-From 710a8debb96561a60e980999e34076538832072f Mon Sep 17 00:00:00 2001
-Message-Id: <710a8debb96561a60e980999e34076538832072f.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 2486b229129260061511267c4474236d26b42983 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 19 Feb 2019 16:49:29 +0100
 Subject: [PATCH 452/506] softirq: Avoid "local_softirq_pending" messages if
@@ -42,5 +39,5 @@ index be752eadfc68..e42ee95fccda 100644
  		*pending &= ~(tsk->softirqs_raised);
  		ret = true;
 -- 
-2.17.1
+2.25.3
 

@@ -1,7 +1,4 @@
-From e06b55772569a316d231a45f07c999dbb45b91f2 Mon Sep 17 00:00:00 2001
-Message-Id: <e06b55772569a316d231a45f07c999dbb45b91f2.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 7d971753310480461cfc107ea0932dce7318b61f Mon Sep 17 00:00:00 2001
 From: Mikulas Patocka <mpatocka@redhat.com>
 Date: Mon, 13 Nov 2017 12:56:53 -0500
 Subject: [PATCH 258/506] locking/rt-mutex: fix deadlock in device mapper /
@@ -79,5 +76,5 @@ index b10e0711fa89..b20b81f244fc 100644
  }
  
 -- 
-2.17.1
+2.25.3
 

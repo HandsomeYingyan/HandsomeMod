@@ -1,7 +1,4 @@
-From a8a27c0cefd2cc1eb0f464c3b60624c83ac958a3 Mon Sep 17 00:00:00 2001
-Message-Id: <a8a27c0cefd2cc1eb0f464c3b60624c83ac958a3.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 020a1bfef8238927db313e3659e8a14459b2dc44 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 28 Mar 2018 10:45:40 +0200
 Subject: [PATCH 201/506] posix-timers: user proper timer while waiting for
@@ -74,5 +71,5 @@ index 2ec6ddf750ab..bc5c197e1d68 100644
  {
  	return hrtimer_try_to_cancel(&timr->it.real.timer);
 -- 
-2.17.1
+2.25.3
 

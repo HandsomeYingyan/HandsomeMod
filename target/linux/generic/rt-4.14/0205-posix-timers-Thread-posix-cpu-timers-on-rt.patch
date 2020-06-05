@@ -1,7 +1,4 @@
-From 2e03cb7900a5999ef6262d1220b3a3635efd7204 Mon Sep 17 00:00:00 2001
-Message-Id: <2e03cb7900a5999ef6262d1220b3a3635efd7204.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From e49f19f4027a17a8865c56d7f6fa2f115982e879 Mon Sep 17 00:00:00 2001
 From: John Stultz <johnstul@us.ibm.com>
 Date: Fri, 3 Jul 2009 08:29:58 -0500
 Subject: [PATCH 205/506] posix-timers: Thread posix-cpu-timers on -rt
@@ -46,7 +43,7 @@ index 53ee20e0b168..ee3ff961b84c 100644
  		[PIDTYPE_PID]  = INIT_PID_LINK(PIDTYPE_PID),		\
  		[PIDTYPE_PGID] = INIT_PID_LINK(PIDTYPE_PGID),		\
 diff --git a/include/linux/sched.h b/include/linux/sched.h
-index b65a9c017fb9..0aae40678490 100644
+index c1c029a773ca..f576421c56a4 100644
 --- a/include/linux/sched.h
 +++ b/include/linux/sched.h
 @@ -785,6 +785,9 @@ struct task_struct {
@@ -284,5 +281,5 @@ index 6e8c230ca877..6f4554fb9832 100644
   * Set one of the process-wide special case CPU timers or RLIMIT_CPU.
   * The tsk->sighand->siglock must be held by the caller.
 -- 
-2.17.1
+2.25.3
 

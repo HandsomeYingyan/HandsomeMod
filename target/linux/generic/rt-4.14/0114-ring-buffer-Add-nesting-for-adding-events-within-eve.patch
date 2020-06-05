@@ -1,7 +1,4 @@
-From c9d87327b4b83ed5b717972e3edee360f4e0278f Mon Sep 17 00:00:00 2001
-Message-Id: <c9d87327b4b83ed5b717972e3edee360f4e0278f.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 8646538ce59a05a26db3b60f32c598d78e8ba84f Mon Sep 17 00:00:00 2001
 From: "Steven Rostedt (VMware)" <rostedt@goodmis.org>
 Date: Wed, 7 Feb 2018 17:26:32 -0500
 Subject: [PATCH 114/506] ring-buffer: Add nesting for adding events within
@@ -126,5 +123,5 @@ index 608d73e77e9b..1724006bd2e3 100644
  
  /**
 -- 
-2.17.1
+2.25.3
 

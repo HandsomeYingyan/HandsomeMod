@@ -1,7 +1,4 @@
-From 3f5bf8eef6c69ce65c73c3a6ba5b3d4425075159 Mon Sep 17 00:00:00 2001
-Message-Id: <3f5bf8eef6c69ce65c73c3a6ba5b3d4425075159.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 7172420472298735fd755090acf3f5752dc819fd Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 9 Apr 2015 15:23:01 +0200
 Subject: [PATCH 386/506] cpufreq: drop K8's driver from beeing selected
@@ -37,5 +34,5 @@ index 35f71825b7f3..bb4a6160d0f7 100644
  	  This adds the CPUFreq driver for K8/early Opteron/Athlon64 processors.
  	  Support for K10 and newer processors is now in acpi-cpufreq.
 -- 
-2.17.1
+2.25.3
 

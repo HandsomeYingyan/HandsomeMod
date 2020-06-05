@@ -1,7 +1,4 @@
-From 4288cc905903d3186f20721f7ae0c862b34254a1 Mon Sep 17 00:00:00 2001
-Message-Id: <4288cc905903d3186f20721f7ae0c862b34254a1.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 5520a67d779cb0251a5b0e31db21ddf1db0fc814 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 19 Mar 2013 14:44:30 +0100
 Subject: [PATCH 066/506] kernel/SRCU: provide a static initializer
@@ -164,5 +161,5 @@ index a949f4f9e4d7..85ae8c0dddb4 100644
  #define DEFINE_STATIC_SRCU(name)	__DEFINE_SRCU(name, static)
  
 -- 
-2.17.1
+2.25.3
 

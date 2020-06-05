@@ -1,7 +1,4 @@
-From ebe9391023cc0cdccfa416341a2c4349235d32f1 Mon Sep 17 00:00:00 2001
-Message-Id: <ebe9391023cc0cdccfa416341a2c4349235d32f1.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 92fa0014f0fdac52832c0e300f2da5e3ef904e94 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 20 Oct 2017 11:29:53 +0200
 Subject: [PATCH 280/506] fs/dcache: disable preemption on i_dir_seq's write
@@ -97,5 +94,5 @@ index a94642fcf93b..a40059de1d8d 100644
  
  	__u32			i_generation;
 -- 
-2.17.1
+2.25.3
 

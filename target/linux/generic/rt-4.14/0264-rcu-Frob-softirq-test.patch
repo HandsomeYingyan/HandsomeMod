@@ -1,7 +1,4 @@
-From 5fd13304b4528a7b731ba926788a401351778ef3 Mon Sep 17 00:00:00 2001
-Message-Id: <5fd13304b4528a7b731ba926788a401351778ef3.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 138328c41f2fa0d65f3f6dd4877e43f3094c95aa Mon Sep 17 00:00:00 2001
 From: Peter Zijlstra <a.p.zijlstra@chello.nl>
 Date: Sat, 13 Aug 2011 00:23:17 +0200
 Subject: [PATCH 264/506] rcu: Frob softirq test
@@ -171,5 +168,5 @@ index 18b98ae934a2..157593d080c5 100644
  				       "rcu_read_unlock() from irq or softirq with blocking in critical section!!!\n");
  		pr_alert("->rcu_read_unlock_special: %#x (b: %d, enq: %d nq: %d)\n",
 -- 
-2.17.1
+2.25.3
 

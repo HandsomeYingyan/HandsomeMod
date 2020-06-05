@@ -1,7 +1,4 @@
-From 486246a54f48896e60072286f638e91fc0d66c7e Mon Sep 17 00:00:00 2001
-Message-Id: <486246a54f48896e60072286f638e91fc0d66c7e.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 5bedef96fd74bcb6a3a4df93ed9e1dd97e8a909c Mon Sep 17 00:00:00 2001
 From: Alexandre Belloni <alexandre.belloni@free-electrons.com>
 Date: Thu, 17 Mar 2016 21:09:43 +0100
 Subject: [PATCH 131/506] clockevents/drivers/timer-atmel-pit: fix double
@@ -51,5 +48,5 @@ index 68c530354512..98460c1bdec0 100644
  	data->cnt += data->cycle * PIT_PICNT(pit_read(data->base, AT91_PIT_PIVR));
  	pit_write(data->base, AT91_PIT_MR,
 -- 
-2.17.1
+2.25.3
 

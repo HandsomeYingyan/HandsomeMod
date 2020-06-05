@@ -1,7 +1,4 @@
-From a8a55a492b9d4b316d67c0fe5cac20037106d015 Mon Sep 17 00:00:00 2001
-Message-Id: <a8a55a492b9d4b316d67c0fe5cac20037106d015.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From f5b0ba80ef4f6892dff4a46d5b69d21ee881c1d9 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Mon, 14 Nov 2011 23:06:09 +0100
 Subject: [PATCH 354/506] dm: Make rt aware
@@ -31,5 +28,5 @@ index eadfcfd106ff..8824aeda85cf 100644
  }
  
 -- 
-2.17.1
+2.25.3
 

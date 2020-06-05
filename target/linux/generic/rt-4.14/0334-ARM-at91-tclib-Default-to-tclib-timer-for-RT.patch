@@ -1,7 +1,4 @@
-From 5f68ce43588e2f7d9a710abe282a1c78a45b89a3 Mon Sep 17 00:00:00 2001
-Message-Id: <5f68ce43588e2f7d9a710abe282a1c78a45b89a3.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 6aabbc439f9cf19b1a04edfdb569fe3d0beaf752 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Sat, 1 May 2010 18:29:35 +0200
 Subject: [PATCH 334/506] ARM: at91: tclib: Default to tclib timer for RT
@@ -36,5 +33,5 @@ index d2feb491e689..86e83b9629d7 100644
  	  Select this to use 32 KiHz base clock rate as TC block clock
  	  source for clock events.
 -- 
-2.17.1
+2.25.3
 

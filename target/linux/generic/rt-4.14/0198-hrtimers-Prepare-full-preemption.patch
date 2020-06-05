@@ -1,7 +1,4 @@
-From eef217dbaee30cb5f623a129274509e4ad0e8e16 Mon Sep 17 00:00:00 2001
-Message-Id: <eef217dbaee30cb5f623a129274509e4ad0e8e16.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 5bc1ab2f928886c9915132d653d565db35abe5e4 Mon Sep 17 00:00:00 2001
 From: Ingo Molnar <mingo@elte.hu>
 Date: Fri, 3 Jul 2009 08:29:34 -0500
 Subject: [PATCH 198/506] hrtimers: Prepare full preemption
@@ -222,5 +219,5 @@ index 4116224b0334..2ec6ddf750ab 100644
  	}
  	list_del(&timer->list);
 -- 
-2.17.1
+2.25.3
 

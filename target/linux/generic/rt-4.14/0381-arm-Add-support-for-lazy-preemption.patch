@@ -1,7 +1,4 @@
-From ea11c1168af962dfb30627bcae039c13a3ba1e65 Mon Sep 17 00:00:00 2001
-Message-Id: <ea11c1168af962dfb30627bcae039c13a3ba1e65.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 1842cf5e34e95abb954a2fb04c790edb545df33e Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 31 Oct 2012 12:04:11 +0100
 Subject: [PATCH 381/506] arm: Add support for lazy preemption
@@ -86,7 +83,7 @@ diff --git a/arch/arm/kernel/entry-armv.S b/arch/arm/kernel/entry-armv.S
 index fbc707626b3e..b434c59d2b64 100644
 --- a/arch/arm/kernel/entry-armv.S
 +++ b/arch/arm/kernel/entry-armv.S
-@@ -220,11 +220,18 @@ __irq_svc:
+@@ -220,11 +220,18 @@ ENDPROC(__dabt_svc)
  
  #ifdef CONFIG_PREEMPT
  	ldr	r8, [tsk, #TI_PREEMPT]		@ get preempt count
@@ -107,7 +104,7 @@ index fbc707626b3e..b434c59d2b64 100644
  #endif
  
  	svc_exit r5, irq = 1			@ return from exception
-@@ -239,8 +246,14 @@ svc_preempt:
+@@ -239,8 +246,14 @@ ENDPROC(__irq_svc)
  1:	bl	preempt_schedule_irq		@ irq en/disable is done inside
  	ldr	r0, [tsk, #TI_FLAGS]		@ get new tasks TI_FLAGS
  	tst	r0, #_TIF_NEED_RESCHED
@@ -127,7 +124,7 @@ diff --git a/arch/arm/kernel/entry-common.S b/arch/arm/kernel/entry-common.S
 index 08a7132f5600..94e631fb88e1 100644
 --- a/arch/arm/kernel/entry-common.S
 +++ b/arch/arm/kernel/entry-common.S
-@@ -54,7 +54,9 @@ __ret_fast_syscall:
+@@ -54,7 +54,9 @@ saved_pc	.req	lr
  	cmp	r2, #TASK_SIZE
  	blne	addr_limit_check_failed
  	ldr	r1, [tsk, #TI_FLAGS]		@ re-check for syscall tracing
@@ -138,7 +135,7 @@ index 08a7132f5600..94e631fb88e1 100644
  	bne	fast_work_pending
  
  
-@@ -85,8 +87,11 @@ __ret_fast_syscall:
+@@ -85,8 +87,11 @@ ENDPROC(ret_fast_syscall)
  	cmp	r2, #TASK_SIZE
  	blne	addr_limit_check_failed
  	ldr	r1, [tsk, #TI_FLAGS]		@ re-check for syscall tracing
@@ -166,5 +163,5 @@ index 02e6b6dfffa7..b78b41f26313 100644
  		} else {
  			if (unlikely(!user_mode(regs)))
 -- 
-2.17.1
+2.25.3
 

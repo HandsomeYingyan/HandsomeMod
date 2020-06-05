@@ -1,7 +1,4 @@
-From 367e0a09945cde200fe871ec1f44a21802722ae1 Mon Sep 17 00:00:00 2001
-Message-Id: <367e0a09945cde200fe871ec1f44a21802722ae1.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From b9e07a814e2c47fa947d63b0c37edda324237f1e Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Sat, 27 Feb 2016 10:22:23 +0100
 Subject: [PATCH 144/506] iommu/amd: Use WARN_ON_NORT in __attach_device()
@@ -51,5 +48,5 @@ index 75eafeb26e0d..4ad24413490a 100644
  	if (WARN_ON(!dev_data->domain))
  		return;
 -- 
-2.17.1
+2.25.3
 

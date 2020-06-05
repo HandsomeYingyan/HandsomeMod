@@ -1,7 +1,4 @@
-From baa93840b5315899c678227fcc4583cdbe99af79 Mon Sep 17 00:00:00 2001
-Message-Id: <baa93840b5315899c678227fcc4583cdbe99af79.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 6eaf95fe51173d5d34b1c7ea457386fe7239c426 Mon Sep 17 00:00:00 2001
 From: Christoffer Dall <christoffer.dall@linaro.org>
 Date: Fri, 8 Sep 2017 07:07:13 -0700
 Subject: [PATCH 004/506] KVM: arm/arm64: Remove redundant preemptible checks
@@ -43,5 +40,5 @@ index 09ef6260477e..acd1050605e3 100644
  }
  
 -- 
-2.17.1
+2.25.3
 

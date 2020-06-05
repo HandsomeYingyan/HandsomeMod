@@ -1,7 +1,4 @@
-From a2ac73b0606212c2fb61d1d81f7d0c10102b2e73 Mon Sep 17 00:00:00 2001
-Message-Id: <a2ac73b0606212c2fb61d1d81f7d0c10102b2e73.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 7f4832c7275d8ef99ef9c2a9402eb59929480f3b Mon Sep 17 00:00:00 2001
 From: Scott Wood <swood@redhat.com>
 Date: Sun, 21 Jan 2018 03:28:54 -0600
 Subject: [PATCH 005/506] iommu/amd: Use raw locks on atomic context paths
@@ -157,7 +154,7 @@ index 4d2920988d60..f801452bd0b0 100644
  	/* Add IOMMU to internal data structures */
  	list_add_tail(&iommu->list, &amd_iommu_list);
 diff --git a/drivers/iommu/amd_iommu_types.h b/drivers/iommu/amd_iommu_types.h
-index 3054c0971759..aadd3c6f0120 100644
+index 74c8638aac2b..ebe2b8faa40b 100644
 --- a/drivers/iommu/amd_iommu_types.h
 +++ b/drivers/iommu/amd_iommu_types.h
 @@ -408,7 +408,7 @@ extern bool amd_iommu_iotlb_sup;
@@ -179,5 +176,5 @@ index 3054c0971759..aadd3c6f0120 100644
  	/* Pointer to PCI device of this IOMMU */
  	struct pci_dev *dev;
 -- 
-2.17.1
+2.25.3
 

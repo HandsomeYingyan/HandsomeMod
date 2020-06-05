@@ -1,7 +1,4 @@
-From 7807d32e82d491b81755bba8897595541bf03195 Mon Sep 17 00:00:00 2001
-Message-Id: <7807d32e82d491b81755bba8897595541bf03195.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From d682beca344710eeaaffbb9de9b4613939e8a32d Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Fri, 22 Sep 2017 14:58:22 -0500
 Subject: [PATCH 076/506] tracing: Add hist_field_name() accessor
@@ -183,5 +180,5 @@ index b91d5013dd87..3ee411b631e9 100644
  		const char *flags_str = get_hist_field_flags(hist_field);
  
 -- 
-2.17.1
+2.25.3
 

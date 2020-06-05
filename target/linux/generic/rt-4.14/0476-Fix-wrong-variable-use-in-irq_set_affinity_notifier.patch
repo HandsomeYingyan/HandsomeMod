@@ -1,7 +1,4 @@
-From 2f7caf97f1f014a5a2b28f102d71e24723bfa1de Mon Sep 17 00:00:00 2001
-Message-Id: <2f7caf97f1f014a5a2b28f102d71e24723bfa1de.1587150133.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From b004a24e6ff12bc6a6686146087884dafd51cd90 Mon Sep 17 00:00:00 2001
 From: Joe Korty <joe.korty@concurrent-rt.com>
 Date: Tue, 11 Feb 2020 09:00:07 -0500
 Subject: [PATCH 476/506] Fix wrong-variable use in irq_set_affinity_notifier
@@ -77,5 +74,5 @@ index 5557de474f32..08fed3b462aa 100644
  		if (cancel_work_sync(&old_notify->work)) {
  #endif
 -- 
-2.17.1
+2.25.3
 

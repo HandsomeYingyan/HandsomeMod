@@ -1,7 +1,4 @@
-From 4264b92ffa0645051d81011cb589e7a027a35276 Mon Sep 17 00:00:00 2001
-Message-Id: <4264b92ffa0645051d81011cb589e7a027a35276.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 9bafd6fad2ba27d814a0e351944104966eaaaf0d Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:56 -0600
 Subject: [PATCH 099/506] tracing: Add variable reference handling to hist
@@ -949,7 +946,7 @@ index c03da55ec8ae..45a50081c819 100644
  
  	destroy_hist_data(hist_data);
 diff --git a/kernel/trace/trace_events_trigger.c b/kernel/trace/trace_events_trigger.c
-index 139a7aedead3..e6428554f060 100644
+index 810960a7bdbe..a2e7804d3fa4 100644
 --- a/kernel/trace/trace_events_trigger.c
 +++ b/kernel/trace/trace_events_trigger.c
 @@ -918,6 +918,12 @@ void set_named_trigger_data(struct event_trigger_data *data,
@@ -966,5 +963,5 @@ index 139a7aedead3..e6428554f060 100644
  traceon_trigger(struct event_trigger_data *data, void *rec,
  		struct ring_buffer_event *event)
 -- 
-2.17.1
+2.25.3
 

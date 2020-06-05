@@ -1,7 +1,4 @@
-From e96b616a8f834002e20a6d91aeff28f44caefbb9 Mon Sep 17 00:00:00 2001
-Message-Id: <e96b616a8f834002e20a6d91aeff28f44caefbb9.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From a54c5b252f65c18d49637914a59cb89fa30dfa8e Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Mon, 21 Aug 2017 15:09:13 +0200
 Subject: [PATCH 321/506] net: take the tcp_sk_lock lock with BH disabled
@@ -72,5 +69,5 @@ index 6c0f0116793b..201a06e96bf1 100644
  
  static void tcp_v4_timewait_ack(struct sock *sk, struct sk_buff *skb)
 -- 
-2.17.1
+2.25.3
 

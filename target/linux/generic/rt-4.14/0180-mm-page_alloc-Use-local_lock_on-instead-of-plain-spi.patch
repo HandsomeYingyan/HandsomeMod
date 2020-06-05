@@ -1,7 +1,4 @@
-From 322cf5e8e9a4fb02aee9b8af46d800ed8fd1aad0 Mon Sep 17 00:00:00 2001
-Message-Id: <322cf5e8e9a4fb02aee9b8af46d800ed8fd1aad0.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From face26b939c255c87c3af6d935546de89ba0385f Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Thu, 27 Sep 2012 11:11:46 +0200
 Subject: [PATCH 180/506] mm: page_alloc: Use local_lock_on() instead of plain
@@ -16,7 +13,7 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/mm/page_alloc.c b/mm/page_alloc.c
-index 1d54b33c8897..866a218505e4 100644
+index a2ba4b07bcd7..cdd782b81e43 100644
 --- a/mm/page_alloc.c
 +++ b/mm/page_alloc.c
 @@ -291,9 +291,9 @@ static DEFINE_LOCAL_IRQ_LOCK(pa_lock);
@@ -32,5 +29,5 @@ index 1d54b33c8897..866a218505e4 100644
  # define cpu_lock_irqsave(cpu, flags)		local_irq_save(flags)
  # define cpu_unlock_irqrestore(cpu, flags)	local_irq_restore(flags)
 -- 
-2.17.1
+2.25.3
 

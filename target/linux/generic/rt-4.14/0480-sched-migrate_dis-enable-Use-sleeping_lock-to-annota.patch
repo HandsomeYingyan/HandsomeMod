@@ -1,7 +1,4 @@
-From c73d89d9165bad08f82199c4835eda90c8def2e5 Mon Sep 17 00:00:00 2001
-Message-Id: <c73d89d9165bad08f82199c4835eda90c8def2e5.1587150133.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From d2a956967b0e86787d4123f3f3f666851db0f5e3 Mon Sep 17 00:00:00 2001
 From: Scott Wood <swood@redhat.com>
 Date: Tue, 24 Sep 2019 14:36:41 +0200
 Subject: [PATCH 480/506] =?UTF-8?q?sched:=20migrate=5Fdis/enable:=20Use=20?=
@@ -30,7 +27,7 @@ Signed-off-by: Tom Zanussi <zanussi@kernel.org>
  2 files changed, 5 insertions(+)
 
 diff --git a/kernel/cpu.c b/kernel/cpu.c
-index 826074c0e964..d9e9f9d6909d 100644
+index e4ad36653ca0..de221ddfa4b7 100644
 --- a/kernel/cpu.c
 +++ b/kernel/cpu.c
 @@ -314,7 +314,9 @@ void pin_current_cpu(void)
@@ -59,5 +56,5 @@ index fde47216af94..fcff75934bdc 100644
  
  			return;
 -- 
-2.17.1
+2.25.3
 

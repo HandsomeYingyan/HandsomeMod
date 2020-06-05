@@ -1,7 +1,4 @@
-From 06ad41778d79d3f3f7aea4e7aeed3eb75b0930aa Mon Sep 17 00:00:00 2001
-Message-Id: <06ad41778d79d3f3f7aea4e7aeed3eb75b0930aa.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 1006eaec41ce5fac0bc37f9084d7e59243f84921 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 22 Mar 2018 16:22:39 +0100
 Subject: [PATCH 013/506] iommu/amd: Factor out setting the remap table for a
@@ -71,5 +68,5 @@ index 3319f7b6868f..d252eb66f5e0 100644
  out:
  	iommu_completion_wait(iommu);
 -- 
-2.17.1
+2.25.3
 

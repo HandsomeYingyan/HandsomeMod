@@ -1,7 +1,4 @@
-From 0b9f4250958dfe426b088851fc5151a216c34651 Mon Sep 17 00:00:00 2001
-Message-Id: <0b9f4250958dfe426b088851fc5151a216c34651.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From a31b47efefd1be01fd3c910d9c988d898fc6ca40 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 27 Mar 2018 15:58:16 +0200
 Subject: [PATCH 200/506] alarmtimer: Prevent live lock in alarm_cancel()
@@ -31,5 +28,5 @@ index 9eece67f29f3..a465564367ec 100644
  }
  EXPORT_SYMBOL_GPL(alarm_cancel);
 -- 
-2.17.1
+2.25.3
 

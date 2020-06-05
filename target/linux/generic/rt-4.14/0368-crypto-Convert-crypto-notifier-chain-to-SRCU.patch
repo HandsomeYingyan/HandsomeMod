@@ -1,7 +1,4 @@
-From 3f12b4063fe9bdc8771453a2eced663d30b3c042 Mon Sep 17 00:00:00 2001
-Message-Id: <3f12b4063fe9bdc8771453a2eced663d30b3c042.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From f5c5bd2a9608d40be87716729de7c12f210e9057 Mon Sep 17 00:00:00 2001
 From: Peter Zijlstra <peterz@infradead.org>
 Date: Fri, 5 Oct 2012 09:03:24 +0100
 Subject: [PATCH 368/506] crypto: Convert crypto notifier chain to SRCU
@@ -191,5 +188,5 @@ index 6262ec0435b4..e480c949b48f 100644
  
  #endif	/* _CRYPTO_INTERNAL_H */
 -- 
-2.17.1
+2.25.3
 

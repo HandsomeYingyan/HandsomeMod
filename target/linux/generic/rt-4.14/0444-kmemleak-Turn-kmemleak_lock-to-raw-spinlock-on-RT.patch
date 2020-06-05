@@ -1,7 +1,4 @@
-From b17dfb361a4cc92c1fafd6c627b2ca3a27b75b39 Mon Sep 17 00:00:00 2001
-Message-Id: <b17dfb361a4cc92c1fafd6c627b2ca3a27b75b39.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 1f675f0b5c3c2f24b155cb08755c821a9997c946 Mon Sep 17 00:00:00 2001
 From: He Zhe <zhe.he@windriver.com>
 Date: Wed, 19 Dec 2018 16:30:57 +0100
 Subject: [PATCH 444/506] kmemleak: Turn kmemleak_lock to raw spinlock on RT
@@ -170,5 +167,5 @@ index d779181bed4d..c18e23619f95 100644
  
  /*
 -- 
-2.17.1
+2.25.3
 

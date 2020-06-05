@@ -1,7 +1,4 @@
-From ad2abe4a37a2c7a6c26199efa0f49999d23072dc Mon Sep 17 00:00:00 2001
-Message-Id: <ad2abe4a37a2c7a6c26199efa0f49999d23072dc.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 6dcf0a16eec11d84a91b2aa4ff1fd9d6868b498c Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Sat, 25 Jun 2011 09:21:04 +0200
 Subject: [PATCH 210/506] sched: Add saved_state for tasks blocked on sleeping
@@ -21,7 +18,7 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  3 files changed, 34 insertions(+), 1 deletion(-)
 
 diff --git a/include/linux/sched.h b/include/linux/sched.h
-index e5164abe3c1a..951d76ddd8c5 100644
+index 6a8610f59f81..db6e27c6af1b 100644
 --- a/include/linux/sched.h
 +++ b/include/linux/sched.h
 @@ -566,6 +566,8 @@ struct task_struct {
@@ -92,10 +89,10 @@ index c9d7a178ece3..7727ba73f71c 100644
  {
  	return try_to_wake_up(p, state, 0);
 diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
-index 268f560ec998..8e7d72869053 100644
+index 391d73a12ad7..59d611849f32 100644
 --- a/kernel/sched/sched.h
 +++ b/kernel/sched/sched.h
-@@ -1352,6 +1352,7 @@ static inline void finish_lock_switch(struct rq *rq, struct task_struct *prev)
+@@ -1358,6 +1358,7 @@ static inline void finish_lock_switch(struct rq *rq, struct task_struct *prev)
  #define WF_SYNC		0x01		/* waker goes to sleep after wakeup */
  #define WF_FORK		0x02		/* child wakeup after fork */
  #define WF_MIGRATED	0x4		/* internal use, task got migrated */
@@ -104,5 +101,5 @@ index 268f560ec998..8e7d72869053 100644
  /*
   * To aid in avoiding the subversion of "niceness" due to uneven distribution
 -- 
-2.17.1
+2.25.3
 

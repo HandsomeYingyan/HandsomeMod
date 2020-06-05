@@ -1,7 +1,4 @@
-From 8a0c434813a357f4f1f74c8cd31b3bcce793ae65 Mon Sep 17 00:00:00 2001
-Message-Id: <8a0c434813a357f4f1f74c8cd31b3bcce793ae65.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 85f3e3a5874c97f1a2200225c328aeb72133ab63 Mon Sep 17 00:00:00 2001
 From: Steven Rostedt <rostedt@goodmis.org>
 Date: Fri, 3 Jul 2009 08:30:00 -0500
 Subject: [PATCH 167/506] drivers/net: vortex fix locking issues
@@ -56,5 +53,5 @@ index 402d9090ad29..9bc02563b853 100644
  	}
  
 -- 
-2.17.1
+2.25.3
 

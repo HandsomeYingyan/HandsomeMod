@@ -1,7 +1,4 @@
-From 2754122e128820a59afb358065773048e7fad226 Mon Sep 17 00:00:00 2001
-Message-Id: <2754122e128820a59afb358065773048e7fad226.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From b8606058681f1caffdc50475af2b0ab9f74a79b9 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 13 Jan 2016 15:55:02 +0100
 Subject: [PATCH 315/506] net: move xmit_recursion to per-task variable on -RT
@@ -85,7 +82,7 @@ index 9a8a1d742246..72ae40b8a95f 100644
  struct net_device *__dev_get_by_index(struct net *net, int ifindex);
  struct net_device *dev_get_by_index_rcu(struct net *net, int ifindex);
 diff --git a/include/linux/sched.h b/include/linux/sched.h
-index 65b5544d3212..cd5be2f65364 100644
+index 00c915b9aafd..f29b3b2350a9 100644
 --- a/include/linux/sched.h
 +++ b/include/linux/sched.h
 @@ -1157,6 +1157,9 @@ struct task_struct {
@@ -99,7 +96,7 @@ index 65b5544d3212..cd5be2f65364 100644
  	int				pagefault_disabled;
  #ifdef CONFIG_MMU
 diff --git a/net/core/dev.c b/net/core/dev.c
-index eeff2a601285..42d86065e62e 100644
+index af200e26de0d..5b64c925b6f3 100644
 --- a/net/core/dev.c
 +++ b/net/core/dev.c
 @@ -3270,8 +3270,10 @@ static void skb_update_prio(struct sk_buff *skb)
@@ -161,5 +158,5 @@ index a3646230fbee..5027f35cf188 100644
  	return ret;
  }
 -- 
-2.17.1
+2.25.3
 

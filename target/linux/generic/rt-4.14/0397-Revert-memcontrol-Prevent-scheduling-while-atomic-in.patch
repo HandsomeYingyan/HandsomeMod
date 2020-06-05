@@ -1,7 +1,4 @@
-From f6181d5807dcf641b4568586565c73a7542a6a81 Mon Sep 17 00:00:00 2001
-Message-Id: <f6181d5807dcf641b4568586565c73a7542a6a81.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From e27b187f33369c8ff525f3c9564c0430194274a6 Mon Sep 17 00:00:00 2001
 From: "Steven Rostedt (VMware)" <rostedt@goodmis.org>
 Date: Wed, 22 Nov 2017 07:31:19 -0500
 Subject: [PATCH 397/506] Revert "memcontrol: Prevent scheduling while atomic
@@ -105,5 +102,5 @@ index a944099032f2..459d8758bcbb 100644
  
  /*
 -- 
-2.17.1
+2.25.3
 

@@ -1,7 +1,4 @@
-From ab8a479863674cbb8a28896eeb85fdf9eb34f0c4 Mon Sep 17 00:00:00 2001
-Message-Id: <ab8a479863674cbb8a28896eeb85fdf9eb34f0c4.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 263a2883a0d8c4adde5a6c2ec3a0f3e271a305b0 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 26 Sep 2012 16:21:08 +0200
 Subject: [PATCH 364/506] net: Another local_irq_disable/kmalloc headache
@@ -17,14 +14,14 @@ diff --git a/net/core/skbuff.c b/net/core/skbuff.c
 index b1933e1f3aef..f882a5d7c75e 100644
 --- a/net/core/skbuff.c
 +++ b/net/core/skbuff.c
-@@ -64,6 +64,7 @@
+@@ -63,6 +63,7 @@
+ #include <linux/errqueue.h>
  #include <linux/prefetch.h>
  #include <linux/if_vlan.h>
- #include <linux/if.h>
 +#include <linux/locallock.h>
+ #include <linux/if.h>
  
  #include <net/protocol.h>
- #include <net/dst.h>
 @@ -330,6 +331,7 @@ struct napi_alloc_cache {
  
  static DEFINE_PER_CPU(struct page_frag_cache, netdev_alloc_cache);
@@ -63,5 +60,5 @@ index b1933e1f3aef..f882a5d7c75e 100644
  	if (unlikely(!data))
  		return NULL;
 -- 
-2.17.1
+2.25.3
 

@@ -1,7 +1,4 @@
-From a1b597afe91c6524d21f80df37751dd58612eb97 Mon Sep 17 00:00:00 2001
-Message-Id: <a1b597afe91c6524d21f80df37751dd58612eb97.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From de8c37b290de8fc836d290f77a890534e7738ca4 Mon Sep 17 00:00:00 2001
 From: Daniel Wagner <wagi@monom.org>
 Date: Tue, 17 Feb 2015 09:37:44 +0100
 Subject: [PATCH 286/506] thermal: Defer thermal wakups to threads
@@ -134,5 +131,5 @@ index d93eee2f101b..0287333b1f3c 100644
  module_exit(pkg_temp_thermal_exit)
  
 -- 
-2.17.1
+2.25.3
 

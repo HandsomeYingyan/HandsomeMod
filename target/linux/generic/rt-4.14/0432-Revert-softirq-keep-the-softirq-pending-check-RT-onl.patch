@@ -1,7 +1,4 @@
-From cf2ca17fcd127092e3d42df83446abe6ec3b3f83 Mon Sep 17 00:00:00 2001
-Message-Id: <cf2ca17fcd127092e3d42df83446abe6ec3b3f83.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From fca02c7760244406a8d6fc0af783865593ea9626 Mon Sep 17 00:00:00 2001
 From: "Steven Rostedt (VMware)" <rostedt@goodmis.org>
 Date: Fri, 7 Sep 2018 15:49:16 -0400
 Subject: [PATCH 432/506] Revert "softirq: keep the 'softirq pending' check
@@ -43,5 +40,5 @@ index e3f89bcef432..583c9ecf04e3 100644
  			tick_nohz_irq_exit();
  	}
 -- 
-2.17.1
+2.25.3
 

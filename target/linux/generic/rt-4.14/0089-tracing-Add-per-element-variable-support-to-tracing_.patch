@@ -1,7 +1,4 @@
-From 3f208549b5305fb553197a488d30588688deba55 Mon Sep 17 00:00:00 2001
-Message-Id: <3f208549b5305fb553197a488d30588688deba55.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 97389c75d6c93adfa1fa3483b7c4bd55225dcbb7 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:46 -0600
 Subject: [PATCH 089/506] tracing: Add per-element variable support to
@@ -231,5 +228,5 @@ index de57887c0670..053eb92b2d31 100644
  					unsigned int i,
  					unsigned int key_offset,
 -- 
-2.17.1
+2.25.3
 

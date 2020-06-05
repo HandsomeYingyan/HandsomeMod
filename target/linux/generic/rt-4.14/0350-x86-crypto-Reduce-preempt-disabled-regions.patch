@@ -1,7 +1,4 @@
-From afb3e7effabfa0a6d1a7f896904f656a82c09d4e Mon Sep 17 00:00:00 2001
-Message-Id: <afb3e7effabfa0a6d1a7f896904f656a82c09d4e.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 206ad87f115f0ca6ce8fb7b5caee0a16d966b59f Mon Sep 17 00:00:00 2001
 From: Peter Zijlstra <peterz@infradead.org>
 Date: Mon, 14 Nov 2011 18:19:27 +0100
 Subject: [PATCH 350/506] x86: crypto: Reduce preempt disabled regions
@@ -116,5 +113,5 @@ index c690ddc78c03..7a3138d33e33 100644
  	return err;
  }
 -- 
-2.17.1
+2.25.3
 

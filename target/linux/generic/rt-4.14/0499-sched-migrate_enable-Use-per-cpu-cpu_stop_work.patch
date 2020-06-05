@@ -1,7 +1,4 @@
-From a4b5f54b2cdcbe8453330515590c7f0112786b81 Mon Sep 17 00:00:00 2001
-Message-Id: <a4b5f54b2cdcbe8453330515590c7f0112786b81.1587150133.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 2a8370fb749a03d9337b1d3e18589d03760d493c Mon Sep 17 00:00:00 2001
 From: Scott Wood <swood@redhat.com>
 Date: Fri, 24 Jan 2020 06:11:46 -0500
 Subject: [PATCH 499/506] sched: migrate_enable: Use per-cpu cpu_stop_work
@@ -84,5 +81,5 @@ index f30bb249123b..960daa6bc7f0 100644
  
  out:
 -- 
-2.17.1
+2.25.3
 

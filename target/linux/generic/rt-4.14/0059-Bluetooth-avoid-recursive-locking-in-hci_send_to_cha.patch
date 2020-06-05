@@ -1,7 +1,4 @@
-From c0246a292a21a739e87a7f331bc7c15b524bbc0d Mon Sep 17 00:00:00 2001
-Message-Id: <c0246a292a21a739e87a7f331bc7c15b524bbc0d.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 1a935a13a038541a0fbf6b5b4e1a15e32d292f5d Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 21 Sep 2017 15:35:57 +0200
 Subject: [PATCH 059/506] Bluetooth: avoid recursive locking in
@@ -75,5 +72,5 @@ index 93093d7c3824..07e0088148b4 100644
  	}
  
 -- 
-2.17.1
+2.25.3
 

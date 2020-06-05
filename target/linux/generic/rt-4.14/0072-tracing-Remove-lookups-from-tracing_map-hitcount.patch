@@ -1,7 +1,4 @@
-From 90227c3eeb4b76d5a397ff638df75440484aee79 Mon Sep 17 00:00:00 2001
-Message-Id: <90227c3eeb4b76d5a397ff638df75440484aee79.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 7e2bdd09902cf213ba565075cf44d270113c2a1e Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Fri, 22 Sep 2017 14:58:18 -0500
 Subject: [PATCH 072/506] tracing: Remove lookups from tracing_map hitcount
@@ -35,5 +32,5 @@ index 35b2ba07f3c6..4ccdf92e1b36 100644
  		}
  
 -- 
-2.17.1
+2.25.3
 

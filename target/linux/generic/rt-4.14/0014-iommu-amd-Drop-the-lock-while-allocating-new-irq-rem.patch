@@ -1,7 +1,4 @@
-From 6abf2de05679d5a7d24b8ecd8991a7e94e7147ec Mon Sep 17 00:00:00 2001
-Message-Id: <6abf2de05679d5a7d24b8ecd8991a7e94e7147ec.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 378bbfe879ff51fbce31522dc8313adf15948b8d Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 22 Mar 2018 16:22:40 +0100
 Subject: [PATCH 014/506] iommu/amd: Drop the lock while allocating new irq
@@ -136,5 +133,5 @@ index d252eb66f5e0..1a6e82222155 100644
  }
  
 -- 
-2.17.1
+2.25.3
 

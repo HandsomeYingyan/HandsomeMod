@@ -1,7 +1,4 @@
-From f712e0308043ff00bd00e2264b188db5a7fbfc8c Mon Sep 17 00:00:00 2001
-Message-Id: <f712e0308043ff00bd00e2264b188db5a7fbfc8c.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 5f05a0274a0302ed3eb4a670c22fe61f96e02111 Mon Sep 17 00:00:00 2001
 From: Steven Rostedt <rostedt@goodmis.org>
 Date: Fri, 27 Feb 2015 15:20:37 +0100
 Subject: [PATCH 282/506] x86/mce: use swait queue for mce wakeups
@@ -130,5 +127,5 @@ index 7f85b76f43bc..9e74b805070f 100644
  	return 0;
  }
 -- 
-2.17.1
+2.25.3
 

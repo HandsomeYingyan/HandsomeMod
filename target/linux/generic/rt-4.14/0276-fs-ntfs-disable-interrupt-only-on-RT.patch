@@ -1,7 +1,4 @@
-From ab70cadcd32afb534aaf37781cd9405c551502cb Mon Sep 17 00:00:00 2001
-Message-Id: <ab70cadcd32afb534aaf37781cd9405c551502cb.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 7e064d83e81b8a2939afd67fdbddcdb0471e004e Mon Sep 17 00:00:00 2001
 From: Mike Galbraith <efault@gmx.de>
 Date: Fri, 3 Jul 2009 08:44:12 -0500
 Subject: [PATCH 276/506] fs: ntfs: disable interrupt only on !RT
@@ -79,5 +76,5 @@ index e11411997769..a982d7c3ad91 100644
  		if (likely(page_uptodate && !PageError(page)))
  			SetPageUptodate(page);
 -- 
-2.17.1
+2.25.3
 

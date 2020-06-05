@@ -1,7 +1,4 @@
-From d1ec7d020a31f0e124642bbb537a5486b53d6410 Mon Sep 17 00:00:00 2001
-Message-Id: <d1ec7d020a31f0e124642bbb537a5486b53d6410.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 092e1182c0c12ad8d66852616bb752c6f53247a4 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Tue, 7 Jun 2011 09:19:06 +0200
 Subject: [PATCH 213/506] sched: Do not account rcu_preempt_depth on RT in
@@ -55,5 +52,5 @@ index 1fd2ab9f380d..a202db616402 100644
  	return (nested == preempt_offset);
  }
 -- 
-2.17.1
+2.25.3
 

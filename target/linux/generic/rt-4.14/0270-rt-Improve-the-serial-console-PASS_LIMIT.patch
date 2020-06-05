@@ -1,7 +1,4 @@
-From 843787ba2b66cee2063d67a3876c903809e46327 Mon Sep 17 00:00:00 2001
-Message-Id: <843787ba2b66cee2063d67a3876c903809e46327.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 5e90991baa255ed824d94088eaabafc4a84354d2 Mon Sep 17 00:00:00 2001
 From: Ingo Molnar <mingo@elte.hu>
 Date: Wed, 14 Dec 2011 13:05:54 +0100
 Subject: [PATCH 270/506] rt: Improve the serial console PASS_LIMIT
@@ -45,5 +42,5 @@ index 5017a0f46b82..df98492b63e8 100644
  #include <asm/serial.h>
  /*
 -- 
-2.17.1
+2.25.3
 

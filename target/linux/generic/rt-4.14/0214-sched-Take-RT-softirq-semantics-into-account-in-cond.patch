@@ -1,7 +1,4 @@
-From 2878c45e8172920177440ba4894996a0bd063fdf Mon Sep 17 00:00:00 2001
-Message-Id: <2878c45e8172920177440ba4894996a0bd063fdf.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 067315e3dcb522ad15675f8fdca99b635449d802 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Thu, 14 Jul 2011 09:56:44 +0200
 Subject: [PATCH 214/506] sched: Take RT softirq semantics into account in
@@ -19,7 +16,7 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  2 files changed, 6 insertions(+)
 
 diff --git a/include/linux/sched.h b/include/linux/sched.h
-index 7d1a365b5ac6..1f175ab28d64 100644
+index fbfbeb7c8e6c..6742c8d746f0 100644
 --- a/include/linux/sched.h
 +++ b/include/linux/sched.h
 @@ -1668,12 +1668,16 @@ extern int __cond_resched_lock(spinlock_t *lock);
@@ -60,5 +57,5 @@ index a202db616402..d5f28ab60048 100644
  /**
   * yield - yield the current processor to other threads.
 -- 
-2.17.1
+2.25.3
 

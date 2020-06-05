@@ -1,7 +1,4 @@
-From a96c072d64b9f0a1dbe00c9802e22e5ab6d57e1c Mon Sep 17 00:00:00 2001
-Message-Id: <a96c072d64b9f0a1dbe00c9802e22e5ab6d57e1c.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 2d3b7c5a12b70b0fddc1da4ae3219c9278d4f573 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 12 May 2017 15:46:17 +0200
 Subject: [PATCH 358/506] random: avoid preempt_disable()ed section
@@ -17,7 +14,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 1 insertion(+)
 
 diff --git a/drivers/char/random.c b/drivers/char/random.c
-index 4cf314b10146..ecba3ec2b1aa 100644
+index 1499d6fdb9ad..b54aad26a359 100644
 --- a/drivers/char/random.c
 +++ b/drivers/char/random.c
 @@ -265,6 +265,7 @@
@@ -29,5 +26,5 @@ index 4cf314b10146..ecba3ec2b1aa 100644
  
  #include <asm/processor.h>
 -- 
-2.17.1
+2.25.3
 

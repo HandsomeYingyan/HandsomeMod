@@ -1,7 +1,4 @@
-From 9a4c391fadef5781b9bf934677ef918f76507f71 Mon Sep 17 00:00:00 2001
-Message-Id: <9a4c391fadef5781b9bf934677ef918f76507f71.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 9f616cf921d4b1a5b3b0a04cd0d82fe04fac5401 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Thu, 1 Nov 2012 11:03:47 +0100
 Subject: [PATCH 380/506] x86: Support for lazy preemption
@@ -54,7 +51,7 @@ index 576520a84186..bebc56ee05b3 100644
  
  #ifdef ARCH_RT_DELAYS_SIGNAL_SEND
 diff --git a/arch/x86/entry/entry_32.S b/arch/x86/entry/entry_32.S
-index 49adabd94f88..77a5493e003c 100644
+index c19974a49378..1b38b7b3cb6c 100644
 --- a/arch/x86/entry/entry_32.S
 +++ b/arch/x86/entry/entry_32.S
 @@ -352,8 +352,25 @@ END(ret_from_exception)
@@ -87,7 +84,7 @@ diff --git a/arch/x86/entry/entry_64.S b/arch/x86/entry/entry_64.S
 index 8af935362334..d586e9e42e4f 100644
 --- a/arch/x86/entry/entry_64.S
 +++ b/arch/x86/entry/entry_64.S
-@@ -638,7 +638,23 @@ retint_kernel:
+@@ -638,7 +638,23 @@ GLOBAL(swapgs_restore_regs_and_return_to_usermode)
  	btl	$9, EFLAGS(%rsp)		/* were interrupts off? */
  	jnc	1f
  0:	cmpl	$0, PER_CPU_VAR(__preempt_count)
@@ -239,5 +236,5 @@ index 76417a9aab73..62c3e27c8e1c 100644
  	/* TLB state for the entry code */
  	OFFSET(TLB_STATE_user_pcid_flush_mask, tlb_state, user_pcid_flush_mask);
 -- 
-2.17.1
+2.25.3
 

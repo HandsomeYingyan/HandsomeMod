@@ -1,7 +1,4 @@
-From 2728e13958903e3f8b235acfb99f9c52771a588c Mon Sep 17 00:00:00 2001
-Message-Id: <2728e13958903e3f8b235acfb99f9c52771a588c.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 1394cfedb231649682b63a5154ca67feb904dce3 Mon Sep 17 00:00:00 2001
 From: Ingo Molnar <mingo@elte.hu>
 Date: Fri, 3 Jul 2009 08:44:03 -0500
 Subject: [PATCH 175/506] mm: Allow only slub on RT
@@ -35,5 +32,5 @@ index 46075327c165..0fa1ade4351a 100644
  	   SLOB replaces the stock allocator with a drastically simpler
  	   allocator. SLOB is generally more space efficient but
 -- 
-2.17.1
+2.25.3
 

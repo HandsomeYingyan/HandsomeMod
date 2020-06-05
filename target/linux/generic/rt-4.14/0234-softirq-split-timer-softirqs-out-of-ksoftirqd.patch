@@ -1,7 +1,4 @@
-From 6c0be5538492366ed9efe760f37a9014bf3338ac Mon Sep 17 00:00:00 2001
-Message-Id: <6c0be5538492366ed9efe760f37a9014bf3338ac.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 419456a360d470a5465a93f99f7398439205c8e0 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 20 Jan 2016 16:34:17 +0100
 Subject: [PATCH 234/506] softirq: split timer softirqs out of ksoftirqd
@@ -213,5 +210,5 @@ index 5650395b8d6a..ff8471aa1c0b 100644
  }
  early_initcall(spawn_ksoftirqd);
 -- 
-2.17.1
+2.25.3
 

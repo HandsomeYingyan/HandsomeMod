@@ -1,7 +1,4 @@
-From a38fbbf55bda1e19fa5fc05af5f6ecb151f5bc4c Mon Sep 17 00:00:00 2001
-Message-Id: <a38fbbf55bda1e19fa5fc05af5f6ecb151f5bc4c.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From d1686134b9650e8cc999284fb0db77a1aa176f5a Mon Sep 17 00:00:00 2001
 From: Mike Galbraith <efault@gmx.de>
 Date: Wed, 23 Aug 2017 11:57:29 +0200
 Subject: [PATCH 390/506] drivers/zram: fix zcomp_stream_get()
@@ -42,5 +39,5 @@ index 374931245128..40345483a022 100644
  
  int zcomp_compress(struct zcomp_strm *zstrm,
 -- 
-2.17.1
+2.25.3
 

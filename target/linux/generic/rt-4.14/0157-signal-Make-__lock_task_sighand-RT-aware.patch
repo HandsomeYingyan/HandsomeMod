@@ -1,7 +1,4 @@
-From 5e77b47b146948db83311b585629524332c5814e Mon Sep 17 00:00:00 2001
-Message-Id: <5e77b47b146948db83311b585629524332c5814e.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 9f8979dd21e1c4c018d8424b0c899b55aea199be Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 22 Jul 2011 08:07:08 +0200
 Subject: [PATCH 157/506] signal: Make __lock_task_sighand() RT aware
@@ -15,7 +12,7 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/kernel/signal.c b/kernel/signal.c
-index a562ca0b6db7..68e759d19427 100644
+index 1e58bd251538..c46dbbcc374a 100644
 --- a/kernel/signal.c
 +++ b/kernel/signal.c
 @@ -1357,12 +1357,12 @@ struct sighand_struct *__lock_task_sighand(struct task_struct *tsk,
@@ -43,5 +40,5 @@ index a562ca0b6db7..68e759d19427 100644
  
  	return sighand;
 -- 
-2.17.1
+2.25.3
 

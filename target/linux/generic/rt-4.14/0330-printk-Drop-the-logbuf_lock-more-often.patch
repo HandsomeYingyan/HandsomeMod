@@ -1,7 +1,4 @@
-From d4bbc4aeb51e477d82e072311034d0e3bca29b5a Mon Sep 17 00:00:00 2001
-Message-Id: <d4bbc4aeb51e477d82e072311034d0e3bca29b5a.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 3ece61d10541f769f4efc1e49714e71fd4823379 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 21 Mar 2013 19:01:05 +0100
 Subject: [PATCH 330/506] printk: Drop the logbuf_lock more often
@@ -81,5 +78,5 @@ index d297c8636d3d..d19515bbed84 100644
  
  	kfree(text);
 -- 
-2.17.1
+2.25.3
 

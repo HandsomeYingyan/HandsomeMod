@@ -1,7 +1,4 @@
-From 67b7caef55b08642736b2aa86293c01055de7982 Mon Sep 17 00:00:00 2001
-Message-Id: <67b7caef55b08642736b2aa86293c01055de7982.1587150133.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From d08dfb25220babfc28359ee4250cd58dfab632f3 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 21 Aug 2013 17:48:46 +0200
 Subject: [PATCH 460/506] genirq: Do not invoke the affinity callback via a
@@ -103,5 +100,5 @@ index 191e554e6f9d..3d1ac16e4547 100644
  		INIT_WORK(&notify->work, irq_affinity_notify);
  #endif
 -- 
-2.17.1
+2.25.3
 

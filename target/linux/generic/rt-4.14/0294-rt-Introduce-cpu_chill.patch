@@ -1,7 +1,4 @@
-From a6cbcde7236493137647420157070dab621f4554 Mon Sep 17 00:00:00 2001
-Message-Id: <a6cbcde7236493137647420157070dab621f4554.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From dd663837a63e20851f781821252e5d2642337563 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 7 Mar 2012 20:51:03 +0100
 Subject: [PATCH 294/506] rt: Introduce cpu_chill()
@@ -135,5 +132,5 @@ index 754e8ce8b492..11248fa10234 100644
   * Functions related to boot-time initialization:
   */
 -- 
-2.17.1
+2.25.3
 

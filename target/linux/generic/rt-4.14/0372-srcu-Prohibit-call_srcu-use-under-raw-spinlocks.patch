@@ -1,7 +1,4 @@
-From 0a32bacda257f9a16e3d2f7eb9c5f705d1ff91f9 Mon Sep 17 00:00:00 2001
-Message-Id: <0a32bacda257f9a16e3d2f7eb9c5f705d1ff91f9.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 5ba275141dfff8e632af5034f5f1f46b14d204a7 Mon Sep 17 00:00:00 2001
 From: "Paul E. McKenney" <paulmck@linux.vnet.ibm.com>
 Date: Tue, 10 Oct 2017 13:52:30 -0700
 Subject: [PATCH 372/506] srcu: Prohibit call_srcu() use under raw spinlocks
@@ -409,5 +406,5 @@ index b72d8c552604..c9d1f0e5f899 100644
  	if (pushgp)
  		queue_delayed_work(system_power_efficient_wq, &sp->work, delay);
 -- 
-2.17.1
+2.25.3
 

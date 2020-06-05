@@ -1,7 +1,4 @@
-From 518358aae5b0a3448c287d4bd7fe028834c655de Mon Sep 17 00:00:00 2001
-Message-Id: <518358aae5b0a3448c287d4bd7fe028834c655de.1587150133.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 8002122daf52d05d43d3f1176874a94517a930c3 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Mon, 7 Oct 2019 16:45:18 +0200
 Subject: [PATCH 485/506] futex: Make the futex_hash_bucket spinlock_t again
@@ -740,5 +737,5 @@ index 2f6662d052d6..2a157c78e18c 100644
  extern void rt_mutex_init_proxy_locked(struct rt_mutex *lock,
  				       struct task_struct *proxy_owner);
 -- 
-2.17.1
+2.25.3
 

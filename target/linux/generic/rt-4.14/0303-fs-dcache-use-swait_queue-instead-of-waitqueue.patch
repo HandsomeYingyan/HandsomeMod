@@ -1,7 +1,4 @@
-From e805014dcc04ed34025cf6d1850e08615f52cf39 Mon Sep 17 00:00:00 2001
-Message-Id: <e805014dcc04ed34025cf6d1850e08615f52cf39.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From bb592abf3fcd33b78a7b6a0e868d6aea075004c5 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 14 Sep 2016 14:35:49 +0200
 Subject: [PATCH 303/506] fs/dcache: use swait_queue instead of waitqueue
@@ -239,5 +236,5 @@ index 7006375949c2..b14638a05ec9 100644
  	list_splice_init(&q->task_list, &tmp);
  	while (!list_empty(&tmp)) {
 -- 
-2.17.1
+2.25.3
 

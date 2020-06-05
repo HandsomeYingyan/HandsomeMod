@@ -1,7 +1,4 @@
-From f23e7ce52d88f94840186551b68e4d9d149cc780 Mon Sep 17 00:00:00 2001
-Message-Id: <f23e7ce52d88f94840186551b68e4d9d149cc780.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From ce8d293aa298c576733762c997203aab15ac8be1 Mon Sep 17 00:00:00 2001
 From: Steven Rostedt <rostedt@goodmis.org>
 Date: Tue, 18 Dec 2018 14:30:10 -0500
 Subject: [PATCH 433/506] printk: Do not disable preemption calling
@@ -44,5 +41,5 @@ index d19515bbed84..be160b312a35 100644
  
  	return printed_len;
 -- 
-2.17.1
+2.25.3
 

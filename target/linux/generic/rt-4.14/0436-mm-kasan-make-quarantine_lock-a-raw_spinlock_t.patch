@@ -1,7 +1,4 @@
-From 430a084df319a4609b2ae25015478cd110092340 Mon Sep 17 00:00:00 2001
-Message-Id: <430a084df319a4609b2ae25015478cd110092340.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From fd1e2ed3fe0077b34ee298322d44b4ba2bad251f Mon Sep 17 00:00:00 2001
 From: Clark Williams <williams@redhat.com>
 Date: Tue, 18 Sep 2018 10:29:31 -0500
 Subject: [PATCH 436/506] mm/kasan: make quarantine_lock a raw_spinlock_t
@@ -99,5 +96,5 @@ index 3a8ddf8baf7d..b209dbaefde8 100644
  	qlist_free_all(&to_free, cache);
  
 -- 
-2.17.1
+2.25.3
 

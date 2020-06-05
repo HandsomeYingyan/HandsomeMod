@@ -1,7 +1,4 @@
-From 7d88e2424a4398a0adad1a1f9498cf3bc29a5692 Mon Sep 17 00:00:00 2001
-Message-Id: <7d88e2424a4398a0adad1a1f9498cf3bc29a5692.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 7b730bb93605fc024bb3374d3de3ba39698a7b4e Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:58 -0600
 Subject: [PATCH 101/506] tracing: Add support for 'synthetic' events
@@ -1046,5 +1043,5 @@ index 41cc851c499f..db592ee24496 100644
 +
 +fs_initcall(trace_events_hist_init);
 -- 
-2.17.1
+2.25.3
 

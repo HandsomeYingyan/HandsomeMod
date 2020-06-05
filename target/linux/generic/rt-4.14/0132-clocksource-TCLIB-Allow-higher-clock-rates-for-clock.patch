@@ -1,7 +1,4 @@
-From e5ea1f56e9811f7325ef7269f691aebd6e3be9f1 Mon Sep 17 00:00:00 2001
-Message-Id: <e5ea1f56e9811f7325ef7269f691aebd6e3be9f1.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From c3c8371490b067804b0c140a8a8a7de3fa478644 Mon Sep 17 00:00:00 2001
 From: Benedikt Spranger <b.spranger@linutronix.de>
 Date: Mon, 8 Mar 2010 18:57:04 +0100
 Subject: [PATCH 132/506] clocksource: TCLIB: Allow higher clock rates for
@@ -168,5 +165,5 @@ index 8136dc7e863d..d2feb491e689 100644
  	tristate "Dummy IRQ handler"
  	default n
 -- 
-2.17.1
+2.25.3
 

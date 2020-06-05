@@ -1,7 +1,4 @@
-From 51d19c4f8e38adff6f4f1b0d87115729436c2cea Mon Sep 17 00:00:00 2001
-Message-Id: <51d19c4f8e38adff6f4f1b0d87115729436c2cea.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 2a50e9a579ad79068a633763cf2bcb18396fe628 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 22 Jun 2011 19:47:03 +0200
 Subject: [PATCH 307/506] sched: Distangle worker accounting from rqlock
@@ -280,5 +277,5 @@ index d390d1be3748..2dbcfe9bc364 100644
  
  #endif /* _KERNEL_WORKQUEUE_INTERNAL_H */
 -- 
-2.17.1
+2.25.3
 

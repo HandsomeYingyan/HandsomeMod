@@ -1,7 +1,4 @@
-From 869888f1f22eff9180dea867141230dbede41332 Mon Sep 17 00:00:00 2001
-Message-Id: <869888f1f22eff9180dea867141230dbede41332.1587150133.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From f770ab902819061b16928e6472c77cef7b09018f Mon Sep 17 00:00:00 2001
 From: "Steven Rostedt (VMware)" <rostedt@goodmis.org>
 Date: Sun, 22 Mar 2020 00:00:28 +0100
 Subject: [PATCH 505/506] irq_work: Fix checking of IRQ_WORK_LAZY flag set on
@@ -67,5 +64,5 @@ index 2899ba0d23d1..838b56cef5fe 100644
  	else
  		list = this_cpu_ptr(&raised_list);
 -- 
-2.17.1
+2.25.3
 

@@ -1,7 +1,4 @@
-From 8cb8ccb638ed118f93851973ad4a375e207135a3 Mon Sep 17 00:00:00 2001
-Message-Id: <8cb8ccb638ed118f93851973ad4a375e207135a3.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From e436d9688d4d7544b88aeab7e97dab2397c254e9 Mon Sep 17 00:00:00 2001
 From: Mike Galbraith <umgwanakikbuti@gmail.com>
 Date: Sat, 21 Jun 2014 10:09:48 +0200
 Subject: [PATCH 396/506] memcontrol: Prevent scheduling while atomic in cgroup
@@ -110,5 +107,5 @@ index 459d8758bcbb..a944099032f2 100644
  
  /*
 -- 
-2.17.1
+2.25.3
 

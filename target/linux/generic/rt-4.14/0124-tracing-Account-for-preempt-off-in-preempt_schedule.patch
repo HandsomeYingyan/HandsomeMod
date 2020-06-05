@@ -1,7 +1,4 @@
-From 2a0596494114f0b55120089f1406457b8c196d64 Mon Sep 17 00:00:00 2001
-Message-Id: <2a0596494114f0b55120089f1406457b8c196d64.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From f4fa0ab260a424eeac7bf5849db6202ace45f1d5 Mon Sep 17 00:00:00 2001
 From: Steven Rostedt <rostedt@goodmis.org>
 Date: Thu, 29 Sep 2011 12:24:30 -0500
 Subject: [PATCH 124/506] tracing: Account for preempt off in
@@ -52,5 +49,5 @@ index 64b0c1bf7e8d..1d2dca66fb61 100644
  
  		preempt_latency_stop(1);
 -- 
-2.17.1
+2.25.3
 

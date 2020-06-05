@@ -1,7 +1,4 @@
-From e4534804b6bd453c83e8d74a9fef8f4bb5c12798 Mon Sep 17 00:00:00 2001
-Message-Id: <e4534804b6bd453c83e8d74a9fef8f4bb5c12798.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 2e51aded57dfe7426cde10b462da3fb85b49cfd1 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 12 Feb 2019 15:09:38 +0100
 Subject: [PATCH 459/506] kthread: add a global worker thread.
@@ -142,5 +139,5 @@ index 430fd79cd3fe..44498522e5d5 100644
 +	wake_up_process(kthread_global_worker.task);
 +}
 -- 
-2.17.1
+2.25.3
 

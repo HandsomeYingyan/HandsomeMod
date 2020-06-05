@@ -1,7 +1,4 @@
-From 78b8fd11711595616ceffb001a69cd3528c487b9 Mon Sep 17 00:00:00 2001
-Message-Id: <78b8fd11711595616ceffb001a69cd3528c487b9.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From e82b532d91479058ffecce7fbff0200472825d9a Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Mon, 4 Sep 2017 18:31:50 +0200
 Subject: [PATCH 197/506] hrtimer: consolidate hrtimer_init() +
@@ -22,10 +19,10 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  6 files changed, 65 insertions(+), 30 deletions(-)
 
 diff --git a/block/blk-mq.c b/block/blk-mq.c
-index eac444804736..5a572127c7af 100644
+index 9d53f476c517..770760ad560d 100644
 --- a/block/blk-mq.c
 +++ b/block/blk-mq.c
-@@ -2863,10 +2863,9 @@ static bool blk_mq_poll_hybrid_sleep(struct request_queue *q,
+@@ -2867,10 +2867,9 @@ static bool blk_mq_poll_hybrid_sleep(struct request_queue *q,
  	kt = nsecs;
  
  	mode = HRTIMER_MODE_REL;
@@ -261,5 +258,5 @@ index 884afb8e9fc4..0382cf9eae2e 100644
  			set_current_state(TASK_INTERRUPTIBLE);
  			hrtimer_start_expires(&t.timer, HRTIMER_MODE_ABS);
 -- 
-2.17.1
+2.25.3
 

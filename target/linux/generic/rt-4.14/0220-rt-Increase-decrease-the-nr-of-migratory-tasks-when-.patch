@@ -1,7 +1,4 @@
-From 3e5693021643b563d1f015b40d63fb9304ffe602 Mon Sep 17 00:00:00 2001
-Message-Id: <3e5693021643b563d1f015b40d63fb9304ffe602.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 3df80d3d6f27c93c6f1380e0354b4b01de53179a Mon Sep 17 00:00:00 2001
 From: Daniel Bristot de Oliveira <bristot@redhat.com>
 Date: Mon, 26 Jun 2017 17:07:15 +0200
 Subject: [PATCH 220/506] rt: Increase/decrease the nr of migratory tasks when
@@ -160,5 +157,5 @@ index 5c37ad576a8e..915123f2039e 100644
  	if (p->migrate_disable_update) {
  		struct rq *rq;
 -- 
-2.17.1
+2.25.3
 

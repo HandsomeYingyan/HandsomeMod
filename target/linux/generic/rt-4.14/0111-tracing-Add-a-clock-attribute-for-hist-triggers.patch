@@ -1,7 +1,4 @@
-From 006e094f82eff57d3afb9dfec735c83e282e2a54 Mon Sep 17 00:00:00 2001
-Message-Id: <006e094f82eff57d3afb9dfec735c83e282e2a54.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 0a57f5b7b7ae1bb11b6521384f6c4986eb54d74d Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:52:08 -0600
 Subject: [PATCH 111/506] tracing: Add a clock attribute for hist triggers
@@ -28,7 +25,7 @@ diff --git a/Documentation/trace/histogram.txt b/Documentation/trace/histogram.t
 index df08882d091c..6e05510afc28 100644
 --- a/Documentation/trace/histogram.txt
 +++ b/Documentation/trace/histogram.txt
-@@ -1671,7 +1671,16 @@ features have been added to the hist trigger support:
+@@ -1671,7 +1671,16 @@ specification.  In support of this overall goal, a few enabling
      it is in units of nanoseconds; appending '.usecs' to a
      common_timestamp field changes the units to microseconds.
  
@@ -144,5 +141,5 @@ index bd33cec2b100..dab6dbd40cad 100644
  	return ret;
  }
 -- 
-2.17.1
+2.25.3
 

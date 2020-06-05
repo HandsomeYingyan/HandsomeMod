@@ -1,7 +1,4 @@
-From 312dd5fc3c5c0f323aeab8660ef0a1503bad1949 Mon Sep 17 00:00:00 2001
-Message-Id: <312dd5fc3c5c0f323aeab8660ef0a1503bad1949.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 8f7887dcd67a72b537bf2f0e9d5139b0200c116e Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 16 Mar 2018 15:04:49 +0100
 Subject: [PATCH 297/506] Revert "cpu_chill: Add a UNINTERRUPTIBLE
@@ -79,5 +76,5 @@ index 3918bfd34646..8a3fc165ef68 100644
  		struct timespec __user *, rmtp)
  {
 -- 
-2.17.1
+2.25.3
 

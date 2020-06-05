@@ -1,7 +1,4 @@
-From b65548eecc3acc93c11f758c505b999b8bcb59fb Mon Sep 17 00:00:00 2001
-Message-Id: <b65548eecc3acc93c11f758c505b999b8bcb59fb.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 6faed23e1325217ed9f063d8c65d32c87f67a70c Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Thu, 12 Oct 2017 17:31:14 +0200
 Subject: [PATCH 256/506] rtmutex: wire up RT's locking
@@ -267,5 +264,5 @@ index 03595c29c566..d63df281b495 100644
 +
 +#endif
 -- 
-2.17.1
+2.25.3
 

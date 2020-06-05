@@ -1,7 +1,4 @@
-From ec2f9ef8555eb6927c3b7d2810d5b59e59f2aab2 Mon Sep 17 00:00:00 2001
-Message-Id: <ec2f9ef8555eb6927c3b7d2810d5b59e59f2aab2.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 0256c983c56d437328aac3b47091aa8fef801350 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:44 -0600
 Subject: [PATCH 087/506] tracing: Break out hist trigger assignment parsing
@@ -117,5 +114,5 @@ index 96efecbb9157..10ec08942aa6 100644
  			goto free;
  		}
 -- 
-2.17.1
+2.25.3
 

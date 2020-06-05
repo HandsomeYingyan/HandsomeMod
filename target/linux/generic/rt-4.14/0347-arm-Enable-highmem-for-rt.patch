@@ -1,7 +1,4 @@
-From 7103041f273bb0e2e3a5d4608fbef5bc457105fb Mon Sep 17 00:00:00 2001
-Message-Id: <7103041f273bb0e2e3a5d4608fbef5bc457105fb.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 138a0315d1d4d55e1546ff13b17fcf72149c7d70 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 13 Feb 2013 11:03:11 +0100
 Subject: [PATCH 347/506] arm: Enable highmem for rt
@@ -182,5 +179,5 @@ index 8f248e2137eb..5f0bd7a3e6a7 100644
  #include <asm/cacheflush.h>
  
 -- 
-2.17.1
+2.25.3
 

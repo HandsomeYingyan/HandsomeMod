@@ -1,7 +1,4 @@
-From 60b62edfdaf5cacdfecf7d35e562dada93ee1c97 Mon Sep 17 00:00:00 2001
-Message-Id: <60b62edfdaf5cacdfecf7d35e562dada93ee1c97.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 3cb5a8bfe6c254679739202f09d2c95b3453238f Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:52:10 -0600
 Subject: [PATCH 116/506] tracing: Add inter-event blurb to HIST_TRIGGERS
@@ -38,5 +35,5 @@ index 4ad6f6ca18c1..55d39a3fbdf7 100644
  
  config MMIOTRACE_TEST
 -- 
-2.17.1
+2.25.3
 

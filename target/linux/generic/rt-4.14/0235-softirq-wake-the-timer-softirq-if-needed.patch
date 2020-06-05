@@ -1,7 +1,4 @@
-From 9c4b9e0df42e15714d533d31e043657ab33dd692 Mon Sep 17 00:00:00 2001
-Message-Id: <9c4b9e0df42e15714d533d31e043657ab33dd692.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From e94f8e6d7cd5558e53c4b1350e8539a48e12f5b0 Mon Sep 17 00:00:00 2001
 From: Mike Galbraith <efault@gmx.de>
 Date: Fri, 20 Jan 2017 18:10:20 +0100
 Subject: [PATCH 235/506] softirq: wake the timer softirq if needed
@@ -84,5 +81,5 @@ index ff8471aa1c0b..da87715b10be 100644
  	local_irq_save(flags);
  	if (__this_cpu_read(ksoftirqd) &&
 -- 
-2.17.1
+2.25.3
 

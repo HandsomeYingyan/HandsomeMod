@@ -1,7 +1,4 @@
-From 7082f5604e58fa3a2c8e2c36193dfe0e4e7f61cf Mon Sep 17 00:00:00 2001
-Message-Id: <7082f5604e58fa3a2c8e2c36193dfe0e4e7f61cf.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 05c898ca390bc6200cd19ee1c308e5c1d924e9fb Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 19 May 2016 17:45:27 +0200
 Subject: [PATCH 329/506] kernel/printk: Don't try to print from IRQ/NMI region
@@ -46,5 +43,5 @@ index e86db2b3fa6a..d297c8636d3d 100644
  	 * console_unblank can no longer be called in interrupt context unless
  	 * oops_in_progress is set to 1..
 -- 
-2.17.1
+2.25.3
 

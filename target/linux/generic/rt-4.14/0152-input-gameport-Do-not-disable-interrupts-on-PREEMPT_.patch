@@ -1,7 +1,4 @@
-From 2aae6ac17e8735c9519d977f8843636983103838 Mon Sep 17 00:00:00 2001
-Message-Id: <2aae6ac17e8735c9519d977f8843636983103838.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 4d4a8bf0307c81eba12d7dfe7eddadd35ead2e8a Mon Sep 17 00:00:00 2001
 From: Ingo Molnar <mingo@elte.hu>
 Date: Fri, 3 Jul 2009 08:30:16 -0500
 Subject: [PATCH 152/506] input: gameport: Do not disable interrupts on
@@ -65,5 +62,5 @@ index cedc665364cd..4a4fdef151aa 100644
  		if (t2 - t1 < tx) tx = t2 - t1;
  	}
 -- 
-2.17.1
+2.25.3
 

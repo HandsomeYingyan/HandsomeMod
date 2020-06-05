@@ -1,7 +1,4 @@
-From c43976671dbd782b7fba313d4b7407a8f7706383 Mon Sep 17 00:00:00 2001
-Message-Id: <c43976671dbd782b7fba313d4b7407a8f7706383.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 0c6162a3cb9571cdae1016bb3d98b3cfbaf5da90 Mon Sep 17 00:00:00 2001
 From: Yong Zhang <yong.zhang@windriver.com>
 Date: Mon, 16 Apr 2012 15:01:56 +0800
 Subject: [PATCH 369/506] lockdep: selftest: Only do hardirq context test for
@@ -60,5 +57,5 @@ index b5c1293ce147..7a452887c9c3 100644
  	ww_tests();
  
 -- 
-2.17.1
+2.25.3
 

@@ -1,7 +1,4 @@
-From 3297fc8aabf18adef87647ae9d316322437d0c0a Mon Sep 17 00:00:00 2001
-Message-Id: <3297fc8aabf18adef87647ae9d316322437d0c0a.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 8e5ce7a4b36d73ec0352b872e7c6fcd7bb5fac0a Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 7 Mar 2012 21:00:34 +0100
 Subject: [PATCH 301/506] fs: dcache: Use cpu_chill() in trylock loops
@@ -117,5 +114,5 @@ index 47bfbb592a2c..991a2054bad9 100644
  	}
  	/*
 -- 
-2.17.1
+2.25.3
 

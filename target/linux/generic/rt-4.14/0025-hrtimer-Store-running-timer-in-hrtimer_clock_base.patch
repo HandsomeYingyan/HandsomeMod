@@ -1,7 +1,4 @@
-From d0dcf91650120342693f624911517a1e0b8620b4 Mon Sep 17 00:00:00 2001
-Message-Id: <d0dcf91650120342693f624911517a1e0b8620b4.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 78af664453f143ac9a7c99bdb2b23f10427a79dd Mon Sep 17 00:00:00 2001
 From: Anna-Maria Gleixner <anna-maria@linutronix.de>
 Date: Wed, 20 Dec 2017 17:13:00 +0100
 Subject: [PATCH 025/506] hrtimer: Store running timer in hrtimer_clock_base
@@ -198,5 +195,5 @@ index 9cf1f08e544b..84c890a7db24 100644
  
  static void __hrtimer_run_queues(struct hrtimer_cpu_base *cpu_base, ktime_t now)
 -- 
-2.17.1
+2.25.3
 

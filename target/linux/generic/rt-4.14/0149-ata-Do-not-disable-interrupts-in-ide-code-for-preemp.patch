@@ -1,7 +1,4 @@
-From 4de15f64acbf11fff02921f0053f75276d5089a9 Mon Sep 17 00:00:00 2001
-Message-Id: <4de15f64acbf11fff02921f0053f75276d5089a9.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From f886e0dd902fff74e644d58eda4e4604c433930f Mon Sep 17 00:00:00 2001
 From: Steven Rostedt <srostedt@redhat.com>
 Date: Fri, 3 Jul 2009 08:44:29 -0500
 Subject: [PATCH 149/506] ata: Do not disable interrupts in ide code for
@@ -33,5 +30,5 @@ index 8c36ff0c2dd4..795cf2f1fe8a 100644
  	return consumed;
  }
 -- 
-2.17.1
+2.25.3
 

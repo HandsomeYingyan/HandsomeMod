@@ -1,7 +1,4 @@
-From cb3e7e2a4a8ef3926f2db6aa86c0e22555bf455c Mon Sep 17 00:00:00 2001
-Message-Id: <cb3e7e2a4a8ef3926f2db6aa86c0e22555bf455c.1587150133.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From fd6458747048ce9f55346dda8a575643c94a167e Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 29 Nov 2019 17:24:55 +0100
 Subject: [PATCH 494/506] sched/core: migrate_enable() must access
@@ -23,7 +20,7 @@ Signed-off-by: Tom Zanussi <zanussi@kernel.org>
  2 files changed, 4 insertions(+)
 
 diff --git a/kernel/cpu.c b/kernel/cpu.c
-index 12e527e81b37..b486b094a626 100644
+index c0c6a3604c1f..b6bb272931cc 100644
 --- a/kernel/cpu.c
 +++ b/kernel/cpu.c
 @@ -857,7 +857,9 @@ static int take_cpu_down(void *_param)
@@ -53,5 +50,5 @@ index ceddb1e27caf..e10e3956bb29 100644
  	if (!p->migrate_disable_scheduled)
  		goto out;
 -- 
-2.17.1
+2.25.3
 

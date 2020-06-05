@@ -1,7 +1,4 @@
-From 3a228a327e1726cba1cd6437d34ad519aad58a06 Mon Sep 17 00:00:00 2001
-Message-Id: <3a228a327e1726cba1cd6437d34ad519aad58a06.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From b83128a385fbdb15f9b0a99450ca703eb4d53367 Mon Sep 17 00:00:00 2001
 From: "Yadi.hu" <yadi.hu@windriver.com>
 Date: Wed, 10 Dec 2014 10:32:09 +0800
 Subject: [PATCH 335/506] ARM: enable irq in translation/section permission
@@ -94,5 +91,5 @@ index 9bb446cc135d..c6d7a9db2442 100644
  	return 0;
  }
 -- 
-2.17.1
+2.25.3
 

@@ -1,7 +1,4 @@
-From f279ea940b4b10526c04d23807f8e69b56de8d82 Mon Sep 17 00:00:00 2001
-Message-Id: <f279ea940b4b10526c04d23807f8e69b56de8d82.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 023e76a0f0a9f99cfe7c9e6bd1d1d40633b173f4 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:50 -0600
 Subject: [PATCH 093/506] tracing: Account for variables in named trigger
@@ -50,5 +47,5 @@ index 1bc92b98fda7..638717fe069b 100644
  
  	for (i = 0; i < hist_data->n_sort_keys; i++) {
 -- 
-2.17.1
+2.25.3
 

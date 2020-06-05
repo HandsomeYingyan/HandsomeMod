@@ -1,7 +1,4 @@
-From b5a870851abc417b5aaac295c9ee2f62d14ccc54 Mon Sep 17 00:00:00 2001
-Message-Id: <b5a870851abc417b5aaac295c9ee2f62d14ccc54.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 4ec357d46325b266e0b054019d77293beefe7813 Mon Sep 17 00:00:00 2001
 From: Anna-Maria Gleixner <anna-maria@linutronix.de>
 Date: Thu, 5 Jul 2018 12:43:18 +0200
 Subject: [PATCH 418/506] Revert "timer: delay waking softirqs from the jiffy
@@ -43,5 +40,5 @@ index 35628d539d2c..0e0bad34b018 100644
  		run_posix_cpu_timers(p);
  }
 -- 
-2.17.1
+2.25.3
 

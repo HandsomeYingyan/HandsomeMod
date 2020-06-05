@@ -1,7 +1,4 @@
-From ca86b1167ff31051a314b1c0f378d98c58872976 Mon Sep 17 00:00:00 2001
-Message-Id: <ca86b1167ff31051a314b1c0f378d98c58872976.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 066844205cb356d862bf289a4734d0fda3092d6e Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 24 Jul 2013 15:26:54 +0200
 Subject: [PATCH 304/506] workqueue: Use normal rcu
@@ -358,5 +355,5 @@ index 18fae55713b0..d922f110b3c9 100644
  	return written;
  }
 -- 
-2.17.1
+2.25.3
 

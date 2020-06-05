@@ -1,7 +1,4 @@
-From bfb1002a3822b8c9db57043a850f8fd7c273bc8c Mon Sep 17 00:00:00 2001
-Message-Id: <bfb1002a3822b8c9db57043a850f8fd7c273bc8c.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 903bd79b267039e689bd6e729e8aecbe5632ec2d Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 22 Mar 2018 16:22:36 +0100
 Subject: [PATCH 010/506] iommu/amd: Split irq_lookup_table out of the
@@ -55,5 +52,5 @@ index 57c41ff44bba..b267f404688d 100644
  	return table;
  }
 -- 
-2.17.1
+2.25.3
 

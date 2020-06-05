@@ -1,7 +1,4 @@
-From 3c7b9fda67e24cf568de95fda0d5fb8947458175 Mon Sep 17 00:00:00 2001
-Message-Id: <3c7b9fda67e24cf568de95fda0d5fb8947458175.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 136cec359dc0ee68dbefeb18a89f9b06bf87ec84 Mon Sep 17 00:00:00 2001
 From: Anna-Maria Gleixner <anna-maria@linutronix.de>
 Date: Wed, 20 Dec 2017 17:12:53 +0100
 Subject: [PATCH 020/506] hrtimer: Cleanup clock argument in
@@ -87,5 +84,5 @@ index 845c9913fbff..9ef664675c52 100644
   * Make the current task sleep until the given expiry time has
   * elapsed. The routine will return immediately unless
 -- 
-2.17.1
+2.25.3
 

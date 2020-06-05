@@ -1,7 +1,4 @@
-From ede9cac22258ea96d854b45ad02e347d491032da Mon Sep 17 00:00:00 2001
-Message-Id: <ede9cac22258ea96d854b45ad02e347d491032da.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 05fca83099acced355057ba5c1f68104882e40e7 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 11 Jan 2013 11:23:51 +0100
 Subject: [PATCH 193/506] completion: Use simple wait queues
@@ -39,10 +36,10 @@ index 5a64674a5c8d..308805b19f75 100644
  		}
  		break;
 diff --git a/drivers/usb/gadget/function/f_fs.c b/drivers/usb/gadget/function/f_fs.c
-index 282396e8eec6..81fcd68202a2 100644
+index 819fd77a2da4..92e738d30cf9 100644
 --- a/drivers/usb/gadget/function/f_fs.c
 +++ b/drivers/usb/gadget/function/f_fs.c
-@@ -1617,7 +1617,7 @@ static void ffs_data_put(struct ffs_data *ffs)
+@@ -1618,7 +1618,7 @@ static void ffs_data_put(struct ffs_data *ffs)
  		pr_info("%s(): freeing\n", __func__);
  		ffs_data_clear(ffs);
  		BUG_ON(waitqueue_active(&ffs->ev.waitq) ||
@@ -377,5 +374,5 @@ index 9ff1555341ed..7006375949c2 100644
  {
  	unsigned long flags;
 -- 
-2.17.1
+2.25.3
 

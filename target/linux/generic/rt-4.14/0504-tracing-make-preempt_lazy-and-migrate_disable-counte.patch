@@ -1,7 +1,4 @@
-From 01eb98d92e8231da9ff476dbf4ae81c89f47df41 Mon Sep 17 00:00:00 2001
-Message-Id: <01eb98d92e8231da9ff476dbf4ae81c89f47df41.1587150133.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 88832170499e841703e8db908031c7b799f3f649 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 21 Feb 2020 18:15:15 +0100
 Subject: [PATCH 504/506] tracing: make preempt_lazy and migrate_disable
@@ -54,5 +51,5 @@ index 60e371451ec3..edd43841c94a 100644
  	return ret;
  }
 -- 
-2.17.1
+2.25.3
 

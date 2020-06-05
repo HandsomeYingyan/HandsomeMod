@@ -1,7 +1,4 @@
-From fd9f04c7f55942eb280ebf92e96237246bba6fb6 Mon Sep 17 00:00:00 2001
-Message-Id: <fd9f04c7f55942eb280ebf92e96237246bba6fb6.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 3ce1887322094b8ba4efa58e5386e8974ab8fe4e Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 25 Jan 2017 16:34:27 +0100
 Subject: [PATCH 185/506] radix-tree: use local locks
@@ -174,5 +171,5 @@ index ff00c816266b..8b06b370b4c5 100644
  	if (!this_cpu_read(ida_bitmap)) {
  		struct ida_bitmap *bitmap = kmalloc(sizeof(*bitmap), gfp);
 -- 
-2.17.1
+2.25.3
 

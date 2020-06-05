@@ -1,7 +1,4 @@
-From 44023cf6f2ac03ab634abf9201a74098288a9601 Mon Sep 17 00:00:00 2001
-Message-Id: <44023cf6f2ac03ab634abf9201a74098288a9601.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From b167b633c91e3c21065400cbc875136f948a58d7 Mon Sep 17 00:00:00 2001
 From: Grygorii Strashko <grygorii.strashko@ti.com>
 Date: Fri, 9 Oct 2015 09:25:49 -0500
 Subject: [PATCH 314/506] net/core/cpuhotplug: Drain input_pkt_queue lockless
@@ -38,10 +35,10 @@ Cc: stable-rt@vger.kernel.org
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/net/core/dev.c b/net/core/dev.c
-index 359f8aaad337..eeff2a601285 100644
+index 76b5d436af08..af200e26de0d 100644
 --- a/net/core/dev.c
 +++ b/net/core/dev.c
-@@ -8496,7 +8496,7 @@ static int dev_cpu_dead(unsigned int oldcpu)
+@@ -8497,7 +8497,7 @@ static int dev_cpu_dead(unsigned int oldcpu)
  		netif_rx_ni(skb);
  		input_queue_head_incr(oldsd);
  	}
@@ -51,5 +48,5 @@ index 359f8aaad337..eeff2a601285 100644
  		input_queue_head_incr(oldsd);
  	}
 -- 
-2.17.1
+2.25.3
 

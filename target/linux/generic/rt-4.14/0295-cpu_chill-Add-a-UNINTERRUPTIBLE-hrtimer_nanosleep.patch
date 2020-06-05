@@ -1,7 +1,4 @@
-From 19818c0acae8f424e79f0d0968a662bca4faf38b Mon Sep 17 00:00:00 2001
-Message-Id: <19818c0acae8f424e79f0d0968a662bca4faf38b.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 2ebd393f27c101181f02c899f49a92fa2534f2d9 Mon Sep 17 00:00:00 2001
 From: Steven Rostedt <rostedt@goodmis.org>
 Date: Tue, 4 Mar 2014 12:28:32 -0500
 Subject: [PATCH 295/506] cpu_chill: Add a UNINTERRUPTIBLE hrtimer_nanosleep
@@ -107,5 +104,5 @@ index 11248fa10234..a5e6151c02b8 100644
  		current->flags &= ~PF_NOFREEZE;
  }
 -- 
-2.17.1
+2.25.3
 

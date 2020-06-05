@@ -1,7 +1,4 @@
-From c13e42af1a08754fe1fe87ae0ef077918ef2298d Mon Sep 17 00:00:00 2001
-Message-Id: <c13e42af1a08754fe1fe87ae0ef077918ef2298d.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From d9aebf7e99004b7cdef42c58ea5ea4b4fa0221a2 Mon Sep 17 00:00:00 2001
 From: Yang Shi <yang.shi@linaro.org>
 Date: Thu, 10 Dec 2015 10:58:51 -0800
 Subject: [PATCH 159/506] x86/signal: delay calling signals on 32bit
@@ -47,5 +44,5 @@ index 7c7846cbab45..39117e57caf2 100644
  #endif
  
 -- 
-2.17.1
+2.25.3
 

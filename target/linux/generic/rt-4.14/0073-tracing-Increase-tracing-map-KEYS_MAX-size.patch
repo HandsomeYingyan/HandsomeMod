@@ -1,7 +1,4 @@
-From 4bcee44c7580bce90f1accf9a577742f2fe3a453 Mon Sep 17 00:00:00 2001
-Message-Id: <4bcee44c7580bce90f1accf9a577742f2fe3a453.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From fdeaab2b622c556704a3203b2a303ce34a3bc368 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Fri, 22 Sep 2017 14:58:19 -0500
 Subject: [PATCH 073/506] tracing: Increase tracing map KEYS_MAX size
@@ -33,5 +30,5 @@ index ab0ca77331d0..5b5bbf8ae550 100644
  #define TRACING_MAP_FIELDS_MAX		(TRACING_MAP_KEYS_MAX + \
  					 TRACING_MAP_VALS_MAX)
 -- 
-2.17.1
+2.25.3
 

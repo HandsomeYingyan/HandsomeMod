@@ -1,7 +1,4 @@
-From 78d1a3d223f2c7211c66fe33e948105656f0b089 Mon Sep 17 00:00:00 2001
-Message-Id: <78d1a3d223f2c7211c66fe33e948105656f0b089.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 80fdfbbfb18b9ad654143c57b9fdc271c36987ea Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 22 Dec 2017 15:51:13 +0100
 Subject: [PATCH 189/506] nohz: Prevent erroneous tick stop invocations
@@ -58,5 +55,5 @@ index 1a5dfc8dcf49..36092932c532 100644
  			tick_nohz_irq_exit();
  	}
 -- 
-2.17.1
+2.25.3
 

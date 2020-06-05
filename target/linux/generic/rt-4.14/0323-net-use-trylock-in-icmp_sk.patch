@@ -1,7 +1,4 @@
-From 99fc87f82fdce48f2781cccb0ca9593c032e5a05 Mon Sep 17 00:00:00 2001
-Message-Id: <99fc87f82fdce48f2781cccb0ca9593c032e5a05.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 80a301345d93a1c567ce5c142d21cc7951ea2d17 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 21 Sep 2017 14:42:04 +0200
 Subject: [PATCH 323/506] net: use trylock in icmp_sk
@@ -78,5 +75,5 @@ index 8ddec562ac4b..22417197f497 100644
  out:;
  }
 -- 
-2.17.1
+2.25.3
 

@@ -1,7 +1,4 @@
-From 3d106f7fa4805dcf101fd708bb1898b43dad9d23 Mon Sep 17 00:00:00 2001
-Message-Id: <3d106f7fa4805dcf101fd708bb1898b43dad9d23.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 149e4cbb49a2ce931170a495acb82f2b3f06d3fa Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Mon, 4 Dec 2017 13:11:10 +0100
 Subject: [PATCH 057/506] sched/swait: include wait.h
@@ -40,5 +37,5 @@ index c98aaf677466..84f9745365ff 100644
  
  /*
 -- 
-2.17.1
+2.25.3
 

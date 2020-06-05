@@ -1,7 +1,4 @@
-From e83d87c35e5f68b0d41d80370410daabec12bddd Mon Sep 17 00:00:00 2001
-Message-Id: <e83d87c35e5f68b0d41d80370410daabec12bddd.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 7969b9f9c3b584ff5a76c6398bca24d3b7793b97 Mon Sep 17 00:00:00 2001
 From: Ingo Molnar <mingo@elte.hu>
 Date: Fri, 3 Jul 2009 08:30:13 -0500
 Subject: [PATCH 172/506] mm/vmstat: Protect per cpu variables with preempt
@@ -143,5 +140,5 @@ index e2197b03da57..1c81bc249ca3 100644
  
  void __dec_zone_page_state(struct page *page, enum zone_stat_item item)
 -- 
-2.17.1
+2.25.3
 

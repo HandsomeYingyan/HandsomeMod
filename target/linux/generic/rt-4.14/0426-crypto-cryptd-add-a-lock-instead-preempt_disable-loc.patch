@@ -1,7 +1,4 @@
-From ba7df8be50acbd1e3907eedc00b8c9be99fd8548 Mon Sep 17 00:00:00 2001
-Message-Id: <ba7df8be50acbd1e3907eedc00b8c9be99fd8548.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From ffa5b54d45a9bd33840d639319aaa7cc10065d7a Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 26 Jul 2018 18:52:00 +0200
 Subject: [PATCH 426/506] crypto: cryptd - add a lock instead
@@ -86,5 +83,5 @@ index 4cc1871646a8..948ae4287486 100644
  	if (!req)
  		return;
 -- 
-2.17.1
+2.25.3
 

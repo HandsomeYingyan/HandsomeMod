@@ -1,7 +1,4 @@
-From 77aea7f5d0aa6c144fda9dc987f17dd9df890c87 Mon Sep 17 00:00:00 2001
-Message-Id: <77aea7f5d0aa6c144fda9dc987f17dd9df890c87.1587150133.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From aa0517c6b340426dea2c6e193a0e68dbc23759b3 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 26 Jun 2019 13:35:36 +0200
 Subject: [PATCH 474/506] futex: Delay deallocation of pi_state
@@ -181,5 +178,5 @@ index 65f6b121e8c4..17dc51c31a54 100644
  	} else {
  		struct rt_mutex *pi_mutex;
 -- 
-2.17.1
+2.25.3
 

@@ -1,7 +1,4 @@
-From 9f58ea585fa40fcd8b9ceb28deac982f85dbacfd Mon Sep 17 00:00:00 2001
-Message-Id: <9f58ea585fa40fcd8b9ceb28deac982f85dbacfd.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 3dcd2a4a442fd1833ec4c148a35def5ee0d655c4 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 13 Jul 2018 15:30:52 +0200
 Subject: [PATCH 419/506] irqchip/gic-v3-its: Make its_lock a raw_spin_lock_t
@@ -21,7 +18,7 @@ Signed-off-by: Steven Rostedt (VMware) <rostedt@goodmis.org>
  1 file changed, 5 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index 799df1e598db..ff46d7306623 100644
+index 84b23d902d5b..3b222f3dfd19 100644
 --- a/drivers/irqchip/irq-gic-v3-its.c
 +++ b/drivers/irqchip/irq-gic-v3-its.c
 @@ -154,7 +154,7 @@ static struct {
@@ -51,7 +48,7 @@ index 799df1e598db..ff46d7306623 100644
  }
  
  static struct its_device *its_find_device(struct its_node *its, u32 dev_id)
-@@ -3065,9 +3065,9 @@ static int __init its_probe_one(struct resource *res,
+@@ -3071,9 +3071,9 @@ static int __init its_probe_one(struct resource *res,
  	if (err)
  		goto out_free_tables;
  
@@ -64,5 +61,5 @@ index 799df1e598db..ff46d7306623 100644
  	return 0;
  
 -- 
-2.17.1
+2.25.3
 

@@ -1,7 +1,4 @@
-From 17098f954831a1a5aa967a2fdcae9e0cf39d37d6 Mon Sep 17 00:00:00 2001
-Message-Id: <17098f954831a1a5aa967a2fdcae9e0cf39d37d6.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 47d4837d71c94b5462bbcc5ba188a103445587bb Mon Sep 17 00:00:00 2001
 From: Scott Wood <swood@redhat.com>
 Date: Sun, 28 Jan 2018 14:22:19 -0600
 Subject: [PATCH 006/506] iommu/amd: Don't use dev_data in
@@ -37,5 +34,5 @@ index 9b6638f615c6..9ddc79b13d5e 100644
  		irte->lo.fields_remap.destination = dest_apicid;
  		modify_irte_ga(devid, index, irte, NULL);
 -- 
-2.17.1
+2.25.3
 

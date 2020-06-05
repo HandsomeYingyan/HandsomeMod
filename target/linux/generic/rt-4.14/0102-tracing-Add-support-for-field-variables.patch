@@ -1,7 +1,4 @@
-From c74407ce860514a85a8ed4ffa8e75e71c190bb9c Mon Sep 17 00:00:00 2001
-Message-Id: <c74407ce860514a85a8ed4ffa8e75e71c190bb9c.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From ca29dd4b8c2c21bfee257a3dcbc827c7104708be Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:59 -0600
 Subject: [PATCH 102/506] tracing: Add support for 'field variables'
@@ -671,5 +668,5 @@ index db592ee24496..8f4d9b64790e 100644
  	}
  }
 -- 
-2.17.1
+2.25.3
 

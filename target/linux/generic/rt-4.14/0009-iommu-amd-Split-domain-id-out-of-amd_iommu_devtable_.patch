@@ -1,7 +1,4 @@
-From 6461e5fea3e92a1ef77627a3d3405174212e6c12 Mon Sep 17 00:00:00 2001
-Message-Id: <6461e5fea3e92a1ef77627a3d3405174212e6c12.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From ae8535c988e6962c8f4441bd2a91e4dd31db7f78 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 22 Mar 2018 16:22:35 +0100
 Subject: [PATCH 009/506] iommu/amd: Split domain id out of
@@ -67,5 +64,5 @@ index 908b60ae10ef..57c41ff44bba 100644
  
  #define DEFINE_FREE_PT_FN(LVL, FN)				\
 -- 
-2.17.1
+2.25.3
 

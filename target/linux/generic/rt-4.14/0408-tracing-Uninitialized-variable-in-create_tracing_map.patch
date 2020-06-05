@@ -1,7 +1,4 @@
-From cbd2e5e643ff874f652401f65e40d911932cfb42 Mon Sep 17 00:00:00 2001
-Message-Id: <cbd2e5e643ff874f652401f65e40d911932cfb42.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 8e56bc764817e086e686eab13e8d08dec7229f05 Mon Sep 17 00:00:00 2001
 From: Dan Carpenter <dan.carpenter@oracle.com>
 Date: Wed, 28 Mar 2018 14:48:15 +0300
 Subject: [PATCH 408/506] tracing: Uninitialized variable in
@@ -38,5 +35,5 @@ index c8a21580652f..c03aa4bb4dd9 100644
  	for_each_hist_field(i, hist_data) {
  		hist_field = hist_data->fields[i];
 -- 
-2.17.1
+2.25.3
 

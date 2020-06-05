@@ -1,7 +1,4 @@
-From 7a60d6524e7631fd99ecce2c76165717d46bbbc8 Mon Sep 17 00:00:00 2001
-Message-Id: <7a60d6524e7631fd99ecce2c76165717d46bbbc8.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 2543d295c3e5dc6ef8559e6abd3dd69aa8be95af Mon Sep 17 00:00:00 2001
 From: Ingo Molnar <mingo@elte.hu>
 Date: Fri, 3 Jul 2009 08:30:27 -0500
 Subject: [PATCH 221/506] stop_machine: convert stop_machine_run() to
@@ -40,5 +37,5 @@ index 067cb83f37ea..f8d1ae9ed7be 100644
  		preempt_count_inc();
  		ret = fn(arg);
 -- 
-2.17.1
+2.25.3
 

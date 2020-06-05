@@ -1,7 +1,4 @@
-From c19db9102450932684da52d80112ec9eca05b99b Mon Sep 17 00:00:00 2001
-Message-Id: <c19db9102450932684da52d80112ec9eca05b99b.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 02f73cb26dd5bf6061f88650fa185fd92eb1db32 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:52:07 -0600
 Subject: [PATCH 110/506] tracing: Make tracing_set_clock() non-static
@@ -50,5 +47,5 @@ index 2aca76cd4954..a454405425c4 100644
  extern bool trace_clock_in_ns(struct trace_array *tr);
  
 -- 
-2.17.1
+2.25.3
 

@@ -1,7 +1,4 @@
-From a0d90d3460972821aed38d9b999edc5dfdbcc7b4 Mon Sep 17 00:00:00 2001
-Message-Id: <a0d90d3460972821aed38d9b999edc5dfdbcc7b4.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From f574b43c330fbc7e26b96e37dc4799c7538338c9 Mon Sep 17 00:00:00 2001
 From: Ingo Molnar <mingo@elte.hu>
 Date: Fri, 3 Jul 2009 08:29:51 -0500
 Subject: [PATCH 170/506] mm/swap: Convert to percpu locked
@@ -50,7 +47,7 @@ index eb8e7f5d3a08..edb3dd831cac 100644
  				cc->last_migrated_pfn = 0;
  			}
 diff --git a/mm/page_alloc.c b/mm/page_alloc.c
-index e7f9ca9835ba..1d54b33c8897 100644
+index 8f787a567203..a2ba4b07bcd7 100644
 --- a/mm/page_alloc.c
 +++ b/mm/page_alloc.c
 @@ -6837,8 +6837,9 @@ void __init free_area_init(unsigned long *zones_size)
@@ -201,5 +198,5 @@ index a77d68f2c1b6..c63d649fb3a9 100644
  
  static void lru_add_drain_per_cpu(struct work_struct *dummy)
 -- 
-2.17.1
+2.25.3
 

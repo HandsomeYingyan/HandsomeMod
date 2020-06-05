@@ -1,7 +1,4 @@
-From 3ccca292b6aaa7193de91c2b80f766c3c3062565 Mon Sep 17 00:00:00 2001
-Message-Id: <3ccca292b6aaa7193de91c2b80f766c3c3062565.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 4177a3b1047b3fb3de61aa941ce76b61b53ff9c0 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 22 Mar 2018 16:22:41 +0100
 Subject: [PATCH 015/506] iommu/amd: Make amd_iommu_devtable_lock a spin_lock
@@ -78,5 +75,5 @@ index 1a6e82222155..7e6a223c22a7 100644
  
  static void protection_domain_free(struct protection_domain *domain)
 -- 
-2.17.1
+2.25.3
 

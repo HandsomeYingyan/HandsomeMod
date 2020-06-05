@@ -1,7 +1,4 @@
-From bed75b1c4d0366ecf3562f27fcb787ab07231f8c Mon Sep 17 00:00:00 2001
-Message-Id: <bed75b1c4d0366ecf3562f27fcb787ab07231f8c.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From faa400a4b36d2f1549d53008e6345bc7aa6b3eb0 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <zanussi@kernel.org>
 Date: Wed, 7 Aug 2019 17:00:33 -0500
 Subject: [PATCH 458/506] kthread: Use __RAW_SPIN_LOCK_UNLOCK to initialize
@@ -33,5 +30,5 @@ index 4e0449df82c3..4e663f407bd7 100644
  	.delayed_work_list = LIST_HEAD_INIT((worker).delayed_work_list),\
  	}
 -- 
-2.17.1
+2.25.3
 

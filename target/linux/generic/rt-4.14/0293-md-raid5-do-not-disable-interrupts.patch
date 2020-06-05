@@ -1,7 +1,4 @@
-From 29778bf92fef1c2d8123f065482b53f27f6f8f31 Mon Sep 17 00:00:00 2001
-Message-Id: <29778bf92fef1c2d8123f065482b53f27f6f8f31.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From aa7f10b650de60311994c9cb1a98d3cf22e52480 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 17 Nov 2017 16:21:00 +0100
 Subject: [PATCH 293/506] md/raid5: do not disable interrupts
@@ -59,5 +56,5 @@ index 09564a823ea1..10b98690eb48 100644
  
  static inline void remove_hash(struct stripe_head *sh)
 -- 
-2.17.1
+2.25.3
 

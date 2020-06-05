@@ -1,7 +1,4 @@
-From f684e234443dacec30dda1b9c8f021a3fa7fe275 Mon Sep 17 00:00:00 2001
-Message-Id: <f684e234443dacec30dda1b9c8f021a3fa7fe275.1587150132.git.zanussi@kernel.org>
-In-Reply-To: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
-References: <05c07aad7517537dec221029782bf891341897c5.1587150132.git.zanussi@kernel.org>
+From 950b6805a96965f0e00cd8a51dfe25a12e9b484d Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 19 Sep 2012 14:50:37 +0200
 Subject: [PATCH 328/506] printk: Make rt aware
@@ -80,5 +77,5 @@ index 3fe3d5774af8..e86db2b3fa6a 100644
  		if (do_cond_resched)
  			cond_resched();
 -- 
-2.17.1
+2.25.3
 

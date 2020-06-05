@@ -49,7 +49,6 @@ https://github.com/openwrt/openwrt
 
 -Change some source mirrors (Build faster in China).
 
--Remove ImageBuilder.
 
 -Add some basic modules to support gpu and drm.
 

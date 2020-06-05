@@ -7,7 +7,7 @@
 curdir:=target
 
 $(curdir)/subtargets:=install
-$(curdir)/builddirs:=linux imagebuilder toolchain
+$(curdir)/builddirs:=linux imagebuilder toolchain sdk
 $(curdir)/builddirs-default:=linux
 $(curdir)/builddirs-install:=linux $(if $(CONFIG_SDK),sdk) $(if $(CONFIG_MAKE_TOOLCHAIN),toolchain)
 

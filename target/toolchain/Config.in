@@ -1,5 +1,5 @@
 config MAKE_TOOLCHAIN
-	bool "Package the OpenWrt-based Toolchain"
+	bool "Package the HandsomeMod-based Toolchain"
 	depends on !EXTERNAL_TOOLCHAIN
 	help
 	  Package the created toolchain as a tarball under the bin/ directory as

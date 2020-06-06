@@ -261,6 +261,11 @@ define U-Boot/licheepi_zero
   BUILD_DEVICES:=sun8i-v3s-licheepi-zero
 endef
 
+define U-Boot/licheepi_zero_dock
+  BUILD_SUBTARGET:=cortexa7
+  NAME:=LicheePi Zero With Dock
+  BUILD_DEVICES:=sun8i-v3s-licheepi-zero-dock
+endef
 
 UBOOT_TARGETS := \
 	A10-OLinuXino-Lime \
@@ -299,7 +304,8 @@ UBOOT_TARGETS := \
 	sopine_baseboard \
 	orangepi_zero_plus \
 	licheepi_nano \
-	licheepi_zero 
+	licheepi_zero \
+	licheepi_zero_dock
 
 UBOOT_CONFIGURE_VARS += USE_PRIVATE_LIBGCC=yes
 

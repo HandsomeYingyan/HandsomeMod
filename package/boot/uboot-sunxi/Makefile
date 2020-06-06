@@ -255,7 +255,7 @@ define U-Boot/licheepi_nano
   UENV:=licheepi-nano
 endef
 
-define U-Boot/LicheePi_Zero
+define U-Boot/licheepi_zero
   BUILD_SUBTARGET:=cortexa7
   NAME:=LicheePi Zero
   BUILD_DEVICES:=sun8i-v3s-licheepi-zero

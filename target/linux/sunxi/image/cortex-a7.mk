@@ -211,19 +211,11 @@ define Device/sun8i-v3s-licheepi-zero
   DEVICE_TITLE:=Lichee Pi Zero
   DEVICE_PACKAGES:=kmod-rtc-sunxi
   SUPPORTED_DEVICES:=licheepi,licheepi-zero
-  SUNXI_DTS:=sun8i-v3s-licheepi-zero
+  SUNXI_DTS:=sun8i-v3s-licheepi-zero-dock
 endef
 
 TARGET_DEVICES += sun8i-v3s-licheepi-zero
 
-define Device/sun8i-v3s-licheepi-zero-dock
-  DEVICE_TITLE:=Lichee Pi Zero With Dock
-  DEVICE_PACKAGES:=kmod-rtc-sunxi
-  SUPPORTED_DEVICES:=licheepi,licheepi-zero-dock
-  SUNXI_DTS:=sun8i-v3s-licheepi-zero-dock
-endef
-
-TARGET_DEVICES += sun8i-v3s-licheepi-zero-dock
 
 define Device/sun7i-a20-pcduino3
   DEVICE_TITLE:=LinkSprite pcDuino3

@@ -255,16 +255,10 @@ define U-Boot/licheepi_nano
   UENV:=licheepi-nano
 endef
 
-define U-Boot/licheepi_zero
+define U-Boot/LicheePi_Zero
   BUILD_SUBTARGET:=cortexa7
   NAME:=LicheePi Zero
   BUILD_DEVICES:=sun8i-v3s-licheepi-zero
-endef
-
-define U-Boot/licheepi_zero_dock
-  BUILD_SUBTARGET:=cortexa7
-  NAME:=LicheePi Zero With Dock
-  BUILD_DEVICES:=sun8i-v3s-licheepi-zero-dock
 endef
 
 UBOOT_TARGETS := \
@@ -304,8 +298,7 @@ UBOOT_TARGETS := \
 	sopine_baseboard \
 	orangepi_zero_plus \
 	licheepi_nano \
-	licheepi_zero \
-	licheepi_zero_dock
+	LicheePi_Zero
 
 UBOOT_CONFIGURE_VARS += USE_PRIVATE_LIBGCC=yes
 

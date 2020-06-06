@@ -34,7 +34,6 @@ https://github.com/openwrt/openwrt
 
 #  What is Moded?
 
-
 -Use mac to distinguish different handsomemod device(wifi ssid).
 
 -Use Nginx instead of uhttpd.
@@ -49,19 +48,19 @@ https://github.com/openwrt/openwrt
 
 -Change some source mirrors (Build faster in China).
 
-
 -Add some basic modules to support gpu and drm.
 
 -Add rt-linux patches
 
--Add Wayland and Xorg Support (alpha ver)
+-Add Wayland(Not working due to lack of mesa) and Xorg Support (alpha ver)
 
 -Add littlevgl Support (still testing)
 
+-Include Soc not yet in mainline(eg. Allwinner V3s F1cx00s and HiSilicon hi35xx)
 
+-Update the kernel backport driver to 5.4(better wifi signal)
 
 ## Planing... 
-
 
 -A Offcial Website.
 
@@ -81,7 +80,7 @@ https://github.com/openwrt/openwrt
 
 -Build Guide In WSL.
 
--A lightweight littlevgl-based graphics layer
+-A lightweight HandsomeMod Graphics Layer(non-free right now)
 
 -Update Xorg to current version
 
@@ -89,12 +88,16 @@ https://github.com/openwrt/openwrt
 
 -Add Mali gpu blobs
 
--Better Support for allwinner f1c100s
+-Better Support for allwinner f1c100s and v3s
+
+-Support the HiSilicon closed-source Kernel Modules And Himpp
+
+-Luci app for ipcam and hmgl. 
 
 
 Ps:Please Report Bugs at openwrt offcial github site! Or https://bugs.openwrt.org/
 
 I Just A Newbie in Openwrt.. 
 
-Future Release Will Based On Openwrt Latest Stable Version.
+Future Release Will Based On Openwrt's Latest Stable Version.
 

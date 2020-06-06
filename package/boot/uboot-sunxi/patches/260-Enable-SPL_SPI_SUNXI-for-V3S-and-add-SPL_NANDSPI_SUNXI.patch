@@ -1,0 +1,92 @@
+From 47d3029efa196c9b3a8a99820bbfa026481fc270 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Benedikt-Alexander=20Mokro=C3=9F?= <bam@icognize.de>
+Date: Wed, 6 Nov 2019 08:37:01 +0100
+Subject: [PATCH] Enable SPL_SPI_SUNXI for V3s and add SPL_SPINAND_SUNXI
+
+---
+ arch/arm/mach-sunxi/Kconfig  | 45 ++++++++++++++++++++++++++++++++----
+ arch/arm/mach-sunxi/Makefile |  1 +
+ 2 files changed, 42 insertions(+), 4 deletions(-)
+
+diff --git a/arch/arm/mach-sunxi/Kconfig b/arch/arm/mach-sunxi/Kconfig
+index ffdf09f29e..723074e8a5 100644
+--- a/arch/arm/mach-sunxi/Kconfig
++++ b/arch/arm/mach-sunxi/Kconfig
+@@ -989,13 +989,58 @@ config SPL_STACK_R_ADDR
+ 	default 0x4fe00000 if MACH_SUN50I_H6
+ 
+ config SPL_SPI_SUNXI
+-	bool "Support for SPI Flash on Allwinner SoCs in SPL"
+-	depends on MACH_SUN4I || MACH_SUN5I || MACH_SUN7I || MACH_SUNXI_H3_H5 || MACH_SUN50I
++	bool "Support for SPI (NOR) Flash on Allwinner SoCs in SPL"
++	depends on MACH_SUN4I || MACH_SUN5I || MACH_SUN7I || MACH_SUNXI_H3_H5 || MACH_SUN50I || MACH_SUN8I_V3S
+ 	help
+-	  Enable support for SPI Flash. This option allows SPL to read from
+-	  sunxi SPI Flash. It uses the same method as the boot ROM, so does
++	  Enable support for SPI-NOR Flash. This option allows SPL to read from
++	  sunxi SPI-NOR Flash. It uses the same method as the boot ROM, so does
+ 	  not need any extra configuration.
+ 
++config SPL_SPINAND_SUNXI
++	bool "Support for SPI NAND-Flash on Allwinner SoCs in SPL"
++	depends on MACH_SUN4I || MACH_SUN5I || MACH_SUN7I || MACH_SUNXI_H3_H5 || MACH_SUN50I || MACH_SUN8I_V3S
++	select SPL_SPINAND_SUNXI_SPL_SIZE
++	select SPL_SPINAND_SUNXI_UBOOT_PADDING
++	select SPL_SPINAND_SUNXI_PAGESIZE
++	help
++	  Enable support for SPI-NAND Flash. This option allows SPL to read from
++	  sunxi SPI-NAND Flash. It needs further configuration to calculate all offsets correctly.
++
++config SPL_SPINAND_SUNXI_SPL_SIZE
++	int "Expected SPL size after padding to blocksize"
++	depends on SPL_SPINAND_SUNXI
++	default 0x6000
++	help
++	  The sunxi BROM is only able to load 1KB per page when booting from spi-nand.
++	  Thus the SPL is getting chunked to 1KB pages in spi-nand. To correctly calculate
++	  the address of u-boot it is thus neccessary to know the size of the SPL in 
++	  spi-nand.
++
++config SPL_SPINAND_SUNXI_UBOOT_PADDING
++	int "Offset between SPL and u-boot"
++	depends on SPL_SPINAND_SUNXI
++	default 0x2000
++	help
++	  u-boot is placed with an offset between SPL. To correctly calculate
++	  the address of u-boot it is thus neccessary to know the offset. 
++
++config SPL_SPINAND_SUNXI_PAGESIZE
++	int "NAND pagesize in KB"
++	depends on SPL_SPINAND_SUNXI
++	default 2048
++	help
++	  The sunxi BROM is only able to load 1KB per page when booting from spi-nand.
++	  Thus the SPL is getting chunked to 1KB pages in spi-nand. To correctly calculate
++	  the address of u-boot it is thus neccessary to know the page size of the spi-nand. 
++
++config SPL_SPINAND_SUNXI_SPL_USE_GENERIC2K_ON_UNKNOWN
++	bool "Generic SPI-NAND config with 2K page-size"
++	depends on SPL_SPINAND_SUNXI
++	default n
++	help
++	  If no known spi-nand is found, try with generic settings for spi-nand with a
++	  page-size of 2K.
++
+ config PINE64_DT_SELECTION
+ 	bool "Enable Pine64 device tree selection code"
+ 	depends on MACH_SUN50I
+diff --git a/arch/arm/mach-sunxi/Makefile b/arch/arm/mach-sunxi/Makefile
+index d129f33479..490901251c 100644
+--- a/arch/arm/mach-sunxi/Makefile
++++ b/arch/arm/mach-sunxi/Makefile
+@@ -36,6 +36,7 @@ obj-$(CONFIG_DRAM_SUN8I_A33)	+= dram_sun8i_a33.o
+ obj-$(CONFIG_DRAM_SUN8I_A83T)	+= dram_sun8i_a83t.o
+ obj-$(CONFIG_DRAM_SUN9I)	+= dram_sun9i.o
+ obj-$(CONFIG_SPL_SPI_SUNXI)	+= spl_spi_sunxi.o
++obj-$(CONFIG_SPL_SPINAND_SUNXI)	+= spl_spinand_sunxi.o
+ obj-$(CONFIG_SUNXI_DRAM_DW)	+= dram_sunxi_dw.o
+ obj-$(CONFIG_SUNXI_DRAM_DW)	+= dram_timings/
+ obj-$(CONFIG_DRAM_SUN50I_H6)	+= dram_sun50i_h6.o
+-- 
+2.20.1
+

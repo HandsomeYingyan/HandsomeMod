@@ -1,0 +1,85 @@
+From 4cc626a043151a09293fd852287c0c6abee4b39d Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Benedikt-Alexander=20Mokro=C3=9F?= <bam@icognize.de>
+Date: Thu, 14 Nov 2019 10:06:54 +0100
+Subject: [PATCH] Add v3s to drivers/net/sun8i_emac.c
+
+---
+ drivers/net/sun8i_emac.c | 19 ++++++++++++++-----
+ 1 file changed, 14 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/net/sun8i_emac.c b/drivers/net/sun8i_emac.c
+index 0629b16e57..f7af93bfa8 100644
+--- a/drivers/net/sun8i_emac.c
++++ b/drivers/net/sun8i_emac.c
+@@ -10,6 +10,8 @@
+  *
+ */
+ 
++#define DEBUG
++
+ #include <asm/io.h>
+ #include <asm/arch/clock.h>
+ #include <asm/arch/gpio.h>
+@@ -50,6 +52,7 @@
+ #define RX_TOTAL_BUFSIZE	(CONFIG_ETH_BUFSIZE * CONFIG_RX_DESCR_NUM)
+ 
+ #define H3_EPHY_DEFAULT_VALUE	0x58000
++#define V3S_EPHY_DEFAULT_VALUE  0x38000
+ #define H3_EPHY_DEFAULT_MASK	GENMASK(31, 15)
+ #define H3_EPHY_ADDR_SHIFT	20
+ #define REG_PHY_ADDR_MASK	GENMASK(4, 0)
+@@ -105,6 +108,7 @@ enum emac_variant {
+ 	H3_EMAC,
+ 	A64_EMAC,
+ 	R40_GMAC,
++	V3S_EMAC,
+ };
+ 
+ struct emac_dma_desc {
+@@ -272,7 +276,7 @@ static int sun8i_emac_set_syscon_ephy(struct emac_eth_dev *priv, u32 *reg)
+ 		 * needs to be configured and powered up before use
+ 		*/
+ 		*reg &= ~H3_EPHY_DEFAULT_MASK;
+-		*reg |=  H3_EPHY_DEFAULT_VALUE;
++		*reg |= ((priv->variant == V3S_EMAC) ? V3S_EPHY_DEFAULT_VALUE :  H3_EPHY_DEFAULT_VALUE);
+ 		*reg |= priv->phyaddr << H3_EPHY_ADDR_SHIFT;
+ 		*reg &= ~H3_EPHY_SHUTDOWN;
+ 		*reg |= H3_EPHY_SELECT;
+@@ -304,14 +308,14 @@ static int sun8i_emac_set_syscon(struct sun8i_eth_pdata *pdata,
+ 
+ 	reg = readl(priv->sysctl_reg + 0x30);
+ 
+-	if (priv->variant == H3_EMAC) {
++	if (priv->variant == H3_EMAC) {
+ 		ret = sun8i_emac_set_syscon_ephy(priv, &reg);
+ 		if (ret)
+ 			return ret;
+ 	}
+ 
+ 	reg &= ~(SC_ETCS_MASK | SC_EPIT);
+-	if (priv->variant == H3_EMAC || priv->variant == A64_EMAC)
++	if (priv->variant == H3_EMAC || priv->variant == V3S_EMAC || priv->variant == A64_EMAC)
+ 		reg &= ~SC_RMII_EN;
+ 
+ 	switch (priv->interface) {
+@@ -1019,13 +1025,16 @@ static int sun8i_emac_eth_ofdata_to_platdata(struct udevice *dev)
+ }
+ 
+ static const struct udevice_id sun8i_emac_eth_ids[] = {
+-	{.compatible = "allwinner,sun8i-h3-emac", .data = (uintptr_t)H3_EMAC },
++	{.compatible = "allwinner,sun8i-h3-emac",
++	    .data = (uintptr_t)H3_EMAC },
+ 	{.compatible = "allwinner,sun50i-a64-emac",
+ 		.data = (uintptr_t)A64_EMAC },
+ 	{.compatible = "allwinner,sun8i-a83t-emac",
+ 		.data = (uintptr_t)A83T_EMAC },
+ 	{.compatible = "allwinner,sun8i-r40-gmac",
+ 		.data = (uintptr_t)R40_GMAC },
++	{.compatible = "allwinner,sun8i-v3s-emac",
++	    .data = (uintptr_t)V3S_EMAC },
+ 	{ }
+ };
+ 
+-- 
+2.20.1
+

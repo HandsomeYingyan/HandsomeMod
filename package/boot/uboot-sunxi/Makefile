@@ -10,9 +10,9 @@
 include $(TOPDIR)/rules.mk
 include $(INCLUDE_DIR)/kernel.mk
 
-PKG_VERSION:=2019.01
+PKG_VERSION:=2019.10
 
-PKG_HASH:=50bd7e5a466ab828914d080d5f6a432345b500e8fba1ad3b7b61e95e60d51c22
+PKG_HASH:=8d6d6070739522dd236cba7055b8736bfe92b4fac0ea18ad809829ca79667014
 
 PKG_MAINTAINER:=Zoltan HERPAI <wigyori@uid0.hu>
 
@@ -255,6 +255,12 @@ define U-Boot/licheepi_nano
   UENV:=licheepi-nano
 endef
 
+define U-Boot/LicheePi_Zero
+  BUILD_SUBTARGET:=cortexa7
+  NAME:=LicheePi Zero
+  BUILD_DEVICES:=sun8i-v3s-licheepi-zero
+endef
+
 
 UBOOT_TARGETS := \
 	A10-OLinuXino-Lime \
@@ -292,7 +298,8 @@ UBOOT_TARGETS := \
 	Sinovoip_BPI_M2_Plus \
 	sopine_baseboard \
 	orangepi_zero_plus \
-	licheepi_nano 
+	licheepi_nano \
+	licheepi_zero 
 
 UBOOT_CONFIGURE_VARS += USE_PRIVATE_LIBGCC=yes
 

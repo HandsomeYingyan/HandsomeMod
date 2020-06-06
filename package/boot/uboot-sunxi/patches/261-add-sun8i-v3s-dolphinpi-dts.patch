@@ -1,0 +1,28 @@
+From 1db445dd3694fd3bf01bd042ad1778b5de7b3267 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Benedikt-Alexander=20Mokro=C3=9F?= <bam@icognize.de>
+Date: Tue, 5 Nov 2019 14:26:58 +0100
+Subject: [PATCH] Add sun8i-v3s-dolphinpi.dts
+
+---
+ arch/arm/dts/Makefile | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm/dts/Makefile b/arch/arm/dts/Makefile
+index 62da168ef8..df6ed11c96 100644
+--- a/arch/arm/dts/Makefile
++++ b/arch/arm/dts/Makefile
+@@ -508,7 +508,10 @@ dtb-$(CONFIG_MACH_SUN8I_R40) += \
+ 	sun8i-r40-bananapi-m2-ultra.dtb \
+ 	sun8i-v40-bananapi-m2-berry.dtb
+ dtb-$(CONFIG_MACH_SUN8I_V3S) += \
+-	sun8i-v3s-licheepi-zero.dtb
++	sun8i-v3s-licheepi-zero.dtb \
++	sun8i-v3s-licheepi-zero-spinand.dtb \
++	sun8i-v3s-rawspinandaccessuart2.dtb \
++	sun8i-v3s-dolphinpi.dtb
+ dtb-$(CONFIG_MACH_SUN50I_H5) += \
+ 	sun50i-h5-bananapi-m2-plus.dtb \
+ 	sun50i-h5-emlid-neutis-n5-devboard.dtb \
+-- 
+2.20.1
+

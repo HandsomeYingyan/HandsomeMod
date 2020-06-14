@@ -38,31 +38,31 @@ https://github.com/OpenIPC/chaos_calmer
 
 #  What is Moded?
 
--Use mac to distinguish different handsomemod device(wifi ssid).
+- Use mac to distinguish different handsomemod device(wifi ssid).
 
--Use Nginx instead of uhttpd(Luci).(uhttpd version of luci been renamed as luci-uhttpd)
+- Use Nginx instead of uhttpd(Luci).(uhttpd version of luci been renamed as luci-uhttpd)
 
--Enalbe CAKE Network Queue Management in default config.
+- Enalbe CAKE Network Queue Management in default config.
 
--Add https://github.com/Chion82/netfilter-full-cone-nat.git and Enable in default config.
+- Add https://github.com/Chion82/netfilter-full-cone-nat.git and Enable in default config.
 
--Use ucl and upx to reduce image size.
+- Use ucl and upx to reduce image size.
 
--Add some router not yet in openwrt offcial source.
+- Add some router not yet in openwrt offcial source.
 
--Change some source mirrors (Build faster in China).
+- Change some source mirrors (Build faster in China).
 
--Add some basic modules to support gpu and drm.
+- Add some basic modules to support gpu and drm.
 
--Add rt-linux patches.
+- Add rt-linux patches.
 
--Add Wayland(Not working due to lack of mesa) and Xorg Support (alpha ver).
+- Add Wayland(Not working due to lack of mesa) and Xorg Support (alpha ver).
 
--Add littlevgl Support (still testing).
+- Add littlevgl Support (still testing).
 
--Include Socs not yet in mainline(eg. Allwinner V3s F1cx00s and HiSilicon hi35xx).
+- Include Socs not yet in mainline(eg. Allwinner V3s F1cx00s and HiSilicon hi35xx).
 
--Update the kernel backport driver to 5.4(better wifi signal).
+- Update the kernel backport driver to 5.4(better wifi signal).
 
 ## Testing Blog...
 
@@ -70,56 +70,56 @@ https://github.com/OpenIPC/chaos_calmer
 
 - HiSilicon hi3518ev200 is basically working(kernel(4.9.37) boots!)
 
--Warning ! The hi35xx target in master branch is not working! I will release working code after i solved most of the problems in kernel.
+#### Warning ! The hi35xx target in master branch is not working! I will release working code after i solved most of the problems in kernel.
 
--and non-free HiSilicon kernel modules is working! hi-mipi can be found in /dev
+- and non-free HiSilicon kernel modules is working! hi-mipi can be found in /dev
 
--but following components do not work at all:
+### but following components do not work at all:
 
--overlayfs (jffs2 error)
+- overlayfs (jffs2 error)
 
--rtl8188eu usb wifi(usb-utill can found  it but not working)
+- rtl8188eu usb wifi(usb-utill can found  it but not working)
 
--Hi_minihttp from openipc project is not ready yet!
+- Hi_minihttp from openipc project is not ready yet!
 
--Himm and some libs can't build into images(depends not found)
+- Himm and some libs can't build into images(depends not found)
 
 
 ## Planing... 
 
--A Offcial Website.
+- A Offcial Website.
 
--A Friendly Guide App For Newbie(Like me) Setting Network.
+- A Friendly Guide App For Newbie(Like me) Setting Network.
 
--Hack Tools (Like kali or blackarch) feed And Luci-apps.
+- Hack Tools (Like kali or blackarch) feed And Luci-apps.
 
--Make Luci more simpier to use.
+- Make Luci more simpier to use.
 
--Make Mainline Kernel More Friendly To Old Mips Device.
+- Make Mainline Kernel More Friendly To Old Mips Device.
 
--Make Hardware Hacking More Friendly In Openwrt.
+- Make Hardware Hacking More Friendly In Openwrt.
 
--Closed Source Binary Driver Feeds For Mainline Kernel(Like qca-wifi or mtk-sdk-openwrt).
+- Closed Source Binary Driver Feeds For Mainline Kernel(Like qca-wifi or mtk-sdk-openwrt).
 
--Lighttpd Support for Luci.
+- Lighttpd Support for Luci.
 
--Build Guide In WSL.
+- Build Guide In WSL.
 
--A lightweight HandsomeMod Graphics Layer(non-free right now).
+- A lightweight HandsomeMod Graphics Layer(non-free right now).
 
--Update Xorg to current version.
+- Update Xorg to current version.
 
--Make latest mesa working.
+- Make latest mesa working.
 
--Add Mali gpu blobs.
+- Add Mali gpu blobs.
 
--Better Support for allwinner f1c100s and v3s.
+- Better Support for allwinner f1c100s and v3s.
 
--Support the HiSilicon Himpp and make hi3518ev200 soc basically working.
+- Support the HiSilicon Himpp and make hi3518ev200 soc basically working.
 
--Luci app for ipcam and hmgl. 
+- Luci app for ipcam and hmgl. 
 
--Non-free feeds for Allwinner cedarX and HiSilicon libs and modules.
+- Non-free feeds for Allwinner cedarX and HiSilicon libs and modules.
 
 
 Ps:Please Report Bugs at openwrt offcial github site! Or https://bugs.openwrt.org/

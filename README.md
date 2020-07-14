@@ -64,26 +64,9 @@ https://github.com/OpenIPC/chaos_calmer
 
 - Update the kernel backport driver to 5.4(better wifi signal).
 
-## Testing Blog...
+- Ipcam soc support(Hi35xx)
 
-### 6/14
-
-- HiSilicon hi3518ev200 is basically working(kernel(4.9.37) boots!)
-
-#### Warning ! The hi35xx target in master branch is not working! I will release working code after i solved most of the problems in kernel.
-
-- and non-free HiSilicon kernel modules is working! hi-mipi can be found in /dev
-
-### but following components do not work at all:
-
-- overlayfs (jffs2 error)
-
-- rtl8188eu usb wifi(usb-utill can found  it but not working)
-
-- Hi_minihttp from openipc project is not ready yet!
-
-- Himm and some libs can't build into images(depends not found)
-
+- Non-free feeds for Allwinner cedarX and HiSilicon libs and modules.
 
 ## Planing... 
 
@@ -115,11 +98,11 @@ https://github.com/OpenIPC/chaos_calmer
 
 - Better Support for allwinner f1c100s and v3s.
 
-- Support the HiSilicon Himpp and make hi3518ev200 soc basically working.
+- Support the HiSilicon Himpp and rtsp steaming apps.
 
 - Luci app for ipcam and hmgl. 
 
-- Non-free feeds for Allwinner cedarX and HiSilicon libs and modules.
+
 
 
 Ps:Please Report Bugs at openwrt offcial github site! Or https://bugs.openwrt.org/

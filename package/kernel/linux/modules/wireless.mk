@@ -42,6 +42,26 @@ endef
 
 $(eval $(call KernelPackage,net-rtl8192su))
 
+define KernelPackage/cfg80211-old
+  SUBMENU:=$(WIRELESS_MENU)
+  TITLE:=using orginal kernel's cfg80211
+  DEPENDS:= +iw +wireless-regdb
+  KCONFIG:=\
+	CONFIG_CFG80211_WEXT=y \
+	CONFIG_CFG80211_CRDA_SUPPORT=y \
+	CONFIG_CFG80211_DEFAULT_PS=y \
+	CONFIG_CFG80211
+  FILES:= \
+	$(LINUX_DIR)/net/wireless/cfg80211.ko
+  AUTOLOAD:=$(call AutoProbe,cfg80211)
+endef
+
+define KernelPackage/cfg80211-old/description
+ Using orginal cfg80211 in kernel (not backport)
+endef
+
+$(eval $(call KernelPackage,cfg80211-old))
+
 
 define KernelPackage/owl-loader
   SUBMENU:=$(WIRELESS_MENU)

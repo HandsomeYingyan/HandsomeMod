@@ -37,17 +37,8 @@ endif
 define Package/base-files
   SECTION:=base
   CATEGORY:=Base system
-  DEPENDS:=+netifd +libc +procd +jsonfilter +SIGNED_PACKAGES:usign +SIGNED_PACKAGES:openwrt-keyring +NAND_SUPPORT:ubi-utils +fstools +fwtool  +kmod-sched-cake
+  DEPENDS:=+netifd +libc +procd +jsonfilter +SIGNED_PACKAGES:usign +SIGNED_PACKAGES:openwrt-keyring +NAND_SUPPORT:ubi-utils +fstools +fwtool +kmod-sched-cake
   TITLE:=Base filesystem for OpenWrt
-  URL:=http://openwrt.org/
-  VERSION:=$(PKG_RELEASE)-$(REVISION)
-endef
-
-define Package/urandom-seed
-  SECTION:=base
-  CATEGORY:=Base system
-  DEPENDS:=+libc +ubox-getrandom
-  TITLE:=/etc/urandom.seed handling for OpenWrt
   URL:=http://openwrt.org/
   VERSION:=$(PKG_RELEASE)-$(REVISION)
 endef

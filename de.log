@@ -1,0 +1,154 @@
+--todo
+ -planing (loadable dts files)
+ -planing handsomemod-config
+ -a littlevgl based interface
+ hostname
+ drm and lima(only avaiable in >=5.2 kernel)
+ mali blobs(glibc only)
+ mesa
+ evil 
+ himm and hi_minihttp
+ ocd in hi35xx
+ luci for minihttp
+ 
+-(planing) add closed source qca-wifi driver
+
+
+2/19
+-add cake
+-remove some target
+-add fullnat
+-new ntfs driver
+
+2/20
+-merge mainline
+-nat tweak auto start
+-switch to nginx
+-banner tweak
+-add some model
+
+
+2/25
+-merge mainline
+-change default hostname
+-auto change mac address 
+
+2/27
+-artwork
+-alpha build
+
+2/28
+-some little tweak
+-fall back to material
+-arm build
+-mips stable test
+-banner tweak
+-document
+
+3/18
+-apart display modules form video support
+-rename video support to camera support
+-enable display support as default
+-stability test passed!
+
+
+3/27
+-delete lean's package
+-add new extra feed
+-merge mainline
+
+ 4/6
+ -add uboot-sunvi
+ 
+ 4/8
+ -add linux-sunvi
+ -fix f1c200s usb bug
+ 
+ 4/9
+ -add lichee lcd
+- add suniv sound patch and kernel package
+
+4/11
+-fix kernel error
+-maybe clean up?
+-disable earphone for now(miyoo sound card)
+
+4/17
+-merge mainline
+-delete lichee nano(add it when ready)
+-add wiringpi and gpio3
+-introduce the handsomefeed
+
+4/18
+-add linux-rt patches
+
+4/24
+-merge mainline
+-finally add f1c200s support (basic)
+-uboot 2019.04 f1c200s support(untested) - not working
+-add f1c200s codec (sun4i-codec mod)
+-studying littlevgl
+
+4/25
+-fix kernel build error
+-fix codec driver bug
+-enable soft float on f1c100s
+ 
+ 4/30
+ -merge mainline
+ -littlevgl ready!
+ 
+ 5/9
+ -merge mainline
+ 
+ 5/10
+ -add xorg (initial)
+ -add wayland (not working)
+ 
+ 5/13
+ -fix f1c200s codec driver
+ -fix f1c200s sram bug
+-maybe the v-codec driver is working(not working at all)
+
+5/29
+-merge mainline
+-perpare release
+-prepare backports-5.4
+
+6/5
+-merge mainline
+-add image builder
+-update backport to 5.4
+-bump to 4.19(X86 and sunxi)
+
+6/6
+-prepare lichee pi zero
+-add basic support for allwinner v3s
+-add linux 4.9 (hi35xx only)
+-add basic support for hi35xx
+-add uclibc toolchain
+
+6/7
+-NOTE the hi35xx's image need to be rewrite!
+-allwinner v3s tested which is working quite well!(lcd not working)
+
+6/14
+-merge mainline
+-make hi35xx working
+-typing work
+
+6/20
+-perpare university student invention competition
+-merge mainline
+-correct the image building makefile(hi35xx) add auto-update image
+
+about 7/5
+-hmgl test passed!
+
+7/14
+-recover from testing
+-merge mainline
+-merge hi35xx support and non-free package
+
+7/17
+-add q8-tablet

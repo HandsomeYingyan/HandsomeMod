@@ -117,6 +117,15 @@ endef
 
 TARGET_DEVICES += sun8i-h2-plus-orangepi-zero
 
+define Device/sun8i-a33-q8-tablet
+  DEVICE_TITLE:=HandsomePad A33
+  DEVICE_PACKAGES:=kmod-rtc-sunxi
+  SUPPORTED_DEVICES:=handsomepad,a33
+  SUNXI_DTS:=sun8i-a33-q8-tablet
+endef
+
+TARGET_DEVICES += sun8i-a33-q8-tablet
+
 
 define Device/sun8i-h2-plus-orangepi-r1
   DEVICE_TITLE:=Xunlong Orange Pi R1

@@ -97,6 +97,12 @@ define U-Boot/Hummingbird_A31
   NAME:=Hummingbird A31 board
 endef
 
+define U-Boot/q8_a33_tablet_1024x600
+  BUILD_SUBTARGET:=cortexa7
+  NAME:=Handsomepad A33 tablet
+  BUILD_DEVICES:=sun8i-a33-q8-tablet
+endef
+
 define U-Boot/Marsboard_A10
   BUILD_SUBTARGET:=cortexa8
   NAME:=Marsboard
@@ -298,7 +304,8 @@ UBOOT_TARGETS := \
 	sopine_baseboard \
 	orangepi_zero_plus \
 	licheepi_nano \
-	LicheePi_Zero
+	LicheePi_Zero \
+        q8_a33_tablet_1024x600
 
 UBOOT_CONFIGURE_VARS += USE_PRIVATE_LIBGCC=yes
 

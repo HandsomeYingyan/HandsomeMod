@@ -1,6 +1,7 @@
 #
 # Copyright (C) 2006-2014 OpenWrt.org
-#
+# Copyright (C) 2020 HandsomeMod Project
+# 
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
 #
@@ -235,6 +236,23 @@ define KernelPackage/usb-gadget-mass-storage/description
 endef
 
 $(eval $(call KernelPackage,usb-gadget-mass-storage))
+
+define KernelPackage/usb-gadget-functionfs
+  TITLE:=USB Function filesystem support
+  KCONFIG:=CONFIG_USB_CONFIGFS_F_FS
+  DEPENDS:=+kmod-usb-gadget +kmod-usb-lib-composite
+  FILES:= \
+	$(LINUX_DIR)/drivers/usb/gadget/function/usb_f_fs.ko \
+	
+  AUTOLOAD:=$(call AutoLoad,52,usb_f_fs)
+  $(call AddDepends/usb)
+endef
+
+define KernelPackage/usb-gadget-functionfs/description
+  Kernel support for USB Function filesystem 
+endef
+
+$(eval $(call KernelPackage,usb-gadget-functionfs))
 
 define KernelPackage/usb-gadget-cdc-composite
   TITLE:= USB CDC Composite (Ethernet + ACM)

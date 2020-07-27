@@ -35,6 +35,7 @@ config USB_SUPPORT
 
 config USB_GADGET_SUPPORT
 	bool
+	default y
 
 config RTC_SUPPORT
 	tristate

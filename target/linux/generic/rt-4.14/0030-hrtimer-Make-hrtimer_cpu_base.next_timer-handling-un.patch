@@ -1,7 +1,7 @@
-From f9d6516ba00b71bcf88bcd7eaa793a1309f40cdc Mon Sep 17 00:00:00 2001
+From b44afd4e72f2647813fa06abb73ec7c51d2d6c74 Mon Sep 17 00:00:00 2001
 From: Anna-Maria Gleixner <anna-maria@linutronix.de>
 Date: Wed, 20 Dec 2017 17:13:05 +0100
-Subject: [PATCH 030/506] hrtimer: Make hrtimer_cpu_base.next_timer handling
+Subject: [PATCH 030/507] hrtimer: Make hrtimer_cpu_base.next_timer handling
  unconditional
 
 hrtimer_cpu_base.next_timer stores the pointer to the next expiring timer
@@ -101,5 +101,5 @@ index 8636d2552e9a..b4ba6f91c8fd 100644
  	}
  	/*
 -- 
-2.25.3
+2.26.2
 

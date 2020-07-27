@@ -1,7 +1,7 @@
-From 273e1e58cb3be784751e54912233c40ea426fa68 Mon Sep 17 00:00:00 2001
+From b147100cd781273331346df30c9f6386d2538cd4 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Thu, 23 Nov 2017 16:39:12 +0100
-Subject: [PATCH 045/506] mac80211_hwsim: Replace hrtimer tasklet with softirq
+Subject: [PATCH 045/507] mac80211_hwsim: Replace hrtimer tasklet with softirq
  hrtimer
 
 Switch the timer to HRTIMER_MODE_SOFT, which executed the timer
@@ -137,5 +137,5 @@ index a8ec5b2c5abb..34643d1102d9 100644
  	err = ieee80211_register_hw(hw);
  	if (err < 0) {
 -- 
-2.25.3
+2.26.2
 

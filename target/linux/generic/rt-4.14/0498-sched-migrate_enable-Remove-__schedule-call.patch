@@ -1,0 +1,43 @@
+From 734626c73c1d8d8ef580d0be659f83b6c60e46b5 Mon Sep 17 00:00:00 2001
+From: Scott Wood <swood@redhat.com>
+Date: Fri, 24 Jan 2020 06:11:47 -0500
+Subject: [PATCH 498/507] sched: migrate_enable: Remove __schedule() call
+
+[ Upstream commit b8162e61e9a33bd1de6452eb838fbf50a93ddd9a ]
+
+We can rely on preempt_enable() to schedule.  Besides simplifying the
+code, this potentially allows sequences such as the following to be
+permitted:
+
+migrate_disable();
+preempt_disable();
+migrate_enable();
+preempt_enable();
+
+Suggested-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Signed-off-by: Scott Wood <swood@redhat.com>
+Reviewed-by: Steven Rostedt (VMware) <rostedt@goodmis.org>
+Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Signed-off-by: Tom Zanussi <zanussi@kernel.org>
+
+ Conflicts:
+	kernel/sched/core.c
+---
+ kernel/sched/core.c | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+index 0b750d345a67..807560134fa7 100644
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -7025,7 +7025,6 @@ void migrate_enable(void)
+ 		stop_one_cpu_nowait(task_cpu(p), migration_cpu_stop,
+ 				    arg, work);
+ 		tlb_migrate_finish(p->mm);
+-		__schedule(true);
+ 	}
+ 
+ out:
+-- 
+2.26.2
+

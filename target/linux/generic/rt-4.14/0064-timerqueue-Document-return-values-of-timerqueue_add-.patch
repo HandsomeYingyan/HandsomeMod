@@ -1,7 +1,7 @@
-From 4452810220e1537c950de2488759e418f2b5b036 Mon Sep 17 00:00:00 2001
+From 3b936a242a922969f6f1a37e670bfce62f642df3 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 22 Dec 2017 15:51:15 +0100
-Subject: [PATCH 064/506] timerqueue: Document return values of
+Subject: [PATCH 064/507] timerqueue: Document return values of
  timerqueue_add/del()
 
 The return values of timerqueue_add/del() are not documented in the kernel doc
@@ -41,5 +41,5 @@ index 4a720ed4fdaf..0d54bcbc8170 100644
  bool timerqueue_del(struct timerqueue_head *head, struct timerqueue_node *node)
  {
 -- 
-2.25.3
+2.26.2
 

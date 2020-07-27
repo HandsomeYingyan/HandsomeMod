@@ -1,7 +1,7 @@
-From 430a0438d53cf5d1bb876739948c2d3d91b2114f Mon Sep 17 00:00:00 2001
+From 0579c4b1a12a7e2b8e916046be2d81b70036a61a Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 22 Mar 2018 16:22:34 +0100
-Subject: [PATCH 008/506] iommu/amd: Turn dev_data_list into a lock less list
+Subject: [PATCH 008/507] iommu/amd: Turn dev_data_list into a lock less list
 
 Upstream commit 779da73273fc4c4c6f41579a95e4fb7880a1720e
 
@@ -101,5 +101,5 @@ index ebe2b8faa40b..2a140eea223e 100644
  	u16 devid;			  /* PCI Device ID */
  	u16 alias;			  /* Alias Device ID */
 -- 
-2.25.3
+2.26.2
 

@@ -1,7 +1,7 @@
-From 29381542b42edf1787f11510a6c1717cdde6ab12 Mon Sep 17 00:00:00 2001
+From 37c69d94864128a0672ac5a06946932f08ab8a1a Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Thu, 23 Nov 2017 16:39:13 +0100
-Subject: [PATCH 046/506] xfrm: Replace hrtimer tasklet with softirq hrtimer
+Subject: [PATCH 046/507] xfrm: Replace hrtimer tasklet with softirq hrtimer
 
 Switch the timer to HRTIMER_MODE_SOFT, which executed the timer
 callback in softirq context and remove the hrtimer_tasklet.
@@ -136,5 +136,5 @@ index 190ca59d5ba3..988e43834c05 100644
  	}
  
 -- 
-2.25.3
+2.26.2
 

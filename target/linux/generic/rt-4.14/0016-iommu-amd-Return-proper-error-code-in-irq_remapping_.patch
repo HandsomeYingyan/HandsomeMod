@@ -1,7 +1,7 @@
-From f25431922c95fda070e8ba8fb4f1917aa1d947f5 Mon Sep 17 00:00:00 2001
+From 94d3f2ed8eba9c5626f684ccbc94999de2c1b5ed Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 22 Mar 2018 16:22:42 +0100
-Subject: [PATCH 016/506] iommu/amd: Return proper error code in
+Subject: [PATCH 016/507] iommu/amd: Return proper error code in
  irq_remapping_alloc()
 
 Upstream commit 29d049be9438278c47253a74cf8d0ddf36bd5d68
@@ -42,5 +42,5 @@ index 7e6a223c22a7..75eafeb26e0d 100644
  	} else {
  		index = alloc_irq_index(devid, nr_irqs);
 -- 
-2.25.3
+2.26.2
 

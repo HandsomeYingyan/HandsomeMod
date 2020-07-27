@@ -1,0 +1,54 @@
+From cafea130845f851063f5f383118202643f424f70 Mon Sep 17 00:00:00 2001
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Date: Thu, 16 Apr 2020 12:42:15 +0200
+Subject: [PATCH 504/507] fs/dcache: Include swait.h header
+
+Include the swait.h header so it compiles even if not all patches are
+applied.
+
+Reported-by: kbuild test robot <lkp@intel.com>
+Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+(cherry picked from commit 279f90ddf53cd6bd3c203fbbf488d642ea2603de)
+Signed-off-by: Clark Williams <williams@redhat.com>
+
+ Conflicts:
+	fs/proc/base.c
+
+Signed-off-by: Clark Williams <williams@redhat.com>
+---
+ fs/proc/base.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/fs/proc/base.c b/fs/proc/base.c
+index fd8fade82d03..7002e568aaff 100644
+--- a/fs/proc/base.c
++++ b/fs/proc/base.c
+@@ -96,6 +96,7 @@
+ #ifdef CONFIG_HARDWALL
+ #include <asm/hardwall.h>
+ #endif
++#include <linux/swait.h>
+ #include <trace/events/oom.h>
+ #include "internal.h"
+ #include "fd.h"
+@@ -2467,7 +2468,7 @@ static int proc_pident_instantiate(struct inode *dir,
+ 	return -ENOENT;
+ }
+ 
+-static struct dentry *proc_pident_lookup(struct inode *dir, 
++static struct dentry *proc_pident_lookup(struct inode *dir,
+ 					 struct dentry *dentry,
+ 					 const struct pid_entry *ents,
+ 					 unsigned int nents)
+@@ -2614,7 +2615,7 @@ static const struct pid_entry attr_dir_stuff[] = {
+ 
+ static int proc_attr_dir_readdir(struct file *file, struct dir_context *ctx)
+ {
+-	return proc_pident_readdir(file, ctx, 
++	return proc_pident_readdir(file, ctx,
+ 				   attr_dir_stuff, ARRAY_SIZE(attr_dir_stuff));
+ }
+ 
+-- 
+2.26.2
+

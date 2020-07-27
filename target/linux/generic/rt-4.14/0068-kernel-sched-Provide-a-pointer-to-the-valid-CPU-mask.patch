@@ -1,7 +1,7 @@
-From 99f6a9be0b8985c7a44ac7e695188e40eeec83fe Mon Sep 17 00:00:00 2001
+From 092b993ff4710edc9aba20090b69513da3db6f6e Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 4 Apr 2017 12:50:16 +0200
-Subject: [PATCH 068/506] kernel: sched: Provide a pointer to the valid CPU
+Subject: [PATCH 068/507] kernel: sched: Provide a pointer to the valid CPU
  mask
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -133,7 +133,7 @@ index a7c0f97e4b0d..1a08428eedcf 100644
  
  out_unlock:
 diff --git a/arch/mips/kernel/traps.c b/arch/mips/kernel/traps.c
-index 583aed906933..24ad7aaca5eb 100644
+index 4a23d89e251c..e0b677388392 100644
 --- a/arch/mips/kernel/traps.c
 +++ b/arch/mips/kernel/traps.c
 @@ -1193,12 +1193,12 @@ static void mt_ase_fp_affinity(void)
@@ -375,7 +375,7 @@ index 0a328cf0cb13..e9a7b4c009a0 100644
  	 * One for us, one for whoever does the "release_task()" (usually
  	 * parent)
 diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index 97a27726ea21..964be627ab8d 100644
+index c5599174e745..b8e957a037c1 100644
 --- a/kernel/sched/core.c
 +++ b/kernel/sched/core.c
 @@ -913,7 +913,7 @@ static inline bool is_per_cpu_kthread(struct task_struct *p)
@@ -498,7 +498,7 @@ index 97a27726ea21..964be627ab8d 100644
  	 *  - any previously selected CPU might disappear through hotplug
  	 *
  	 * Use __set_task_cpu() to avoid calling sched_class::migrate_task_rq,
-@@ -4165,7 +4165,7 @@ static int __sched_setscheduler(struct task_struct *p,
+@@ -4166,7 +4166,7 @@ static int __sched_setscheduler(struct task_struct *p,
  			 * the entire root_domain to become SCHED_DEADLINE. We
  			 * will also fail if there's no bandwidth available.
  			 */
@@ -507,7 +507,7 @@ index 97a27726ea21..964be627ab8d 100644
  			    rq->rd->dl_bw.bw == 0) {
  				task_rq_unlock(rq, p, &rf);
  				return -EPERM;
-@@ -4759,7 +4759,7 @@ long sched_getaffinity(pid_t pid, struct cpumask *mask)
+@@ -4760,7 +4760,7 @@ long sched_getaffinity(pid_t pid, struct cpumask *mask)
  		goto out_unlock;
  
  	raw_spin_lock_irqsave(&p->pi_lock, flags);
@@ -516,7 +516,7 @@ index 97a27726ea21..964be627ab8d 100644
  	raw_spin_unlock_irqrestore(&p->pi_lock, flags);
  
  out_unlock:
-@@ -5325,7 +5325,7 @@ int task_can_attach(struct task_struct *p,
+@@ -5326,7 +5326,7 @@ int task_can_attach(struct task_struct *p,
  	 * allowed nodes is unnecessary.  Thus, cpusets are not
  	 * applicable for such threads.  This prevents checking for
  	 * success of set_cpus_allowed_ptr() on all attached tasks
@@ -525,7 +525,7 @@ index 97a27726ea21..964be627ab8d 100644
  	 */
  	if (p->flags & PF_NO_SETAFFINITY) {
  		ret = -EINVAL;
-@@ -5352,7 +5352,7 @@ int migrate_task_to(struct task_struct *p, int target_cpu)
+@@ -5353,7 +5353,7 @@ int migrate_task_to(struct task_struct *p, int target_cpu)
  	if (curr_cpu == target_cpu)
  		return 0;
  
@@ -534,7 +534,7 @@ index 97a27726ea21..964be627ab8d 100644
  		return -EINVAL;
  
  	/* TODO: This is not properly updating schedstats */
-@@ -5489,7 +5489,7 @@ static void migrate_tasks(struct rq *dead_rq, struct rq_flags *rf)
+@@ -5490,7 +5490,7 @@ static void migrate_tasks(struct rq *dead_rq, struct rq_flags *rf)
  		put_prev_task(rq, next);
  
  		/*
@@ -613,7 +613,7 @@ index 22770168bff8..92d1d805a9f5 100644
  				     !dl_task(task) ||
  				     !task_on_rq_queued(task))) {
 diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
-index 0b4e997fea1a..4c17bf98804e 100644
+index 4d8add44fffb..12f158260116 100644
 --- a/kernel/sched/fair.c
 +++ b/kernel/sched/fair.c
 @@ -1597,7 +1597,7 @@ static void task_numa_compare(struct task_numa_env *env,
@@ -803,5 +803,5 @@ index 5522692100ba..8b4be8e1802a 100644
  	trace_foo_with_template_simple("HELLO", cnt);
  
 -- 
-2.25.3
+2.26.2
 

@@ -1,7 +1,7 @@
-From 179e78068547d149ab8c4c285f826952a9ba7e82 Mon Sep 17 00:00:00 2001
+From 45748c2589aeea4bfacd00da591d023085afff82 Mon Sep 17 00:00:00 2001
 From: Anna-Maria Gleixner <anna-maria@linutronix.de>
 Date: Wed, 20 Dec 2017 17:13:06 +0100
-Subject: [PATCH 031/506] hrtimer: Make hrtimer_reprogramm() unconditional
+Subject: [PATCH 031/507] hrtimer: Make hrtimer_reprogramm() unconditional
 
 hrtimer_reprogram() needs to be available unconditionally for softirq based
 hrtimers. Move the function and all required struct members out of the
@@ -189,5 +189,5 @@ index b4ba6f91c8fd..9222119e7de3 100644
   * Clock realtime was set
   *
 -- 
-2.25.3
+2.26.2
 

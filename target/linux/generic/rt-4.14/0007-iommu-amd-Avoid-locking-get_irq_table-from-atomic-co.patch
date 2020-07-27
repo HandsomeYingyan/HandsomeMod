@@ -1,7 +1,7 @@
-From a638d4d28f8cd5ca8279ba9357d699f28da09f05 Mon Sep 17 00:00:00 2001
+From f6c89a25dca6b643f65fb7bbd11d91102a768e5c Mon Sep 17 00:00:00 2001
 From: Scott Wood <swood@redhat.com>
 Date: Wed, 14 Feb 2018 17:36:28 -0600
-Subject: [PATCH 007/506] iommu/amd: Avoid locking get_irq_table() from atomic
+Subject: [PATCH 007/507] iommu/amd: Avoid locking get_irq_table() from atomic
  context
 
 Upstream commit df42a04b15f19a842393dc98a84cbc52b1f8ed49
@@ -118,5 +118,5 @@ index 9ddc79b13d5e..89f47a94d355 100644
  		return -ENODEV;
  
 -- 
-2.25.3
+2.26.2
 

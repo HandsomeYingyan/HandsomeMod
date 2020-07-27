@@ -1,7 +1,7 @@
-From d8c2909ae065fdbd32817823182a783226fa9027 Mon Sep 17 00:00:00 2001
+From bddd6246beafa3b4f7dbdfa7bf3961931fadd976 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 22 Mar 2018 16:22:38 +0100
-Subject: [PATCH 012/506] iommu/amd: Use `table' instead `irt' as variable name
+Subject: [PATCH 012/507] iommu/amd: Use `table' instead `irt' as variable name
  in amd_iommu_update_ga()
 
 Upstream commit 4fde541c9dc114c5b448ad34b0286fe8b7c550f1
@@ -54,5 +54,5 @@ index 84825004152e..3319f7b6868f 100644
  	iommu_flush_irt(iommu, devid);
  	iommu_completion_wait(iommu);
 -- 
-2.25.3
+2.26.2
 

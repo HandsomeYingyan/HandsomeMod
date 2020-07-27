@@ -1,7 +1,7 @@
-From 70c3f8286a665c0b1b1c659dde476d6d352e35b9 Mon Sep 17 00:00:00 2001
+From f6983c6f2eedf8c7274871a2132a82b61a439ccf Mon Sep 17 00:00:00 2001
 From: Anna-Maria Gleixner <anna-maria@linutronix.de>
 Date: Wed, 20 Dec 2017 17:13:13 +0100
-Subject: [PATCH 038/506] hrtimer: Split __hrtimer_get_next_event()
+Subject: [PATCH 038/507] hrtimer: Split __hrtimer_get_next_event()
 
 Preparatory patch for softirq based hrtimers to avoid code duplication. No
 functional change.
@@ -54,5 +54,5 @@ index 8311760166be..b9b56943f9b6 100644
  
  static inline ktime_t hrtimer_update_base(struct hrtimer_cpu_base *base)
 -- 
-2.25.3
+2.26.2
 

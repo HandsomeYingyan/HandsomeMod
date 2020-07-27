@@ -1,0 +1,20 @@
+From 4107016ee3f67ad91cf1cb619bc812ad0d135f9e Mon Sep 17 00:00:00 2001
+From: Clark Williams <williams@redhat.com>
+Date: Sat, 11 Jul 2020 14:06:53 -0500
+Subject: [PATCH 507/507] Linux 4.14.188-rt87 REBASE
+
+Signed-off-by: Clark Williams <williams@redhat.com>
+---
+ localversion-rt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/localversion-rt b/localversion-rt
+index 90290c642ed5..bd5aee366a48 100644
+--- a/localversion-rt
++++ b/localversion-rt
+@@ -1 +1 @@
+--rt29
++-rt87
+-- 
+2.26.2
+

@@ -1,7 +1,7 @@
-From 0030521ed9fd0db305a8bb184a6ba365e42cd276 Mon Sep 17 00:00:00 2001
+From 17cd342dc54a8cc9942fb814c83c27010b297466 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Thu, 23 Nov 2017 16:39:17 +0100
-Subject: [PATCH 050/506] net/mvpp2: Replace tasklet with softirq hrtimer
+Subject: [PATCH 050/507] net/mvpp2: Replace tasklet with softirq hrtimer
 
 The tx_done_tasklet tasklet is used in invoke the hrtimer
 (mvpp2_hr_timer_cb) in softirq context. This can be also achieved without
@@ -134,5 +134,5 @@ index d1eede2625ca..b72441933b2c 100644
  	}
  
 -- 
-2.25.3
+2.26.2
 

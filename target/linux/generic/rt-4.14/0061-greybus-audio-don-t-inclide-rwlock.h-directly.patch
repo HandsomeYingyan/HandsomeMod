@@ -1,7 +1,7 @@
-From 9fbae2eb5f97123ac4380fdd5f34377f7a176512 Mon Sep 17 00:00:00 2001
+From 41c367741f2b0b7b8473270f6f82b2708a26cbea Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 5 Oct 2017 14:38:52 +0200
-Subject: [PATCH 061/506] greybus: audio: don't inclide rwlock.h directly.
+Subject: [PATCH 061/507] greybus: audio: don't inclide rwlock.h directly.
 
 rwlock.h should not be included directly. Instead linux/splinlock.h
 should be included. One thing it does is to break the RT build.
@@ -32,5 +32,5 @@ index ed7c32542cb3..510129cfdc18 100644
  
  #include "audio_manager.h"
 -- 
-2.25.3
+2.26.2
 

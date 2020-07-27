@@ -1,7 +1,7 @@
-From 136cec359dc0ee68dbefeb18a89f9b06bf87ec84 Mon Sep 17 00:00:00 2001
+From 3fda4e1a553418295880cd9e57df53afe5dcb642 Mon Sep 17 00:00:00 2001
 From: Anna-Maria Gleixner <anna-maria@linutronix.de>
 Date: Wed, 20 Dec 2017 17:12:53 +0100
-Subject: [PATCH 020/506] hrtimer: Cleanup clock argument in
+Subject: [PATCH 020/507] hrtimer: Cleanup clock argument in
  schedule_hrtimeout_range_clock()
 
 schedule_hrtimeout_range_clock() uses an integer for the clock id
@@ -84,5 +84,5 @@ index 845c9913fbff..9ef664675c52 100644
   * Make the current task sleep until the given expiry time has
   * elapsed. The routine will return immediately unless
 -- 
-2.25.3
+2.26.2
 

@@ -1,0 +1,722 @@
+--- a/arch/arm/boot/dts/sun8i-v3s.dtsi.orig	2020-07-01 04:24:19.000000000 +0800
++++ b/arch/arm/boot/dts/sun8i-v3s.dtsi	2020-07-24 17:03:51.822063000 +0800
+@@ -49,6 +49,21 @@
+ 	#size-cells = <1>;
+ 	interrupt-parent = <&gic>;
+ 
++	chosen {
++		#address-cells = <1>;
++		#size-cells = <1>;
++		ranges;
++
++		simplefb_lcd: framebuffer@0 {
++			compatible = "allwinner,simple-framebuffer",
++				     "simple-framebuffer";
++			allwinner,pipeline = "de0-lcd0";
++			clocks = <&ccu CLK_BUS_TCON0>, <&display_clocks 0>,
++				 <&display_clocks 6>, <&ccu CLK_TCON0>;
++			status = "disabled";
++		};
++	};
++
+ 	cpus {
+ 		#address-cells = <1>;
+ 		#size-cells = <0>;
+@@ -141,6 +156,12 @@
+ 			};
+ 		};
+ 
++		syscon: syscon@1c00000 {
++			compatible = "allwinner,sun8i-v3s-system-controller",
++				"syscon";
++			reg = <0x01c00000 0x1000>;
++		};
++
+ 		tcon0: lcd-controller@1c0c000 {
+ 			compatible = "allwinner,sun8i-v3s-tcon";
+ 			reg = <0x01c0c000 0x1000>;
+@@ -178,6 +199,15 @@
+ 		};
+ 
+ 
++		dma: dma-controller@01c02000 {
++			compatible = "allwinner,sun8i-v3s-dma";
++			reg = <0x01c02000 0x1000>;
++			interrupts = <GIC_SPI 50 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&ccu CLK_BUS_DMA>;
++			resets = <&ccu RST_BUS_DMA>;
++			#dma-cells = <1>;
++		};
++
+ 		mmc0: mmc@01c0f000 {
+ 			compatible = "allwinner,sun7i-a20-mmc";
+ 			reg = <0x01c0f000 0x1000>;
+@@ -264,6 +294,25 @@
+ 			#phy-cells = <1>;
+ 		};
+ 
++		ehci0: usb@01c1a000 {
++			compatible = "allwinner,sun8i-v3s-ehci", "generic-ehci";
++			reg = <0x01c1a000 0x100>;
++			interrupts = <GIC_SPI 72 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&ccu CLK_BUS_EHCI0>, <&ccu CLK_BUS_OHCI0>;
++			resets = <&ccu RST_BUS_EHCI0>, <&ccu RST_BUS_OHCI0>;
++			status = "disabled";
++		};
++
++		ohci0: usb@01c1a400 {
++			compatible = "allwinner,sun8i-v3s-ohci", "generic-ohci";
++			reg = <0x01c1a400 0x100>;
++			interrupts = <GIC_SPI 73 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&ccu CLK_BUS_EHCI0>, <&ccu CLK_BUS_OHCI0>,
++				 <&ccu CLK_USB_OHCI0>;
++			resets = <&ccu RST_BUS_EHCI0>, <&ccu RST_BUS_OHCI0>;
++			status = "disabled";
++		};
++
+ 		ccu: clock@01c20000 {
+ 			compatible = "allwinner,sun8i-v3s-ccu";
+ 			reg = <0x01c20000 0x400>;
+@@ -292,17 +341,30 @@
+ 			interrupt-controller;
+ 			#interrupt-cells = <3>;
+ 
+-			i2c0_pins: i2c0-pins {
++			i2c0_pins: i2c0 {
+ 				pins = "PB6", "PB7";
+ 				function = "i2c0";
+ 			};
+ 
+-			uart0_pb_pins: uart0-pb-pins {
++			pwm0_pins: pwm0 {
++				pins = "PB4";
++				function = "pwm0";
++			};
++
++			uart0_pins_a: uart0@0 {
+ 				pins = "PB8", "PB9";
+ 				function = "uart0";
+ 			};
+ 
+-			mmc0_pins: mmc0-pins {
++			lcd_rgb666_pins_a: lcd-rgb666-pe {
++				pins = "PE0", "PE1", "PE2", "PE3", "PE4", "PE5",
++				       "PE6", "PE7", "PE8", "PE9", "PE10", "PE11",
++				       "PE12", "PE13", "PE14", "PE15", "PE16", "PE17",
++				       "PE18", "PE19", "PE23", "PE24";
++				function = "lcd";
++			};
++
++			mmc0_pins_a: mmc0@0 {
+ 				pins = "PF0", "PF1", "PF2", "PF3",
+ 				       "PF4", "PF5";
+ 				function = "mmc0";
+@@ -310,7 +372,7 @@
+ 				bias-pull-up;
+ 			};
+ 
+-			mmc1_pins: mmc1-pins {
++			mmc1_pins: mmc1 {
+ 				pins = "PG0", "PG1", "PG2", "PG3",
+ 				       "PG4", "PG5";
+ 				function = "mmc1";
+@@ -318,7 +380,7 @@
+ 				bias-pull-up;
+ 			};
+ 
+-			spi0_pins: spi0-pins {
++			spi0_pins: spi0 {
+ 				pins = "PC0", "PC1", "PC2", "PC3";
+ 				function = "spi0";
+ 			};
+@@ -338,6 +400,15 @@
+ 			interrupts = <GIC_SPI 25 IRQ_TYPE_LEVEL_HIGH>;
+ 		};
+ 
++		pwm: pwm@1c21400 {
++			compatible = "allwinner,sun8i-v3s-pwm",
++				     "allwinner,sun7i-a20-pwm";
++			reg = <0x01c21400 0x400>;
++			clocks = <&osc24M>;
++			#pwm-cells = <3>;
++			status = "disabled";
++		};
++
+ 		lradc: lradc@1c22800 {
+ 			compatible = "allwinner,sun4i-a10-lradc-keys";
+ 			reg = <0x01c22800 0x400>;
+@@ -345,6 +416,25 @@
+ 			status = "disabled";
+ 		};
+ 
++		codec: codec@01c22c00 {
++			#sound-dai-cells = <0>;
++			compatible = "allwinner,sun8i-v3s-codec";
++			reg = <0x01c22c00 0x400>;
++			interrupts = <GIC_SPI 29 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&ccu CLK_BUS_CODEC>, <&ccu CLK_AC_DIG>;
++			clock-names = "apb", "codec";
++			resets = <&ccu RST_BUS_CODEC>;
++			dmas = <&dma 15>, <&dma 15>;
++			dma-names = "rx", "tx";
++			allwinner,codec-analog-controls = <&codec_analog>;
++			status = "disabled";
++		};
++
++		codec_analog: codec-analog@01c23000 {
++			compatible = "allwinner,sun8i-v3s-codec-analog";
++			reg = <0x01c23000 0x4>;
++		};
++
+ 		uart0: serial@01c28000 {
+ 			compatible = "snps,dw-apb-uart";
+ 			reg = <0x01c28000 0x400>;
+@@ -402,6 +492,35 @@
+ 			#size-cells = <0>;
+ 		};
+ 
++		emac: ethernet@1c30000 {
++			compatible = "allwinner,sun8i-v3s-emac";
++			syscon = <&syscon>;
++			reg = <0x01c30000 0x10000>;
++			interrupts = <GIC_SPI 82 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "macirq";
++			resets = <&ccu RST_BUS_EMAC>;
++			reset-names = "stmmaceth";
++			clocks = <&ccu CLK_BUS_EMAC>;
++			clock-names = "stmmaceth";
++			phy-handle = <&int_mii_phy>;
++			phy-mode = "mii";
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++
++			mdio {
++				#address-cells = <1>;
++				#size-cells = <0>;
++				int_mii_phy: ethernet-phy@1 {
++					compatible = "ethernet-phy-ieee802.3-c22";
++					reg = <1>;
++					clocks = <&ccu CLK_BUS_EPHY>;
++					resets = <&ccu RST_BUS_EPHY>;
++					phy-is-integrated;
++				};
++			};
++		};
++
+ 		spi0: spi@1c68000 {
+ 			compatible = "allwinner,sun8i-h3-spi";
+ 			reg = <0x01c68000 0x1000>;
+
+diff -uN -r linux-4.14.14/arch/arm/boot/dts/sun8i-v3s-licheepi-zero-dock.dts linux/arch/arm/boot/dts/sun8i-v3s-licheepi-zero-dock.dts
+--- linux-4.14.14/arch/arm/boot/dts/sun8i-v3s-licheepi-zero-dock.dts	2018-01-17 16:45:30.000000000 +0800
++++ linux/arch/arm/boot/dts/sun8i-v3s-licheepi-zero-dock.dts	2020-07-24 17:08:25.725029480 +0800
+@@ -49,10 +49,53 @@
+ 	compatible = "licheepi,licheepi-zero-dock", "licheepi,licheepi-zero",
+ 		     "allwinner,sun8i-v3s";
+ 
++	aliases {
++		ethernet0 = &emac;
++	};
++
+ 	leds {
+ 		/* The LEDs use PG0~2 pins, which conflict with MMC1 */
+ 		status = "disbaled";
+ 	};
++
++	backlight: backlight {
++		compatible = "pwm-backlight";
++		pwms = <&pwm 0 1000000 0>;
++		brightness-levels = <0 30 40 50 60 70 100>;
++		default-brightness-level = <6>;
++	};
++
++	panel: panel {
++                compatible = "lg,lb070wv8", "simple-panel";
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		port@0 {
++			reg = <0>;
++			backlight = <&backlight>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			panel_input: endpoint@0 {
++				reg = <0>;
++				remote-endpoint = <&tcon0_out_lcd>;
++			};
++		};
++	};
++
++};
++
++&codec {
++	allwinner,audio-routing =
++		"Headphone", "HP",
++		"Headphone", "HPCOM",
++		"MIC1", "Mic",
++		"Mic",  "HBIAS";
++	status = "okay";
++};
++
++&emac {
++	status = "okay";
+ };
+ 
+ &mmc1 {
+@@ -62,6 +105,29 @@
+ 	status = "okay";
+ };
+ 
++&de {
++	status = "okay";
++};
++
++&pwm {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pwm0_pins>;
++	status = "okay";
++};
++
++&tcon0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&lcd_rgb666_pins_a>;
++	status = "okay";
++};
++
++&tcon0_out {
++	tcon0_out_lcd: endpoint@0 {
++		reg = <0>;
++		remote-endpoint = <&panel_input>;
++	};
++};
++
+ &lradc {
+ 	vref-supply = <&reg_vcc3v0>;
+ 	status = "okay";
+diff -uN -r linux-4.14.14/arch/arm/boot/dts/sun8i-v3s-licheepi-zero.dts linux/arch/arm/boot/dts/sun8i-v3s-licheepi-zero.dts
+--- linux-4.14.14/arch/arm/boot/dts/sun8i-v3s-licheepi-zero.dts	2018-01-17 16:45:30.000000000 +0800
++++ linux/arch/arm/boot/dts/sun8i-v3s-licheepi-zero.dts	2020-07-24 17:03:51.822063565 +0800
+@@ -77,6 +77,10 @@
+ 	};
+ };
+ 
++&ehci0 {
++	status = "okay";
++};
++
+ &mmc0 {
+ 	pinctrl-0 = <&mmc0_pins_a>;
+ 	pinctrl-names = "default";
+@@ -86,6 +90,19 @@
+ 	status = "okay";
+ };
+ 
++&i2c0 {
++	status = "okay";
++
++	ns2009: ns2009@48 {
++		compatible = "nsiway,ns2009";
++		reg = <0x48>;
++	};
++};
++
++&ohci0 {
++	status = "okay";
++};
++
+ &uart0 {
+ 	pinctrl-0 = <&uart0_pins_a>;
+ 	pinctrl-names = "default";
+
+diff -uN -r linux-4.14.14/Documentation/devicetree/bindings/input/touchscreen/ns2009.txt linux/Documentation/devicetree/bindings/input/touchscreen/ns2009.txt
+--- linux-4.14.14/Documentation/devicetree/bindings/input/touchscreen/ns2009.txt	1970-01-01 08:00:00.000000000 +0800
++++ linux/Documentation/devicetree/bindings/input/touchscreen/ns2009.txt	2020-07-24 17:03:51.278032408 +0800
+@@ -0,0 +1,23 @@
++* Nsiway NS2009 Resistive Touchscreen Controller
++
++Required properties:
++- compatible		  : "nsiway,ns2009"
++- reg			  : I2C slave address of the chip (0x48 or 0x49, depends on
++			    the hardware)
++
++Optional properties:
++- interrupt-parent	  : a phandle pointing to the interrupt controller
++			    serving the interrupt for this chip
++- interrupts		  : interrupt specification for the ns2009 pen interrupt
++- properties defined in touchscreen.txt
++
++Example:
++
++i2c@00000000 {
++	ns2009: touchscreen@48 {
++		compatible = "nsiway,ns2009";
++		reg = <0x48>;
++		touchscreen-fuzz-x = <8>;
++		touchscreen-fuzz-y = <8>;
++	};
++};
+diff -uN -r linux-4.14.14/Documentation/devicetree/bindings/net/dwmac-sun8i.txt linux/Documentation/devicetree/bindings/net/dwmac-sun8i.txt
+--- linux-4.14.14/Documentation/devicetree/bindings/net/dwmac-sun8i.txt	1970-01-01 08:00:00.000000000 +0800
++++ linux/Documentation/devicetree/bindings/net/dwmac-sun8i.txt	2020-07-24 17:03:51.298033553 +0800
+@@ -0,0 +1,84 @@
++* Allwinner sun8i GMAC ethernet controller
++
++This device is a platform glue layer for stmmac.
++Please see stmmac.txt for the other unchanged properties.
++
++Required properties:
++- compatible: should be one of the following string:
++		"allwinner,sun8i-a83t-emac"
++		"allwinner,sun8i-h3-emac"
++		"allwinner,sun8i-v3s-emac"
++		"allwinner,sun50i-a64-emac"
++- reg: address and length of the register for the device.
++- interrupts: interrupt for the device
++- interrupt-names: should be "macirq"
++- clocks: A phandle to the reference clock for this device
++- clock-names: should be "stmmaceth"
++- resets: A phandle to the reset control for this device
++- reset-names: should be "stmmaceth"
++- phy-mode: See ethernet.txt
++- phy-handle: See ethernet.txt
++- #address-cells: shall be 1
++- #size-cells: shall be 0
++- syscon: A phandle to the syscon of the SoC with one of the following
++ compatible string:
++  - allwinner,sun8i-h3-system-controller
++  - allwinner,sun8i-v3s-system-controller
++  - allwinner,sun50i-a64-system-controller
++  - allwinner,sun8i-a83t-system-controller
++
++Optional properties:
++- allwinner,tx-delay-ps: TX clock delay chain value in ps. Range value is 0-700. Default is 0)
++- allwinner,rx-delay-ps: RX clock delay chain value in ps. Range value is 0-3100. Default is 0)
++Both delay properties need to be a multiple of 100. They control the delay for
++external PHY.
++
++Optional properties for the following compatibles:
++  - "allwinner,sun8i-h3-emac",
++  - "allwinner,sun8i-v3s-emac":
++- allwinner,leds-active-low: EPHY LEDs are active low
++
++Required child node of emac:
++- mdio bus node: should be named mdio
++
++Required properties of the mdio node:
++- #address-cells: shall be 1
++- #size-cells: shall be 0
++
++The device node referenced by "phy" or "phy-handle" should be a child node
++of the mdio node. See phy.txt for the generic PHY bindings.
++
++Required properties of the phy node with the following compatibles:
++  - "allwinner,sun8i-h3-emac",
++  - "allwinner,sun8i-v3s-emac":
++- clocks: a phandle to the reference clock for the EPHY
++- resets: a phandle to the reset control for the EPHY
++
++Example:
++
++emac: ethernet@1c0b000 {
++	compatible = "allwinner,sun8i-h3-emac";
++	syscon = <&syscon>;
++	reg = <0x01c0b000 0x104>;
++	interrupts = <GIC_SPI 82 IRQ_TYPE_LEVEL_HIGH>;
++	interrupt-names = "macirq";
++	resets = <&ccu RST_BUS_EMAC>;
++	reset-names = "stmmaceth";
++	clocks = <&ccu CLK_BUS_EMAC>;
++	clock-names = "stmmaceth";
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	phy-handle = <&int_mii_phy>;
++	phy-mode = "mii";
++	allwinner,leds-active-low;
++	mdio: mdio {
++		#address-cells = <1>;
++		#size-cells = <0>;
++		int_mii_phy: ethernet-phy@1 {
++			reg = <1>;
++			clocks = <&ccu CLK_BUS_EPHY>;
++			resets = <&ccu RST_BUS_EPHY>;
++		};
++	};
++};
+diff -uN -r linux-4.14.14/Documentation/devicetree/bindings/vendor-prefixes.txt linux/Documentation/devicetree/bindings/vendor-prefixes.txt
+--- linux-4.14.14/Documentation/devicetree/bindings/vendor-prefixes.txt	2018-01-17 16:45:30.000000000 +0800
++++ linux/Documentation/devicetree/bindings/vendor-prefixes.txt	2020-07-24 17:03:51.370037677 +0800
+@@ -235,6 +235,7 @@
+ nlt	NLT Technologies, Ltd.
+ nokia	Nokia
+ nordic	Nordic Semiconductor
++nsiway	Shenzhen Nsiway Technology Co., Ltd.
+ nuvoton	Nuvoton Technology Corporation
+ nvd	New Vision Display
+ nvidia	NVIDIA
+
+diff -uN -r linux-4.14.14/drivers/input/touchscreen/Kconfig linux/drivers/input/touchscreen/Kconfig
+--- linux-4.14.14/drivers/input/touchscreen/Kconfig	2018-01-17 16:45:30.000000000 +0800
++++ linux/drivers/input/touchscreen/Kconfig	2020-07-24 17:03:54.962243437 +0800
+@@ -639,6 +639,19 @@
+ 	  To compile this driver as a module, choose M here: the
+ 	  module will be called migor_ts.
+ 
++config TOUCHSCREEN_NS2009
++	tristate "Nsiway NS2009 touchscreen"
++	depends on I2C
++	select INPUT_POLLDEV
++	help
++	  Say Y here to enable Nsiway NS2009 resistive touchscreen
++	  controller support.
++
++	  If unsure, say N.
++
++	  To compile this driver as a module, choose M here: the
++	  module will be called ns2009.
++
+ config TOUCHSCREEN_TOUCHRIGHT
+ 	tristate "Touchright serial touchscreen"
+ 	select SERIO
+diff -uN -r linux-4.14.14/drivers/input/touchscreen/Makefile linux/drivers/input/touchscreen/Makefile
+--- linux-4.14.14/drivers/input/touchscreen/Makefile	2018-01-17 16:45:30.000000000 +0800
++++ linux/drivers/input/touchscreen/Makefile	2020-07-24 17:03:54.962243437 +0800
+@@ -59,6 +59,7 @@
+ obj-$(CONFIG_TOUCHSCREEN_HP7XX)		+= jornada720_ts.o
+ obj-$(CONFIG_TOUCHSCREEN_IPAQ_MICRO)	+= ipaq-micro-ts.o
+ obj-$(CONFIG_TOUCHSCREEN_HTCPEN)	+= htcpen.o
++obj-$(CONFIG_TOUCHSCREEN_NS2009)	+= ns2009.o
+ obj-$(CONFIG_TOUCHSCREEN_USB_COMPOSITE)	+= usbtouchscreen.o
+ obj-$(CONFIG_TOUCHSCREEN_PCAP)		+= pcap_ts.o
+ obj-$(CONFIG_TOUCHSCREEN_PENMOUNT)	+= penmount.o
+diff -uN -r linux-4.14.14/drivers/input/touchscreen/ns2009.c linux/drivers/input/touchscreen/ns2009.c
+--- linux-4.14.14/drivers/input/touchscreen/ns2009.c	1970-01-01 08:00:00.000000000 +0800
++++ linux/drivers/input/touchscreen/ns2009.c	2020-07-24 17:03:54.966243667 +0800
+@@ -0,0 +1,212 @@
++/*
++ * Nsiway NS2009 touchscreen controller driver
++ *
++ * Copyright (C) 2017 Icenowy Zheng <icenowy@aosc.xyz>
++ *
++ * Some codes are from silead.c, which is
++ *   Copyright (C) 2014-2015 Intel Corporation
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
++ * GNU General Public License for more details.
++ */
++
++#include <linux/kernel.h>
++#include <linux/module.h>
++#include <linux/input.h>
++#include <linux/input-polldev.h>
++#include <linux/input/touchscreen.h>
++#include <linux/i2c.h>
++
++/* polling interval in ms */
++#define POLL_INTERVAL	30
++
++/* this driver uses 12-bit readout */
++#define MAX_12BIT	0xfff
++
++#define NS2009_TS_NAME	"ns2009_ts"
++
++#define NS2009_READ_X_LOW_POWER_12BIT	0xc0
++#define NS2009_READ_Y_LOW_POWER_12BIT	0xd0
++#define NS2009_READ_Z1_LOW_POWER_12BIT	0xe0
++#define NS2009_READ_Z2_LOW_POWER_12BIT	0xf0
++
++#define NS2009_DEF_X_FUZZ	32
++#define NS2009_DEF_Y_FUZZ	16
++
++/*
++ * The chip have some error in z1 value when pen is up, so the data read out
++ * is sometimes not accurately 0.
++ * This value is based on experiements.
++ */
++#define NS2009_PEN_UP_Z1_ERR	80
++
++struct ns2009_data {
++	struct i2c_client		*client;
++	struct input_dev		*input;
++
++	struct touchscreen_properties	prop;
++
++	bool				pen_down;
++};
++
++static int ns2009_ts_read_data(struct ns2009_data *data, u8 cmd, u16 *val)
++{
++	u8 raw_data[2];
++	int error;
++
++	error = i2c_smbus_read_i2c_block_data(data->client, cmd, 2, raw_data);
++	if (error < 0)
++		return error;
++
++	if (unlikely(raw_data[1] & 0xf))
++		return -EINVAL;
++
++	*val = (raw_data[0] << 4) | (raw_data[1] >> 4);
++
++	return 0;
++}
++
++static int ns2009_ts_report(struct ns2009_data *data)
++{
++	u16 x, y, z1;
++	int ret;
++
++	/*
++	 * NS2009 chip supports pressure measurement, but currently it needs
++	 * more investigation, so we only use z1 axis to detect pen down
++	 * here.
++	 */
++	ret = ns2009_ts_read_data(data, NS2009_READ_Z1_LOW_POWER_12BIT, &z1);
++	if (ret)
++		return ret;
++
++	if (z1 >= NS2009_PEN_UP_Z1_ERR) {
++		ret = ns2009_ts_read_data(data, NS2009_READ_X_LOW_POWER_12BIT,
++					  &x);
++		if (ret)
++			return ret;
++
++		ret = ns2009_ts_read_data(data, NS2009_READ_Y_LOW_POWER_12BIT,
++					  &y);
++		if (ret)
++			return ret;
++
++		if (!data->pen_down) {
++			input_report_key(data->input, BTN_TOUCH, 1);
++			data->pen_down = true;
++		}
++
++		input_report_abs(data->input, ABS_X, x);
++		input_report_abs(data->input, ABS_Y, y);
++		input_sync(data->input);
++	} else if (data->pen_down) {
++		input_report_key(data->input, BTN_TOUCH, 0);
++		input_sync(data->input);
++		data->pen_down = false;
++	}
++	return 0;
++}
++
++static void ns2009_ts_poll(struct input_polled_dev *dev)
++{
++	struct ns2009_data *data = dev->private;
++	int ret;
++
++	ret = ns2009_ts_report(data);
++	if (ret)
++		dev_err(&dev->input->dev, "Poll touch data failed: %d\n", ret);
++}
++
++static void ns2009_ts_config_input_dev(struct ns2009_data *data)
++{
++	struct input_dev *input = data->input;
++
++	input_set_abs_params(input, ABS_X, 0, MAX_12BIT, NS2009_DEF_X_FUZZ, 0);
++	input_set_abs_params(input, ABS_Y, 0, MAX_12BIT, NS2009_DEF_Y_FUZZ, 0);
++	touchscreen_parse_properties(input, false, &data->prop);
++
++	input->name = NS2009_TS_NAME;
++	input->phys = "input/ts";
++	input->id.bustype = BUS_I2C;
++	input_set_capability(input, EV_KEY, BTN_TOUCH);
++}
++
++static int ns2009_ts_request_polled_input_dev(struct ns2009_data *data)
++{
++	struct device *dev = &data->client->dev;
++	struct input_polled_dev *polled_dev;
++	int error;
++
++	polled_dev = devm_input_allocate_polled_device(dev);
++	if (!polled_dev) {
++		dev_err(dev,
++			"Failed to allocate polled input device\n");
++		return -ENOMEM;
++	}
++	data->input = polled_dev->input;
++
++	ns2009_ts_config_input_dev(data);
++	polled_dev->private = data;
++	polled_dev->poll = ns2009_ts_poll;
++	polled_dev->poll_interval = POLL_INTERVAL;
++
++	error = input_register_polled_device(polled_dev);
++	if (error) {
++		dev_err(dev, "Failed to register polled input device: %d\n",
++			error);
++		return error;
++	}
++
++	return 0;
++}
++
++static int ns2009_ts_probe(struct i2c_client *client,
++			   const struct i2c_device_id *id)
++{
++	struct ns2009_data *data;
++	struct device *dev = &client->dev;
++	int error;
++
++	if (!i2c_check_functionality(client->adapter,
++				     I2C_FUNC_I2C |
++				     I2C_FUNC_SMBUS_READ_I2C_BLOCK |
++				     I2C_FUNC_SMBUS_WRITE_I2C_BLOCK)) {
++		dev_err(dev, "I2C functionality check failed\n");
++		return -ENXIO;
++	}
++
++	data = devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
++	if (!data)
++		return -ENOMEM;
++
++	i2c_set_clientdata(client, data);
++	data->client = client;
++
++	error = ns2009_ts_request_polled_input_dev(data);
++	if (error)
++		return error;
++
++	return 0;
++};
++
++static const struct i2c_device_id ns2009_ts_id[] = {
++	{ "ns2009", 0 },
++	{ }
++};
++MODULE_DEVICE_TABLE(i2c, ns2009_ts_id);
++
++static struct i2c_driver ns2009_ts_driver = {
++	.probe = ns2009_ts_probe,
++	.id_table = ns2009_ts_id,
++	.driver = {
++		.name = NS2009_TS_NAME,
++	},
++};
++module_i2c_driver(ns2009_ts_driver);
+
+diff -uN -r linux-4.14.14/drivers/phy/allwinner/phy-sun4i-usb.c linux/drivers/phy/allwinner/phy-sun4i-usb.c
+--- linux-4.14.14/drivers/phy/allwinner/phy-sun4i-usb.c	2018-01-17 16:45:30.000000000 +0800
++++ linux/drivers/phy/allwinner/phy-sun4i-usb.c	2020-07-24 17:03:56.550334421 +0800
+@@ -926,6 +926,7 @@
+ 	.phyctl_offset = REG_PHYCTL_A33,
+ 	.dedicated_clocks = true,
+ 	.enable_pmu_unk1 = true,
++	.phy0_dual_route = true,
+ };
+ 
+ static const struct sun4i_usb_phy_cfg sun50i_a64_cfg = {
+

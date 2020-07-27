@@ -18,6 +18,7 @@ config AUDIO_SUPPORT
 
 config GPIO_SUPPORT
 	bool
+	default y
 
 config PCI_SUPPORT
 	select AUDIO_SUPPORT

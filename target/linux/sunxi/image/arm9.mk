@@ -10,7 +10,7 @@ ifeq ($(SUBTARGET),arm9)
 
 define Device/suniv-f1c100s-licheepi-nano
   DEVICE_TITLE:=Lichee Pi Nano
-  SUNXI_DTS:=suniv-f1c100s-licheepi-nano-with-lcd
+  SUNXI_DTS:=suniv-f1c100s-licheepi-nano
   KERNEL_COMPRESS := Y
 endef
 

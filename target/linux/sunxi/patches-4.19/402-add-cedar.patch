@@ -4618,7 +4618,7 @@ diff -uN -r a/drivers/staging/media/sunxi/cedar/ion/sunxi/Makefile b/drivers/sta
 diff -uN -r a/drivers/staging/media/sunxi/cedar/ion/sunxi/sunxi_ion.c b/drivers/staging/media/sunxi/cedar/ion/sunxi/sunxi_ion.c
 --- a/drivers/staging/media/sunxi/cedar/ion/sunxi/sunxi_ion.c	1970-01-01 08:00:00.000000000 +0800
 +++ b/drivers/staging/media/sunxi/cedar/ion/sunxi/sunxi_ion.c	2020-06-21 11:33:16.035966000 +0800
-@@ -0,0 +1,186 @@
+@@ -0,0 +1,187 @@
 +/*
 + * Allwinner SUNXI ION Driver
 + *
@@ -4693,12 +4693,12 @@ diff -uN -r a/drivers/staging/media/sunxi/cedar/ion/sunxi/sunxi_ion.c b/drivers/
 +#endif
 +		break;
 +	}
-+
++#if __LINUX_ARM_ARCH__ == 7
 +	case ION_IOC_SUNXI_FLUSH_ALL: {
 +		flush_dcache_all();
 +		break;
 +	}
-
++#endif
 +	case ION_IOC_SUNXI_PHYS_ADDR: {
 +		sunxi_phys_data data;
 +		struct ion_handle *handle;

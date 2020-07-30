@@ -4683,21 +4683,22 @@ diff -uN -r a/drivers/staging/media/sunxi/cedar/ion/sunxi/sunxi_ion.c b/drivers/
 +			ret = -EINVAL;
 +			goto end;
 +		}
-+
++#if __LINUX_ARM_ARCH__ == 7
 +		if (flush_clean_user_range(range.start, range.end)) {
 +			ret = -EINVAL;
 +			goto end;
 +		}
++#else
++		dmac_flush_range((void*)range.start, (void*)range.end);
++#endif
 +		break;
 +	}
-+#if __LINUX_ARM_ARCH__ == 7
++
 +	case ION_IOC_SUNXI_FLUSH_ALL: {
 +		flush_dcache_all();
 +		break;
 +	}
-+#else
-+		dmac_flush_range((void*)range.start, (void*)range.end);
-+#endif
+
 +	case ION_IOC_SUNXI_PHYS_ADDR: {
 +		sunxi_phys_data data;
 +		struct ion_handle *handle;

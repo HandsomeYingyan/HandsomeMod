@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2006-2013 OpenWrt.org
+# Copyright (C) 2020 HandsomeMod Project
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -190,6 +191,23 @@ define KernelPackage/input-touchscreen-ads7846/description
 endef
 
 $(eval $(call KernelPackage,input-touchscreen-ads7846))
+
+define KernelPackage/input-touchscreen-silead
+  SUBMENU:=$(INPUT_MODULES_MENU)
+  TITLE:=Silead based touchscreens
+  DEPENDS:=+kmod-hwmon-core +kmod-i2c-core +kmod-input-evdev
+  KCONFIG:= \
+	CONFIG_INPUT_TOUCHSCREEN=y \
+	CONFIG_TOUCHSCREEN_SILEAD
+  FILES:=$(LINUX_DIR)/drivers/input/touchscreen/silead.ko
+  AUTOLOAD:=$(call AutoProbe,silead)
+endef
+
+define KernelPackage/input-touchscreen-silead/description
+  Kernel module for Silead based touchscreens
+endef
+
+$(eval $(call KernelPackage,input-touchscreen-silead))
 
 
 define KernelPackage/keyboard-imx

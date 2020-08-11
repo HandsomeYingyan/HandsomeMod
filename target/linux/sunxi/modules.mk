@@ -69,8 +69,8 @@ endef
 $(eval $(call KernelPackage,sun4i-emac))
 
 
-define KernelPackage/sound-soc-sunxi
-  TITLE:=AllWinner built-in SoC sound support
+define KernelPackage/sun4i-codec
+  TITLE:=AllWinner sun4i family built-in SoC sound support
   KCONFIG:=CONFIG_SND_SUN4I_CODEC
   FILES:=$(LINUX_DIR)/sound/soc/sunxi/sun4i-codec.ko
   AUTOLOAD:=$(call AutoLoad,65,sun4i-codec)
@@ -78,8 +78,59 @@ define KernelPackage/sound-soc-sunxi
   $(call AddDepends/sound)
 endef
 
-define KernelPackage/sound-soc-sunxi/description
-  Kernel support for AllWinner built-in SoC audio
+define KernelPackage/sun4i-codec/description
+  Kernel support for AllWinner sun4i family built-in SoC audio
 endef
 
-$(eval $(call KernelPackage,sound-soc-sunxi))
+$(eval $(call KernelPackage,sun4i-codec))
+
+define KernelPackage/sun8i-codec
+  TITLE:=AllWinner sun8i family built-in SoC sound support
+  KCONFIG:= CONFIG_SND_SUN4I_CODEC=y \
+	    CONFIG_SND_SUN8I_ADDA_PR_REGMAP=y \
+	    CONFIG_SND_SOC_XTFPGA_I2S=y \
+	    CONFIG_ZX_TDM=y \
+	    CONFIG_SND_SOC_I2C_AND_SPI=y \
+	    CONFIG_SND_SUN8I_CODEC_ANALOG
+
+  FILES:=$(LINUX_DIR)/sound/soc/sunxi/sun8i-codec-analog.ko
+  AUTOLOAD:=$(call AutoLoad,65,sun8i-codec-analog)
+  DEPENDS:=@TARGET_sunxi +kmod-sound-soc-core +kmod-sun4i-codec
+  $(call AddDepends/sound)
+endef
+
+define KernelPackage/sun8i-codec/description
+  Kernel support for AllWinner sun8i family built-in SoC audio
+endef
+
+$(eval $(call KernelPackage,sun8i-codec))
+
+define KernelPackage/sun4i-i2s
+  TITLE:=AllWinner sun4i family built-in SoC i2s support
+  KCONFIG:=CONFIG_SND_SUN4I_I2S
+  FILES:=$(LINUX_DIR)/sound/soc/sunxi/sun4i-i2s.ko
+  AUTOLOAD:=$(call AutoLoad,65,sun4i-i2s)
+  DEPENDS:=@TARGET_sunxi +kmod-sound-soc-core
+  $(call AddDepends/sound)
+endef
+
+define KernelPackage/sun4i-i2s/description
+  Kernel support for AllWinner sun4i family built-in SoC i2s
+endef
+
+$(eval $(call KernelPackage,sun4i-i2s))
+
+define KernelPackage/sun4i-spdif
+  TITLE:=AllWinner sun4i family built-in SoC spdif support
+  KCONFIG:=CONFIG_SND_SUN4I_SPDIF
+  FILES:=$(LINUX_DIR)/sound/soc/sunxi/sun4i-spdif.ko
+  AUTOLOAD:=$(call AutoLoad,65,sun4i-spdif)
+  DEPENDS:=@TARGET_sunxi +kmod-sound-soc-core
+  $(call AddDepends/sound)
+endef
+
+define KernelPackage/sun4i-spdif/description
+  Kernel support for AllWinner sun4i family built-in SoC SPDIF
+endef
+
+$(eval $(call KernelPackage,sun4i-spdif))

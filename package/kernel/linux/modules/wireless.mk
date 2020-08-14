@@ -42,6 +42,24 @@ endef
 
 $(eval $(call KernelPackage,net-rtl8192su))
 
+define KernelPackage/net-rtl8723bs
+  SUBMENU:=$(WIRELESS_MENU)
+  TITLE:=RTL8723bs support (staging)
+  DEPENDS:=+@DRIVER_WEXT_SUPPORT  +rtl8723bs-firmware
+  KCONFIG:=\
+	CONFIG_STAGING=y \
+	CONFIG_RTL8723BS
+  FILES:=$(LINUX_DIR)/drivers/staging/rtl8723bs/r8723bs.ko
+  AUTOLOAD:=$(call AutoProbe,r8723bs)
+endef
+
+define KernelPackage/net-rtl8723bs/description
+ Kernel modules for rtl8723bs fullmac support.
+endef
+
+$(eval $(call KernelPackage,net-rtl8723bs))
+
+
 define KernelPackage/cfg80211-old
   SUBMENU:=$(WIRELESS_MENU)
   TITLE:=using orginal kernel's cfg80211

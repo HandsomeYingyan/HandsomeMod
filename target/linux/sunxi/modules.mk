@@ -134,3 +134,35 @@ define KernelPackage/sun4i-spdif/description
 endef
 
 $(eval $(call KernelPackage,sun4i-spdif))
+
+define KernelPackage/sun4i-drm
+    SUBMENU:=$(DISPLAY_MENU)
+    TITLE:=DRM Support for Allwinner A10 Display Engine
+    DEPENDS:=@TARGET_sunxi +kmod-drm +kmod-drm-kms-helper +kmod-lib-crc-ccitt
+    KCONFIG:= \
+	CONFIG_ARCH_SUNXI=y \
+	CONFIG_DRM_SUN4I \
+	CONFIG_DRM_SUN4I_HDMI \
+	CONFIG_DRM_SUN4I_HDMI_CEC=n \
+	CONFIG_DRM_SUN4I_BACKEND \
+	CONFIG_DRM_SUN8I_DW_HDMI \
+	CONFIG_DRM_SUN6I_DSI \
+	CONFIG_DRM_SUN8I_MIXER 
+    FILES:= \
+	$(LINUX_DIR)/drivers/gpu/drm/sun4i/sun4i-drm.ko \
+	$(LINUX_DIR)/drivers/gpu/drm/sun4i/sun4i-backend.ko \
+ 	$(LINUX_DIR)/drivers/gpu/drm/sun4i/sun4i-frontend.ko \
+	$(LINUX_DIR)/drivers/gpu/drm/sun4i/sun4i-tcon.ko \
+	$(LINUX_DIR)/drivers/gpu/drm/sun4i/sun4i_tv.ko \
+	$(LINUX_DIR)/drivers/gpu/drm/sun4i/sun6i-dsi.ko \
+	$(LINUX_DIR)/drivers/gpu/drm/sun4i/sun6i_drc.ko \
+	$(LINUX_DIR)/drivers/gpu/drm/sun4i/sun8i-mixer.ko \
+ 	$(LINUX_DIR)/drivers/gpu/drm/sun4i/sun8i_tcon_top.ko 
+    AUTOLOAD:=$(call AutoLoad,50,sun4i-drm sun4i-backend sun4i-frontend sun4i-tcon sun4i_tv sun6i-dsi sun6i_drc sun8i-mixer sun8i_tcon_top)
+endef
+
+define KernelPackage/sun4i-drm/description
+  DRM Support for Allwinner A10 Display Engine
+endef
+
+$(eval $(call KernelPackage,sun4i-drm))

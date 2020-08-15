@@ -1,11 +1,12 @@
 PKG_DRIVERS += \
 	rtl8180 rtl8187 \
 	rtlwifi rtlwifi-pci rtlwifi-btcoexist rtlwifi-usb rtl8192c-common \
-	rtl8192ce rtl8192se rtl8192de rtl8192cu rtl8821ae \
+	rtl8192ce rtl8192se rtl8192de rtl8192cu rtl8723bs rtl8821ae \
 	rtl8xxxu
 
 config-$(call config_package,rtl8180) += RTL8180
 config-$(call config_package,rtl8187) += RTL8187
+
 
 config-$(call config_package,rtlwifi) += RTL_CARDS RTLWIFI
 config-$(call config_package,rtlwifi-pci) += RTLWIFI_PCI
@@ -21,6 +22,10 @@ config-$(CONFIG_PACKAGE_RTLWIFI_DEBUG) += RTLWIFI_DEBUG
 
 config-$(call config_package,rtl8xxxu) += RTL8XXXU
 config-y += RTL8XXXU_UNTESTED
+
+config-$(call config_package,rtl8723bs) += RTL8723BS
+config-y += STAGING
+
 
 define KernelPackage/rtl818x/Default
   $(call KernelPackage/mac80211/Default)
@@ -167,4 +172,18 @@ define KernelPackage/rtl8xxxu/description
   author or reported to be working by third parties.
 
   Please report your results!
+endef
+
+define KernelPackage/rtl8723bs
+  $(call KernelPackage/mac80211/Default)
+  TITLE:=Realtek RTL8723BS SDIO Wireless LAN NIC driver (staging)
+  DEPENDS+= +kmod-mac80211
+  FILES:=$(PKG_BUILD_DIR)/drivers/staging/rtl8723bs/r8723bs.ko
+  AUTOLOAD:=$(call AutoProbe,r8723bs)
+endef
+
+define KernelPackage/rtl8723bs/description
+ This option enables support for RTL8723BS SDIO drivers, such as the wifi found
+ on the 1st gen Intel Compute Stick, the CHIP and many other Intel Atom and ARM
+ based devices.
 endef

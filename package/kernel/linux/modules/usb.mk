@@ -111,7 +111,9 @@ $(eval $(call KernelPackage,phy-ath79-usb))
 
 define KernelPackage/usb-gadget
   TITLE:=USB Gadget support
-  KCONFIG:=CONFIG_USB_GADGET
+  KCONFIG:= \
+	CONFIG_USB_GADGET\
+	CONFIG_USB_OTG=y
   HIDDEN:=1
   FILES:=\
 	$(LINUX_DIR)/drivers/usb/gadget/udc/udc-core.ko
@@ -239,11 +241,16 @@ $(eval $(call KernelPackage,usb-gadget-mass-storage))
 
 define KernelPackage/usb-gadget-functionfs
   TITLE:=USB Function filesystem support
-  KCONFIG:=CONFIG_USB_CONFIGFS_F_FS
-  DEPENDS:=+kmod-usb-gadget +kmod-usb-lib-composite
+  KCONFIG:= \
+	CONFIG_USB_CONFIGFS_F_FS \
+	CONFIG_USB_FUNCTIONFS \
+	CONFIG_USB_FUNCTIONFS_ETH=y \
+	CONFIG_USB_FUNCTIONFS_RNDIS=y \
+	CONFIG_USB_FUNCTIONFS_GENERIC=y 
+  DEPENDS:=+kmod-usb-gadget +kmod-usb-lib-composite +kmod-usb-gadget-eth
   FILES:= \
-	$(LINUX_DIR)/drivers/usb/gadget/function/usb_f_fs.ko \
-	
+	$(LINUX_DIR)/drivers/usb/gadget/legacy/g_ffs.ko \
+	$(LINUX_DIR)/drivers/usb/gadget/function/usb_f_fs.ko
   AUTOLOAD:=$(call AutoLoad,52,usb_f_fs)
   $(call AddDepends/usb)
 endef

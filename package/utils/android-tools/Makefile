@@ -25,7 +25,7 @@ define Package/android-tools/default
   CATEGORY:=Utilities
   TITLE:=Android Debug Tools
   URL:=http://tools.android.com/
-  DEPENDS:=+zlib +libopenssl +libpthread
+  DEPENDS:=+zlib +libopenssl +libpthread +kmod-usb-gadget-functionfs
 endef
 
 define Package/$(PKG_NAME)/Default/description
@@ -62,7 +62,9 @@ endef
 
 define Package/$(PKG_NAME)-adbd/install
 	$(INSTALL_DIR) $(1)/usr/bin
+	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/adbd $(1)/usr/bin/
+	$(INSTALL_BIN) ./adbd.init $(1)/etc/init.d/adbd
 endef
 
 

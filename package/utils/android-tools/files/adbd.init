@@ -1,0 +1,28 @@
+#!/bin/sh /etc/rc.common
+# Copyright (C) 2020 HandsomeMod Project
+#
+START=80
+STOP=99
+
+USE_PROCD=1
+PROG=/bin/adbd
+OOM_ADJ=-17
+
+start_service() {
+	[ -d /dev/usb-ffs/adb ] || {
+		modprobe g_ffs idVendor=0x18d1 idProduct=0x4e42 iSerialNumber="HandsomeMod"
+		mkdir -p /dev/usb-ffs/adb
+		mount -t functionfs adb /dev/usb-ffs/adb -o uid=2000,gid=2000
+	}
+	procd_open_instance
+	procd_set_param oom_score_adj $OOM_ADJ
+	[ -n $ADB_TRANSPORT_PORT ] && {
+		procd_set_param env ADB_TRANSPORT_PORT="$ADB_TRANSPORT_PORT"
+	}
+	procd_set_param command $PROG -D
+	procd_close_instance
+}
+
+shutdown() {
+	echo shutdown
+}

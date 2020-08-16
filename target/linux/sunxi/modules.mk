@@ -166,3 +166,18 @@ define KernelPackage/sun4i-drm/description
 endef
 
 $(eval $(call KernelPackage,sun4i-drm))
+
+define KernelPackage/sunxi-musb
+  SUBMENU:=$(USB_MENU)
+  TITLE:=AllWinner family built-in SoC musb controller support
+  KCONFIG:= CONFIG_USB_MUSB_SUNXI
+  FILES:=$(LINUX_DIR)/drivers/usb/musb/sunxi.ko
+  AUTOLOAD:=$(call AutoLoad,53,sunxi)
+  DEPENDS:=@TARGET_sunxi +kmod-musb-core
+endef
+
+define KernelPackage/sunxi-musb/description
+  AllWinner family built-in SoC musb controller support 
+endef
+
+$(eval $(call KernelPackage,sunxi-musb))

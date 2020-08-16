@@ -1,12 +1,12 @@
 # HandsomeYingyan's Mod on Openwrt!
-
+## IOT Freedom For End-user!
 ### Warning!!
 ## This Project is unstable and un-fully tested right now!
 
 This is the buildsystem for the HandsomeMod Linux distribution.
 
 To build your own firmware you need a Linux, BSD or MacOSX system (case
-sensitive filesystem required). Cygwin and Wsl is unsupported.
+sensitive filesystem required). Cygwin is unsupported.
 
 You need gcc, binutils, bzip2, flex, python, perl, make, find, grep, diff,
 unzip, gawk, getopt, subversion, libz-dev and libc headers installed.
@@ -58,7 +58,7 @@ https://github.com/OpenIPC/chaos_calmer
 
 - Add Wayland(Not working due to lack of mesa) and Xorg Support (alpha ver).
 
-- Add littlevgl Support (still testing).
+- Add littlevgl Support .
 
 - Include Socs not yet in mainline(eg. Allwinner V3s F1cx00s and HiSilicon hi35xx).
 
@@ -67,6 +67,12 @@ https://github.com/OpenIPC/chaos_calmer
 - Ipcam soc support(Hi35xx)
 
 - Non-free feeds for Allwinner cedarX and HiSilicon libs and modules.
+
+- Some Tweaks in usb gadget 
+
+- Tweaks to support some device with screen 
+
+- Use eudev instead of the orginal one in openwrt
 
 ## Planing... 
 
@@ -78,15 +84,11 @@ https://github.com/OpenIPC/chaos_calmer
 
 - Make Luci more simpier to use.
 
-- Make Mainline Kernel More Friendly To Old Mips Device.
+- Make Mainline Kernel More Friendly To IOT Device.
 
 - Make Hardware Hacking More Friendly In Openwrt.
 
 - Closed Source Binary Driver Feeds For Mainline Kernel(Like qca-wifi or mtk-sdk-openwrt).
-
-- Lighttpd Support for Luci.
-
-- Build Guide In WSL.
 
 - A lightweight HandsomeMod Graphics Layer(non-free right now).
 

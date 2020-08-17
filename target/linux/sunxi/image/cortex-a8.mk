@@ -1,6 +1,7 @@
 #
 # Copyright (C) 2013-2016 OpenWrt.org
 # Copyright (C) 2016 Yousong Zhou
+# Copyright (C) 2020 HandsomeMod Project
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -35,6 +36,14 @@ define Device/sun5i-a13-olinuxino
 endef
 
 TARGET_DEVICES += sun5i-a13-olinuxino
+
+define Device/sun5i-a13-q8-tablet
+  DEVICE_TITLE:=HandsomePad A13
+  SUPPORTED_DEVICES:=handsome,q8
+  SUNXI_DTS:=sun5i-a13-q8-tablet
+endef
+
+TARGET_DEVICES += sun5i-a13-q8-tablet
 
 
 define Device/sun4i-a10-cubieboard

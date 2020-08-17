@@ -121,6 +121,12 @@ define U-Boot/OLIMEX_A13_SOM
   BUILD_DEVICES:=sun5i-a13-olimex-som
 endef
 
+define U-Boot/q8_a13_tablet_defconfig
+  BUILD_SUBTARGET:=cortexa8
+  NAME:=HandsomePad A13
+  BUILD_DEVICES:=sun5i-a13-q8-tablet
+endef
+
 define U-Boot/Linksprite_pcDuino
   BUILD_SUBTARGET:=cortexa8
   NAME:=Linksprite pcDuino
@@ -305,7 +311,8 @@ UBOOT_TARGETS := \
 	orangepi_zero_plus \
 	licheepi_nano \
 	LicheePi_Zero \
-        q8_a33_tablet_1024x600
+        q8_a33_tablet_1024x600 \
+	q8_a13_tablet_defconfig
 
 UBOOT_CONFIGURE_VARS += USE_PRIVATE_LIBGCC=yes
 

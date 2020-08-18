@@ -86,16 +86,20 @@ $(eval $(call KernelPackage,sun4i-codec))
 
 define KernelPackage/sun8i-codec
   TITLE:=AllWinner sun8i family built-in SoC sound support
-  KCONFIG:= CONFIG_SND_SUN4I_CODEC=y \
+  KCONFIG:= \
+	    CONFIG_SND_SUN8I_CODEC \
 	    CONFIG_SND_SUN8I_ADDA_PR_REGMAP=y \
 	    CONFIG_SND_SOC_XTFPGA_I2S=y \
 	    CONFIG_ZX_TDM=y \
+	    CONFIG_SND_SIMPLE_CARD=y \
 	    CONFIG_SND_SOC_I2C_AND_SPI=y \
 	    CONFIG_SND_SUN8I_CODEC_ANALOG
 
-  FILES:=$(LINUX_DIR)/sound/soc/sunxi/sun8i-codec-analog.ko
-  AUTOLOAD:=$(call AutoLoad,65,sun8i-codec-analog)
-  DEPENDS:=@TARGET_sunxi +kmod-sound-soc-core +kmod-sun4i-codec
+  FILES:= \
+	$(LINUX_DIR)/sound/soc/sunxi/sun8i-codec-analog.ko \
+	$(LINUX_DIR)/sound/soc/sunxi/sun8i-codec.ko
+  AUTOLOAD:=$(call AutoLoad,65,sun8i-codec-analog sun8i-codec)
+  DEPENDS:=@TARGET_sunxi +kmod-sound-soc-core +kmod-sun4i-codec +kmod-sun4i-i2s +kmod-sun4i-spdif
   $(call AddDepends/sound)
 endef
 

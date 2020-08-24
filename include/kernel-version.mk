@@ -7,8 +7,11 @@ ifdef CONFIG_TESTING_KERNEL
 endif
 
 LINUX_VERSION-4.14 = .193
+LINUX_VERSION-4.19 = .122
 
 LINUX_KERNEL_HASH-4.14.193 = 0b0fb41d4430e1a42738b341cbfd2f41951aa5cd02acabbd53f076119c8b9f03
+# For Hi35xx Only DO NOT change the kernel version 
+LINUX_KERNEL_HASH-4.9.37 = f61ecf083b690d97cfdeec2b4457992e98882250c4f41ade36fd7cdfda066090
 
 remove_uri_prefix=$(subst git://,,$(subst http://,,$(subst https://,,$(1))))
 sanitize_uri=$(call qstrip,$(subst @,_,$(subst :,_,$(subst .,_,$(subst -,_,$(subst /,_,$(1)))))))

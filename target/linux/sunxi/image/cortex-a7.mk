@@ -121,7 +121,7 @@ define Device/sun8i-a33-q8-tablet
   DEVICE_TITLE:=HandsomePad A33
   DEVICE_PACKAGES:=kmod-rtc-sunxi
   SUPPORTED_DEVICES:=handsomepad,a33
-  SUNXI_DTS:=sun8i-a33-q8-tablet
+  SUNXI_DTS:=sun8i-a33-et-q8-v1.6
 endef
 
 TARGET_DEVICES += sun8i-a33-q8-tablet

@@ -1778,7 +1778,7 @@ define KernelPackage/musb-core
 	CONFIG_NOP_USB_XCEIV=y \
 	CONFIG_USB_MUSB_HDRC \
 	CONFIG_USB_MUSB_DUAL_ROLE=y \
-	CONFIG_MUSB_PIO_ONLY=n
+	CONFIG_MUSB_PIO_ONLY=y
 
   DEPENDS:=+kmod-usb-gadget
   FILES:= \

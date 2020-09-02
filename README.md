@@ -56,7 +56,7 @@ https://github.com/OpenIPC/chaos_calmer
 
 - Add rt-linux patches.
 
-- Add Wayland(Not working due to lack of mesa) and Xorg Support (alpha ver).
+- Add Fbdev Based mali blobs
 
 - Add littlevgl Support .
 
@@ -73,6 +73,12 @@ https://github.com/OpenIPC/chaos_calmer
 - Tweaks to support some device with screen 
 
 - Use eudev instead of the orginal one in openwrt
+
+- Add qt sdl directfb and other funny stuff!
+
+- Merge mac80211 form openwrt trunk 
+
+- Connman For Wext-based wifi chips
 
 ## Planing... 
 
@@ -92,17 +98,15 @@ https://github.com/OpenIPC/chaos_calmer
 
 - A lightweight HandsomeMod Graphics Layer(non-free right now).
 
-- Update Xorg to current version.
-
-- Make latest mesa working.
-
-- Add Mali gpu blobs.
+- Add wayland support.
 
 - Better Support for allwinner f1c100s and v3s.
 
 - Support the HiSilicon Himpp and rtsp steaming apps.
 
 - Luci app for ipcam and hmgl. 
+
+- Update to linux 5.4
 
 
 

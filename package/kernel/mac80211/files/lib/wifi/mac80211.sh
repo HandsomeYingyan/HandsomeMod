@@ -1,4 +1,6 @@
 #!/bin/sh
+. /lib/netifd/mac80211.sh
+
 append DRIVERS "mac80211"
 
 lookup_phy() {
@@ -9,11 +11,8 @@ lookup_phy() {
 	local devpath
 	config_get devpath "$device" path
 	[ -n "$devpath" ] && {
-		for phy in $(ls /sys/class/ieee80211 2>/dev/null); do
-			case "$(readlink -f /sys/class/ieee80211/$phy/device)" in
-				*$devpath) return;;
-			esac
-		done
+		phy="$(mac80211_path_to_phy "$devpath")"
+		[ -n "$phy" ] && return
 	}
 
 	local macaddr="$(config_get "$device" macaddr | tr 'A-Z' 'a-z')"
@@ -80,8 +79,6 @@ detect_mac80211() {
 		channel="11"
 		htmode=""
 		ht_capab=""
-                ssid_5ghz=""
-                ssid_suffix=_$(cat /sys/class/ieee80211/${dev}/macaddress | sed 's/.[0-9A-Fa-f]:.[0-9A-Fa-f]:.[0-9A-Fa-f]:\(.[0-9A-Fa-f]\):\(.[0-9A-Fa-f]\):\(.[0-9A-Fa-f]\)/\1\2\3/g' | tr :[a-z] :[A-Z])
 
 		iw phy "$dev" info | grep -q 'Capabilities:' && htmode=HT20
 
@@ -92,19 +89,9 @@ detect_mac80211() {
 		}
 
 		[ -n "$htmode" ] && ht_capab="set wireless.radio${devidx}.htmode=$htmode"
-                [ "$mode_band" = "a" ] && ssid_5ghz="_5GHz"
 
-
-		if [ -x /usr/bin/readlink -a -h /sys/class/ieee80211/${dev} ]; then
-			path="$(readlink -f /sys/class/ieee80211/${dev}/device)"
-		else
-			path=""
-		fi
+		path="$(mac80211_phy_to_path "$dev")"
 		if [ -n "$path" ]; then
-			path="${path##/sys/devices/}"
-			case "$path" in
-				platform*/pci*) path="${path##platform/}";;
-			esac
 			dev_id="set wireless.radio${devidx}.path='$path'"
 		else
 			dev_id="set wireless.radio${devidx}.macaddr=$(cat /sys/class/ieee80211/${dev}/macaddress)"
@@ -118,12 +105,12 @@ detect_mac80211() {
 			${dev_id}
 			${ht_capab}
 			set wireless.radio${devidx}.disabled=0
-
+			set wireless.radio${devidx}.country=US
 			set wireless.default_radio${devidx}=wifi-iface
 			set wireless.default_radio${devidx}.device=radio${devidx}
 			set wireless.default_radio${devidx}.network=lan
 			set wireless.default_radio${devidx}.mode=ap
-			set wireless.default_radio${devidx}.ssid=HandsomeMod${ssid_5ghz}${ssid_suffix}
+			set wireless.default_radio${devidx}.ssid=OpenWrt
 			set wireless.default_radio${devidx}.encryption=none
 EOF
 		uci -q commit wireless

@@ -209,8 +209,8 @@ foreach my $mirror (@ARGV) {
 			push @mirrors, "https://raw.githubusercontent.com/$1";
 		}
 	} elsif ($mirror =~ /^\@GNU\/(.+)$/) {
-		push @mirrors, "http://mirrors.nju.edu.cn/gnu/$1";
 		push @mirrors, "https://mirrors.tuna.tsinghua.edu.cn/gnu/$1";
+		push @mirrors, "http://mirrors.nju.edu.cn/gnu/$1";
 		push @mirrors, "https://mirrors.ustc.edu.cn/gnu/$1";
 		push @mirrors, "http://www.nic.funet.fi/pub/gnu/gnu/$1";
 		push @mirrors, "http://mirror.internode.on.net/pub/gnu/$1";

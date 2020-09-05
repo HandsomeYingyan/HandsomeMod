@@ -1,4 +1,4 @@
-From 56f8c0cad47e8355e6a332b61b612bc8643a90fe Mon Sep 17 00:00:00 2001
+From 4bd3f986ffafc245ce2c814e05fc935bcf4a0e41 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:47 -0600
 Subject: [PATCH 089/507] tracing: Add hist_data member to hist_field

@@ -1,4 +1,4 @@
-From 7785463f643a7b58476dd72f2c51843a92ba6ac1 Mon Sep 17 00:00:00 2001
+From 502df1f70b594810a2a0b3a1106b88171818f0d8 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Thu, 26 Apr 2018 20:04:48 -0500
 Subject: [PATCH 404/507] tracing: Add field parsing hist error for hist

@@ -1,4 +1,4 @@
-From db1caba7a2a98398bb7f50a8806398d2e07cd2eb Mon Sep 17 00:00:00 2001
+From bbfa83cf173abdb7da033db08e14d74f3df4dff5 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 21 Sep 2017 15:35:57 +0200
 Subject: [PATCH 059/507] Bluetooth: avoid recursive locking in

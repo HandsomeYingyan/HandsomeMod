@@ -1,4 +1,4 @@
-From 686202670247fc39ae132b2ac5b5a4e01f157699 Mon Sep 17 00:00:00 2001
+From 25d79d9043f431d3c14cb49dd431efdb6c8dec41 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 18 Oct 2019 13:04:15 +0200
 Subject: [PATCH 487/507] Revert "ARM: Initialize split page table locks for

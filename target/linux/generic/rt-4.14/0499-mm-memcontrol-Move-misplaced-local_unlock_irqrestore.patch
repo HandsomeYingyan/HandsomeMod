@@ -1,4 +1,4 @@
-From 6efd572fe287a52a4882e46ac8679b3cbb95882b Mon Sep 17 00:00:00 2001
+From 556b05f5d0d8beb6b465415ab54d6fde55f45c0d Mon Sep 17 00:00:00 2001
 From: Matt Fleming <matt@codeblueprint.co.uk>
 Date: Sun, 26 Jan 2020 21:19:45 +0000
 Subject: [PATCH 499/507] mm/memcontrol: Move misplaced
@@ -21,7 +21,7 @@ Signed-off-by: Tom Zanussi <zanussi@kernel.org>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/mm/memcontrol.c b/mm/memcontrol.c
-index 459d8758bcbb..49e08106030c 100644
+index e258e4993882..4c424246b633 100644
 --- a/mm/memcontrol.c
 +++ b/mm/memcontrol.c
 @@ -6098,10 +6098,10 @@ void mem_cgroup_swapout(struct page *page, swp_entry_t entry)

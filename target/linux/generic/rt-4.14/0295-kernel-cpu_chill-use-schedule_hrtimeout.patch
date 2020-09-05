@@ -1,4 +1,4 @@
-From 0125ee5362eac079df73cab6e1305fb33100fe1d Mon Sep 17 00:00:00 2001
+From 82407a55d3a5e1fe11f5045ad221b45a4599d6d0 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 16 Mar 2018 13:07:59 +0100
 Subject: [PATCH 295/507] kernel/cpu_chill: use schedule_hrtimeout()

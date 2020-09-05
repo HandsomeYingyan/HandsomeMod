@@ -1,4 +1,4 @@
-From 097d7fc17e40ed61e5346ae7d67a190c308bf73c Mon Sep 17 00:00:00 2001
+From b4f81b56de641a6e38524e49c17859b46152f526 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Thu, 23 Nov 2017 16:39:16 +0100
 Subject: [PATCH 049/507] usb/gadget/NCM: Replace tasklet with softirq hrtimer

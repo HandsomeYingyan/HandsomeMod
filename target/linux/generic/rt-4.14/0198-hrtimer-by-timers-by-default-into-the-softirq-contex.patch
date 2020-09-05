@@ -1,4 +1,4 @@
-From 3d25e5f4984b89a16c05ba1dfcf81479acb3232e Mon Sep 17 00:00:00 2001
+From e480ca83da2a6c21facce7f2020b9ebee004609c Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 3 Jul 2009 08:44:31 -0500
 Subject: [PATCH 198/507] hrtimer: by timers by default into the softirq
@@ -27,7 +27,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  10 files changed, 48 insertions(+), 12 deletions(-)
 
 diff --git a/arch/x86/kvm/lapic.c b/arch/x86/kvm/lapic.c
-index 537c36b55b5d..76d8c0dc2da7 100644
+index d4fdf0e52144..d5e842666326 100644
 --- a/arch/x86/kvm/lapic.c
 +++ b/arch/x86/kvm/lapic.c
 @@ -2145,7 +2145,7 @@ int kvm_create_lapic(struct kvm_vcpu *vcpu)

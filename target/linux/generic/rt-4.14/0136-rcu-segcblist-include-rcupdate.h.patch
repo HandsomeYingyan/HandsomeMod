@@ -1,4 +1,4 @@
-From d4ef789d7b3cb69eb34741d3268fb67d5823e410 Mon Sep 17 00:00:00 2001
+From 9d0a2527c6bc5e28646114ff7a980d6fed876147 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 22 Sep 2017 15:01:46 +0200
 Subject: [PATCH 136/507] rcu/segcblist: include rcupdate.h

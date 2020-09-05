@@ -1,4 +1,4 @@
-From 964764c92c7b1a60cf945563d420cc8ba0e5d4cf Mon Sep 17 00:00:00 2001
+From 1cd0e63398f95d3f2f8ed18992ae701bba83dcae Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 29 Nov 2019 17:24:55 +0100
 Subject: [PATCH 492/507] sched/core: migrate_enable() must access

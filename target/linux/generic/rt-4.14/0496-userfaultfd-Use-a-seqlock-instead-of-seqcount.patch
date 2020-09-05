@@ -1,4 +1,4 @@
-From c7f1c6d25c21d1bc8f142dbf6a798db0a6d581da Mon Sep 17 00:00:00 2001
+From cfb6f225dbbbadc962039d5d3477c3b41fae7ad8 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 18 Dec 2019 12:25:09 +0100
 Subject: [PATCH 496/507] userfaultfd: Use a seqlock instead of seqcount

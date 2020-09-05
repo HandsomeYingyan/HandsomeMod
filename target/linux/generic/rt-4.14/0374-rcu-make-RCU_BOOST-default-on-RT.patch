@@ -1,4 +1,4 @@
-From 5451513e769e7041990c79e6ba346744df38a373 Mon Sep 17 00:00:00 2001
+From 5689b33d99b08d43e680dd8e7fc72209431304fa Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 21 Mar 2014 20:19:05 +0100
 Subject: [PATCH 374/507] rcu: make RCU_BOOST default on RT

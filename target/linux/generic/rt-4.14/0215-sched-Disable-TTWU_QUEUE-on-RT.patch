@@ -1,4 +1,4 @@
-From 88b09467fa432354ce5252cb5cc3e78926d73486 Mon Sep 17 00:00:00 2001
+From 5a04deaf22d5ff0b40637a82699f35ab2a7f235d Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Tue, 13 Sep 2011 16:42:35 +0200
 Subject: [PATCH 215/507] sched: Disable TTWU_QUEUE on RT

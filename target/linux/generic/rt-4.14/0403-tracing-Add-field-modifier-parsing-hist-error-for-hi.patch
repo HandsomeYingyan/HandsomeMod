@@ -1,4 +1,4 @@
-From 0dbab5eb19f3a267a4969405809be09b2c2810a3 Mon Sep 17 00:00:00 2001
+From 23bb60224844a19f3705663e11a42b9bca903cab Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Thu, 26 Apr 2018 20:04:49 -0500
 Subject: [PATCH 403/507] tracing: Add field modifier parsing hist error for

@@ -1,4 +1,4 @@
-From 0375732f00010ad841daa2b99fe66e0521b7385c Mon Sep 17 00:00:00 2001
+From c768060cce52ddff5b128320144850fc93c64c7e Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 29 Jan 2015 15:10:08 +0100
 Subject: [PATCH 290/507] block/mq: don't complete requests via IPI

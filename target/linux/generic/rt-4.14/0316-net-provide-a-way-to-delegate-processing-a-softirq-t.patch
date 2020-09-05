@@ -1,4 +1,4 @@
-From fdf4293fd77db9b4937c8f099d4166e0ec5617ea Mon Sep 17 00:00:00 2001
+From c9b86f14f237f7cd8f83f4a6042c6a56f5dbad5e Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 20 Jan 2016 15:39:05 +0100
 Subject: [PATCH 316/507] net: provide a way to delegate processing a softirq
@@ -71,7 +71,7 @@ index da87715b10be..e3f89bcef432 100644
   * This function must run with irqs disabled!
   */
 diff --git a/net/core/dev.c b/net/core/dev.c
-index ca0c8440fe50..a45b876854ed 100644
+index c5b94bbe6ee7..a0793008ecd5 100644
 --- a/net/core/dev.c
 +++ b/net/core/dev.c
 @@ -5699,7 +5699,7 @@ static __latent_entropy void net_rx_action(struct softirq_action *h)

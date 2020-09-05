@@ -1,4 +1,4 @@
-From 5b51579186b279b1194e73e05b3c2ed1843dc626 Mon Sep 17 00:00:00 2001
+From a254744810c5cdedd0b7a40b5bb2daf57a9aa78b Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 28 May 2019 10:42:15 +0200
 Subject: [PATCH 459/507] genirq: Handle missing work_struct in
@@ -24,10 +24,10 @@ Signed-off-by: Tom Zanussi <zanussi@kernel.org>
  1 file changed, 4 insertions(+), 2 deletions(-)
 
 diff --git a/kernel/irq/manage.c b/kernel/irq/manage.c
-index 3d1ac16e4547..5557de474f32 100644
+index bbc12685f631..298770b394d9 100644
 --- a/kernel/irq/manage.c
 +++ b/kernel/irq/manage.c
-@@ -355,12 +355,14 @@ irq_set_affinity_notifier(unsigned int irq, struct irq_affinity_notify *notify)
+@@ -392,12 +392,14 @@ irq_set_affinity_notifier(unsigned int irq, struct irq_affinity_notify *notify)
  	raw_spin_unlock_irqrestore(&desc->lock, flags);
  
  	if (old_notify) {

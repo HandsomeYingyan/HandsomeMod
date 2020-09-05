@@ -1,4 +1,4 @@
-From 97a61637ff1793607ca5e844cf3d3b5b48bab2bb Mon Sep 17 00:00:00 2001
+From a7f0e927246df0db437dd227f6bb53124e4422b8 Mon Sep 17 00:00:00 2001
 From: Paul Gortmaker <paul.gortmaker@windriver.com>
 Date: Fri, 21 Jun 2013 15:07:25 -0400
 Subject: [PATCH 162/507] list_bl: Make list head locking RT safe

@@ -1,4 +1,4 @@
-From 097b85a743cc2281bbcdb7bb5a3d540e138c9d93 Mon Sep 17 00:00:00 2001
+From b9eedc969b82ebfafcd68524bf88f0aeeeb628d6 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 20 Dec 2017 17:12:50 +0100
 Subject: [PATCH 017/507] timers: Use static keys for
@@ -134,10 +134,10 @@ index 3c7b400512eb..4cb8e1a558c0 100644
  
  /**
 diff --git a/kernel/time/timer.c b/kernel/time/timer.c
-index 9f8e8892e5b0..dc7e43d54d4b 100644
+index d4bc272e03ee..295134030981 100644
 --- a/kernel/time/timer.c
 +++ b/kernel/time/timer.c
-@@ -200,8 +200,6 @@ struct timer_base {
+@@ -201,8 +201,6 @@ struct timer_base {
  	unsigned long		clk;
  	unsigned long		next_expiry;
  	unsigned int		cpu;
@@ -146,7 +146,7 @@ index 9f8e8892e5b0..dc7e43d54d4b 100644
  	bool			is_idle;
  	bool			must_forward_clk;
  	DECLARE_BITMAP(pending_map, WHEEL_SIZE);
-@@ -210,45 +208,59 @@ struct timer_base {
+@@ -211,45 +209,59 @@ struct timer_base {
  
  static DEFINE_PER_CPU(struct timer_base, timer_bases[NR_BASES]);
  
@@ -227,7 +227,7 @@ index 9f8e8892e5b0..dc7e43d54d4b 100644
  
  static unsigned long round_jiffies_common(unsigned long j, int cpu,
  		bool force_up)
-@@ -534,7 +546,7 @@ __internal_add_timer(struct timer_base *base, struct timer_list *timer)
+@@ -535,7 +547,7 @@ __internal_add_timer(struct timer_base *base, struct timer_list *timer)
  static void
  trigger_dyntick_cpu(struct timer_base *base, struct timer_list *timer)
  {
@@ -236,7 +236,7 @@ index 9f8e8892e5b0..dc7e43d54d4b 100644
  		return;
  
  	/*
-@@ -840,21 +852,20 @@ static inline struct timer_base *get_timer_base(u32 tflags)
+@@ -841,21 +853,20 @@ static inline struct timer_base *get_timer_base(u32 tflags)
  	return get_timer_cpu_base(tflags, tflags & TIMER_CPUMASK);
  }
  
@@ -264,7 +264,7 @@ index 9f8e8892e5b0..dc7e43d54d4b 100644
  	unsigned long jnow;
  
  	/*
-@@ -878,16 +889,8 @@ static inline void forward_timer_base(struct timer_base *base)
+@@ -879,16 +890,8 @@ static inline void forward_timer_base(struct timer_base *base)
  		base->clk = jnow;
  	else
  		base->clk = base->next_expiry;

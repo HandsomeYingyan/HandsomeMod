@@ -1,4 +1,4 @@
-From 56b67b51a1d613f988c66f6f096e9722bc8872cb Mon Sep 17 00:00:00 2001
+From 9551025e2b700712627165fc7871d6baea5fa9ea Mon Sep 17 00:00:00 2001
 From: Anna-Maria Gleixner <anna-maria@linutronix.de>
 Date: Wed, 20 Dec 2017 17:12:56 +0100
 Subject: [PATCH 022/507] hrtimer: Cleanup hrtimer_mode enum

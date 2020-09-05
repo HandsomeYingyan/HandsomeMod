@@ -1,4 +1,4 @@
-From 741e26ea052e6c85f6c6fcd804863cf15b1a1201 Mon Sep 17 00:00:00 2001
+From 9427d3e94b71b7a2c65cf2870cea23481b8790c7 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 22 Mar 2018 16:22:37 +0100
 Subject: [PATCH 011/507] iommu/amd: Remove the special case from
@@ -21,7 +21,7 @@ Signed-off-by: Joerg Roedel <jroedel@suse.de>
  1 file changed, 20 insertions(+), 14 deletions(-)
 
 diff --git a/drivers/iommu/amd_iommu.c b/drivers/iommu/amd_iommu.c
-index b267f404688d..84825004152e 100644
+index f29fd6fd6600..263b0611f6bf 100644
 --- a/drivers/iommu/amd_iommu.c
 +++ b/drivers/iommu/amd_iommu.c
 @@ -3660,7 +3660,7 @@ static struct irq_remap_table *get_irq_table(u16 devid)

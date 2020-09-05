@@ -1,4 +1,4 @@
-From 40ec709d7c9bb486b62c6b80ec04e6b5171aa0da Mon Sep 17 00:00:00 2001
+From 867fd28c9ed14ab0e02c4340cf2ab555fd168dbf Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Wed, 28 Mar 2018 15:10:56 -0500
 Subject: [PATCH 120/507] tracing: Make sure variable string fields are

@@ -1,4 +1,4 @@
-From d50443ab44d2d34541734cc816f5c110d34f1e44 Mon Sep 17 00:00:00 2001
+From ce6aea7bf78d6c3408f936e9c06c334cad937494 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:39 -0600
 Subject: [PATCH 081/507] ring-buffer: Add interface for setting absolute time

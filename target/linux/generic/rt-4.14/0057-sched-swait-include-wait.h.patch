@@ -1,4 +1,4 @@
-From a748bf30ea6483e52fe1bff9cd34eded80dfb121 Mon Sep 17 00:00:00 2001
+From 36b1bc825ac102cdb9190cf53518381024d04417 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Mon, 4 Dec 2017 13:11:10 +0100
 Subject: [PATCH 057/507] sched/swait: include wait.h

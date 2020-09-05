@@ -1,4 +1,4 @@
-From 67ad15d1ce9bd73b9849903d41e95c488bba81d3 Mon Sep 17 00:00:00 2001
+From 71cbbf231f29f56a1bb4048d138333c99f1731a7 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:52:00 -0600
 Subject: [PATCH 102/507] tracing: Add 'onmatch' hist trigger action support

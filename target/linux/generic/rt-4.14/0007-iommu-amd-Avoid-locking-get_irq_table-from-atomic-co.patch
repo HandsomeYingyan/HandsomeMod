@@ -1,4 +1,4 @@
-From f6c89a25dca6b643f65fb7bbd11d91102a768e5c Mon Sep 17 00:00:00 2001
+From 7b252b8bacace01dcafa357ac4b15b1acfae1734 Mon Sep 17 00:00:00 2001
 From: Scott Wood <swood@redhat.com>
 Date: Wed, 14 Feb 2018 17:36:28 -0600
 Subject: [PATCH 007/507] iommu/amd: Avoid locking get_irq_table() from atomic
@@ -36,7 +36,7 @@ Signed-off-by: Joerg Roedel <jroedel@suse.de>
  1 file changed, 22 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/iommu/amd_iommu.c b/drivers/iommu/amd_iommu.c
-index 9ddc79b13d5e..89f47a94d355 100644
+index 51d3e76ad3b2..efbf4e50b941 100644
 --- a/drivers/iommu/amd_iommu.c
 +++ b/drivers/iommu/amd_iommu.c
 @@ -3654,7 +3654,22 @@ static void set_dte_irq_entry(u16 devid, struct irq_remap_table *table)
@@ -108,7 +108,7 @@ index 9ddc79b13d5e..89f47a94d355 100644
  			index = info->ioapic_pin;
  		else
  			ret = -ENOMEM;
-@@ -4421,7 +4436,7 @@ int amd_iommu_update_ga(int cpu, bool is_run, void *data)
+@@ -4422,7 +4437,7 @@ int amd_iommu_update_ga(int cpu, bool is_run, void *data)
  	if (!iommu)
  		return -ENODEV;
  

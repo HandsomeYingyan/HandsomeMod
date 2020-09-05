@@ -1,4 +1,4 @@
-From f1c478d30b10004f49775ab9cf586b814eb4e1b3 Mon Sep 17 00:00:00 2001
+From 6d4ed24bdb88ada1af6bd29a88e455c8caca1182 Mon Sep 17 00:00:00 2001
 From: Boqun Feng <boqun.feng@gmail.com>
 Date: Fri, 9 Mar 2018 14:56:28 +0800
 Subject: [PATCH 001/507] rtmutex: Make rt_mutex_futex_unlock() safe for

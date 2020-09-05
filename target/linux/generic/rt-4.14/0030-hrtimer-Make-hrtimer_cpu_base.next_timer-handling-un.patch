@@ -1,4 +1,4 @@
-From b44afd4e72f2647813fa06abb73ec7c51d2d6c74 Mon Sep 17 00:00:00 2001
+From 02304d78bce240044b076b6869dfe6033b539d10 Mon Sep 17 00:00:00 2001
 From: Anna-Maria Gleixner <anna-maria@linutronix.de>
 Date: Wed, 20 Dec 2017 17:13:05 +0100
 Subject: [PATCH 030/507] hrtimer: Make hrtimer_cpu_base.next_timer handling

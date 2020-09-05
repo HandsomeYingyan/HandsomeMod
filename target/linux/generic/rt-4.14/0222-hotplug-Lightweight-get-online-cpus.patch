@@ -1,4 +1,4 @@
-From cad33f3ab634a3ce47442dc9ef94af8b6d432830 Mon Sep 17 00:00:00 2001
+From f7f086d008346b52c3293cc8a83f8c349a388504 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 15 Jun 2011 12:36:06 +0200
 Subject: [PATCH 222/507] hotplug: Lightweight get online cpus

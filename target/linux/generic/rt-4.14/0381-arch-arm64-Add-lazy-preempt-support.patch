@@ -1,4 +1,4 @@
-From 2730a60163ad08bc0b6385c7ec4bfd21ee254ef5 Mon Sep 17 00:00:00 2001
+From 86396ee7c79f3869da95c4e0ce2e95209cfa291e Mon Sep 17 00:00:00 2001
 From: Anders Roxell <anders.roxell@linaro.org>
 Date: Thu, 14 May 2015 17:52:17 +0200
 Subject: [PATCH 381/507] arch/arm64: Add lazy preempt support

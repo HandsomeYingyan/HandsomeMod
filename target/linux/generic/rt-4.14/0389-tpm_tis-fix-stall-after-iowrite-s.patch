@@ -1,4 +1,4 @@
-From 76a17e6519d3efe019f6cf201663d74b5af22322 Mon Sep 17 00:00:00 2001
+From 934e88b4b26ee96d7c77f1780006f91932dde068 Mon Sep 17 00:00:00 2001
 From: Haris Okanovic <haris.okanovic@ni.com>
 Date: Tue, 15 Aug 2017 15:13:08 -0500
 Subject: [PATCH 389/507] tpm_tis: fix stall after iowrite*()s

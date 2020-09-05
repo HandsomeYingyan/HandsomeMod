@@ -1,4 +1,4 @@
-From 649eb99989e926e39043a82475a0c1ccee93dea4 Mon Sep 17 00:00:00 2001
+From 2911067a4ea9059991d71b7027bce7b383905bd8 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:40 -0600
 Subject: [PATCH 082/507] ring-buffer: Redefine the unimplemented

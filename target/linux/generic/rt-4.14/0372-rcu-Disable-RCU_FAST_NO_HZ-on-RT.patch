@@ -1,4 +1,4 @@
-From 0829e37dc8b9ade264c976b8f0ac9db7a31aeb8f Mon Sep 17 00:00:00 2001
+From db740763006c49c84e7388c67c5cffd871fed7e7 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Sun, 28 Oct 2012 13:26:09 +0000
 Subject: [PATCH 372/507] rcu: Disable RCU_FAST_NO_HZ on RT

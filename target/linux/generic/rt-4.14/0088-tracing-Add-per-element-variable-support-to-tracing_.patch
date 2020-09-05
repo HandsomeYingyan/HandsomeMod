@@ -1,4 +1,4 @@
-From 64cc322cd3baa8369f1e1f5d234e588efe498d98 Mon Sep 17 00:00:00 2001
+From 55065f8fb73022eb49cb4bcddb33da5c9d282bf4 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:46 -0600
 Subject: [PATCH 088/507] tracing: Add per-element variable support to

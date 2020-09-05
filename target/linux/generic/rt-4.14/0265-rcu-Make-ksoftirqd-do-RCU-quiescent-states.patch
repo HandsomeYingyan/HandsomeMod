@@ -1,4 +1,4 @@
-From e388115843cafe3ad86950404f5343e63e41f0ea Mon Sep 17 00:00:00 2001
+From 37b12c951ad920cf933a2b4f1d4cc565c17e773f Mon Sep 17 00:00:00 2001
 From: "Paul E. McKenney" <paulmck@linux.vnet.ibm.com>
 Date: Wed, 5 Oct 2011 11:45:18 -0700
 Subject: [PATCH 265/507] rcu: Make ksoftirqd do RCU quiescent states

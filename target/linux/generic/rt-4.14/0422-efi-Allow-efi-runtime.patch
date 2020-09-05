@@ -1,4 +1,4 @@
-From 010255d742f9aedf16409c9095f8397b4595d04c Mon Sep 17 00:00:00 2001
+From 63ace7e0e0a7cf5097b46a6e55402481232e65b3 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 26 Jul 2018 15:06:10 +0200
 Subject: [PATCH 422/507] efi: Allow efi=runtime

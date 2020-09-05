@@ -1,4 +1,4 @@
-From 18712f8e120fb888b19ae603a0763344c88a6fdd Mon Sep 17 00:00:00 2001
+From 9f3b11688eee1a78a12a8ed0758f756d5d2196c7 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Thu, 26 Apr 2018 20:04:47 -0500
 Subject: [PATCH 405/507] tracing: Restore proper field flag printing when

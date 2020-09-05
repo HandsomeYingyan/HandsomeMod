@@ -1,4 +1,4 @@
-From 4865a828d10fbe7d889864a974da0e8c1611bf3f Mon Sep 17 00:00:00 2001
+From 2f6f11fc04fc320e3e82e7790bf8b59df3142216 Mon Sep 17 00:00:00 2001
 From: Scott Wood <swood@redhat.com>
 Date: Sat, 12 Oct 2019 01:52:13 -0500
 Subject: [PATCH 490/507] sched: Lazy migrate_disable processing

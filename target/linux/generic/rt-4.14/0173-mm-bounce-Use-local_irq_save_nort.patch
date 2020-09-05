@@ -1,4 +1,4 @@
-From a025e5805ae7ecad9b5d0213d6db1fc19a70e634 Mon Sep 17 00:00:00 2001
+From 72324736a7570987aef56654bc0d374f7eacd97a Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 9 Jan 2013 10:33:09 +0100
 Subject: [PATCH 173/507] mm: bounce: Use local_irq_save_nort

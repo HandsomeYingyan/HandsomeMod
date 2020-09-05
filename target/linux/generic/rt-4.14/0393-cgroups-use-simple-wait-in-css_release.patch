@@ -1,4 +1,4 @@
-From 88348503c622b00618f8758e7660bad94de9d564 Mon Sep 17 00:00:00 2001
+From 72752a1f066ecf2c1a9c3f48d39856046c1d0ce8 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 13 Feb 2015 15:52:24 +0100
 Subject: [PATCH 393/507] cgroups: use simple wait in css_release()
@@ -34,7 +34,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  2 files changed, 7 insertions(+), 4 deletions(-)
 
 diff --git a/include/linux/cgroup-defs.h b/include/linux/cgroup-defs.h
-index 8d4b92185a09..dd4d2dd51cb8 100644
+index 9e1ff02d6c4e..d8aadff423f0 100644
 --- a/include/linux/cgroup-defs.h
 +++ b/include/linux/cgroup-defs.h
 @@ -19,6 +19,7 @@
@@ -54,7 +54,7 @@ index 8d4b92185a09..dd4d2dd51cb8 100644
  	/*
  	 * PI: the parent css.	Placed here for cache proximity to following
 diff --git a/kernel/cgroup/cgroup.c b/kernel/cgroup/cgroup.c
-index 2b3f2ea6a8a3..e6a2335ffec7 100644
+index ada060e628ce..2e8c7525e1cb 100644
 --- a/kernel/cgroup/cgroup.c
 +++ b/kernel/cgroup/cgroup.c
 @@ -4575,10 +4575,10 @@ static void css_free_rcu_fn(struct rcu_head *rcu_head)

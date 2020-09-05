@@ -1,4 +1,4 @@
-From 06062dd50afb05a28fef492e518ca9897b21ffd3 Mon Sep 17 00:00:00 2001
+From e513a3f174a69cc6fe66a63012ce3a9bb6f0bbde Mon Sep 17 00:00:00 2001
 From: He Zhe <zhe.he@windriver.com>
 Date: Wed, 19 Dec 2018 16:30:57 +0100
 Subject: [PATCH 442/507] kmemleak: Turn kmemleak_lock to raw spinlock on RT

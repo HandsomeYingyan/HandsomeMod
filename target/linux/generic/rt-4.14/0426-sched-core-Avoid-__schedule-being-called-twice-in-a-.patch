@@ -1,4 +1,4 @@
-From 51b06fe3ec65ba99463903877bca65ea3a08d87b Mon Sep 17 00:00:00 2001
+From b5e7e7ee21f0704b868a3d853f43cfb18a0b28d0 Mon Sep 17 00:00:00 2001
 From: Daniel Bristot de Oliveira <bristot@redhat.com>
 Date: Mon, 30 Jul 2018 15:00:00 +0200
 Subject: [PATCH 426/507] sched/core: Avoid __schedule() being called twice in

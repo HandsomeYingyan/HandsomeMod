@@ -1,4 +1,4 @@
-From b0be9c6a25c3dfaef10930ee4e590372bca00e93 Mon Sep 17 00:00:00 2001
+From 8b2bc9c8cd0c000ea6f5cdb04e8ee9a9e6fe1e32 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 13 Sep 2017 14:43:41 +0200
 Subject: [PATCH 369/507] srcu: use cpu_online() instead custom check

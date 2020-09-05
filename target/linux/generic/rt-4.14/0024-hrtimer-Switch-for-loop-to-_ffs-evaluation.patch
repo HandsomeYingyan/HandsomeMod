@@ -1,4 +1,4 @@
-From 88b3ab5a7b67464788e5f2a4ab6c394741ab8d2f Mon Sep 17 00:00:00 2001
+From c210231a659332cc23cfbc6acfec8ee667e27141 Mon Sep 17 00:00:00 2001
 From: Anna-Maria Gleixner <anna-maria@linutronix.de>
 Date: Wed, 20 Dec 2017 17:12:59 +0100
 Subject: [PATCH 024/507] hrtimer: Switch for loop to _ffs() evaluation

@@ -1,4 +1,4 @@
-From d779aea1809a8204dd9aa003b3ad3c920163d84f Mon Sep 17 00:00:00 2001
+From 486ba9970b646b90d9dcca9f84daafdbbcd7bcea Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 2 Mar 2018 11:37:57 +0100
 Subject: [PATCH 398/507] Revert "rt,ntp: Move call to schedule_delayed_work()

@@ -1,4 +1,4 @@
-From f44f227f20a7da7371acc685160032889068f0be Mon Sep 17 00:00:00 2001
+From 846fdecbd5bad7f94c3658e96b0eea13ee9d7b24 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Thu, 21 Jul 2011 21:05:33 +0200
 Subject: [PATCH 159/507] net/wireless: Use WARN_ON_NORT()
@@ -12,10 +12,10 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/net/mac80211/rx.c b/net/mac80211/rx.c
-index 56d7a3dfa543..476c0b1c0ee1 100644
+index 04ae9de55d74..397fd9370004 100644
 --- a/net/mac80211/rx.c
 +++ b/net/mac80211/rx.c
-@@ -4265,7 +4265,7 @@ void ieee80211_rx_napi(struct ieee80211_hw *hw, struct ieee80211_sta *pubsta,
+@@ -4291,7 +4291,7 @@ void ieee80211_rx_napi(struct ieee80211_hw *hw, struct ieee80211_sta *pubsta,
  	struct ieee80211_supported_band *sband;
  	struct ieee80211_rx_status *status = IEEE80211_SKB_RXCB(skb);
  

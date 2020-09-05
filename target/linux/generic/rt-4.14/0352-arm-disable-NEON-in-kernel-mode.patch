@@ -1,4 +1,4 @@
-From 771e58ba497e0c8938cc703472ec3f6dbc4c1bb5 Mon Sep 17 00:00:00 2001
+From 952eec3ec1fd3f9b14c9d1f8c2d6e5228b4af9d0 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 1 Dec 2017 10:42:03 +0100
 Subject: [PATCH 352/507] arm*: disable NEON in kernel mode

@@ -1,4 +1,4 @@
-From cb5328d4dac9e660a5e200b2b9c1d40d229328f9 Mon Sep 17 00:00:00 2001
+From 017c9f5efd762859d4ab51634749217ab22d3f28 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 13 Sep 2017 12:32:34 +0200
 Subject: [PATCH 278/507] fs/dcache: bringt back explicit INIT_HLIST_BL_HEAD

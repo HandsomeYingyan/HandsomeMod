@@ -1,4 +1,4 @@
-From 8fa7e87535d5048c05ea16a003bcd19a6e9f4cbb Mon Sep 17 00:00:00 2001
+From db56b751d45cdc694fa88f0e8998351d269b1a4c Mon Sep 17 00:00:00 2001
 From: Ingo Molnar <mingo@elte.hu>
 Date: Fri, 3 Jul 2009 08:29:51 -0500
 Subject: [PATCH 169/507] mm/swap: Convert to percpu locked
@@ -47,7 +47,7 @@ index eb8e7f5d3a08..edb3dd831cac 100644
  				cc->last_migrated_pfn = 0;
  			}
 diff --git a/mm/page_alloc.c b/mm/page_alloc.c
-index 62f01db246f1..dd055b8b0d00 100644
+index 58e4aed1fdc3..bd88e2d7afa1 100644
 --- a/mm/page_alloc.c
 +++ b/mm/page_alloc.c
 @@ -6838,8 +6838,9 @@ void __init free_area_init(unsigned long *zones_size)

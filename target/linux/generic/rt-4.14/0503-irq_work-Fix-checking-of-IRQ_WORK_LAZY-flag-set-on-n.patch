@@ -1,4 +1,4 @@
-From 2a3bddb2d478e2b39c09ad4bc6fd8811832a0415 Mon Sep 17 00:00:00 2001
+From dc4962d24f1d41043482877380253f866afa1041 Mon Sep 17 00:00:00 2001
 From: "Steven Rostedt (VMware)" <rostedt@goodmis.org>
 Date: Sun, 22 Mar 2020 00:00:28 +0100
 Subject: [PATCH 503/507] irq_work: Fix checking of IRQ_WORK_LAZY flag set on

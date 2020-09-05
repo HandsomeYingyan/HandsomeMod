@@ -1,4 +1,4 @@
-From fec2480f8d774fc896ca27b182f49f083df2e4f0 Mon Sep 17 00:00:00 2001
+From feadb6f40929470b2b39f3d69f139fb004c4dee5 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:52:06 -0600
 Subject: [PATCH 108/507] tracing: Add inter-event hist trigger Documentation

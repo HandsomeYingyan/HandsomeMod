@@ -1,4 +1,4 @@
-From 45748c2589aeea4bfacd00da591d023085afff82 Mon Sep 17 00:00:00 2001
+From 43f7542f6ebfebdc5bc0a4dca48dc5f0e9b55ac6 Mon Sep 17 00:00:00 2001
 From: Anna-Maria Gleixner <anna-maria@linutronix.de>
 Date: Wed, 20 Dec 2017 17:13:06 +0100
 Subject: [PATCH 031/507] hrtimer: Make hrtimer_reprogramm() unconditional

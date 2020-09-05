@@ -1,4 +1,4 @@
-From da764faa592cb7b526fc1a709d0ddc93fe8922e0 Mon Sep 17 00:00:00 2001
+From d07c3d4f4697ad40c0b99bf8754a5c102d4aaf62 Mon Sep 17 00:00:00 2001
 From: Peter Zijlstra <peterz@infradead.org>
 Date: Wed, 23 Nov 2016 16:29:32 +0100
 Subject: [PATCH 271/507] locking/percpu-rwsem: Remove preempt_disable variants

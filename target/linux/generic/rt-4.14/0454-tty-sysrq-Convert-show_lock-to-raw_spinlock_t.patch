@@ -1,4 +1,4 @@
-From 03d9205d346f6171c627db572923072ab8576302 Mon Sep 17 00:00:00 2001
+From 49bdbbb3ee972b51e51596d76514007fc72bcee1 Mon Sep 17 00:00:00 2001
 From: Julien Grall <julien.grall@arm.com>
 Date: Wed, 13 Mar 2019 11:40:34 +0000
 Subject: [PATCH 454/507] tty/sysrq: Convert show_lock to raw_spinlock_t

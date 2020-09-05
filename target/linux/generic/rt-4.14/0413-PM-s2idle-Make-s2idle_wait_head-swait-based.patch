@@ -1,4 +1,4 @@
-From e6ba6379790e64cb3cde16d68be0a1c88c3f7d6f Mon Sep 17 00:00:00 2001
+From 15a20e3e5d858c05cfab7b7cc07da17a7ddf7333 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 25 May 2018 10:05:13 +0200
 Subject: [PATCH 413/507] PM / s2idle: Make s2idle_wait_head swait based

@@ -1,4 +1,4 @@
-From 0b9de742f0ddf447876b29a4b83e105f0c6d8ebb Mon Sep 17 00:00:00 2001
+From 83c579472668de77ffd9e908ae77a3d0e2211431 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 26 Oct 2012 18:50:54 +0100
 Subject: [PATCH 376/507] sched: Add support for lazy preemption
@@ -400,7 +400,7 @@ index 4d880a288ede..db3038a9f7fc 100644
  }
  EXPORT_SYMBOL(migrate_enable);
 diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
-index 12f158260116..47978572f4a6 100644
+index cdd41cf780d1..0ba5933056d0 100644
 --- a/kernel/sched/fair.c
 +++ b/kernel/sched/fair.c
 @@ -3861,7 +3861,7 @@ check_preempt_tick(struct cfs_rq *cfs_rq, struct sched_entity *curr)
@@ -457,7 +457,7 @@ index 12f158260116..47978572f4a6 100644
  	/*
  	 * Only set the backward buddy when the current task is still
  	 * on the rq. This can happen when a wakeup gets interleaved
-@@ -9088,7 +9088,7 @@ static void task_fork_fair(struct task_struct *p)
+@@ -9096,7 +9096,7 @@ static void task_fork_fair(struct task_struct *p)
  		 * 'current' within the tree based on its new key value.
  		 */
  		swap(curr->vruntime, se->vruntime);
@@ -466,7 +466,7 @@ index 12f158260116..47978572f4a6 100644
  	}
  
  	se->vruntime -= cfs_rq->min_vruntime;
-@@ -9112,7 +9112,7 @@ prio_changed_fair(struct rq *rq, struct task_struct *p, int oldprio)
+@@ -9120,7 +9120,7 @@ prio_changed_fair(struct rq *rq, struct task_struct *p, int oldprio)
  	 */
  	if (rq->curr == p) {
  		if (p->prio > oldprio)

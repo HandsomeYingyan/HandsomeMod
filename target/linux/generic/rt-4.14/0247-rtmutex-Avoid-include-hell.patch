@@ -1,4 +1,4 @@
-From bc1f9b4779c954c40f39fd0724edbe7e4afda001 Mon Sep 17 00:00:00 2001
+From 0e2308fa90715867cb60d4dd3ec2a12cbb73232b Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 29 Jun 2011 20:06:39 +0200
 Subject: [PATCH 247/507] rtmutex: Avoid include hell

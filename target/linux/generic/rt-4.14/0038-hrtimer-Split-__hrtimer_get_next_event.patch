@@ -1,4 +1,4 @@
-From f6983c6f2eedf8c7274871a2132a82b61a439ccf Mon Sep 17 00:00:00 2001
+From 52a7693b903444ec4b34915e2d013363c9c60116 Mon Sep 17 00:00:00 2001
 From: Anna-Maria Gleixner <anna-maria@linutronix.de>
 Date: Wed, 20 Dec 2017 17:13:13 +0100
 Subject: [PATCH 038/507] hrtimer: Split __hrtimer_get_next_event()

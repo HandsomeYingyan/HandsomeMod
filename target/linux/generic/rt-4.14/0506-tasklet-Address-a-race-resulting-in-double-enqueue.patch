@@ -1,4 +1,4 @@
-From b7c7da3a09f2a2b82c5a8c684b3e56846c5506fc Mon Sep 17 00:00:00 2001
+From e3addc263f94ea9bc3970a554844e3739a925a94 Mon Sep 17 00:00:00 2001
 From: Zhang Xiao <xiao.zhang@windriver.com>
 Date: Tue, 17 Mar 2020 12:47:43 +0100
 Subject: [PATCH 506/507] tasklet: Address a race resulting in double-enqueue

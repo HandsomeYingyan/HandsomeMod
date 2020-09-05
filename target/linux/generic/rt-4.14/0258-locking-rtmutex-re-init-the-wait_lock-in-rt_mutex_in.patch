@@ -1,4 +1,4 @@
-From 147c897097f0e0b092181e014949f24692eb77ad Mon Sep 17 00:00:00 2001
+From 78fb7506c61ba485e3a641640ebc6c86611bfd84 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 16 Nov 2017 16:48:48 +0100
 Subject: [PATCH 258/507] locking/rtmutex: re-init the wait_lock in

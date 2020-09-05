@@ -1,4 +1,4 @@
-From c1aa70b4813a055efe8118907aae916fcee362fc Mon Sep 17 00:00:00 2001
+From 88dff9ea80882da263df811ce014bc682bc78270 Mon Sep 17 00:00:00 2001
 From: Ingo Molnar <mingo@elte.hu>
 Date: Fri, 3 Jul 2009 08:30:16 -0500
 Subject: [PATCH 151/507] input: gameport: Do not disable interrupts on

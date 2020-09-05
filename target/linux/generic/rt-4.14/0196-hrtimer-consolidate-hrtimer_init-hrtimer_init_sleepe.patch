@@ -1,4 +1,4 @@
-From 0386ae59e34819c40b5a9d0492a4587d4b9c6ba7 Mon Sep 17 00:00:00 2001
+From 11b4e7b959c998c58c605622c8dcd4b6f14b0963 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Mon, 4 Sep 2017 18:31:50 +0200
 Subject: [PATCH 196/507] hrtimer: consolidate hrtimer_init() +

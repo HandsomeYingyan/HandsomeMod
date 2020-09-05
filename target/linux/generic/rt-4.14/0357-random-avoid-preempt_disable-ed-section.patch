@@ -1,4 +1,4 @@
-From 3571003bcd8f139cedb86668933c0ee009ba02ae Mon Sep 17 00:00:00 2001
+From b00319ed26d317003bfdb97312a0d5675cf3ced9 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 12 May 2017 15:46:17 +0200
 Subject: [PATCH 357/507] random: avoid preempt_disable()ed section
@@ -14,7 +14,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 1 insertion(+)
 
 diff --git a/drivers/char/random.c b/drivers/char/random.c
-index 1499d6fdb9ad..b54aad26a359 100644
+index 81d42a5a8c22..f0d09f7debc2 100644
 --- a/drivers/char/random.c
 +++ b/drivers/char/random.c
 @@ -265,6 +265,7 @@

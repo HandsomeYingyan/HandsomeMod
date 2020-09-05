@@ -1,4 +1,4 @@
-From ef9f5437f33ab1ec1b4db017837e176c223e70e6 Mon Sep 17 00:00:00 2001
+From eb677085a5b206b8177f688c24064162d9f968f0 Mon Sep 17 00:00:00 2001
 From: Oleg Nesterov <oleg@redhat.com>
 Date: Tue, 14 Jul 2015 14:26:34 +0200
 Subject: [PATCH 157/507] signal/x86: Delay calling signals in atomic

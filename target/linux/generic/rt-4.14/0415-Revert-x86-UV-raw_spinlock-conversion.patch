@@ -1,4 +1,4 @@
-From dd5ed5ecea59e264518d9d79b884c5f255ddaa56 Mon Sep 17 00:00:00 2001
+From 514e4a600e2dac151f5f6dfc4c21ed8df0aa5270 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Mon, 18 Jun 2018 10:34:34 +0200
 Subject: [PATCH 415/507] Revert "x86: UV: raw_spinlock conversion"

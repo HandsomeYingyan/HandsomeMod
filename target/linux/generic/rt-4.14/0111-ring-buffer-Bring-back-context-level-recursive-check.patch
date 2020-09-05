@@ -1,4 +1,4 @@
-From 72e0c29dbe6e9367bc01fcb4360e5194b35bfdaa Mon Sep 17 00:00:00 2001
+From 5708bc884eb98f2e62b48a9d52d7d13b5788eb18 Mon Sep 17 00:00:00 2001
 From: "Steven Rostedt (VMware)" <rostedt@goodmis.org>
 Date: Mon, 15 Jan 2018 10:47:09 -0500
 Subject: [PATCH 111/507] ring-buffer: Bring back context level recursive

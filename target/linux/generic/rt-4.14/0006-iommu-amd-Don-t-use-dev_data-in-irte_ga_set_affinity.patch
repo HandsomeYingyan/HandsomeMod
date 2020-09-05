@@ -1,4 +1,4 @@
-From fd2195546d57c0c38fa645fa2eb5f8702af41ca9 Mon Sep 17 00:00:00 2001
+From 962f7677783c1a3d3d7d206035b6a18ee5da4ca6 Mon Sep 17 00:00:00 2001
 From: Scott Wood <swood@redhat.com>
 Date: Sun, 28 Jan 2018 14:22:19 -0600
 Subject: [PATCH 006/507] iommu/amd: Don't use dev_data in
@@ -18,7 +18,7 @@ Signed-off-by: Joerg Roedel <jroedel@suse.de>
  1 file changed, 1 insertion(+), 3 deletions(-)
 
 diff --git a/drivers/iommu/amd_iommu.c b/drivers/iommu/amd_iommu.c
-index 9b6638f615c6..9ddc79b13d5e 100644
+index 0cd2750c993b..51d3e76ad3b2 100644
 --- a/drivers/iommu/amd_iommu.c
 +++ b/drivers/iommu/amd_iommu.c
 @@ -3929,10 +3929,8 @@ static void irte_ga_set_affinity(void *entry, u16 devid, u16 index,

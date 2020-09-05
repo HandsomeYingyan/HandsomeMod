@@ -1,4 +1,4 @@
-From aa9211b05958ff2a0bc35caf2dd9cb47b67bb7b3 Mon Sep 17 00:00:00 2001
+From 3e155d29aff4e38d7fa0611550f9948c6f39ee51 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 8 Jan 2019 12:31:06 +0100
 Subject: [PATCH 446/507] sched/fair: Make the hrtimers non-hard again
@@ -16,7 +16,7 @@ Signed-off-by: Tom Zanussi <tom.zanussi@linux.intel.com>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
-index cb15df7cd4dc..ca130a6c78be 100644
+index 10e54583b5ce..4553cdcdd5cc 100644
 --- a/kernel/sched/fair.c
 +++ b/kernel/sched/fair.c
 @@ -4701,9 +4701,9 @@ void init_cfs_bandwidth(struct cfs_bandwidth *cfs_b)

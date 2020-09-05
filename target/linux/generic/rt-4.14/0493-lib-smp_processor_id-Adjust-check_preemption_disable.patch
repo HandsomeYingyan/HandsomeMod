@@ -1,4 +1,4 @@
-From 89d86fb59f2f7b6b66eeaf6f69a983cd6f755daa Mon Sep 17 00:00:00 2001
+From 44a1be2ff746ab01c315287a8de7aacbdc7cd988 Mon Sep 17 00:00:00 2001
 From: Daniel Wagner <dwagner@suse.de>
 Date: Mon, 16 Dec 2019 16:15:57 +0100
 Subject: [PATCH 493/507] lib/smp_processor_id: Adjust

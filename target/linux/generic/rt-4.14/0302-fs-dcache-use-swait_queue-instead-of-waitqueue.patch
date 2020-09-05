@@ -1,4 +1,4 @@
-From 3f29887a774967e2d40c7d1cf042b05c926288df Mon Sep 17 00:00:00 2001
+From 39b9d58ca807d6ed6bf4c8ae1adfb3c93561cdd1 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 14 Sep 2016 14:35:49 +0200
 Subject: [PATCH 302/507] fs/dcache: use swait_queue instead of waitqueue

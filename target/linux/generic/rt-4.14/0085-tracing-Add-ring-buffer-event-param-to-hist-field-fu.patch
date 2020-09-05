@@ -1,4 +1,4 @@
-From 7665b57c5dcaeefed41b236f2507453ded66ea48 Mon Sep 17 00:00:00 2001
+From afd695fd81c69ecf9f7f8b6cb65ff2a82822829b Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:43 -0600
 Subject: [PATCH 085/507] tracing: Add ring buffer event param to hist field

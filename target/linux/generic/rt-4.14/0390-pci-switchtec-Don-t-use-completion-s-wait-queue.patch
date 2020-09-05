@@ -1,4 +1,4 @@
-From 69475bf755bf3e3ca8cca96a8d624272566e9acb Mon Sep 17 00:00:00 2001
+From 5d4e68eacb7b0e3b062414e3dfebeed81df1311e Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 4 Oct 2017 10:24:23 +0200
 Subject: [PATCH 390/507] pci/switchtec: Don't use completion's wait queue

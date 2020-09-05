@@ -1,4 +1,4 @@
-From 6f95af7a3e3c4d9eee1174657df1f6a13fc16fb6 Mon Sep 17 00:00:00 2001
+From 7d3a6d985b7f98866320fb04e74364e25c5be23e Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:36 -0600
 Subject: [PATCH 078/507] tracing: Add Documentation for log2 modifier

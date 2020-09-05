@@ -1,4 +1,4 @@
-From 323c3febb154b8c16d80693a1571497a56e066e7 Mon Sep 17 00:00:00 2001
+From deec64f2b8080e27e0c6986e7d703e0452ddbcd3 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Tue, 12 Jul 2011 15:38:34 +0200
 Subject: [PATCH 312/507] net: Use skbufhead with raw lock
@@ -11,8 +11,8 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
 ---
  include/linux/netdevice.h |  1 +
  include/linux/skbuff.h    |  7 +++++++
- net/core/dev.c            | 31 ++++++++++++++++++++++++-------
- 3 files changed, 32 insertions(+), 7 deletions(-)
+ net/core/dev.c            | 29 +++++++++++++++++++++++------
+ 3 files changed, 31 insertions(+), 6 deletions(-)
 
 diff --git a/include/linux/netdevice.h b/include/linux/netdevice.h
 index 3512c337a4a6..f8e93d90415b 100644
@@ -52,7 +52,7 @@ index a9a764a17c28..96a2622011ff 100644
  		struct lock_class_key *class)
  {
 diff --git a/net/core/dev.c b/net/core/dev.c
-index 6325b35e6af8..44af4144fcfb 100644
+index 96de8955dad7..f588c03a20e1 100644
 --- a/net/core/dev.c
 +++ b/net/core/dev.c
 @@ -218,14 +218,14 @@ static inline struct hlist_head *dev_index_hash(struct net *net, int ifindex)
@@ -72,15 +72,6 @@ index 6325b35e6af8..44af4144fcfb 100644
  #endif
  }
  
-@@ -4627,7 +4627,7 @@ static void flush_backlog(struct work_struct *work)
- 	skb_queue_walk_safe(&sd->input_pkt_queue, skb, tmp) {
- 		if (skb->dev->reg_state == NETREG_UNREGISTERING) {
- 			__skb_unlink(skb, &sd->input_pkt_queue);
--			kfree_skb(skb);
-+			__skb_queue_tail(&sd->tofree_queue, skb);
- 			input_queue_head_incr(sd);
- 		}
- 	}
 @@ -4637,11 +4637,14 @@ static void flush_backlog(struct work_struct *work)
  	skb_queue_walk_safe(&sd->process_queue, skb, tmp) {
  		if (skb->dev->reg_state == NETREG_UNREGISTERING) {

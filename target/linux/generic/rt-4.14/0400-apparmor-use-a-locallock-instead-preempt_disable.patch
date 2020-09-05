@@ -1,4 +1,4 @@
-From 4e10a52709d673919b182fdd5ac64194dfe74120 Mon Sep 17 00:00:00 2001
+From 68e88c67e16066fc98ddb6b08911cfeb25b96808 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 11 Oct 2017 17:43:49 +0200
 Subject: [PATCH 400/507] apparmor: use a locallock instead preempt_disable()

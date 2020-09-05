@@ -1,4 +1,4 @@
-From 0e9cee62ebd2228c149d14fd7bb2a0a87d6f5298 Mon Sep 17 00:00:00 2001
+From ee6c08eb19f622b17751bef4711d2d30a2e13dc7 Mon Sep 17 00:00:00 2001
 From: Steven Rostedt <rostedt@goodmis.org>
 Date: Wed, 26 Jun 2013 15:28:11 -0400
 Subject: [PATCH 397/507] rt,ntp: Move call to schedule_delayed_work() to

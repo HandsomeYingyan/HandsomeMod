@@ -1,4 +1,4 @@
-From 319c868f6cd1b708d45358fb01f4fb3924833f9f Mon Sep 17 00:00:00 2001
+From 21bc63fcc8cb8a669c6028506886a9e8a79e164c Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 8 Nov 2013 17:34:54 +0100
 Subject: [PATCH 153/507] usb: Use _nort in giveback function

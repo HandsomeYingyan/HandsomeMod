@@ -1,4 +1,4 @@
-From f32eb746ed6d0abcfc389dfb5580570173397a5b Mon Sep 17 00:00:00 2001
+From 9c34ca7dcc81f33b8e050a4fc774d68e0bc8444d Mon Sep 17 00:00:00 2001
 From: Steven Rostedt <rostedt@goodmis.org>
 Date: Tue, 18 Dec 2018 14:30:10 -0500
 Subject: [PATCH 431/507] printk: Do not disable preemption calling

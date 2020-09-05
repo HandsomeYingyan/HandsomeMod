@@ -1,4 +1,4 @@
-From 77b58c2cbecc3db807235591e258fd0a0a6b25e2 Mon Sep 17 00:00:00 2001
+From 2b91f675cfc929295522acad2c65265993ece303 Mon Sep 17 00:00:00 2001
 From: Mike Galbraith <efault@gmx.de>
 Date: Sun, 19 Aug 2018 08:28:35 +0200
 Subject: [PATCH 428/507] sched: Allow pinned user tasks to be awakened to the

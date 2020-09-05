@@ -1,4 +1,4 @@
-From 41f9f427cd16090220c2d89cfab4eefb5584b9c6 Mon Sep 17 00:00:00 2001
+From f88778f5df36b759c3318204d609ad6e00399abf Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Fri, 22 Sep 2017 14:58:23 -0500
 Subject: [PATCH 076/507] tracing: Reimplement log2

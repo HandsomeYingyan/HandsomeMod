@@ -1,4 +1,4 @@
-From 6cf271203dbafe5dd1034e1752b6f2ca7ce38ac8 Mon Sep 17 00:00:00 2001
+From a447e55e904e341d344284ac60722915c99b2972 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 24 Jul 2009 12:38:56 +0200
 Subject: [PATCH 145/507] preempt: Provide preempt_*_(no)rt variants

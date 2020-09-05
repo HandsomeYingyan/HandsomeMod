@@ -1,4 +1,4 @@
-From 63360e828708b22b03f3747503e477b34475d567 Mon Sep 17 00:00:00 2001
+From 3a0e47826e1f8d24088550eb4d1f7481e7c98baf Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:50 -0600
 Subject: [PATCH 092/507] tracing: Account for variables in named trigger

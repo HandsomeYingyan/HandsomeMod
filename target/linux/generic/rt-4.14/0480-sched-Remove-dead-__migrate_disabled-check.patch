@@ -1,4 +1,4 @@
-From ac437348aa128837ee28dd00bac94dc32f290fb8 Mon Sep 17 00:00:00 2001
+From 2e804c95ff1629f7f821a5bafeaf541933f28154 Mon Sep 17 00:00:00 2001
 From: Scott Wood <swood@redhat.com>
 Date: Sat, 27 Jul 2019 00:56:33 -0500
 Subject: [PATCH 480/507] sched: Remove dead __migrate_disabled() check

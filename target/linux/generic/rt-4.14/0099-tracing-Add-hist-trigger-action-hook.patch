@@ -1,4 +1,4 @@
-From 09275c17cf660d98c067aff8804626bcd939368c Mon Sep 17 00:00:00 2001
+From 4a826b04feb989d9d8e2131602ea278d599e79a5 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:57 -0600
 Subject: [PATCH 099/507] tracing: Add hist trigger action hook

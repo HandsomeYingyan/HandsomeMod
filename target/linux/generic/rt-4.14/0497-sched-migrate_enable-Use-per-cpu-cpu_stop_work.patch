@@ -1,4 +1,4 @@
-From 88745e52e346c0bed7fc85f38fff59cc5ce7b2cf Mon Sep 17 00:00:00 2001
+From ba5c42fee899a07c8b3883344b0383a637f7a00b Mon Sep 17 00:00:00 2001
 From: Scott Wood <swood@redhat.com>
 Date: Fri, 24 Jan 2020 06:11:46 -0500
 Subject: [PATCH 497/507] sched: migrate_enable: Use per-cpu cpu_stop_work

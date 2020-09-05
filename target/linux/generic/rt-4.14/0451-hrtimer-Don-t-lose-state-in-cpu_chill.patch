@@ -1,4 +1,4 @@
-From 7cd43c76ae864c2e317f48077fcc9483dd0eea86 Mon Sep 17 00:00:00 2001
+From e6d79e27721f6a67d29810c3b6f9b1e6a5cfe14a Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 19 Feb 2019 16:59:15 +0100
 Subject: [PATCH 451/507] hrtimer: Don't lose state in cpu_chill()

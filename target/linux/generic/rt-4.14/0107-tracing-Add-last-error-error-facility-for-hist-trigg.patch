@@ -1,4 +1,4 @@
-From b1f353d4c72a3de9f6d15dc96ceb793bd7f2c845 Mon Sep 17 00:00:00 2001
+From 061d59bd3530c041f191438cf6db2781a582dfca Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:52:05 -0600
 Subject: [PATCH 107/507] tracing: Add 'last error' error facility for hist

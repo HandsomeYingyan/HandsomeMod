@@ -1,4 +1,4 @@
-From f30c424709e38c16d9bcb121735b37ab5a5742b4 Mon Sep 17 00:00:00 2001
+From 24444ef9439a034dfcd4905a3ac9971246f0c876 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 12 Oct 2017 17:34:38 +0200
 Subject: [PATCH 256/507] rtmutex: add ww_mutex addon for mutex-rt

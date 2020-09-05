@@ -1,4 +1,4 @@
-From e91dcd8d47d5de6fb9966a167d26fa0d0122aafa Mon Sep 17 00:00:00 2001
+From 5006ca9dcd015be0896198f845613bcc6e8d1158 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:53 -0600
 Subject: [PATCH 095/507] tracing: Generalize per-element hist trigger data

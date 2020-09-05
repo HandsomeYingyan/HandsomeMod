@@ -1,4 +1,4 @@
-From 31696b0dcefd519141f2be2b940294a688fd4a24 Mon Sep 17 00:00:00 2001
+From aad175ad15d753b7c9e51fb0ebd91f5e0ef28fb6 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 22 Dec 2017 15:51:13 +0100
 Subject: [PATCH 188/507] nohz: Prevent erroneous tick stop invocations

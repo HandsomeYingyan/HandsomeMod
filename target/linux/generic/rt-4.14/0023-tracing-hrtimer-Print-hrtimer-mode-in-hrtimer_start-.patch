@@ -1,4 +1,4 @@
-From 320eaeb3b00838c68d0b7abe36a0f0722d520b4c Mon Sep 17 00:00:00 2001
+From 4b3b49283d647468a8998b3a741e26c4c1ac0b7a Mon Sep 17 00:00:00 2001
 From: Anna-Maria Gleixner <anna-maria@linutronix.de>
 Date: Wed, 20 Dec 2017 17:12:58 +0100
 Subject: [PATCH 023/507] tracing/hrtimer: Print hrtimer mode in hrtimer_start

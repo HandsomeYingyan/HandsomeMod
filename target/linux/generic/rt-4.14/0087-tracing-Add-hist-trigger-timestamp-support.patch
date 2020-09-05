@@ -1,4 +1,4 @@
-From d4b492203f118f5feb47787f1c4f336c6d2b6622 Mon Sep 17 00:00:00 2001
+From 83414302b424c507da00bc6eb676a3ca61b31787 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:45 -0600
 Subject: [PATCH 087/507] tracing: Add hist trigger timestamp support

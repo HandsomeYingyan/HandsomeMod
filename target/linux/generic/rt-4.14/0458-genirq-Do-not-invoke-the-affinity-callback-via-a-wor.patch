@@ -1,4 +1,4 @@
-From ed8526db4d0c6f34f7a9ab17dc718de41d5cd915 Mon Sep 17 00:00:00 2001
+From 36831c35b6b6a6ca17bc237d6687e931bea9603e Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 21 Aug 2013 17:48:46 +0200
 Subject: [PATCH 458/507] genirq: Do not invoke the affinity callback via a
@@ -53,10 +53,10 @@ index 0f25fa19b2d8..233e3c027f53 100644
  	struct work_struct work;
  #endif
 diff --git a/kernel/irq/manage.c b/kernel/irq/manage.c
-index 191e554e6f9d..3d1ac16e4547 100644
+index 4f2664036339..bbc12685f631 100644
 --- a/kernel/irq/manage.c
 +++ b/kernel/irq/manage.c
-@@ -227,7 +227,7 @@ int irq_set_affinity_locked(struct irq_data *data, const struct cpumask *mask,
+@@ -264,7 +264,7 @@ int irq_set_affinity_locked(struct irq_data *data, const struct cpumask *mask,
  	if (desc->affinity_notify) {
  		kref_get(&desc->affinity_notify->kref);
  #ifdef CONFIG_PREEMPT_RT_BASE
@@ -65,7 +65,7 @@ index 191e554e6f9d..3d1ac16e4547 100644
  #else
  		if (!schedule_work(&desc->affinity_notify->work)) {
  #endif
-@@ -296,21 +296,11 @@ static void _irq_affinity_notify(struct irq_affinity_notify *notify)
+@@ -333,21 +333,11 @@ static void _irq_affinity_notify(struct irq_affinity_notify *notify)
  }
  
  #ifdef CONFIG_PREEMPT_RT_BASE
@@ -89,7 +89,7 @@ index 191e554e6f9d..3d1ac16e4547 100644
  	_irq_affinity_notify(notify);
  }
  
-@@ -353,8 +343,7 @@ irq_set_affinity_notifier(unsigned int irq, struct irq_affinity_notify *notify)
+@@ -390,8 +380,7 @@ irq_set_affinity_notifier(unsigned int irq, struct irq_affinity_notify *notify)
  		notify->irq = irq;
  		kref_init(&notify->kref);
  #ifdef CONFIG_PREEMPT_RT_BASE

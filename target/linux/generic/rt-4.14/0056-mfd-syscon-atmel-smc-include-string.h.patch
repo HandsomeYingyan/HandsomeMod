@@ -1,4 +1,4 @@
-From e2c9c8b7541bbeccb04f74ae60bfda5215170e28 Mon Sep 17 00:00:00 2001
+From 0753c8a5467a4760b041d9013678440c49fbf435 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 4 Oct 2017 09:55:58 +0200
 Subject: [PATCH 056/507] mfd: syscon: atmel-smc: include string.h

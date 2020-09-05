@@ -1,4 +1,4 @@
-From f04e4c11541268e2a6aeca61482699a52c14211a Mon Sep 17 00:00:00 2001
+From 5a46565ead478967ca095466ad1d93f71d9027c0 Mon Sep 17 00:00:00 2001
 From: "bigeasy@linutronix.de" <bigeasy@linutronix.de>
 Date: Fri, 23 Mar 2018 18:17:36 +0100
 Subject: [PATCH 067/507] target: drop spin_lock_assert() + irqs_disabled()

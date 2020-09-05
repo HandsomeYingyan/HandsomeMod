@@ -1,4 +1,4 @@
-From c55ee0d60e83f53f031769950dfdbd3c49bd9950 Mon Sep 17 00:00:00 2001
+From 726cb300a95afb50298affc69ae1515e3882ff88 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 31 Oct 2012 12:04:11 +0100
 Subject: [PATCH 379/507] arm: Add support for lazy preemption

@@ -1,4 +1,4 @@
-From f7771fae17b5f54160cc23e8f5ece267de3a2601 Mon Sep 17 00:00:00 2001
+From 2daebb6c166617e377a70350d6d47a3792806440 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:55 -0600
 Subject: [PATCH 097/507] tracing: Add hist_field 'type' field

@@ -1,4 +1,4 @@
-From 40095aa29ec5e9a9debb7d909e07e808281db244 Mon Sep 17 00:00:00 2001
+From 05163f013a94567e4b0e682a1ef13f58c59779b6 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 21 Feb 2018 10:39:54 +0100
 Subject: [PATCH 315/507] net: use task_struct instead of CPU number as the
@@ -124,7 +124,7 @@ index 72ae40b8a95f..794c18e41f9c 100644
  }
  
 diff --git a/net/core/dev.c b/net/core/dev.c
-index 9595777fb9d0..ca0c8440fe50 100644
+index 21121adbc30f..c5b94bbe6ee7 100644
 --- a/net/core/dev.c
 +++ b/net/core/dev.c
 @@ -3509,7 +3509,11 @@ static int __dev_queue_xmit(struct sk_buff *skb, void *accel_priv)

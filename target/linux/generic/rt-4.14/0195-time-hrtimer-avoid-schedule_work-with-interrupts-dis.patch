@@ -1,4 +1,4 @@
-From 36a12aa1fcfcde8f0cbb17ad1af7d86d6fcb89d2 Mon Sep 17 00:00:00 2001
+From 99dbf94cd8a46240644acbb32bee43515f59c075 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 15 Nov 2017 17:29:51 +0100
 Subject: [PATCH 195/507] time/hrtimer: avoid schedule_work() with interrupts
@@ -13,10 +13,10 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 11 insertions(+), 4 deletions(-)
 
 diff --git a/kernel/time/timer.c b/kernel/time/timer.c
-index 311e7d6f45fc..b7247ef0075a 100644
+index 818f870df0e1..5fac28d883ac 100644
 --- a/kernel/time/timer.c
 +++ b/kernel/time/timer.c
-@@ -217,8 +217,7 @@ static DEFINE_PER_CPU(struct timer_base, timer_bases[NR_BASES]);
+@@ -218,8 +218,7 @@ static DEFINE_PER_CPU(struct timer_base, timer_bases[NR_BASES]);
  static DEFINE_STATIC_KEY_FALSE(timers_nohz_active);
  static DEFINE_MUTEX(timer_keys_mutex);
  
@@ -26,7 +26,7 @@ index 311e7d6f45fc..b7247ef0075a 100644
  
  #ifdef CONFIG_SMP
  unsigned int sysctl_timer_migration = 1;
-@@ -238,7 +237,7 @@ static void timers_update_migration(void)
+@@ -239,7 +238,7 @@ static void timers_update_migration(void)
  static inline void timers_update_migration(void) { }
  #endif /* !CONFIG_SMP */
  
@@ -35,7 +35,7 @@ index 311e7d6f45fc..b7247ef0075a 100644
  {
  	mutex_lock(&timer_keys_mutex);
  	timers_update_migration();
-@@ -248,9 +247,17 @@ static void timer_update_keys(struct work_struct *work)
+@@ -249,9 +248,17 @@ static void timer_update_keys(struct work_struct *work)
  
  void timers_update_nohz(void)
  {

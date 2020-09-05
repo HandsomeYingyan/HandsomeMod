@@ -1,4 +1,4 @@
-From c7ff821e72278df3a727bb62fd088c158fad1961 Mon Sep 17 00:00:00 2001
+From 22e101d892367a0c8cbb1501d1a3201f7a1ce070 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Sun, 28 Oct 2012 11:18:08 +0100
 Subject: [PATCH 365/507] net: netfilter: Serialize xt_write_recseq sections on
@@ -66,7 +66,7 @@ index 52cd2901a097..c63e937b6676 100644
  #include <linux/mm.h>
  #include <linux/rcupdate.h>
  #include <net/net_namespace.h>
-@@ -27,6 +27,11 @@
+@@ -28,6 +29,11 @@
  
  #include "nf_internals.h"
  
@@ -75,9 +75,9 @@ index 52cd2901a097..c63e937b6676 100644
 +EXPORT_PER_CPU_SYMBOL(xt_write_lock);
 +#endif
 +
- const struct nf_ipv6_ops __rcu *nf_ipv6_ops __read_mostly;
- EXPORT_SYMBOL_GPL(nf_ipv6_ops);
-
+ static DEFINE_MUTEX(afinfo_mutex);
+ 
+ const struct nf_afinfo __rcu *nf_afinfo[NFPROTO_NUMPROTO] __read_mostly;
 -- 
 2.26.2
 

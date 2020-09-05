@@ -1,4 +1,4 @@
-From 221bee6e28321d8b8ed4a5ba4245a6a4e2dc7ebb Mon Sep 17 00:00:00 2001
+From b1287a20df497ba7603b7c7765150635bc0a1ed5 Mon Sep 17 00:00:00 2001
 From: Liu Haitao <haitao.liu@windriver.com>
 Date: Fri, 27 Sep 2019 16:22:30 +0800
 Subject: [PATCH 486/507] kmemleak: Change the lock of kmemleak_object to

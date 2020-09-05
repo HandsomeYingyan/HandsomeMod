@@ -1,4 +1,4 @@
-From b87d334b3e69eff46fd9508063f979159ffab57a Mon Sep 17 00:00:00 2001
+From e423174ba11cab2f58eb186825b95ef167f8d733 Mon Sep 17 00:00:00 2001
 From: Anna-Maria Gleixner <anna-maria@linutronix.de>
 Date: Wed, 20 Dec 2017 17:13:09 +0100
 Subject: [PATCH 034/507] hrtimer: Unify handling of remote enqueue
@@ -127,10 +127,10 @@ index 4ac74dff59f0..e277284c2831 100644
  
  DECLARE_PER_CPU(struct hrtimer_cpu_base, hrtimer_bases);
 diff --git a/kernel/time/timer.c b/kernel/time/timer.c
-index dc7e43d54d4b..4948dd0567a0 100644
+index 295134030981..0ef1051243b2 100644
 --- a/kernel/time/timer.c
 +++ b/kernel/time/timer.c
-@@ -210,7 +210,7 @@ static DEFINE_PER_CPU(struct timer_base, timer_bases[NR_BASES]);
+@@ -211,7 +211,7 @@ static DEFINE_PER_CPU(struct timer_base, timer_bases[NR_BASES]);
  
  #ifdef CONFIG_NO_HZ_COMMON
  
@@ -139,7 +139,7 @@ index dc7e43d54d4b..4948dd0567a0 100644
  static DEFINE_MUTEX(timer_keys_mutex);
  
  static void timer_update_keys(struct work_struct *work);
-@@ -260,6 +260,13 @@ int timer_migration_handler(struct ctl_table *table, int write,
+@@ -261,6 +261,13 @@ int timer_migration_handler(struct ctl_table *table, int write,
  	mutex_unlock(&timer_keys_mutex);
  	return ret;
  }

@@ -1,4 +1,4 @@
-From c93af817aabd1f5e8610586445bbf3e06fb135f9 Mon Sep 17 00:00:00 2001
+From 70a67619845404f7d45a643236a31a26aef5d62f Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 22 Jul 2011 08:07:08 +0200
 Subject: [PATCH 156/507] signal: Make __lock_task_sighand() RT aware

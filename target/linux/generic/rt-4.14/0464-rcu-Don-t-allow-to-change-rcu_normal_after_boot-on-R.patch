@@ -1,4 +1,4 @@
-From e09cc73b4c2637a66f93670bb3a1d7cfd7363f92 Mon Sep 17 00:00:00 2001
+From ac6b75045ae92b462e04482b574fce0918a3e25d Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Mon, 24 Jun 2019 18:29:13 +0200
 Subject: [PATCH 464/507] rcu: Don't allow to change rcu_normal_after_boot on

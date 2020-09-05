@@ -1,4 +1,4 @@
-From 19f8dbac0a9ac8a28cf70e971f34eb2874da8f54 Mon Sep 17 00:00:00 2001
+From a9556338934c84b1ae232d8358bf6f8412175e72 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 19 Sep 2012 14:50:37 +0200
 Subject: [PATCH 327/507] printk: Make rt aware

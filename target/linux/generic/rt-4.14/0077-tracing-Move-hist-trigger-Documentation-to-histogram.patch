@@ -1,4 +1,4 @@
-From 4c9934d9cb8f79d5aa5e58461ad4b82a80fd84e2 Mon Sep 17 00:00:00 2001
+From dffb33d2167c60ae8ca957655d716e23d456a62d Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:35 -0600
 Subject: [PATCH 077/507] tracing: Move hist trigger Documentation to

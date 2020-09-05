@@ -1,4 +1,4 @@
-From e32c0a8eff10823c681117ec50f15f48c91ebc90 Mon Sep 17 00:00:00 2001
+From 5e97a49dfd80ba6efd6690a8d89cf8f724b0d6ed Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:41 -0600
 Subject: [PATCH 083/507] tracing: Add timestamp_mode trace file

@@ -1,4 +1,4 @@
-From 979620b5aa56dc1051b40143b3bc9846d61fbb6d Mon Sep 17 00:00:00 2001
+From a97a6ff36abb3729b22c6644d45f8d13a512c5dd Mon Sep 17 00:00:00 2001
 From: Julia Cartwright <julia@ni.com>
 Date: Fri, 28 Sep 2018 21:03:51 +0000
 Subject: [PATCH 433/507] kthread: convert worker lock to raw spinlock

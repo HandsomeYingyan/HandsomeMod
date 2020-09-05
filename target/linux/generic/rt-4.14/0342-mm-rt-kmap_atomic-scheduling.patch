@@ -1,4 +1,4 @@
-From da780f9e3bb0203f50b735c001fe7af1e58dff1b Mon Sep 17 00:00:00 2001
+From b24ad11638deb128b3431d663d201539477aa76b Mon Sep 17 00:00:00 2001
 From: Peter Zijlstra <peterz@infradead.org>
 Date: Thu, 28 Jul 2011 10:43:51 +0200
 Subject: [PATCH 342/507] mm, rt: kmap_atomic scheduling

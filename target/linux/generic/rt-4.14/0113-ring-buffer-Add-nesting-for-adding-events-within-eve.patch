@@ -1,4 +1,4 @@
-From 7d82d551068a12a352104078a335843857b5f794 Mon Sep 17 00:00:00 2001
+From a7a56ea0cd4ceb80906f367062f65b9205315c34 Mon Sep 17 00:00:00 2001
 From: "Steven Rostedt (VMware)" <rostedt@goodmis.org>
 Date: Wed, 7 Feb 2018 17:26:32 -0500
 Subject: [PATCH 113/507] ring-buffer: Add nesting for adding events within

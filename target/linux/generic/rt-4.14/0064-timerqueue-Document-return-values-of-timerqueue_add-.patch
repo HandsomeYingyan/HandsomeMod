@@ -1,4 +1,4 @@
-From 3b936a242a922969f6f1a37e670bfce62f642df3 Mon Sep 17 00:00:00 2001
+From 894fba4435664c96086bed3911acbb60b545cbc8 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 22 Dec 2017 15:51:15 +0100
 Subject: [PATCH 064/507] timerqueue: Document return values of

@@ -1,4 +1,4 @@
-From a18cd70775cf37f0e1906fabb20f11c5f374a785 Mon Sep 17 00:00:00 2001
+From dcdeb38902f3635efaa53e781c6d04914af3e1a4 Mon Sep 17 00:00:00 2001
 From: "Paul E. McKenney" <paulmck@linux.vnet.ibm.com>
 Date: Tue, 10 Oct 2017 13:52:30 -0700
 Subject: [PATCH 370/507] srcu: Prohibit call_srcu() use under raw spinlocks

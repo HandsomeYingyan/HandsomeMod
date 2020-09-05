@@ -1,4 +1,4 @@
-From a2315f8bac22e19920b2b4871eed17bc1635ceee Mon Sep 17 00:00:00 2001
+From fa3528a05d9996351ebd4e09d4e53f6c7bd4ff28 Mon Sep 17 00:00:00 2001
 From: Anna-Maria Gleixner <anna-maria@linutronix.de>
 Date: Wed, 20 Dec 2017 17:12:52 +0100
 Subject: [PATCH 019/507] hrtimer: Fix kerneldoc for struct hrtimer_cpu_base

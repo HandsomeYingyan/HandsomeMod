@@ -1,4 +1,4 @@
-From 7294937d5d476d1dc5ec81e2a4003b61266277d0 Mon Sep 17 00:00:00 2001
+From 1d03a2aad2da5a95d04f42bd7d226148318f3541 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 9 Mar 2016 10:51:06 +0100
 Subject: [PATCH 051/507] arm: at91: do not disable/enable clocks in a row

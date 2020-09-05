@@ -1,4 +1,4 @@
-From cdf90a6f21ee1caac8b009acde39cbdb85685eab Mon Sep 17 00:00:00 2001
+From 2de94d10f0e12c67ae6820e6754fe198197c0bc0 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:52:07 -0600
 Subject: [PATCH 109/507] tracing: Make tracing_set_clock() non-static

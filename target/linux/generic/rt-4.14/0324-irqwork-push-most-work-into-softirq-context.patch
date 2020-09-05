@@ -1,4 +1,4 @@
-From aa45df197766d91a7ed6cc6588158d921c510d55 Mon Sep 17 00:00:00 2001
+From ade77ad197a6390bf15829fcdfae47ffe2606e2e Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 23 Jun 2015 15:32:51 +0200
 Subject: [PATCH 324/507] irqwork: push most work into softirq context
@@ -147,7 +147,7 @@ index bcf107ce0854..0ddaf1e66d8c 100644
  EXPORT_SYMBOL_GPL(irq_work_run);
  
 diff --git a/kernel/sched/topology.c b/kernel/sched/topology.c
-index 867d173dab48..b94ef96ac991 100644
+index 152ffe0c2433..22861ce5c2dd 100644
 --- a/kernel/sched/topology.c
 +++ b/kernel/sched/topology.c
 @@ -286,6 +286,7 @@ static int init_rootdomain(struct root_domain *rd)
@@ -171,10 +171,10 @@ index 1f1285b80ed1..ea18bfec057f 100644
  
  /*
 diff --git a/kernel/time/timer.c b/kernel/time/timer.c
-index b7247ef0075a..35f56d12d691 100644
+index 5fac28d883ac..a7d236bea3a4 100644
 --- a/kernel/time/timer.c
 +++ b/kernel/time/timer.c
-@@ -1640,7 +1640,7 @@ void update_process_times(int user_tick)
+@@ -1641,7 +1641,7 @@ void update_process_times(int user_tick)
  	scheduler_tick();
  	run_local_timers();
  	rcu_check_callbacks(user_tick);
@@ -183,7 +183,7 @@ index b7247ef0075a..35f56d12d691 100644
  	if (in_irq())
  		irq_work_tick();
  #endif
-@@ -1697,6 +1697,9 @@ static __latent_entropy void run_timer_softirq(struct softirq_action *h)
+@@ -1705,6 +1705,9 @@ static __latent_entropy void run_timer_softirq(struct softirq_action *h)
  {
  	struct timer_base *base = this_cpu_ptr(&timer_bases[BASE_STD]);
  

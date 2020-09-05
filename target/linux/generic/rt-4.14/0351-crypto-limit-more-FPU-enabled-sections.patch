@@ -1,4 +1,4 @@
-From ede47be33707a4108c467123b3cf2f766e133d07 Mon Sep 17 00:00:00 2001
+From fc39ed991680b67b810f0a15653f67ababd685ce Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 30 Nov 2017 13:40:10 +0100
 Subject: [PATCH 351/507] crypto: limit more FPU-enabled sections

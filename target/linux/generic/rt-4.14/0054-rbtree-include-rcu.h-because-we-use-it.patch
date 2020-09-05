@@ -1,4 +1,4 @@
-From 0ab63202f013df9eaae844a083673ee9262e611e Mon Sep 17 00:00:00 2001
+From c9c2c9cdeb95857d15625b5a9c09d42bab632756 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 14 Sep 2016 11:52:17 +0200
 Subject: [PATCH 054/507] rbtree: include rcu.h because we use it

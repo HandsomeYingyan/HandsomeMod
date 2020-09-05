@@ -1,4 +1,4 @@
-From da6b3fb1f92ca4bcc16cf55a1917bfe7ef88e137 Mon Sep 17 00:00:00 2001
+From 08764a1066e45bb7bafeb210dc00719dcb892360 Mon Sep 17 00:00:00 2001
 From: Joe Korty <joe.korty@concurrent-rt.com>
 Date: Tue, 11 Feb 2020 09:00:07 -0500
 Subject: [PATCH 474/507] Fix wrong-variable use in irq_set_affinity_notifier
@@ -61,10 +61,10 @@ Signed-off-by: Tom Zanussi <zanussi@kernel.org>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/kernel/irq/manage.c b/kernel/irq/manage.c
-index 5557de474f32..08fed3b462aa 100644
+index 298770b394d9..df05818cf03f 100644
 --- a/kernel/irq/manage.c
 +++ b/kernel/irq/manage.c
-@@ -356,7 +356,7 @@ irq_set_affinity_notifier(unsigned int irq, struct irq_affinity_notify *notify)
+@@ -393,7 +393,7 @@ irq_set_affinity_notifier(unsigned int irq, struct irq_affinity_notify *notify)
  
  	if (old_notify) {
  #ifdef CONFIG_PREEMPT_RT_BASE

@@ -1,4 +1,4 @@
-From d05908a1295732a0eeb6aa1bb28ae48b63a9b1f5 Mon Sep 17 00:00:00 2001
+From d091348e37365aebd7c99e3048cd37774613582a Mon Sep 17 00:00:00 2001
 From: Grygorii Strashko <grygorii.strashko@ti.com>
 Date: Fri, 9 Oct 2015 09:25:49 -0500
 Subject: [PATCH 313/507] net/core/cpuhotplug: Drain input_pkt_queue lockless
@@ -35,7 +35,7 @@ Cc: stable-rt@vger.kernel.org
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/net/core/dev.c b/net/core/dev.c
-index 44af4144fcfb..37cb734eeebd 100644
+index f588c03a20e1..7283603eebd8 100644
 --- a/net/core/dev.c
 +++ b/net/core/dev.c
 @@ -8502,7 +8502,7 @@ static int dev_cpu_dead(unsigned int oldcpu)

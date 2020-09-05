@@ -1,4 +1,4 @@
-From 57cc5d7e8dede5a8959f41d01c48f63f28aed57a Mon Sep 17 00:00:00 2001
+From d3df5cf4e40afc81cf65ce21ae91f703fc391f58 Mon Sep 17 00:00:00 2001
 From: "Steven Rostedt (VMware)" <rostedt@goodmis.org>
 Date: Thu, 18 Jan 2018 15:42:09 -0500
 Subject: [PATCH 112/507] ring-buffer: Fix duplicate results in mapping context

@@ -1,4 +1,4 @@
-From 18a9a3e0db285df9f1b2307001dd4e1c5f583189 Mon Sep 17 00:00:00 2001
+From 1b5bd2453a71a6e4dc3741d9e1f669b2fd03ea15 Mon Sep 17 00:00:00 2001
 From: Scott Wood <swood@redhat.com>
 Date: Sat, 12 Oct 2019 01:52:12 -0500
 Subject: [PATCH 489/507] sched: migrate_enable: Use select_fallback_rq()

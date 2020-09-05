@@ -1,4 +1,4 @@
-From 67a6856cf3a353f53b6e8a3eb83fae3a55979dd1 Mon Sep 17 00:00:00 2001
+From 34a25176ecd9a2bcdeee1db2cdb8a70a31002461 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 21 Feb 2020 18:57:11 +0100
 Subject: [PATCH 501/507] drm/vmwgfx: Drop preempt_disable() in

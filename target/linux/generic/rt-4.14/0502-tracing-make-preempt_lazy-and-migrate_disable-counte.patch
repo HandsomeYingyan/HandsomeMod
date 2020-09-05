@@ -1,4 +1,4 @@
-From 97f2cca9a1ef29eb00d161f35724915aefaab8e6 Mon Sep 17 00:00:00 2001
+From c22d1d9e39f7076e27b0a694ed39b3b872bdfcc7 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 21 Feb 2020 18:15:15 +0100
 Subject: [PATCH 502/507] tracing: make preempt_lazy and migrate_disable
@@ -36,7 +36,7 @@ index edd1e42e8a2f..01e9ab310753 100644
  };
  
 diff --git a/kernel/trace/trace_events.c b/kernel/trace/trace_events.c
-index 60e371451ec3..edd43841c94a 100644
+index e3f9fe2ca59a..2c33e8163d79 100644
 --- a/kernel/trace/trace_events.c
 +++ b/kernel/trace/trace_events.c
 @@ -187,8 +187,8 @@ static int trace_define_common_fields(void)

@@ -1,4 +1,4 @@
-From 67786142476386bb5a84c0712ff8045155aed8e6 Mon Sep 17 00:00:00 2001
+From 5f01553708fd939b5b2a83b44bccc3332d971993 Mon Sep 17 00:00:00 2001
 From: Mikulas Patocka <mpatocka@redhat.com>
 Date: Fri, 10 Nov 2017 12:29:34 -0500
 Subject: [PATCH 003/507] brd: remove unused brd_mutex

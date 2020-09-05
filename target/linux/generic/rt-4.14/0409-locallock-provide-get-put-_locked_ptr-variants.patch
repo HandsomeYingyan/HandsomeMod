@@ -1,4 +1,4 @@
-From aa781739cc94f0f580d30d248ae1dfde1a11ed6e Mon Sep 17 00:00:00 2001
+From 252358fc3ea97e175fadc806c8fe9454c4c1fe04 Mon Sep 17 00:00:00 2001
 From: Julia Cartwright <julia@ni.com>
 Date: Mon, 7 May 2018 08:58:56 -0500
 Subject: [PATCH 409/507] locallock: provide {get,put}_locked_ptr() variants

@@ -1,4 +1,4 @@
-From 2701b59799c9f0cc0f4846746eb021bce4c7b6ad Mon Sep 17 00:00:00 2001
+From c62bc999ec11827c9430db63fbdb1f03263fb231 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 29 Aug 2018 21:59:04 +0200
 Subject: [PATCH 429/507] Drivers: hv: vmbus: include header for get_irq_regs()

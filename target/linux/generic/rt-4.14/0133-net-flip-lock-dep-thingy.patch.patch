@@ -1,4 +1,4 @@
-From 67dce3240d7c2a957fde3f515ca9da9aa9f3399a Mon Sep 17 00:00:00 2001
+From b43baab9170c1776fd122373e644b465476881b1 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Tue, 28 Jun 2011 10:59:58 +0200
 Subject: [PATCH 133/507] net-flip-lock-dep-thingy.patch
@@ -95,10 +95,10 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  1 file changed, 1 insertion(+), 2 deletions(-)
 
 diff --git a/net/core/sock.c b/net/core/sock.c
-index 08ca2ec0ce60..cb2750122350 100644
+index 3b65fedf77ca..0b2673766a67 100644
 --- a/net/core/sock.c
 +++ b/net/core/sock.c
-@@ -2768,12 +2768,11 @@ void lock_sock_nested(struct sock *sk, int subclass)
+@@ -2789,12 +2789,11 @@ void lock_sock_nested(struct sock *sk, int subclass)
  	if (sk->sk_lock.owned)
  		__lock_sock(sk);
  	sk->sk_lock.owned = 1;

@@ -1,4 +1,4 @@
-From 4efb9a7ed574717b672b1ceb6d8d8f8bf32c6cfa Mon Sep 17 00:00:00 2001
+From 25b84d07cf205459c8fef0e37fa73484f1868c13 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 11 Jan 2013 11:23:51 +0100
 Subject: [PATCH 192/507] completion: Use simple wait queues

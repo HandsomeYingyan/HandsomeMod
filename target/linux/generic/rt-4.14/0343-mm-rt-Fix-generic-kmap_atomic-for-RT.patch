@@ -1,4 +1,4 @@
-From 0f3551183a76403d77540c4cedd3910e03e01fb8 Mon Sep 17 00:00:00 2001
+From e527439880fa1084bf0411c1f814054d2b264760 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Sat, 19 Sep 2015 10:15:00 +0200
 Subject: [PATCH 343/507] mm: rt: Fix generic kmap_atomic for RT

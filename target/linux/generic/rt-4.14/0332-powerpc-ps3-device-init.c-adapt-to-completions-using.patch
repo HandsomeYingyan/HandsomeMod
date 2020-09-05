@@ -1,4 +1,4 @@
-From 2992dd311256e90cf7f69faf910cca551484ddd0 Mon Sep 17 00:00:00 2001
+From de8ebe7c5dd5cd3fc926b92df65a0d8626224e8f Mon Sep 17 00:00:00 2001
 From: Paul Gortmaker <paul.gortmaker@windriver.com>
 Date: Sun, 31 May 2015 14:44:42 -0400
 Subject: [PATCH 332/507] powerpc: ps3/device-init.c - adapt to completions

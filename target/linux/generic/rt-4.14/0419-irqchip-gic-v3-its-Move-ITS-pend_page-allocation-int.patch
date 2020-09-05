@@ -1,4 +1,4 @@
-From f233088d76316deeecfbab9e7734b2f7ae91610c Mon Sep 17 00:00:00 2001
+From 6ca1ebfa6e87d660dbc87647f1827b0457b82a66 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 13 Jul 2018 15:45:36 +0200
 Subject: [PATCH 419/507] irqchip/gic-v3-its: Move ITS' ->pend_page allocation
@@ -21,7 +21,7 @@ Signed-off-by: Steven Rostedt (VMware) <rostedt@goodmis.org>
  1 file changed, 41 insertions(+), 19 deletions(-)
 
 diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index 3b222f3dfd19..f224a8986a90 100644
+index 4251914222ce..ed14719cab59 100644
 --- a/drivers/irqchip/irq-gic-v3-its.c
 +++ b/drivers/irqchip/irq-gic-v3-its.c
 @@ -171,6 +171,7 @@ static DEFINE_RAW_SPINLOCK(vmovp_lock);
@@ -106,7 +106,7 @@ index 3b222f3dfd19..f224a8986a90 100644
  
  	/* Disable LPIs */
  	val = readl_relaxed(rbase + GICR_CTLR);
-@@ -2628,7 +2640,7 @@ static int its_vpe_init(struct its_vpe *vpe)
+@@ -2631,7 +2643,7 @@ static int its_vpe_init(struct its_vpe *vpe)
  		return vpe_id;
  
  	/* Allocate VPT */
@@ -115,7 +115,7 @@ index 3b222f3dfd19..f224a8986a90 100644
  	if (!vpt_page) {
  		its_vpe_id_free(vpe_id);
  		return -ENOMEM;
-@@ -3312,6 +3324,16 @@ int __init its_init(struct fwnode_handle *handle, struct rdists *rdists,
+@@ -3315,6 +3327,16 @@ int __init its_init(struct fwnode_handle *handle, struct rdists *rdists,
  	if (err)
  		return err;
  

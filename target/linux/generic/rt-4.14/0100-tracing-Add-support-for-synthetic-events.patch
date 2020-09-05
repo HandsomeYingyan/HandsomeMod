@@ -1,4 +1,4 @@
-From f68b6d566d0f164643fbf8e17ec540df1e258097 Mon Sep 17 00:00:00 2001
+From 7898ad50c584b5e4dd0250a9f32c9341475c75e0 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:58 -0600
 Subject: [PATCH 100/507] tracing: Add support for 'synthetic' events

@@ -1,4 +1,4 @@
-From 6d46240faac89e0ffb07d8da7aecbccdea959368 Mon Sep 17 00:00:00 2001
+From e18bacd6f63ed12fd4172616f4fbd4fd0ab516a6 Mon Sep 17 00:00:00 2001
 From: Anna-Maria Gleixner <anna-maria@linutronix.de>
 Date: Wed, 20 Dec 2017 17:13:12 +0100
 Subject: [PATCH 037/507] hrtimer: Split hrtimer_start_range_ns()

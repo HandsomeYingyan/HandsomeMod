@@ -1,4 +1,4 @@
-From c5cb0cca401dce2c9e81c71bb26a3ecb8286f70f Mon Sep 17 00:00:00 2001
+From ee224d1178bf3dedb0e477acf069ede8005e21fc Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Fri, 22 Sep 2017 14:58:21 -0500
 Subject: [PATCH 074/507] tracing: Clean up hist_field_flags enum

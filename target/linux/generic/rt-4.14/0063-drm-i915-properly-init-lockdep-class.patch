@@ -1,4 +1,4 @@
-From fd05536bd50179e29fa736a630433e4427a419ed Mon Sep 17 00:00:00 2001
+From 93c182ccd16034b132146e1af48584a499407daf Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 30 Nov 2017 16:06:13 +0100
 Subject: [PATCH 063/507] drm/i915: properly init lockdep class

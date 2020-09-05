@@ -1,4 +1,4 @@
-From 4c38025bb802d0bfe29b6d4f8397ac6f35a8246f Mon Sep 17 00:00:00 2001
+From 72273200f8b99cb42249624478dd370c555f85a1 Mon Sep 17 00:00:00 2001
 From: Scott Wood <swood@redhat.com>
 Date: Sat, 27 Jul 2019 00:56:34 -0500
 Subject: [PATCH 481/507] sched: migrate disable: Protect cpus_ptr with lock

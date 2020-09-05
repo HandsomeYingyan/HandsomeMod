@@ -1,4 +1,4 @@
-From 9ed299a682d97758daddbea4de9ebf6659b66a0a Mon Sep 17 00:00:00 2001
+From 785567e55101ce14cc06f8b9a5b824ed7e3165d5 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:52:10 -0600
 Subject: [PATCH 115/507] tracing: Add inter-event blurb to HIST_TRIGGERS

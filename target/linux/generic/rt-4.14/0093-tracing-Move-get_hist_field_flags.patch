@@ -1,4 +1,4 @@
-From ade6b48d2d1896124191eb69730853c26cf9bd24 Mon Sep 17 00:00:00 2001
+From db1a33530a1fff4e5d899c5a783fc28aca791be0 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:51 -0600
 Subject: [PATCH 093/507] tracing: Move get_hist_field_flags()

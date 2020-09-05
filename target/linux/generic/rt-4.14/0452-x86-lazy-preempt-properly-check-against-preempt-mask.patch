@@ -1,4 +1,4 @@
-From 8728925cb69718f00a64f6e2a6fd03ab66cb4ece Mon Sep 17 00:00:00 2001
+From 9bd7887695fe3d6917af97ffdf345a2397b24012 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Mon, 18 Feb 2019 16:57:09 +0100
 Subject: [PATCH 452/507] x86: lazy-preempt: properly check against

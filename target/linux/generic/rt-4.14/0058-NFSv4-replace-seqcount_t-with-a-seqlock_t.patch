@@ -1,4 +1,4 @@
-From 45cee8af2edd509724c4211d618604a1b68fc831 Mon Sep 17 00:00:00 2001
+From 3ed04e94a7b0ec20ec4e8cb67d2fb8f6679d9ab0 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 28 Oct 2016 23:05:11 +0200
 Subject: [PATCH 058/507] NFSv4: replace seqcount_t with a seqlock_t
@@ -57,7 +57,7 @@ index 22cff39cca29..ccc20dc115af 100644
  };
  
 diff --git a/fs/nfs/nfs4proc.c b/fs/nfs/nfs4proc.c
-index a19bbcfab7c5..cea8e2826fd8 100644
+index 4cfb84119e01..3a7f80ad735b 100644
 --- a/fs/nfs/nfs4proc.c
 +++ b/fs/nfs/nfs4proc.c
 @@ -2712,7 +2712,7 @@ static int _nfs4_open_and_get_state(struct nfs4_opendata *opendata,

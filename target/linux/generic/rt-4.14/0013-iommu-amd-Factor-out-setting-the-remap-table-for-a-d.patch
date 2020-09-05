@@ -1,4 +1,4 @@
-From 20bd4dbbb56245a27900a3b56cee4ff93254dff1 Mon Sep 17 00:00:00 2001
+From ce0ed9e3277edb0f46a584b34099dde88441637a Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 22 Mar 2018 16:22:39 +0100
 Subject: [PATCH 013/507] iommu/amd: Factor out setting the remap table for a
@@ -20,7 +20,7 @@ Signed-off-by: Joerg Roedel <jroedel@suse.de>
  1 file changed, 12 insertions(+), 11 deletions(-)
 
 diff --git a/drivers/iommu/amd_iommu.c b/drivers/iommu/amd_iommu.c
-index 3319f7b6868f..d252eb66f5e0 100644
+index a602e8af8c7f..e9405e9059b8 100644
 --- a/drivers/iommu/amd_iommu.c
 +++ b/drivers/iommu/amd_iommu.c
 @@ -3660,6 +3660,14 @@ static struct irq_remap_table *get_irq_table(u16 devid)

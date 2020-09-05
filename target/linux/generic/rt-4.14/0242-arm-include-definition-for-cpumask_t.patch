@@ -1,4 +1,4 @@
-From c4c84b265d6c7ab2674f3b1fee90ee81770a4b06 Mon Sep 17 00:00:00 2001
+From 02595c4365dcc46cf189b906d1425cc5aa7a381c Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 22 Dec 2016 17:28:33 +0100
 Subject: [PATCH 242/507] arm: include definition for cpumask_t

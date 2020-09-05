@@ -1,4 +1,4 @@
-From 6921a31529878ef8bcace88f0df2e98174bd3fb1 Mon Sep 17 00:00:00 2001
+From ff726034d7b6410d2f93b866b16de1217f0b899f Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 22 Mar 2018 16:22:36 +0100
 Subject: [PATCH 010/507] iommu/amd: Split irq_lookup_table out of the
@@ -22,7 +22,7 @@ Signed-off-by: Joerg Roedel <jroedel@suse.de>
  1 file changed, 3 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/iommu/amd_iommu.c b/drivers/iommu/amd_iommu.c
-index 57c41ff44bba..b267f404688d 100644
+index c815efdcdb54..f29fd6fd6600 100644
 --- a/drivers/iommu/amd_iommu.c
 +++ b/drivers/iommu/amd_iommu.c
 @@ -83,6 +83,7 @@

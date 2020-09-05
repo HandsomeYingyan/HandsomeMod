@@ -1,4 +1,4 @@
-From b809c23a527df6ceab63af27cbbb721cb3af1392 Mon Sep 17 00:00:00 2001
+From 261f4e699025209297706fa036116adcdae72be5 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 9 Oct 2018 17:34:50 +0200
 Subject: [PATCH 436/507] sched/migrate_disable: Add export_symbol_gpl for

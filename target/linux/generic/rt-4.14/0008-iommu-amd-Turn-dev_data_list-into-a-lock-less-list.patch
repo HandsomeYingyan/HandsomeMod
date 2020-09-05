@@ -1,4 +1,4 @@
-From 0579c4b1a12a7e2b8e916046be2d81b70036a61a Mon Sep 17 00:00:00 2001
+From 8af3c9b1a6d825f1608630ebd4fe485d6af58276 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 22 Mar 2018 16:22:34 +0100
 Subject: [PATCH 008/507] iommu/amd: Turn dev_data_list into a lock less list
@@ -24,7 +24,7 @@ Signed-off-by: Joerg Roedel <jroedel@suse.de>
  2 files changed, 11 insertions(+), 19 deletions(-)
 
 diff --git a/drivers/iommu/amd_iommu.c b/drivers/iommu/amd_iommu.c
-index 89f47a94d355..908b60ae10ef 100644
+index efbf4e50b941..ad964f634ec6 100644
 --- a/drivers/iommu/amd_iommu.c
 +++ b/drivers/iommu/amd_iommu.c
 @@ -84,8 +84,7 @@

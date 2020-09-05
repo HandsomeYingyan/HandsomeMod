@@ -1,4 +1,4 @@
-From efe1d154eb3b15a769f8c2a38bb54553aba48217 Mon Sep 17 00:00:00 2001
+From 754e70f7bbbb7bbfbdbfb2f72a22f98a3b3d941e Mon Sep 17 00:00:00 2001
 From: Ingo Molnar <mingo@elte.hu>
 Date: Fri, 22 Jul 2011 17:58:40 +0200
 Subject: [PATCH 137/507] printk: Add a printk kill switch

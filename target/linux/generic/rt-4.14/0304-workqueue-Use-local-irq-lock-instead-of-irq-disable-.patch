@@ -1,4 +1,4 @@
-From e71706541ea7d4ac21daa8b65451f585ca17132e Mon Sep 17 00:00:00 2001
+From 931bc065f8f770c2de889483c57862d56f69ae01 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Sun, 17 Jul 2011 21:42:26 +0200
 Subject: [PATCH 304/507] workqueue: Use local irq lock instead of irq disable

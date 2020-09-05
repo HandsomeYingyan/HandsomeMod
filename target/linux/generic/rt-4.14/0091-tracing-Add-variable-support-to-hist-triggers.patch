@@ -1,4 +1,4 @@
-From 5aae26da33739e67a18dc33c1fcd7e5ac5391865 Mon Sep 17 00:00:00 2001
+From 78ad9202f930c8f02fced4df1388f379d7b13179 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:49 -0600
 Subject: [PATCH 091/507] tracing: Add variable support to hist triggers

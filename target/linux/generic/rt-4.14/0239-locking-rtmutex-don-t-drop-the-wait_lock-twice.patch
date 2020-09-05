@@ -1,4 +1,4 @@
-From 85f21676df35b57dfb8bb4fc5a7c3d24ec28f046 Mon Sep 17 00:00:00 2001
+From 7d734026bc0794b9d9993cc14b9891be700f0ad1 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 7 Sep 2017 12:38:47 +0200
 Subject: [PATCH 239/507] locking/rtmutex: don't drop the wait_lock twice

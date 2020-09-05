@@ -1,4 +1,4 @@
-From f071f5d57b6f6a16cbf91de8cf3e8a3c2e36da03 Mon Sep 17 00:00:00 2001
+From 364addc53168bf8108213df7089d61d1a684cec1 Mon Sep 17 00:00:00 2001
 From: Anna-Maria Gleixner <anna-maria@linutronix.de>
 Date: Thu, 5 Jul 2018 12:43:18 +0200
 Subject: [PATCH 416/507] Revert "timer: delay waking softirqs from the jiffy
@@ -21,10 +21,10 @@ Signed-off-by: Steven Rostedt (VMware) <rostedt@goodmis.org>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/kernel/time/timer.c b/kernel/time/timer.c
-index 35628d539d2c..0e0bad34b018 100644
+index 3fbaf06fcdad..8ea02c0972b8 100644
 --- a/kernel/time/timer.c
 +++ b/kernel/time/timer.c
-@@ -1637,13 +1637,13 @@ void update_process_times(int user_tick)
+@@ -1638,13 +1638,13 @@ void update_process_times(int user_tick)
  
  	/* Note: this timer irq context must be accounted for as well. */
  	account_process_tick(p, user_tick);
@@ -38,7 +38,7 @@ index 35628d539d2c..0e0bad34b018 100644
 +	scheduler_tick();
  	if (IS_ENABLED(CONFIG_POSIX_TIMERS))
  		run_posix_cpu_timers(p);
- }
+ 
 -- 
 2.26.2
 

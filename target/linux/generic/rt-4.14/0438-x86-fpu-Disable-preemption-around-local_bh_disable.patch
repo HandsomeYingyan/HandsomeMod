@@ -1,4 +1,4 @@
-From a8b03592287065b4d7d5b459ebfef478371914d1 Mon Sep 17 00:00:00 2001
+From 40df54e50823e0134745def87792caa428b3ec77 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 11 Dec 2018 15:10:33 +0100
 Subject: [PATCH 438/507] x86/fpu: Disable preemption around local_bh_disable()

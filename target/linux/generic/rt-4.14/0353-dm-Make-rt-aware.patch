@@ -1,4 +1,4 @@
-From c8e318db5647d4e7d02fa7d49c2fa0b21f13b226 Mon Sep 17 00:00:00 2001
+From 99a99a5d9af6d8ef8e7b719a50fd9e11e7446b34 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Mon, 14 Nov 2011 23:06:09 +0100
 Subject: [PATCH 353/507] dm: Make rt aware
@@ -15,10 +15,10 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/md/dm-rq.c b/drivers/md/dm-rq.c
-index eadfcfd106ff..8824aeda85cf 100644
+index cac8ec16e603..1f3e9d23a71a 100644
 --- a/drivers/md/dm-rq.c
 +++ b/drivers/md/dm-rq.c
-@@ -671,7 +671,7 @@ static void dm_old_request_fn(struct request_queue *q)
+@@ -668,7 +668,7 @@ static void dm_old_request_fn(struct request_queue *q)
  		/* Establish tio->ti before queuing work (map_tio_request) */
  		tio->ti = ti;
  		kthread_queue_work(&md->kworker, &tio->work);

@@ -1,4 +1,4 @@
-From 53a237f9a3e8d5d1316c891571ce5f71af064384 Mon Sep 17 00:00:00 2001
+From 6d412cf46a8361e0e8696fde011c37313c75ecf6 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Tue, 31 May 2011 16:59:16 +0200
 Subject: [PATCH 205/507] sched: Move task_struct cleanup to RCU

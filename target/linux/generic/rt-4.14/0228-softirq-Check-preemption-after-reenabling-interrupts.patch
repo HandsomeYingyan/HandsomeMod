@@ -1,4 +1,4 @@
-From f007ec4cd08be90c9bea11b58e13063df1fc36c6 Mon Sep 17 00:00:00 2001
+From e2fd3b9d66c7dd7937d12c2bac8c3a71d829c6f7 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Sun, 13 Nov 2011 17:17:09 +0100
 Subject: [PATCH 228/507] softirq: Check preemption after reenabling interrupts
@@ -116,7 +116,7 @@ index 86a709954f5a..9c069ef83d6d 100644
  	return 0;
  }
 diff --git a/net/core/dev.c b/net/core/dev.c
-index 1ee177485fd0..576b7f3ca51c 100644
+index 7ec549e481e3..defc452ed6be 100644
 --- a/net/core/dev.c
 +++ b/net/core/dev.c
 @@ -2456,6 +2456,7 @@ static void __netif_reschedule(struct Qdisc *q)

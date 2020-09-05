@@ -1,4 +1,4 @@
-From 94d3f2ed8eba9c5626f684ccbc94999de2c1b5ed Mon Sep 17 00:00:00 2001
+From 97fa0d690d0fd19e5b0961ba29b5bd12198a68e3 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 22 Mar 2018 16:22:42 +0100
 Subject: [PATCH 016/507] iommu/amd: Return proper error code in
@@ -20,7 +20,7 @@ Signed-off-by: Joerg Roedel <jroedel@suse.de>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/iommu/amd_iommu.c b/drivers/iommu/amd_iommu.c
-index 7e6a223c22a7..75eafeb26e0d 100644
+index 1c4ea2e3975b..4cb167aeb86e 100644
 --- a/drivers/iommu/amd_iommu.c
 +++ b/drivers/iommu/amd_iommu.c
 @@ -4160,7 +4160,7 @@ static int irq_remapping_alloc(struct irq_domain *domain, unsigned int virq,

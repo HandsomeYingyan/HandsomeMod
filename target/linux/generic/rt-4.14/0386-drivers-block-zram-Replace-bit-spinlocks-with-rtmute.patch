@@ -1,4 +1,4 @@
-From 611ef4d518a2f122de39f9a0d7c9eaa0054d94b9 Mon Sep 17 00:00:00 2001
+From d9902de6b71883b523fc4311ec4fa05794a3ae45 Mon Sep 17 00:00:00 2001
 From: Mike Galbraith <umgwanakikbuti@gmail.com>
 Date: Thu, 31 Mar 2016 04:08:28 +0200
 Subject: [PATCH 386/507] drivers/block/zram: Replace bit spinlocks with
@@ -15,7 +15,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  2 files changed, 29 insertions(+)
 
 diff --git a/drivers/block/zram/zram_drv.c b/drivers/block/zram/zram_drv.c
-index 1b4e195c0d3c..6b66f95eceb6 100644
+index 0d906ca8d4f5..e2a57ffb18d7 100644
 --- a/drivers/block/zram/zram_drv.c
 +++ b/drivers/block/zram/zram_drv.c
 @@ -765,6 +765,30 @@ static DEVICE_ATTR_RO(io_stat);

@@ -1,4 +1,4 @@
-From cced4abf5efb4a63b31c80c52ce00890338f56f4 Mon Sep 17 00:00:00 2001
+From 7ba8e9aec6bb504a4cd562229938d590bc89ccf1 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 22 Mar 2018 16:22:40 +0100
 Subject: [PATCH 014/507] iommu/amd: Drop the lock while allocating new irq
@@ -27,7 +27,7 @@ Signed-off-by: Joerg Roedel <jroedel@suse.de>
  1 file changed, 45 insertions(+), 18 deletions(-)
 
 diff --git a/drivers/iommu/amd_iommu.c b/drivers/iommu/amd_iommu.c
-index d252eb66f5e0..1a6e82222155 100644
+index e9405e9059b8..a636ea4425c7 100644
 --- a/drivers/iommu/amd_iommu.c
 +++ b/drivers/iommu/amd_iommu.c
 @@ -3660,6 +3660,30 @@ static struct irq_remap_table *get_irq_table(u16 devid)

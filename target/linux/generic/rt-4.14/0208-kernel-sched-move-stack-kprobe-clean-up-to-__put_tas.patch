@@ -1,4 +1,4 @@
-From 04a820d4b72f9f4928220be3aaa6dd32a437cc06 Mon Sep 17 00:00:00 2001
+From 99e8bcc637facfc1c0b3ffecbf0c88db5afd299a Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Mon, 21 Nov 2016 19:31:08 +0100
 Subject: [PATCH 208/507] kernel/sched: move stack + kprobe clean up to

@@ -1,4 +1,4 @@
-From e84636733011435fd3edbe43b816abc255942798 Mon Sep 17 00:00:00 2001
+From 86b1e081d82881d5497798fc3dba5d0fdce9a976 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:59 -0600
 Subject: [PATCH 101/507] tracing: Add support for 'field variables'

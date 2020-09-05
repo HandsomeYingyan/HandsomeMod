@@ -1,4 +1,4 @@
-From 0f66d1c7f75044926c00869e9200ad6e7a2180d2 Mon Sep 17 00:00:00 2001
+From 97e4f7611fd6a857bd7dc55f5ef7a041fc9b2351 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 14 Aug 2019 17:08:58 +0200
 Subject: [PATCH 477/507] x86: preempt: Check preemption level before looking

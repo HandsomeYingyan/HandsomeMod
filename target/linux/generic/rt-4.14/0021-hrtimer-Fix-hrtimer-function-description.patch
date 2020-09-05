@@ -1,4 +1,4 @@
-From 1cf8d56970f6c5171c95b36fcd931f5117493c58 Mon Sep 17 00:00:00 2001
+From e185ef0d796af3fd2be6409082f83c213fa3ad84 Mon Sep 17 00:00:00 2001
 From: Anna-Maria Gleixner <anna-maria@linutronix.de>
 Date: Wed, 20 Dec 2017 17:12:54 +0100
 Subject: [PATCH 021/507] hrtimer: Fix hrtimer function description

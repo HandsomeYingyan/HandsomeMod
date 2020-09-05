@@ -1,4 +1,4 @@
-From 7f10c76af1f586865337a773168dcbea39e72660 Mon Sep 17 00:00:00 2001
+From c1d3b6c36ec927f5bec7873e43118944dbbf6fed Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:52 -0600
 Subject: [PATCH 094/507] tracing: Add simple expression support to hist

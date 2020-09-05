@@ -1,4 +1,4 @@
-From a8bbb777706c4492a07ed709a14318d6b2886e32 Mon Sep 17 00:00:00 2001
+From 5dae7cf42092fb788e46f71ae572e55063dd493b Mon Sep 17 00:00:00 2001
 From: Anna-Maria Gleixner <anna-maria@linutronix.de>
 Date: Wed, 20 Dec 2017 17:13:02 +0100
 Subject: [PATCH 027/507] hrtimer: Reduce conditional code (hres_active)

@@ -1,4 +1,4 @@
-From ee9954bd084739335f70b880c6146ffde0090987 Mon Sep 17 00:00:00 2001
+From a8dae7250a302ee953d234d5825c22a90bd57626 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 28 Jan 2015 17:14:16 +0100
 Subject: [PATCH 181/507] mm/memcontrol: Replace local_irq_disable with local
@@ -13,7 +13,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 16 insertions(+), 8 deletions(-)
 
 diff --git a/mm/memcontrol.c b/mm/memcontrol.c
-index f29db02e4895..459d8758bcbb 100644
+index 58e31a97f0aa..e258e4993882 100644
 --- a/mm/memcontrol.c
 +++ b/mm/memcontrol.c
 @@ -69,6 +69,7 @@

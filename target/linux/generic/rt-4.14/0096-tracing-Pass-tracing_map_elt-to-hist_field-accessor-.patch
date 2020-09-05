@@ -1,4 +1,4 @@
-From 8fdcb48649a7996d2486d94c810989636495d50c Mon Sep 17 00:00:00 2001
+From 78b896601dd46d4561d176a4fe01e48f35d6333e Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:54 -0600
 Subject: [PATCH 096/507] tracing: Pass tracing_map_elt to hist_field accessor

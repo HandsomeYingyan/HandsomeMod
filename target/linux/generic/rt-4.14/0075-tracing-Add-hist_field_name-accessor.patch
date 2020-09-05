@@ -1,4 +1,4 @@
-From d7c50af44e662fb5a6139afffb3664ed38ed62a6 Mon Sep 17 00:00:00 2001
+From b68177ee7ab1963ae51d4139057b3b84bd4948d3 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Fri, 22 Sep 2017 14:58:22 -0500
 Subject: [PATCH 075/507] tracing: Add hist_field_name() accessor

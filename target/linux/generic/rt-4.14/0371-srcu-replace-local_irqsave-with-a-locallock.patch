@@ -1,4 +1,4 @@
-From 8c0ee5e624e09569f1d8828546214e9e7923b0e2 Mon Sep 17 00:00:00 2001
+From 1bd9bbddb8043eb146272d3177dd372b3dd1014e Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 12 Oct 2017 18:37:12 +0200
 Subject: [PATCH 371/507] srcu: replace local_irqsave() with a locallock

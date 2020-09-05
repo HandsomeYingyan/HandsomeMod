@@ -1,4 +1,4 @@
-From 452f40bb589429952c0fb67e8afffffd0a7d0093 Mon Sep 17 00:00:00 2001
+From e32fbb6c9231a8bdd89a9b9366c7741e4cbab3f5 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 24 Jul 2013 15:26:54 +0200
 Subject: [PATCH 303/507] workqueue: Use normal rcu

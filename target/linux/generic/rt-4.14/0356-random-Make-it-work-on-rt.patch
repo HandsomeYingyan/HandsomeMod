@@ -1,4 +1,4 @@
-From 0e5d914ec743816f1905da2ffc0bf299b9b5ac4c Mon Sep 17 00:00:00 2001
+From 1094a69033974541c8a264de6102b95c24ac2ac2 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Tue, 21 Aug 2012 20:38:50 +0200
 Subject: [PATCH 356/507] random: Make it work on rt
@@ -19,7 +19,7 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  6 files changed, 23 insertions(+), 9 deletions(-)
 
 diff --git a/drivers/char/random.c b/drivers/char/random.c
-index 6a13079f5931..1499d6fdb9ad 100644
+index 528e855653a6..81d42a5a8c22 100644
 --- a/drivers/char/random.c
 +++ b/drivers/char/random.c
 @@ -1218,28 +1218,27 @@ static __u32 get_reg(struct fast_pool *f, struct pt_regs *regs)
@@ -57,10 +57,10 @@ index 6a13079f5931..1499d6fdb9ad 100644
  	fast_mix(fast_pool);
  	add_interrupt_bench(cycles);
 diff --git a/drivers/hv/vmbus_drv.c b/drivers/hv/vmbus_drv.c
-index 1fd812ed679b..b8af02ea1e8b 100644
+index 45b8ccdfb085..5f96f6314760 100644
 --- a/drivers/hv/vmbus_drv.c
 +++ b/drivers/hv/vmbus_drv.c
-@@ -1017,6 +1017,8 @@ static void vmbus_isr(void)
+@@ -1021,6 +1021,8 @@ static void vmbus_isr(void)
  	void *page_addr = hv_cpu->synic_event_page;
  	struct hv_message *msg;
  	union hv_synic_event_flags *event;
@@ -69,7 +69,7 @@ index 1fd812ed679b..b8af02ea1e8b 100644
  	bool handled = false;
  
  	if (unlikely(page_addr == NULL))
-@@ -1060,7 +1062,7 @@ static void vmbus_isr(void)
+@@ -1064,7 +1066,7 @@ static void vmbus_isr(void)
  			tasklet_schedule(&hv_cpu->msg_dpc);
  	}
  
@@ -91,7 +91,7 @@ index 234f0d1f8dca..d0c09def310d 100644
  	struct cpumask		*percpu_enabled;
  	const struct cpumask	*percpu_affinity;
 diff --git a/include/linux/random.h b/include/linux/random.h
-index 4024f7d9c77d..462d752a739b 100644
+index 8eda8c0cbba7..06c781fb2c7a 100644
 --- a/include/linux/random.h
 +++ b/include/linux/random.h
 @@ -32,7 +32,7 @@ static inline void add_latent_entropy(void) {}
@@ -126,10 +126,10 @@ index 79f987b942b8..d1dbacc29941 100644
  	if (!noirqdebug)
  		note_interrupt(desc, retval);
 diff --git a/kernel/irq/manage.c b/kernel/irq/manage.c
-index 24b1f3364173..191e554e6f9d 100644
+index 70f7d8f45b4a..4f2664036339 100644
 --- a/kernel/irq/manage.c
 +++ b/kernel/irq/manage.c
-@@ -1030,6 +1030,12 @@ static int irq_thread(void *data)
+@@ -1067,6 +1067,12 @@ static int irq_thread(void *data)
  		if (action_ret == IRQ_WAKE_THREAD)
  			irq_wake_secondary(desc, action);
  

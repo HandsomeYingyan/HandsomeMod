@@ -1,4 +1,4 @@
-From 68579dee1b42bdb23d3c8dc6d068b3fc322ccc2d Mon Sep 17 00:00:00 2001
+From 01dbb537aeea07522cb18c552dbcfd015ad60566 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Fri, 22 Sep 2017 14:58:20 -0500
 Subject: [PATCH 073/507] tracing: Make traceprobe parsing code reusable

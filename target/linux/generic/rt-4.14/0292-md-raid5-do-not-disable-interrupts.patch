@@ -1,4 +1,4 @@
-From 876cafd0085ab4e6815ad734a79fd2cb3abcf5fa Mon Sep 17 00:00:00 2001
+From 941aa68c66a520ee4feaa6173e7e2e15419c63d3 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 17 Nov 2017 16:21:00 +0100
 Subject: [PATCH 292/507] md/raid5: do not disable interrupts
@@ -34,7 +34,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/md/raid5.c b/drivers/md/raid5.c
-index 09564a823ea1..10b98690eb48 100644
+index 1dbaa96d9001..c4bacfe92238 100644
 --- a/drivers/md/raid5.c
 +++ b/drivers/md/raid5.c
 @@ -410,7 +410,7 @@ void raid5_release_stripe(struct stripe_head *sh)

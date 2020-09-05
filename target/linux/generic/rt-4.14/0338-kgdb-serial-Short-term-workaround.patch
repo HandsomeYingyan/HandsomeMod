@@ -1,4 +1,4 @@
-From 168aba22f8a7fe40ab679a2d49253ba80815349b Mon Sep 17 00:00:00 2001
+From 99f5c169a3141de368e3deb158770e1e16bf964d Mon Sep 17 00:00:00 2001
 From: Jason Wessel <jason.wessel@windriver.com>
 Date: Thu, 28 Jul 2011 12:42:23 -0500
 Subject: [PATCH 338/507] kgdb/serial: Short term workaround

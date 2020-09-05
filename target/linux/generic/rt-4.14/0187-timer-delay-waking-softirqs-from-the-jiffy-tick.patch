@@ -1,4 +1,4 @@
-From 2586ee3e41a9eb8c41bdc7c0a2a6d18a454cf57c Mon Sep 17 00:00:00 2001
+From 349e9965c3fb7c8f6783d5267eefdb6f5237f2fa Mon Sep 17 00:00:00 2001
 From: Peter Zijlstra <peterz@infradead.org>
 Date: Fri, 21 Aug 2009 11:56:45 +0200
 Subject: [PATCH 187/507] timer: delay waking softirqs from the jiffy tick
@@ -57,10 +57,10 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/kernel/time/timer.c b/kernel/time/timer.c
-index ba158a53bd00..311e7d6f45fc 100644
+index 1a9dc0716b31..818f870df0e1 100644
 --- a/kernel/time/timer.c
 +++ b/kernel/time/timer.c
-@@ -1630,13 +1630,13 @@ void update_process_times(int user_tick)
+@@ -1631,13 +1631,13 @@ void update_process_times(int user_tick)
  
  	/* Note: this timer irq context must be accounted for as well. */
  	account_process_tick(p, user_tick);
@@ -74,7 +74,7 @@ index ba158a53bd00..311e7d6f45fc 100644
 -	scheduler_tick();
  	if (IS_ENABLED(CONFIG_POSIX_TIMERS))
  		run_posix_cpu_timers(p);
- }
+ 
 -- 
 2.26.2
 

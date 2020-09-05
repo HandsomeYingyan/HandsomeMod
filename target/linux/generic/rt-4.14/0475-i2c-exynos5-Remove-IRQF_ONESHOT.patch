@@ -1,4 +1,4 @@
-From 62d5f762f39da824a875c0fa3a36142edc1996ac Mon Sep 17 00:00:00 2001
+From 7d28a39e0b36984eaca6d5df88757922acbb8dfd Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 13 Aug 2019 12:30:12 +0200
 Subject: [PATCH 475/507] i2c: exynos5: Remove IRQF_ONESHOT

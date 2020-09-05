@@ -1,4 +1,4 @@
-From 3ddfc84728f62d3055d35c74be8a12edac2be8d4 Mon Sep 17 00:00:00 2001
+From e7941fdaac5c4029dca9f87c1e22017999788455 Mon Sep 17 00:00:00 2001
 From: Steven Rostedt <srostedt@redhat.com>
 Date: Fri, 3 Jul 2009 08:44:29 -0500
 Subject: [PATCH 148/507] ata: Do not disable interrupts in ide code for

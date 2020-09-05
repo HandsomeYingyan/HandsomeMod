@@ -1,4 +1,4 @@
-From 844d3a78ec3c06941732d4fa50fe240747725588 Mon Sep 17 00:00:00 2001
+From 69a97655b8dfdbee8b34fb13c1b34e1f65bca90d Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Wed, 28 Mar 2018 15:10:54 -0500
 Subject: [PATCH 118/507] tracing: Don't add flag strings when displaying

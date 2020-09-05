@@ -1,4 +1,4 @@
-From fdd48999e37569cddbb6ba04a46b2e27e2d58f19 Mon Sep 17 00:00:00 2001
+From b5ed19673a0ec02ed232fee1b83dbd6157d17dfc Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 22 Mar 2018 16:22:41 +0100
 Subject: [PATCH 015/507] iommu/amd: Make amd_iommu_devtable_lock a spin_lock
@@ -20,7 +20,7 @@ Signed-off-by: Joerg Roedel <jroedel@suse.de>
  1 file changed, 7 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/iommu/amd_iommu.c b/drivers/iommu/amd_iommu.c
-index 1a6e82222155..7e6a223c22a7 100644
+index a636ea4425c7..1c4ea2e3975b 100644
 --- a/drivers/iommu/amd_iommu.c
 +++ b/drivers/iommu/amd_iommu.c
 @@ -81,7 +81,7 @@

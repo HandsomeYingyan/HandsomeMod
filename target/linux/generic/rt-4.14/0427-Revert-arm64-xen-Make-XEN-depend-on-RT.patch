@@ -1,4 +1,4 @@
-From 4a75e3d037f4c8acb3a5fee5a47efe4f4f3d120d Mon Sep 17 00:00:00 2001
+From 36138d005fdbf28ba773085287aa4cfbcbb9fa0a Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 2 Aug 2018 17:11:01 +0200
 Subject: [PATCH 427/507] Revert "arm64/xen: Make XEN depend on !RT"

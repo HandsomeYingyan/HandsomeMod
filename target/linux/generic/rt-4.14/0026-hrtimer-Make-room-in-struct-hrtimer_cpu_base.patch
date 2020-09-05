@@ -1,4 +1,4 @@
-From 3aedc5fa2bb06562d7dbfef53a8945277d4e9409 Mon Sep 17 00:00:00 2001
+From 77c1167a57bb4dc3b6f135af9b6c59ae712218f5 Mon Sep 17 00:00:00 2001
 From: Anna-Maria Gleixner <anna-maria@linutronix.de>
 Date: Wed, 20 Dec 2017 17:13:01 +0100
 Subject: [PATCH 026/507] hrtimer: Make room in struct hrtimer_cpu_base

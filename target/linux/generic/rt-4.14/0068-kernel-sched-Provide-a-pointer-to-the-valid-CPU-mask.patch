@@ -1,4 +1,4 @@
-From 092b993ff4710edc9aba20090b69513da3db6f6e Mon Sep 17 00:00:00 2001
+From 0233a1be97db9157631863ecb8360ad22f8ef641 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 4 Apr 2017 12:50:16 +0200
 Subject: [PATCH 068/507] kernel: sched: Provide a pointer to the valid CPU
@@ -613,7 +613,7 @@ index 22770168bff8..92d1d805a9f5 100644
  				     !dl_task(task) ||
  				     !task_on_rq_queued(task))) {
 diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
-index 4d8add44fffb..12f158260116 100644
+index 81096dd0ca0c..cdd41cf780d1 100644
 --- a/kernel/sched/fair.c
 +++ b/kernel/sched/fair.c
 @@ -1597,7 +1597,7 @@ static void task_numa_compare(struct task_numa_env *env,
@@ -714,7 +714,7 @@ index 4d8add44fffb..12f158260116 100644
  				env->flags |= LBF_DST_PINNED;
  				env->new_dst_cpu = cpu;
  				break;
-@@ -7288,7 +7288,7 @@ check_cpu_capacity(struct rq *rq, struct sched_domain *sd)
+@@ -7296,7 +7296,7 @@ check_cpu_capacity(struct rq *rq, struct sched_domain *sd)
  
  /*
   * Group imbalance indicates (and tries to solve) the problem where balancing
@@ -723,7 +723,7 @@ index 4d8add44fffb..12f158260116 100644
   *
   * Imagine a situation of two groups of 4 cpus each and 4 tasks each with a
   * cpumask covering 1 cpu of the first group and 3 cpus of the second group.
-@@ -7864,7 +7864,7 @@ static struct sched_group *find_busiest_group(struct lb_env *env)
+@@ -7872,7 +7872,7 @@ static struct sched_group *find_busiest_group(struct lb_env *env)
  	/*
  	 * If the busiest group is imbalanced the below checks don't
  	 * work because they assume all things are equal, which typically
@@ -732,7 +732,7 @@ index 4d8add44fffb..12f158260116 100644
  	 */
  	if (busiest->group_type == group_imbalanced)
  		goto force_balance;
-@@ -8256,7 +8256,7 @@ static int load_balance(int this_cpu, struct rq *this_rq,
+@@ -8264,7 +8264,7 @@ static int load_balance(int this_cpu, struct rq *this_rq,
  			 * if the curr task on busiest cpu can't be
  			 * moved to this_cpu
  			 */
@@ -764,10 +764,10 @@ index cc7dd1aaf08e..6890ec572eec 100644
  				     !rt_task(task) ||
  				     !task_on_rq_queued(task))) {
 diff --git a/kernel/trace/trace_hwlat.c b/kernel/trace/trace_hwlat.c
-index bff6c033d70e..5cac908a0bd9 100644
+index 64a98a5bb641..7be5e612b5b8 100644
 --- a/kernel/trace/trace_hwlat.c
 +++ b/kernel/trace/trace_hwlat.c
-@@ -281,7 +281,7 @@ static void move_to_next_cpu(void)
+@@ -282,7 +282,7 @@ static void move_to_next_cpu(void)
  	 * of this thread, than stop migrating for the duration
  	 * of the current test.
  	 */

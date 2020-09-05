@@ -1,4 +1,4 @@
-From 6b20831e2712c9c2bce7014cbd7f7ad54c0a0e64 Mon Sep 17 00:00:00 2001
+From 1ef7bd27234a244dbeeb25ac5b760213d077d1b1 Mon Sep 17 00:00:00 2001
 From: Sven-Thorsten Dietrich <sdietrich@novell.com>
 Date: Fri, 3 Jul 2009 08:30:35 -0500
 Subject: [PATCH 150/507] infiniband: Mellanox IB driver patch use _nort()

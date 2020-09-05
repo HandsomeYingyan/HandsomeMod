@@ -1,4 +1,4 @@
-From 06c669ad31f421a6be2ecad1a70538bcf9762bb7 Mon Sep 17 00:00:00 2001
+From 29023eb9508c22a8637cc47dce8a4f71a243d250 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:52:03 -0600
 Subject: [PATCH 105/507] tracing: Add cpu field for hist triggers

@@ -1,4 +1,4 @@
-From 7eaed6769a7451a9374baf814bb5082d25d63971 Mon Sep 17 00:00:00 2001
+From 0105c1f235d96cb8beced11c5e8eaa0d866fc9d2 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:56 -0600
 Subject: [PATCH 098/507] tracing: Add variable reference handling to hist

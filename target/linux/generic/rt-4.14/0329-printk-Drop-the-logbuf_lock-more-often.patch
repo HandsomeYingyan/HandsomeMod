@@ -1,4 +1,4 @@
-From c599f578bd7d64d64b2ec48bb04755c4615d0e8c Mon Sep 17 00:00:00 2001
+From 4e2dfba83d90539abb7968ce808ce3f0978be2c2 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 21 Mar 2013 19:01:05 +0100
 Subject: [PATCH 329/507] printk: Drop the logbuf_lock more often

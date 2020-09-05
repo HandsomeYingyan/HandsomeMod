@@ -1,4 +1,4 @@
-From 55bd79104f98b623f230e837350225555b8e1a5a Mon Sep 17 00:00:00 2001
+From 12ae439f7eec1dd254959b33f931d22e200128b2 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:52:08 -0600
 Subject: [PATCH 110/507] tracing: Add a clock attribute for hist triggers

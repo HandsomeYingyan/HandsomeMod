@@ -1,4 +1,4 @@
-From feb3da925d811cf2d8801408958a6d06dddd9062 Mon Sep 17 00:00:00 2001
+From f8ab137a679c3cca49608722357e2ff49ecbe0a5 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 5 Jul 2018 14:44:51 +0200
 Subject: [PATCH 418/507] sched/migrate_disable: fallback to preempt_disable()

@@ -1,4 +1,4 @@
-From d85e12ffd1fa4648de24a30c1ff4c4f2c3b5400e Mon Sep 17 00:00:00 2001
+From d034f9111945dada0cbe2ba6ccf592166139c5ff Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <tom.zanussi@linux.intel.com>
 Date: Mon, 15 Jan 2018 20:51:42 -0600
 Subject: [PATCH 084/507] tracing: Give event triggers access to

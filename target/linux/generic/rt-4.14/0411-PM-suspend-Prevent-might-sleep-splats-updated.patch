@@ -1,4 +1,4 @@
-From 096742d023d8d96fefd57c5cfaed8ac9a6dec640 Mon Sep 17 00:00:00 2001
+From c89d19d1640d64f58a1fd939234699fc7f27127f Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 29 May 2018 17:44:24 +0200
 Subject: [PATCH 411/507] PM / suspend: Prevent might sleep splats (updated)

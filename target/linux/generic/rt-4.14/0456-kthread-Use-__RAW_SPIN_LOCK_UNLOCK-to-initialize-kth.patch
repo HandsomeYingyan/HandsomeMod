@@ -1,4 +1,4 @@
-From ca9fadcdb9a8198a35d70441fb5b5b2a0e92c62c Mon Sep 17 00:00:00 2001
+From 53cf99c7c88e6dd31a2a072b49def847c4c6db84 Mon Sep 17 00:00:00 2001
 From: Tom Zanussi <zanussi@kernel.org>
 Date: Wed, 7 Aug 2019 17:00:33 -0500
 Subject: [PATCH 456/507] kthread: Use __RAW_SPIN_LOCK_UNLOCK to initialize

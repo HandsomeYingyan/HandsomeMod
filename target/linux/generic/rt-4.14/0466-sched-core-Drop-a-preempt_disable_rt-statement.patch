@@ -1,4 +1,4 @@
-From 50ee7f6afc8179ac474d03dd7779f2d0a293225c Mon Sep 17 00:00:00 2001
+From 609e38ae6df69d1e4f50e34a2e2da49dfe6988e1 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Mon, 24 Jun 2019 19:33:16 +0200
 Subject: [PATCH 466/507] sched/core: Drop a preempt_disable_rt() statement

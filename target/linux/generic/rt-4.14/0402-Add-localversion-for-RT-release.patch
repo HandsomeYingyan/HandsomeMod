@@ -1,4 +1,4 @@
-From 39bbc790187c90e82022b6f87db7ef5ac6ce9088 Mon Sep 17 00:00:00 2001
+From d300e85582ebc8cf739920aed03565241fff3f79 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 8 Jul 2011 20:25:16 +0200
 Subject: [PATCH 402/507] Add localversion for -RT release

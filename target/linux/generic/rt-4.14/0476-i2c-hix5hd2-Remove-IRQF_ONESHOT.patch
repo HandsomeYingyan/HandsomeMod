@@ -1,4 +1,4 @@
-From 74a3ad6fa2c0d66c2baf85eb34e1cc9ff7399842 Mon Sep 17 00:00:00 2001
+From b01cff6399fb5e158414bc46173f53d6b2f6d746 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 13 Aug 2019 12:30:37 +0200
 Subject: [PATCH 476/507] i2c: hix5hd2: Remove IRQF_ONESHOT

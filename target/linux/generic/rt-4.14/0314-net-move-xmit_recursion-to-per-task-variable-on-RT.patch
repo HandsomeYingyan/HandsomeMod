@@ -1,4 +1,4 @@
-From 997fea61b7f60124c33b84799ad0f7fc0ac9041e Mon Sep 17 00:00:00 2001
+From 5265bd8d78479704a2a3f2441037bda29197585a Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 13 Jan 2016 15:55:02 +0100
 Subject: [PATCH 314/507] net: move xmit_recursion to per-task variable on -RT
@@ -96,7 +96,7 @@ index 00c915b9aafd..f29b3b2350a9 100644
  	int				pagefault_disabled;
  #ifdef CONFIG_MMU
 diff --git a/net/core/dev.c b/net/core/dev.c
-index 37cb734eeebd..9595777fb9d0 100644
+index 7283603eebd8..21121adbc30f 100644
 --- a/net/core/dev.c
 +++ b/net/core/dev.c
 @@ -3266,8 +3266,10 @@ static void skb_update_prio(struct sk_buff *skb)

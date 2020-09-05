@@ -1,4 +1,4 @@
-From 89f2076e88048fa23b67ca1d549f5fd9cc204919 Mon Sep 17 00:00:00 2001
+From 9b84bc49001fa1dca1a3c613732f93e4ee7429d1 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Mon, 11 Mar 2013 21:37:27 +0100
 Subject: [PATCH 345/507] arm/highmem: Flush tlb on unmap

@@ -1,4 +1,4 @@
-From 734626c73c1d8d8ef580d0be659f83b6c60e46b5 Mon Sep 17 00:00:00 2001
+From 212e934eca2b1d2c3060a7f8707be64c8c2c49bf Mon Sep 17 00:00:00 2001
 From: Scott Wood <swood@redhat.com>
 Date: Fri, 24 Jan 2020 06:11:47 -0500
 Subject: [PATCH 498/507] sched: migrate_enable: Remove __schedule() call

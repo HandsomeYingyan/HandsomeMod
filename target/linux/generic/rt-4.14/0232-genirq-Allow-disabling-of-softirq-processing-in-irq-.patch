@@ -1,4 +1,4 @@
-From e4662b5bf04261e72f59010d4b992cc12bdb8b12 Mon Sep 17 00:00:00 2001
+From edced1abd7f098fdd8319e0acea31e08a2976f89 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Tue, 31 Jan 2012 13:01:27 +0100
 Subject: [PATCH 232/507] genirq: Allow disabling of softirq processing in irq
@@ -40,7 +40,7 @@ index 0003b88de96f..326af722c5ee 100644
  #define IRQF_TIMER		(__IRQF_TIMER | IRQF_NO_SUSPEND | IRQF_NO_THREAD)
  
 diff --git a/include/linux/irq.h b/include/linux/irq.h
-index 0d53626405bf..ddd23c6e2e55 100644
+index c08758a63d26..e72254178c3e 100644
 --- a/include/linux/irq.h
 +++ b/include/linux/irq.h
 @@ -74,6 +74,7 @@ enum irqchip_irq_state;
@@ -68,10 +68,10 @@ index 0d53626405bf..ddd23c6e2e55 100644
  #define IRQ_NO_BALANCING_MASK	(IRQ_PER_CPU | IRQ_NO_BALANCING)
  
 diff --git a/kernel/irq/manage.c b/kernel/irq/manage.c
-index 9a2ee2b42ece..6df588179dc8 100644
+index cc3e52a0b06b..31262361a3ac 100644
 --- a/kernel/irq/manage.c
 +++ b/kernel/irq/manage.c
-@@ -924,7 +924,15 @@ irq_forced_thread_fn(struct irq_desc *desc, struct irqaction *action)
+@@ -961,7 +961,15 @@ irq_forced_thread_fn(struct irq_desc *desc, struct irqaction *action)
  		atomic_inc(&desc->threads_handled);
  
  	irq_finalize_oneshot(desc, action);
@@ -88,7 +88,7 @@ index 9a2ee2b42ece..6df588179dc8 100644
  	return ret;
  }
  
-@@ -1420,6 +1428,9 @@ __setup_irq(unsigned int irq, struct irq_desc *desc, struct irqaction *new)
+@@ -1457,6 +1465,9 @@ __setup_irq(unsigned int irq, struct irq_desc *desc, struct irqaction *new)
  			irqd_set(&desc->irq_data, IRQD_NO_BALANCING);
  		}
  

@@ -1,4 +1,4 @@
-From cfaf3d1cc55274d20251f56a3b55becf5b59b4de Mon Sep 17 00:00:00 2001
+From e4eb6131bb82ab7f71f080ee41d8832b48e8cc2f Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 16 Mar 2018 15:04:49 +0100
 Subject: [PATCH 296/507] Revert "cpu_chill: Add a UNINTERRUPTIBLE

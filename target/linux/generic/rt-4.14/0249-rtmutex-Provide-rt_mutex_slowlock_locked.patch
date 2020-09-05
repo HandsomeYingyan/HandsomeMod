@@ -1,4 +1,4 @@
-From e9b5a8d7f2c544cc0ca3dbcc06a736fdcc3d8073 Mon Sep 17 00:00:00 2001
+From bf73623d582b43cae00b3ca22102ed16b5d0eddd Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Thu, 12 Oct 2017 16:14:22 +0200
 Subject: [PATCH 249/507] rtmutex: Provide rt_mutex_slowlock_locked()

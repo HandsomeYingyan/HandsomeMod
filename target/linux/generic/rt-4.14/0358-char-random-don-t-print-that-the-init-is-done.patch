@@ -1,4 +1,4 @@
-From 33dd04e3325bf2d0ad02a6b91d10a426e0828f5a Mon Sep 17 00:00:00 2001
+From 176ba1bcedf747bac249a0ff8d7b4674707fec71 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 30 May 2017 16:39:01 +0200
 Subject: [PATCH 358/507] char/random: don't print that the init is done
@@ -146,7 +146,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 6 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/char/random.c b/drivers/char/random.c
-index b54aad26a359..e610ec881bec 100644
+index f0d09f7debc2..8daabdf87cbc 100644
 --- a/drivers/char/random.c
 +++ b/drivers/char/random.c
 @@ -857,7 +857,7 @@ static int crng_fast_load(const char *cp, size_t len)

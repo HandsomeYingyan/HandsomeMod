@@ -62,7 +62,7 @@ https://github.com/OpenIPC/chaos_calmer
 
 - Include Socs not yet in mainline(eg. Allwinner V3s F1cx00s and HiSilicon hi35xx).
 
-- Update the kernel backport driver to 5.4(better wifi signal).
+- Update the kernel backport driver to 5.8(better wifi signal).
 
 - Ipcam soc support(Hi35xx)
 
@@ -76,15 +76,15 @@ https://github.com/OpenIPC/chaos_calmer
 
 - Add qt sdl directfb and other funny stuff!
 
-- Merge mac80211 form openwrt trunk 
-
 - Connman For Wext-based wifi chips
+
+- Sunxi mail400 kernel module and userspace library
+
+- Linux 5.4 Support!
 
 ## Planing... 
 
 - A Offcial Website.
-
-- A Friendly Guide App For Newbie(Like me) Setting Network.
 
 - Hack Tools (Like kali or blackarch) feed And Luci-apps.
 
@@ -94,21 +94,23 @@ https://github.com/OpenIPC/chaos_calmer
 
 - Make Hardware Hacking More Friendly In Openwrt.
 
-- Closed Source Binary Driver Feeds For Mainline Kernel(Like qca-wifi or mtk-sdk-openwrt).
-
-- A lightweight HandsomeMod Graphics Layer(non-free right now).
+- A lightweight HandsomeMod Graphics Layer.
 
 - Add wayland support.
 
 - Better Support for allwinner f1c100s and v3s.
 
-- Support the HiSilicon Himpp and rtsp steaming apps.
+- Support the HiSilicon Himpp and rtsp steaming apps.(Hisilicon Support now EOL due to shitty toolchain)
 
-- Luci app for ipcam and hmgl. 
+- Opengl for Qt5 .
 
-- Update to linux 5.4
+- Cedrus for sunxi family SOCs.
 
+- Robot Os Support.
 
+- Better Cedarx Support (OMX).
+
+- Better Support For Rapsberry Boards.
 
 
 Ps:Please Report Bugs at openwrt offcial github site! Or https://bugs.openwrt.org/

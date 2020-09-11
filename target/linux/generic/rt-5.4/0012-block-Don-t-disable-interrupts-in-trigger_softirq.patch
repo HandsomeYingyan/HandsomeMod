@@ -1,0 +1,41 @@
+From 73e4e28f4f5f1443b21bdcd93b0046f6ccd9129a Mon Sep 17 00:00:00 2001
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Date: Fri, 15 Nov 2019 21:37:22 +0100
+Subject: [PATCH 012/298] block: Don't disable interrupts in trigger_softirq()
+
+trigger_softirq() is always invoked as a SMP-function call which is
+always invoked with disables interrupts.
+
+Don't disable interrupt in trigger_softirq() because interrupts are
+already disabled.
+
+Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+---
+ block/blk-softirq.c | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/block/blk-softirq.c b/block/blk-softirq.c
+index 457d9ba3eb20..6e7ec87d49fa 100644
+--- a/block/blk-softirq.c
++++ b/block/blk-softirq.c
+@@ -42,17 +42,13 @@ static __latent_entropy void blk_done_softirq(struct softirq_action *h)
+ static void trigger_softirq(void *data)
+ {
+ 	struct request *rq = data;
+-	unsigned long flags;
+ 	struct list_head *list;
+ 
+-	local_irq_save(flags);
+ 	list = this_cpu_ptr(&blk_cpu_done);
+ 	list_add_tail(&rq->ipi_list, list);
+ 
+ 	if (list->next == &rq->ipi_list)
+ 		raise_softirq_irqoff(BLOCK_SOFTIRQ);
+-
+-	local_irq_restore(flags);
+ }
+ 
+ /*
+-- 
+2.28.0
+

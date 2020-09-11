@@ -1,0 +1,76 @@
+From e87fae50b2c37e8dcc6e8b17380b8ab5bd1d55cc Mon Sep 17 00:00:00 2001
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Date: Fri, 16 Aug 2019 12:20:42 +0200
+Subject: [PATCH 078/298] cgroup: Consolidate users of cgroup_rstat_lock.
+
+cgroup_rstat_flush_irqsafe() has no users, remove it.
+cgroup_rstat_flush_hold() and cgroup_rstat_flush_release() are only used within
+this file. Make it static.
+
+Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+---
+ include/linux/cgroup.h |  3 ---
+ kernel/cgroup/rstat.c  | 19 ++-----------------
+ 2 files changed, 2 insertions(+), 20 deletions(-)
+
+diff --git a/include/linux/cgroup.h b/include/linux/cgroup.h
+index 202852383ae9..1843a1a4ac34 100644
+--- a/include/linux/cgroup.h
++++ b/include/linux/cgroup.h
+@@ -751,9 +751,6 @@ static inline void cgroup_path_from_kernfs_id(const union kernfs_node_id *id,
+  */
+ void cgroup_rstat_updated(struct cgroup *cgrp, int cpu);
+ void cgroup_rstat_flush(struct cgroup *cgrp);
+-void cgroup_rstat_flush_irqsafe(struct cgroup *cgrp);
+-void cgroup_rstat_flush_hold(struct cgroup *cgrp);
+-void cgroup_rstat_flush_release(void);
+ 
+ /*
+  * Basic resource stats.
+diff --git a/kernel/cgroup/rstat.c b/kernel/cgroup/rstat.c
+index a64b221886b1..2e00941e388b 100644
+--- a/kernel/cgroup/rstat.c
++++ b/kernel/cgroup/rstat.c
+@@ -190,21 +190,6 @@ void cgroup_rstat_flush(struct cgroup *cgrp)
+ 	spin_unlock_irq(&cgroup_rstat_lock);
+ }
+ 
+-/**
+- * cgroup_rstat_flush_irqsafe - irqsafe version of cgroup_rstat_flush()
+- * @cgrp: target cgroup
+- *
+- * This function can be called from any context.
+- */
+-void cgroup_rstat_flush_irqsafe(struct cgroup *cgrp)
+-{
+-	unsigned long flags;
+-
+-	spin_lock_irqsave(&cgroup_rstat_lock, flags);
+-	cgroup_rstat_flush_locked(cgrp, false);
+-	spin_unlock_irqrestore(&cgroup_rstat_lock, flags);
+-}
+-
+ /**
+  * cgroup_rstat_flush_begin - flush stats in @cgrp's subtree and hold
+  * @cgrp: target cgroup
+@@ -214,7 +199,7 @@ void cgroup_rstat_flush_irqsafe(struct cgroup *cgrp)
+  *
+  * This function may block.
+  */
+-void cgroup_rstat_flush_hold(struct cgroup *cgrp)
++static void cgroup_rstat_flush_hold(struct cgroup *cgrp)
+ 	__acquires(&cgroup_rstat_lock)
+ {
+ 	might_sleep();
+@@ -225,7 +210,7 @@ void cgroup_rstat_flush_hold(struct cgroup *cgrp)
+ /**
+  * cgroup_rstat_flush_release - release cgroup_rstat_flush_hold()
+  */
+-void cgroup_rstat_flush_release(void)
++static void cgroup_rstat_flush_release(void)
+ 	__releases(&cgroup_rstat_lock)
+ {
+ 	spin_unlock_irq(&cgroup_rstat_lock);
+-- 
+2.28.0
+

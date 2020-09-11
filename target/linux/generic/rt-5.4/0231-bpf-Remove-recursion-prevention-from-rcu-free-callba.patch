@@ -1,0 +1,40 @@
+From 9ed02b6a5a41dfedf41e6d9fadea49ee75a57531 Mon Sep 17 00:00:00 2001
+From: Thomas Gleixner <tglx@linutronix.de>
+Date: Mon, 24 Feb 2020 15:01:39 +0100
+Subject: [PATCH 231/298] bpf: Remove recursion prevention from rcu free
+ callback
+
+If an element is freed via RCU then recursion into BPF instrumentation
+functions is not a concern. The element is already detached from the map
+and the RCU callback does not hold any locks on which a kprobe, perf event
+or tracepoint attached BPF program could deadlock.
+
+Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+---
+ kernel/bpf/hashtab.c | 8 --------
+ 1 file changed, 8 deletions(-)
+
+diff --git a/kernel/bpf/hashtab.c b/kernel/bpf/hashtab.c
+index 1c5a1ae5466d..371aa7136a50 100644
+--- a/kernel/bpf/hashtab.c
++++ b/kernel/bpf/hashtab.c
+@@ -684,15 +684,7 @@ static void htab_elem_free_rcu(struct rcu_head *head)
+ 	struct htab_elem *l = container_of(head, struct htab_elem, rcu);
+ 	struct bpf_htab *htab = l->htab;
+ 
+-	/* must increment bpf_prog_active to avoid kprobe+bpf triggering while
+-	 * we're calling kfree, otherwise deadlock is possible if kprobes
+-	 * are placed somewhere inside of slub
+-	 */
+-	preempt_disable();
+-	__this_cpu_inc(bpf_prog_active);
+ 	htab_elem_free(htab, l);
+-	__this_cpu_dec(bpf_prog_active);
+-	preempt_enable();
+ }
+ 
+ static void htab_put_fd_value(struct bpf_htab *htab, struct htab_elem *l)
+-- 
+2.28.0
+

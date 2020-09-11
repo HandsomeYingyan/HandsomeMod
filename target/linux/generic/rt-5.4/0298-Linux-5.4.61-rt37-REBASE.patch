@@ -1,0 +1,20 @@
+From 0845d877e818135374c1577ef8320fb5f2d0c68d Mon Sep 17 00:00:00 2001
+From: "Steven Rostedt (VMware)" <rostedt@goodmis.org>
+Date: Wed, 12 Aug 2020 21:40:06 -0400
+Subject: [PATCH 298/298] Linux 5.4.61-rt37 REBASE
+
+Signed-off-by: Steven Rostedt (VMware) <rostedt@goodmis.org>
+---
+ localversion-rt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/localversion-rt b/localversion-rt
+index 483ad771f201..a3b2408c1da6 100644
+--- a/localversion-rt
++++ b/localversion-rt
+@@ -1 +1 @@
+--rt19
++-rt37
+-- 
+2.28.0
+

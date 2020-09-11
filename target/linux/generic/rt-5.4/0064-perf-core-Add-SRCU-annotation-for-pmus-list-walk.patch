@@ -1,0 +1,36 @@
+From e387a8d620fd3f99ccb89544e43d4eecc318d860 Mon Sep 17 00:00:00 2001
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Date: Fri, 15 Nov 2019 18:04:07 +0100
+Subject: [PATCH 064/298] perf/core: Add SRCU annotation for pmus list walk
+
+Since commit
+   28875945ba98d ("rcu: Add support for consolidated-RCU reader checking")
+
+there is an additional check to ensure that a RCU related lock is held
+while the RCU list is iterated.
+This section holds the SRCU reader lock instead.
+
+Add annotation to list_for_each_entry_rcu() that pmus_srcu must be
+acquired during the list traversal.
+
+Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+---
+ kernel/events/core.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/kernel/events/core.c b/kernel/events/core.c
+index db1f5aa755f2..adf48e266882 100644
+--- a/kernel/events/core.c
++++ b/kernel/events/core.c
+@@ -10287,7 +10287,7 @@ static struct pmu *perf_init_event(struct perf_event *event)
+ 		goto unlock;
+ 	}
+ 
+-	list_for_each_entry_rcu(pmu, &pmus, entry) {
++	list_for_each_entry_rcu(pmu, &pmus, entry, lockdep_is_held(&pmus_srcu)) {
+ 		ret = perf_try_init_event(pmu, event);
+ 		if (!ret)
+ 			goto unlock;
+-- 
+2.28.0
+

@@ -1,0 +1,40 @@
+From 80df2750be2953fcdb2ef90f49981c11c47ecc39 Mon Sep 17 00:00:00 2001
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Date: Fri, 20 Mar 2020 16:19:51 +0100
+Subject: [PATCH 118/298] mm/page_alloc: Use migrate_disable() in
+ drain_local_pages_wq()
+
+The drain_local_pages_wq() uses preempt_disable() to ensure that there
+will be no CPU migration while drain_local_pages() is invoked which
+might happen if the CPU is going down.
+drain_local_pages() acquires a sleeping lock on RT which can not be
+acquired with disabled preemption.
+
+Use migrate_disable() instead of preempt_disable(): On RT it ensures
+that the CPU won't go down and on !RT it is replaced with
+preempt_disable().
+
+Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+---
+ mm/page_alloc.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/mm/page_alloc.c b/mm/page_alloc.c
+index 2f21ab88a61b..111329b10b25 100644
+--- a/mm/page_alloc.c
++++ b/mm/page_alloc.c
+@@ -2921,9 +2921,9 @@ static void drain_local_pages_wq(struct work_struct *work)
+ 	 * cpu which is allright but we also have to make sure to not move to
+ 	 * a different one.
+ 	 */
+-	preempt_disable();
++	migrate_disable();
+ 	drain_local_pages(drain->zone);
+-	preempt_enable();
++	migrate_enable();
+ }
+ 
+ /*
+-- 
+2.28.0
+

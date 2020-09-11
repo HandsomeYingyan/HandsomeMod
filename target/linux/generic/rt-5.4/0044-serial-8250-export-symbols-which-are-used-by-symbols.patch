@@ -1,0 +1,47 @@
+From 5054d1c052d6a585389839c2fcd477cd846a4b55 Mon Sep 17 00:00:00 2001
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Date: Sat, 16 Feb 2019 09:02:00 +0100
+Subject: [PATCH 044/298] serial: 8250: export symbols which are used by
+ symbols
+
+Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+---
+ drivers/tty/serial/8250/8250_port.c | 2 ++
+ kernel/printk/printk.c              | 1 +
+ 2 files changed, 3 insertions(+)
+
+diff --git a/drivers/tty/serial/8250/8250_port.c b/drivers/tty/serial/8250/8250_port.c
+index 1089a84b7f25..7cc1655d5a0c 100644
+--- a/drivers/tty/serial/8250/8250_port.c
++++ b/drivers/tty/serial/8250/8250_port.c
+@@ -2025,6 +2025,7 @@ void clear_ier(struct uart_8250_port *up)
+ 	}
+ 	console_atomic_unlock(flags);
+ }
++EXPORT_SYMBOL_GPL(clear_ier);
+ 
+ void restore_ier(struct uart_8250_port *up)
+ {
+@@ -2036,6 +2037,7 @@ void restore_ier(struct uart_8250_port *up)
+ 		serial_port_out(port, UART_IER, atomic_read(&ier_value));
+ 	console_atomic_unlock(flags);
+ }
++EXPORT_SYMBOL_GPL(restore_ier);
+ 
+ #ifdef CONFIG_CONSOLE_POLL
+ /*
+diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
+index 6ff32b1e2e84..0709d4bc5047 100644
+--- a/kernel/printk/printk.c
++++ b/kernel/printk/printk.c
+@@ -2288,6 +2288,7 @@ int is_console_locked(void)
+ {
+ 	return console_locked;
+ }
++EXPORT_SYMBOL(is_console_locked);
+ 
+ /**
+  * console_unlock - unlock the console system
+-- 
+2.28.0
+

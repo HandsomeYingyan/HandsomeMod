@@ -1,0 +1,64 @@
+From 892561d13a74e8b4717e00560ef622443b21e48c Mon Sep 17 00:00:00 2001
+From: Jan Kara <jack@suse.cz>
+Date: Fri, 9 Aug 2019 14:42:31 +0200
+Subject: [PATCH 006/298] jbd2: Don't call __bforget() unnecessarily
+
+jbd2_journal_forget() jumps to 'not_jbd' branch which calls __bforget()
+in cases where the buffer is clean which is pointless. In case of failed
+assertion, it can be even argued that it is safer not to touch buffer's
+dirty bits. Also logically it makes more sense to just jump to 'drop'
+and that will make logic also simpler when we switch bh_state_lock to a
+spinlock.
+
+Signed-off-by: Jan Kara <jack@suse.cz>
+Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+---
+ fs/jbd2/transaction.c | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
+
+diff --git a/fs/jbd2/transaction.c b/fs/jbd2/transaction.c
+index 74ddb29dc208..eb02cd26de27 100644
+--- a/fs/jbd2/transaction.c
++++ b/fs/jbd2/transaction.c
+@@ -1554,7 +1554,7 @@ int jbd2_journal_forget (handle_t *handle, struct buffer_head *bh)
+ 	if (!J_EXPECT_JH(jh, !jh->b_committed_data,
+ 			 "inconsistent data on disk")) {
+ 		err = -EIO;
+-		goto not_jbd;
++		goto drop;
+ 	}
+ 
+ 	/* keep track of whether or not this transaction modified us */
+@@ -1644,7 +1644,7 @@ int jbd2_journal_forget (handle_t *handle, struct buffer_head *bh)
+ 		if (!jh->b_cp_transaction) {
+ 			JBUFFER_TRACE(jh, "belongs to none transaction");
+ 			spin_unlock(&journal->j_list_lock);
+-			goto not_jbd;
++			goto drop;
+ 		}
+ 
+ 		/*
+@@ -1654,7 +1654,7 @@ int jbd2_journal_forget (handle_t *handle, struct buffer_head *bh)
+ 		if (!buffer_dirty(bh)) {
+ 			__jbd2_journal_remove_checkpoint(jh);
+ 			spin_unlock(&journal->j_list_lock);
+-			goto not_jbd;
++			goto drop;
+ 		}
+ 
+ 		/*
+@@ -1667,10 +1667,9 @@ int jbd2_journal_forget (handle_t *handle, struct buffer_head *bh)
+ 		__jbd2_journal_file_buffer(jh, transaction, BJ_Forget);
+ 		spin_unlock(&journal->j_list_lock);
+ 	}
+-
++drop:
+ 	jbd_unlock_bh_state(bh);
+ 	__brelse(bh);
+-drop:
+ 	if (drop_reserve) {
+ 		/* no need to reserve log space for this block -bzzz */
+ 		handle->h_buffer_credits++;
+-- 
+2.28.0
+

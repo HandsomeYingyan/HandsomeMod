@@ -1,0 +1,38 @@
+From f6f2f8f0aa4112f9eaac30f9e728546228897550 Mon Sep 17 00:00:00 2001
+From: Matt Fleming <matt@codeblueprint.co.uk>
+Date: Sun, 26 Jan 2020 21:19:45 +0000
+Subject: [PATCH 126/298] mm/memcontrol: Move misplaced
+ local_unlock_irqrestore()
+
+The comment about local_lock_irqsave() mentions just the counters and
+css_put_many()'s callback just invokes a worker so it is safe to move the
+unlock function after memcg_check_events() so css_put_many() can be invoked
+without the lock acquired.
+
+Cc: Daniel Wagner <wagi@monom.org>
+Signed-off-by: Matt Fleming <matt@codeblueprint.co.uk>
+[bigeasy: rewrote the patch description]
+Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+---
+ mm/memcontrol.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/mm/memcontrol.c b/mm/memcontrol.c
+index cbad91ec5c5d..55ebb331afaf 100644
+--- a/mm/memcontrol.c
++++ b/mm/memcontrol.c
+@@ -7092,10 +7092,10 @@ void mem_cgroup_swapout(struct page *page, swp_entry_t entry)
+ 	mem_cgroup_charge_statistics(memcg, page, PageTransHuge(page),
+ 				     -nr_entries);
+ 	memcg_check_events(memcg, page);
++	local_unlock_irqrestore(event_lock, flags);
+ 
+ 	if (!mem_cgroup_is_root(memcg))
+ 		css_put_many(&memcg->css, nr_entries);
+-	local_unlock_irqrestore(event_lock, flags);
+ }
+ 
+ /**
+-- 
+2.28.0
+

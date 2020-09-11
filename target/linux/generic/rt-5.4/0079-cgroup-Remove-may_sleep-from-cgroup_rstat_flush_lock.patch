@@ -1,0 +1,61 @@
+From a4fa985d609a6d859d31e2b51b539834d74f8a6e Mon Sep 17 00:00:00 2001
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Date: Fri, 16 Aug 2019 12:25:35 +0200
+Subject: [PATCH 079/298] cgroup: Remove `may_sleep' from
+ cgroup_rstat_flush_locked()
+
+cgroup_rstat_flush_locked() is always invoked with `may_sleep' set to
+true so that this case can be made default and the parameter removed.
+
+Remove the `may_sleep' parameter.
+
+Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+---
+ kernel/cgroup/rstat.c | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
+
+diff --git a/kernel/cgroup/rstat.c b/kernel/cgroup/rstat.c
+index 2e00941e388b..0dc835bead08 100644
+--- a/kernel/cgroup/rstat.c
++++ b/kernel/cgroup/rstat.c
+@@ -139,7 +139,7 @@ static struct cgroup *cgroup_rstat_cpu_pop_updated(struct cgroup *pos,
+ }
+ 
+ /* see cgroup_rstat_flush() */
+-static void cgroup_rstat_flush_locked(struct cgroup *cgrp, bool may_sleep)
++static void cgroup_rstat_flush_locked(struct cgroup *cgrp)
+ 	__releases(&cgroup_rstat_lock) __acquires(&cgroup_rstat_lock)
+ {
+ 	int cpu;
+@@ -157,9 +157,7 @@ static void cgroup_rstat_flush_locked(struct cgroup *cgrp, bool may_sleep)
+ 
+ 		raw_spin_unlock(cpu_lock);
+ 
+-		/* if @may_sleep, play nice and yield if necessary */
+-		if (may_sleep && (need_resched() ||
+-				  spin_needbreak(&cgroup_rstat_lock))) {
++		if (need_resched() || spin_needbreak(&cgroup_rstat_lock)) {
+ 			spin_unlock_irq(&cgroup_rstat_lock);
+ 			if (!cond_resched())
+ 				cpu_relax();
+@@ -186,7 +184,7 @@ void cgroup_rstat_flush(struct cgroup *cgrp)
+ 	might_sleep();
+ 
+ 	spin_lock_irq(&cgroup_rstat_lock);
+-	cgroup_rstat_flush_locked(cgrp, true);
++	cgroup_rstat_flush_locked(cgrp);
+ 	spin_unlock_irq(&cgroup_rstat_lock);
+ }
+ 
+@@ -204,7 +202,7 @@ static void cgroup_rstat_flush_hold(struct cgroup *cgrp)
+ {
+ 	might_sleep();
+ 	spin_lock_irq(&cgroup_rstat_lock);
+-	cgroup_rstat_flush_locked(cgrp, true);
++	cgroup_rstat_flush_locked(cgrp);
+ }
+ 
+ /**
+-- 
+2.28.0
+

@@ -55,7 +55,7 @@ index 83145a211e79..3e9ff9c2a8ba 100644
  			if (!buffer_jbd(bh)) {
  				spin_unlock(&journal->j_list_lock);
  				goto not_jbd;
-@@ -1975,17 +1976,15 @@ static void __jbd2_journal_temp_unlink_buffer(struct journal_head *jh)
+@@ -1975,11 +1975,10 @@ static void __jbd2_journal_temp_unlink_buffer(struct journal_head *jh)
  }
  
  /*
@@ -69,6 +69,8 @@ index 83145a211e79..3e9ff9c2a8ba 100644
   */
  static void __jbd2_journal_unfile_buffer(struct journal_head *jh)
  {
+@@ -1988,7 +1987,6 @@ static void __jbd2_journal_unfile_buffer(struct journal_head *jh)
+ 
  	__jbd2_journal_temp_unlink_buffer(jh);
  	jh->b_transaction = NULL;
 -	jbd2_journal_put_journal_head(jh);

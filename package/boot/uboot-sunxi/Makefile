@@ -10,9 +10,9 @@
 include $(TOPDIR)/rules.mk
 include $(INCLUDE_DIR)/kernel.mk
 
-PKG_VERSION:=2019.10
+PKG_VERSION:=2020.07
 
-PKG_HASH:=8d6d6070739522dd236cba7055b8736bfe92b4fac0ea18ad809829ca79667014
+PKG_HASH:=c1f5bf9ee6bb6e648edbf19ce2ca9452f614b08a9f886f1a566aa42e8cf05f6a
 
 PKG_MAINTAINER:=Zoltan HERPAI <wigyori@uid0.hu>
 
@@ -260,18 +260,19 @@ define U-Boot/orangepi_pc2
   UENV:=a64
 endef
 
-define U-Boot/licheepi_nano
-  BUILD_SUBTARGET:=arm9
-  NAME:=Lichee Pi Nano
-  BUILD_DEVICES:=suniv-f1c100s-licheepi-nano
-  UENV:=licheepi-nano
-endef
-
 define U-Boot/LicheePi_Zero
   BUILD_SUBTARGET:=cortexa7
   NAME:=LicheePi Zero
   BUILD_DEVICES:=sun8i-v3s-licheepi-zero
 endef
+
+define U-Boot/allwinner_f1c100s_generic
+  BUILD_SUBTARGET:=arm9
+  NAME:=Widora Tiny200 R3
+  BUILD_DEVICES:=suniv-f1c100s-licheepi-nano
+  UENV:=licheepi-nano
+endef
+
 
 UBOOT_TARGETS := \
 	A10-OLinuXino-Lime \
@@ -309,10 +310,10 @@ UBOOT_TARGETS := \
 	Sinovoip_BPI_M2_Plus \
 	sopine_baseboard \
 	orangepi_zero_plus \
-	licheepi_nano \
 	LicheePi_Zero \
         q8_a33_tablet_1024x600 \
-	q8_a13_tablet
+	q8_a13_tablet \
+	allwinner_f1c100s_generic
 
 UBOOT_CONFIGURE_VARS += USE_PRIVATE_LIBGCC=yes
 

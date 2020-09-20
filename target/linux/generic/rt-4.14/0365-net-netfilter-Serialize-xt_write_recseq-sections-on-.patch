@@ -77,6 +77,3 @@ index 52cd2901a097..c63e937b6676 100644
 +
  const struct nf_ipv6_ops __rcu *nf_ipv6_ops __read_mostly;
  EXPORT_SYMBOL_GPL(nf_ipv6_ops);
--- 
-2.26.2
-

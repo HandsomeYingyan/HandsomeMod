@@ -417,7 +417,7 @@ index 6100d3b75..656b03a47 100644
 +				bias-pull-up;
 +			};
 +
-+			i2c0_pe_pins: i2c0-pe-pins {
++			i2c0_pins: i2c0-pins {
 +				pins = "PE11", "PE12";
 +				function = "i2c0";
 +			};

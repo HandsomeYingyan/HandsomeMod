@@ -174,11 +174,11 @@ define KernelPackage/sun4i-drm
  	$(LINUX_DIR)/drivers/gpu/drm/sun4i/sun4i-frontend.ko \
 	$(LINUX_DIR)/drivers/gpu/drm/sun4i/sun4i-tcon.ko \
 	$(LINUX_DIR)/drivers/gpu/drm/sun4i/sun4i_tv.ko \
-	$(LINUX_DIR)/drivers/gpu/drm/sun4i/sun6i-dsi.ko \
+	$(LINUX_DIR)/drivers/gpu/drm/sun4i/sun6i_mipi_dsi.ko \
 	$(LINUX_DIR)/drivers/gpu/drm/sun4i/sun6i_drc.ko \
 	$(LINUX_DIR)/drivers/gpu/drm/sun4i/sun8i-mixer.ko \
  	$(LINUX_DIR)/drivers/gpu/drm/sun4i/sun8i_tcon_top.ko 
-    AUTOLOAD:=$(call AutoLoad,50,sun4i-drm sun4i-backend sun4i-frontend sun4i-tcon sun4i_tv sun6i-dsi sun6i_drc sun8i-mixer sun8i_tcon_top)
+    AUTOLOAD:=$(call AutoLoad,50,sun4i-drm sun4i-backend sun4i-frontend sun4i-tcon sun4i_tv sun6i_mipi_dsi sun6i_drc sun8i-mixer sun8i_tcon_top)
 endef
 
 define KernelPackage/sun4i-drm/description

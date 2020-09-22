@@ -59,7 +59,7 @@ index db5cd0b85..a691b54bc 100644
 +    };
 +
 +    panel: panel {
-+        compatible = "simple-panel","ampire,am-480272h3tmqw-t01h";
++        compatible = "simple-panel","lg,lb070wv8";
 +        #address-cells = <1>;
 +        #size-cells = <0>;
 +

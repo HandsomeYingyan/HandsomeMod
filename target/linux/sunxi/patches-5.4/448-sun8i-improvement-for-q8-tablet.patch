@@ -18,12 +18,12 @@ index 9c5750c25..e678dfe9d 100644
 +		#address-cells = <1>;
 +		#size-cells = <0>;
 +
-+		port@0 {
++		port {
 +			reg = <0>;
 +			#address-cells = <1>;
 +			#size-cells = <0>;
 +
-+			panel_input: endpoint@0 {
++			panel_input: endpoint {
 +				reg = <0>;
 +				remote-endpoint = <&tcon0_out_panel>;
 +			};

@@ -109,6 +109,22 @@ endef
 
 $(eval $(call KernelPackage,sun8i-codec))
 
+define KernelPackage/sun8i-regmap
+  TITLE:=AllWinner sun8i family built-in SoC codec regmap support
+  KCONFIG:=CONFIG_SND_SUN8I_ADDA_PR_REGMAP
+  HIDDEN:=1
+  FILES:=$(LINUX_DIR)/sound/soc/sunxi/sun8i-adda-pr-regmap.ko
+  AUTOLOAD:=$(call AutoLoad,65,sun8i-adda-pr-regmap)
+  DEPENDS:=@TARGET_sunxi @LINUX_5_4 +kmod-sound-soc-core 
+  $(call AddDepends/sound)
+endef
+
+define KernelPackage/sun8i-regmap/description
+  AllWinner sun8i family built-in SoC codec regmap support
+endef
+
+$(eval $(call KernelPackage,sun8i-regmap))
+
 define KernelPackage/sun4i-i2s
   TITLE:=AllWinner sun4i family built-in SoC i2s support
   KCONFIG:=CONFIG_SND_SUN4I_I2S
@@ -129,7 +145,7 @@ define KernelPackage/sun4i-spdif
   KCONFIG:=CONFIG_SND_SUN4I_SPDIF
   FILES:=$(LINUX_DIR)/sound/soc/sunxi/sun4i-spdif.ko
   AUTOLOAD:=$(call AutoLoad,65,sun4i-spdif)
-  DEPENDS:=@TARGET_sunxi +kmod-sound-soc-core
+  DEPENDS:=@TARGET_sunxi +kmod-sound-soc-core +LINUX_5_4:kmod-sun8i-regmap
   $(call AddDepends/sound)
 endef
 

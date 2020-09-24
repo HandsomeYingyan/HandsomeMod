@@ -183,7 +183,8 @@ define KernelPackage/crypto-ecdh
   DEPENDS:=+kmod-crypto-kpp
   KCONFIG:= CONFIG_CRYPTO_ECDH
   FILES:= \
-	$(LINUX_DIR)/crypto/ecdh_generic.ko
+	$(LINUX_DIR)/crypto/ecdh_generic.ko \
+	$(LINUX_DIR)/crypto/ecc.ko@ge5.2
   AUTOLOAD:=$(call AutoLoad,10,ecdh_generic)
   $(call AddDepends/crypto)
 endef

@@ -3,3 +3,62 @@ config SUNXI_SD_BOOT_PARTSIZE
 	depends on TARGET_sunxi
 	default 20
 
+if TARGET_sunxi_arm9_nand
+
+menuconfig SUNIV_SPINAND_OPTIONS
+	bool "SPI-NAND options"
+	default y if TARGET_sunxi_arm9_nand
+
+config SUNXI_SPINAND_PAGESIZE
+	int "SPI-NAND pagesize size"
+	depends on TARGET_sunxi_arm9_nand
+	depends on SUNIV_SPINAND_OPTIONS
+	default 2048
+	range 1024 8192
+
+config SUNXI_SPINAND_BLOCKSIZE
+	int "SPI-NAND block-size (in KiB)"
+	depends on TARGET_sunxi_arm9_nand
+	depends on SUNIV_SPINAND_OPTIONS
+	default 128
+
+config SUNIV_OFFSET_UBI
+	int "Offset of ubi in the spi-nand"
+	depends on TARGET_sunxi_arm9_nand
+	depends on SUNIV_SPINAND_OPTIONS
+	default 1048576 if SUNXI_SPINAND_PAGESIZE = 2048
+
+menuconfig SUNIV_SPINAND_DUPLICATE_BOOT
+	bool "Duplicate SPL and u-boot for better fail-safty"
+	depends on TARGET_sunxi_arm9_nand
+	default n
+	help
+	  Copies the SPL multiple times to the different EGON-entrypoints and PEBs.
+	  Also copies u-boot multiple times in case one gets corrputed
+
+if SUNIV_SPINAND_DUPLICATE_BOOT
+
+config SUNIV_SPINAND_DUPLICATE_BOOT_SPL
+	int "Amount of SPLs stored"
+	depends on SUNIV_SPINAND_DUPLICATE_BOOT
+	range 1 8
+	default 4
+	help 
+	  eGON.BROM searches for an valid SPL at pages 0, 32, 64, 96, 128, 160, 192 and 224.
+	  We can put the SPL multiple times to each of the entry-points and eGON.BROM would load the SPL
+	  from page 32 if the SPL on page 0 is corrupted. When changing the default value, don't forget to 
+	  change CONFIG_SUN8I_V3S_OFFSET_UBI!
+
+config SUNIV_SPINAND_DUPLICATE_BOOT_UBOOT
+	int "Amount of u-boots stored"
+	depends on SUNIV_SPINAND_DUPLICATE_BOOT
+	range 1 8
+	default 2
+	help
+	  The spi-nand spl is able to load another u-boot if it finds that the first u-boot is corrupted.
+	  Enter the amount of u-boots you want to have on your spi-nand.
+	  When changing the default value, don't forget to change CONFIG_SUN8I_V3S_OFFSET_UBI!
+
+endif # SUNIV_SPINAND_DUPLICATE_BOOT
+
+endif # TARGET_sunxi_arm9_nand

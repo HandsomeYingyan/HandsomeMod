@@ -287,6 +287,22 @@ define U-Boot/widora_tiny200_v3
   UENV:=licheepi-nano
 endef
 
+define U-Boot/widora_tiny200_v2_nand
+  BUILD_SUBTARGET:=arm9-nand
+  NAME:=Widora Tiny200 R2
+  BUILD_DEVICES:=suniv-widora-tiny200-v2
+  UENV:=licheepi-nano
+endef
+
+define U-Boot/widora_tiny200_v3_nand
+  BUILD_SUBTARGET:=arm9-nand
+  NAME:=Widora Tiny200 R3
+  BUILD_DEVICES:=suniv-widora-tiny200-v3
+  UENV:=licheepi-nano
+endef
+
+
+
 
 UBOOT_TARGETS := \
 	A10-OLinuXino-Lime \
@@ -329,7 +345,9 @@ UBOOT_TARGETS := \
 	q8_a13_tablet \
 	LicheePi_Nano \
 	widora_tiny200_v2 \
-	widora_tiny200_v3
+	widora_tiny200_v3 \
+	widora_tiny200_v2_nand \
+	widora_tiny200_v3_nand
 
 UBOOT_CONFIGURE_VARS += USE_PRIVATE_LIBGCC=yes
 

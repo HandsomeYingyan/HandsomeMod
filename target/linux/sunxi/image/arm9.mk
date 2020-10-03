@@ -32,6 +32,4 @@ endef
 
 TARGET_DEVICES += suniv-widora-tiny200-v3
 
-
-
 endif

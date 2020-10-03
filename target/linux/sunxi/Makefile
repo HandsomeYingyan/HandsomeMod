@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2013-2016 OpenWrt.org
+# Copyright (C) 2020 HandsomeMod Project
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -11,8 +12,8 @@ ARCH:=arm
 BOARD:=sunxi
 BOARDNAME:=Allwinner A1x/A20/A3x/F1Cx00s/V3s
 FEATURES:=fpu usb ext4 display rtc squashfs
-SUBTARGETS:=cortexa8 cortexa7 cortexa53 arm9
-MAINTAINER:=Zoltan HERPAI <wigyori@uid0.hu>
+SUBTARGETS:=cortexa8 cortexa7 cortexa53 arm9 arm9-nand
+MAINTAINER:=HandsomeYingyan<handosmeyingyan@gmali.com>
 
 KERNEL_PATCHVER:=5.4
 KERNELNAME:=zImage dtbs

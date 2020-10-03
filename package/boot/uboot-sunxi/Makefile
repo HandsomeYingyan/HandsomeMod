@@ -266,10 +266,24 @@ define U-Boot/LicheePi_Zero
   BUILD_DEVICES:=sun8i-v3s-licheepi-zero
 endef
 
-define U-Boot/allwinner_f1c100s_generic
+define U-Boot/LicheePi_Nano
   BUILD_SUBTARGET:=arm9
   NAME:=Widora Tiny200 R3
   BUILD_DEVICES:=suniv-f1c100s-licheepi-nano
+  UENV:=licheepi-nano
+endef
+
+define U-Boot/widora_tiny200_v2
+  BUILD_SUBTARGET:=arm9
+  NAME:=Widora Tiny200 R2
+  BUILD_DEVICES:=suniv-widora-tiny200-v2
+  UENV:=licheepi-nano
+endef
+
+define U-Boot/widora_tiny200_v3
+  BUILD_SUBTARGET:=arm9
+  NAME:=Widora Tiny200 R3
+  BUILD_DEVICES:=suniv-widora-tiny200-v3
   UENV:=licheepi-nano
 endef
 
@@ -313,7 +327,9 @@ UBOOT_TARGETS := \
 	LicheePi_Zero \
         q8_a33_tablet_1024x600 \
 	q8_a13_tablet \
-	allwinner_f1c100s_generic
+	LicheePi_Nano \
+	widora_tiny200_v2 \
+	widora_tiny200_v3
 
 UBOOT_CONFIGURE_VARS += USE_PRIVATE_LIBGCC=yes
 

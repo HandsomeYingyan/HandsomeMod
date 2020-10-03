@@ -16,5 +16,22 @@ endef
 
 TARGET_DEVICES += suniv-f1c100s-licheepi-nano
 
+define Device/suniv-widora-tiny200-v2
+  DEVICE_TITLE:=Widora Tiny200 V2
+  SUNXI_DTS:=suniv-widora-tiny200-v2
+  KERNEL_COMPRESS := Y
+endef
+
+TARGET_DEVICES += suniv-widora-tiny200-v2
+
+define Device/suniv-widora-tiny200-v3
+  DEVICE_TITLE:=Widora Tiny200 V3
+  SUNXI_DTS:=suniv-widora-tiny200-v3
+  KERNEL_COMPRESS := Y
+endef
+
+TARGET_DEVICES += suniv-widora-tiny200-v3
+
+
 
 endif

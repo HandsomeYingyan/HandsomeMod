@@ -41,7 +41,7 @@ define Build/sunxi-spinandboot
 endef
 
 define Build/sunxi-kernelubifs
-	./gen_sunxi_kernel_ubifs.sh $@ \
+	./gen_sunxi_kernel_ubifs.sh $(KDIR)/zImage \
 		$(DTS_DIR)/$(SUNXI_DTS).dtb \
 		$(CONFIG_SUNXI_SPINAND_PAGESIZE) \
 		$(CONFIG_SUNXI_SPINAND_BLOCKSIZE)

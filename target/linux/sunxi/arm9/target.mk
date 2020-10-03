@@ -10,3 +10,4 @@ include $(TOPDIR)/rules.mk
 
 BOARDNAME:=Allwinner F1C100s
 CPU_TYPE:=arm926ej-s
+FEATURES:= usb ext4 display rtc squashfs

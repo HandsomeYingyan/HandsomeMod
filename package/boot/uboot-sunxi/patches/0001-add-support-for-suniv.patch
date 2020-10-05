@@ -487,8 +487,8 @@ index 9900b442..fbcdf936 100644
  	sun9i-a80-cubieboard4.dtb \
  	sun9i-a80-cx-a99.dtb
 +dtb-$(CONFIG_MACH_SUNIV) += \
-+	suniv-f1c100s-tiny200-v2.dtb
-+	suniv-f1c100s-tiny200-v3.dtb
++	suniv-f1c100s-tiny200-v2.dtb \
++	suniv-f1c100s-tiny200-v3.dtb \
 +	suniv-f1c100s-licheepi-nano.dtb
  
  dtb-$(CONFIG_VF610) += vf500-colibri.dtb \

@@ -291,14 +291,14 @@ define U-Boot/widora_tiny200_v2_nand
   BUILD_SUBTARGET:=arm9_nand
   NAME:=Widora Tiny200 R2
   BUILD_DEVICES:=suniv-widora-tiny200-v2-nand
-  UENV:=licheepi-nano
+#todo ENV files
 endef
 
 define U-Boot/widora_tiny200_v3_nand
   BUILD_SUBTARGET:=arm9_nand
   NAME:=Widora Tiny200 R3
   BUILD_DEVICES:=suniv-widora-tiny200-v3-nand
-  UENV:=licheepi-nano
+#todo ENV files
 endef
 
 

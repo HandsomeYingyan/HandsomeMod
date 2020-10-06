@@ -1,0 +1,45 @@
+From 8dc06782709f7b7b6f8bdda3ea22447ef88228cb Mon Sep 17 00:00:00 2001
+From: handsomeyingyan <handsomeyingyan@github.com>
+Date: Tue, 6 Oct 2020 16:08:18 +0800
+Subject: [PATCH] add simple framebuffer support for allwinner v3s
+
+---
+ arch/arm/boot/dts/sun8i-v3s.dtsi | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+
+diff --git a/arch/arm/boot/dts/sun8i-v3s.dtsi b/arch/arm/boot/dts/sun8i-v3s.dtsi
+index 5ca8ff0fa..f8c455d7c 100644
+--- a/arch/arm/boot/dts/sun8i-v3s.dtsi
++++ b/arch/arm/boot/dts/sun8i-v3s.dtsi
+@@ -44,11 +44,28 @@
+ #include <dt-bindings/clock/sun8i-v3s-ccu.h>
+ #include <dt-bindings/reset/sun8i-v3s-ccu.h>
+ #include <dt-bindings/pwm/pwm.h>
++#include <dt-bindings/clock/sun8i-de2.h>
++
+ 
+ / {
+     #address-cells = <1>;
+     #size-cells = <1>;
+     interrupt-parent = <&gic>;
++    
++	chosen {
++		#address-cells = <1>;
++		#size-cells = <1>;
++		ranges;
++
++		framebuffer-lcd {
++			compatible = "allwinner,simple-framebuffer",
++				     "simple-framebuffer";
++			allwinner,pipeline = "mixer0-lcd0";
++			clocks = <&display_clocks CLK_MIXER0>,
++				 <&ccu CLK_TCON0>;
++			status = "disabled";
++		};
++	};
+ 
+     cpus {
+         #address-cells = <1>;
+-- 
+2.28.0
+

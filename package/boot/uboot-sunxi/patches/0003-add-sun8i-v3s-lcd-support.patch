@@ -37,7 +37,7 @@ index 3d9168cb..c3d1b357 100644
 +	};
 +
 +	panel: panel {
-+		compatible = "qiaodian,qd43003c0-40", "simple-panel";
++		compatible = "lg,lb070wv8", "simple-panel";
 +		backlight = <&backlight>;
 +
 +		port {

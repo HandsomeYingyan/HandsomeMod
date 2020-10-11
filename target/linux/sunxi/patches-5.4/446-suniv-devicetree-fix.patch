@@ -529,8 +529,8 @@ index 6100d3b75..656b03a47 100644
 +			#thermal-sensor-cells = <0>;
 +			pinctrl-0 = <&rtp_pins>;
 +			pinctrl-names = "default";
++			status = "disabled";	
 +		};
-+
  		uart0: serial@1c25000 {
  			compatible = "snps,dw-apb-uart";
  			reg = <0x01c25000 0x400>;

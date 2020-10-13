@@ -48,7 +48,7 @@ index 3d9168cb..c3d1b357 100644
 +
 +		display-timings {
 +			timing0: timing0 {
-+				clock-frequency = <3300000>;
++				clock-frequency = <33000000>;
 +				hactive = <800>;
 +				vactive = <480>;
 +

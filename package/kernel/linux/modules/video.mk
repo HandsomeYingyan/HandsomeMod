@@ -26,6 +26,8 @@ define KernelPackage/video-core
 	CONFIG_MEDIA_CAMERA_SUPPORT=y \
 	CONFIG_VIDEO_DEV \
 	CONFIG_VIDEO_V4L1=y \
+	CONFIG_VIDEO_V4L2=y \
+  	CONFIG_VIDEO_V4L2_SUBDEV_API=y \
 	CONFIG_VIDEO_ALLOW_V4L1=y \
 	CONFIG_VIDEO_CAPTURE_DRIVERS=y \
 	CONFIG_V4L_USB_DRIVERS=y \
@@ -651,3 +653,32 @@ define KernelPackage/video-gspca-konica/description
 endef
 
 $(eval $(call KernelPackage,video-gspca-konica))
+
+# CSI Cameras
+define KernelPackage/video-ov2640
+  TITLE:=OmniVision OV2640 sensor support
+  KCONFIG:=CONFIG_VIDEO_OV2640
+  FILES:=$(LINUX_DIR)/drivers/media/i2c/ov2640.ko
+  AUTOLOAD:=$(call AutoProbe,ov2640)
+  $(call AddDepends/camera)
+endef
+
+define KernelPackage/video-ov2640/description
+ OmniVision OV2640 sensor support
+endef
+
+$(eval $(call KernelPackage,video-ov2640))
+
+define KernelPackage/video-ov5640
+  TITLE:=OmniVision OV5640 sensor support
+  KCONFIG:=CONFIG_VIDEO_OV5640
+  FILES:=$(LINUX_DIR)/drivers/media/i2c/ov5640.ko
+  AUTOLOAD:=$(call AutoProbe,ov5640)
+  $(call AddDepends/camera)
+endef
+
+define KernelPackage/video-ov5640/description
+ OmniVision OV5640 sensor support
+endef
+
+$(eval $(call KernelPackage,video-ov5640))

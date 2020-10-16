@@ -26,14 +26,10 @@ chosen applications for your target system.
 
 ## Thanks
 
-
 The orginal code come form openwrt 19.07.
 
 https://github.com/openwrt/openwrt
 
-HiSilicon hi35xx support is based on OpenIPC project
-
-https://github.com/OpenIPC/chaos_calmer
 
 
 #  What is Moded?
@@ -44,7 +40,7 @@ https://github.com/OpenIPC/chaos_calmer
 
 - Enalbe CAKE Network Queue Management in default config.
 
-- Add https://github.com/Chion82/netfilter-full-cone-nat.git and Enable in default config.
+- Add https://github.com/Chion82/netfilter-full-cone-nat.git kernel module.
 
 - Use ucl and upx to reduce image size.
 
@@ -56,9 +52,9 @@ https://github.com/OpenIPC/chaos_calmer
 
 - Add rt-linux patches.
 
-- Add Fbdev Based mali blobs
+- Add Fbdev Based mali blobs.
 
-- Add littlevgl Support .
+- Add lvgl Support .
 
 - Include Socs not yet in mainline(eg. Allwinner V3s F1cx00s and HiSilicon hi35xx).
 
@@ -78,9 +74,13 @@ https://github.com/OpenIPC/chaos_calmer
 
 - Connman For Wext-based wifi chips
 
-- Sunxi mail400 kernel module and userspace library
+- Sunxi mail400 kernel module and userspace library.(Runs Pretty Well With Glmark2 Fbdev)
 
 - Linux 5.4 Support!
+
+- CedarX With Openmax Support For Sunxi Mainline(5.4) Devices.
+
+- Sunxi Target With Spi Nand Support(F1cx00s Only Right Now).
 
 ## Planing... 
 
@@ -98,17 +98,11 @@ https://github.com/OpenIPC/chaos_calmer
 
 - Add wayland support.
 
-- Better Support for allwinner f1c100s and v3s.
-
-- Support the HiSilicon Himpp and rtsp steaming apps.(Hisilicon Support now EOL due to shitty toolchain)
+- Support the HiSilicon Himpp and rtsp steaming apps.(Hisilicon Support now EOL(end of life) due to shitty toolchain)
 
 - Opengl for Qt5 .
 
-- Cedrus for sunxi family SOCs.
-
 - Robot Os Support.
-
-- Better Cedarx Support (OMX).
 
 - Better Support For Rapsberry Boards.
 

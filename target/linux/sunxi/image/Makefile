@@ -33,11 +33,7 @@ endef
 
 define Build/sunxi-spinandboot
 	./gen_sunxi_spinand_onlyboot_img.sh $@ \
-		$(STAGING_DIR_IMAGE)/$(DEVICE_NAME)-u-boot-with-spl.bin \
-		$(CONFIG_SUNXI_SPINAND_PAGESIZE) \
-		$(CONFIG_SUNXI_SPINAND_BLOCKSIZE) \
-		$(CONFIG_SUNIV_SPINAND_DUPLICATE_BOOT_SPL) \
-		$(CONFIG_SUNIV_SPINAND_DUPLICATE_BOOT_UBOOT)
+		$(STAGING_DIR_IMAGE)/$(DEVICE_NAME)-u-boot-with-spl.bin
 endef
 
 define Build/sunxi-kernelubifs

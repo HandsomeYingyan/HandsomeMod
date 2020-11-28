@@ -1,4 +1,4 @@
-# HandsomeYingyan's Mod on Openwrt!
+# HandsomeMod
 ## IOT Freedom For End-user!
 ### Warning!!
 ## This Project is unstable and un-fully tested right now!
@@ -31,6 +31,18 @@ The orginal code come form openwrt 19.07.
 https://github.com/openwrt/openwrt
 
 
+#  The Main Target Support By HandsomeMod
+
+- Rapsberry pies (BCM27xx)
+
+- Allwinner Socs （Sunxi）
+
+- Hi35xx (EOF)
+
+- MSMxxxx (Planing)
+
+- Halium (Planing)
+
 
 #  What is Moded?
 
@@ -60,7 +72,7 @@ https://github.com/openwrt/openwrt
 
 - Update the kernel backport driver to 5.8(better wifi signal).
 
-- Ipcam soc support(Hi35xx)
+- Ipcam soc support(Hi35xx) EOF
 
 - Non-free feeds for Allwinner cedarX and HiSilicon libs and modules.
 
@@ -70,13 +82,13 @@ https://github.com/openwrt/openwrt
 
 - Use eudev instead of the orginal one in openwrt
 
-- Add qt sdl directfb and other funny stuff!
+- Add qt sdl directfb and other stuff!
 
 - Connman For Wext-based wifi chips
 
 - Sunxi mail400 kernel module and userspace library.(Runs Pretty Well With Glmark2 Fbdev)
 
-- Linux 5.4 Support!
+- Linux 5.4 Support! (4.9 and 4.14 Now Basically EOF)
 
 - CedarX With Openmax Support For Sunxi Mainline(5.4) Devices.
 
@@ -106,10 +118,12 @@ https://github.com/openwrt/openwrt
 
 - Better Support For Rapsberry Boards.
 
+- Use genimage to generate sunxi images.
 
-Ps:Please Report Bugs at openwrt offcial github site! Or https://bugs.openwrt.org/
+- Libhybris Suppport For Project Halium.
 
-I Just A Newbie in Openwrt.. 
+- Qualcomm Arm Soc (Like Msm8916) mainline support.
+
 
 Future Release Will Based On Openwrt's Latest Stable Version.
 

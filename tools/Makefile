@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2006-2011 OpenWrt.org
+# Copyright (C) 2020 HandsomeMod Project
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -40,6 +41,9 @@ tools-$(BUILD_ISL) += isl
 tools-$(CONFIG_USE_SPARSE) += sparse
 tools-$(CONFIG_TARGET_apm821xx)$(CONFIG_TARGET_gemini) += genext2fs
 tools-$(CONFIG_TARGET_tegra) += cbootimage cbootimage-configs
+
+# highly experimental
+tools-y += genimage confuse
 
 # builddir dependencies
 $(curdir)/upx/compile := $(curdir)/ucl/compile

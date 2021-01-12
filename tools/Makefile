@@ -43,7 +43,6 @@ tools-$(CONFIG_TARGET_apm821xx)$(CONFIG_TARGET_gemini) += genext2fs
 tools-$(CONFIG_TARGET_tegra) += cbootimage cbootimage-configs
 
 # highly experimental
-tools-y += genimage confuse
 tools-y += mkbootimg
 
 # builddir dependencies

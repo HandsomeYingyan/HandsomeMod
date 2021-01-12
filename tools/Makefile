@@ -44,6 +44,7 @@ tools-$(CONFIG_TARGET_tegra) += cbootimage cbootimage-configs
 
 # highly experimental
 tools-y += genimage confuse
+tools-y += mkbootimg
 
 # builddir dependencies
 $(curdir)/upx/compile := $(curdir)/ucl/compile

@@ -1,7 +1,7 @@
 --- a/arch/arm/boot/dts/imx6dl-wandboard.dts
 +++ b/arch/arm/boot/dts/imx6dl-wandboard.dts
-@@ -19,4 +19,8 @@
- 	memory {
+@@ -16,4 +16,8 @@
+ 		device_type = "memory";
  		reg = <0x10000000 0x40000000>;
  	};
 +

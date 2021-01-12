@@ -8,5 +8,5 @@
 include $(TOPDIR)/rules.mk
 
 BOARDNAME:=Allwinner F1C100s (With Spi-nand)
-FEATURES:= usb ext4 display rtc squashfs nand
+FEATURES:= usb display rtc squashfs nand usbgadget ubifs
 CPU_TYPE:=arm926ej-s

@@ -11,7 +11,7 @@ include $(TOPDIR)/rules.mk
 ARCH:=arm
 BOARD:=sunxi
 BOARDNAME:=Allwinner A1x/A20/A3x/F1Cx00s/V3s
-FEATURES:=fpu usb ext4 display rtc squashfs
+FEATURES:=fpu usb ext4 display rtc squashfs usbgadget 
 SUBTARGETS:=cortexa8 cortexa7 cortexa53 arm9 arm9-nand
 MAINTAINER:=HandsomeYingyan<handosmeyingyan@gmali.com>
 

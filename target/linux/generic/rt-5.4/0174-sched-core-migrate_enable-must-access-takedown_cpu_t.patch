@@ -1,7 +1,7 @@
-From 1d25959f4f2715552a2a82872c79b6420afbdfec Mon Sep 17 00:00:00 2001
+From 205eed28f73e7ac271ee38b2e7f5303d235ef629 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 29 Nov 2019 17:24:55 +0100
-Subject: [PATCH 174/298] sched/core: migrate_enable() must access
+Subject: [PATCH 174/305] sched/core: migrate_enable() must access
  takedown_cpu_task on !HOTPLUG_CPU
 
 The variable takedown_cpu_task is never declared/used on !HOTPLUG_CPU
@@ -17,10 +17,10 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  2 files changed, 4 insertions(+)
 
 diff --git a/kernel/cpu.c b/kernel/cpu.c
-index fc2d1c8d1b2a..2b6aec3623c1 100644
+index 42f8b3612244..18f4b0602a01 100644
 --- a/kernel/cpu.c
 +++ b/kernel/cpu.c
-@@ -902,7 +902,9 @@ static int take_cpu_down(void *_param)
+@@ -906,7 +906,9 @@ static int take_cpu_down(void *_param)
  	return 0;
  }
  
@@ -31,10 +31,10 @@ index fc2d1c8d1b2a..2b6aec3623c1 100644
  static int takedown_cpu(unsigned int cpu)
  {
 diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index bc95987cae51..4bfc3eb2fd47 100644
+index 7ff7de493993..eee83d5233a4 100644
 --- a/kernel/sched/core.c
 +++ b/kernel/sched/core.c
-@@ -8160,9 +8160,11 @@ void migrate_enable(void)
+@@ -8236,9 +8236,11 @@ void migrate_enable(void)
  
  	p->migrate_disable = 0;
  	rq->nr_pinned--;
@@ -47,5 +47,5 @@ index bc95987cae51..4bfc3eb2fd47 100644
  	if (!p->migrate_disable_scheduled)
  		goto out;
 -- 
-2.28.0
+2.29.2
 

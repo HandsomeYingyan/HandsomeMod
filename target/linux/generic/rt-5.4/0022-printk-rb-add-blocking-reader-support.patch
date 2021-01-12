@@ -1,7 +1,7 @@
-From 581b64fc8adc3dfe2fbbeabd526ffccd5cfd4dd6 Mon Sep 17 00:00:00 2001
+From c769c2d908110ecee4166df239a5a81591fbdbcb Mon Sep 17 00:00:00 2001
 From: John Ogness <john.ogness@linutronix.de>
 Date: Tue, 12 Feb 2019 15:29:44 +0100
-Subject: [PATCH 022/298] printk-rb: add blocking reader support
+Subject: [PATCH 022/305] printk-rb: add blocking reader support
 
 Add a blocking read function for readers. An irq_work function is
 used to signal the wait queue so that write notification can
@@ -165,5 +165,5 @@ index 1d1e886a0966..dc9fd83e251d 100644
 +	return ret;
 +}
 -- 
-2.28.0
+2.29.2
 

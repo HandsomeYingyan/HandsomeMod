@@ -1,7 +1,7 @@
-From fb143a598fa1410480411a29b46c9e611053d051 Mon Sep 17 00:00:00 2001
+From 1ac35c0a0a60e44ff92c4fcd14b320e2f489b883 Mon Sep 17 00:00:00 2001
 From: Scott Wood <swood@redhat.com>
 Date: Wed, 11 Sep 2019 17:57:28 +0100
-Subject: [PATCH 182/298] rcu: Use rcuc threads on PREEMPT_RT as we did
+Subject: [PATCH 182/305] rcu: Use rcuc threads on PREEMPT_RT as we did
 
 While switching to the reworked RCU-thread code, it has been forgotten
 to enable the thread processing on -RT.
@@ -15,7 +15,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/kernel/rcu/tree.c b/kernel/rcu/tree.c
-index b1ca33e986c8..c006f4970f03 100644
+index bb63870be0db..3d911eb319f8 100644
 --- a/kernel/rcu/tree.c
 +++ b/kernel/rcu/tree.c
 @@ -100,8 +100,10 @@ struct rcu_state rcu_state = {
@@ -31,5 +31,5 @@ index b1ca33e986c8..c006f4970f03 100644
  static bool rcu_fanout_exact;
  module_param(rcu_fanout_exact, bool, 0444);
 -- 
-2.28.0
+2.29.2
 

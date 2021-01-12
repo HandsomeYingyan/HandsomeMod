@@ -1,0 +1,46 @@
+From 0deb8bdfb15f717ca814616766e33a6f7a9f39a0 Mon Sep 17 00:00:00 2001
+From: Zanxiong Qiu <zqiu2000@126.com>
+Date: Fri, 27 Nov 2020 21:54:56 +0800
+Subject: [PATCH 304/305] mm/swap: use local lock in deactivate_page()
+
+get_cpu_var() calls preempt_disable(), while on RT kernel,
+pagevec_lru_move_fn() will call spinlock and might schedule
+the context out and hence the schedule bug occurred, issue
+is found on 5.4.70-rt40 and reproducable on 5.4.74-rt41.
+
+32154a0abcc ("mm: Revert the DEFINE_PER_CPU_PAGEVEC implementation")
+reverted the lock/unlock_swap_pvec function, however,
+deactivate_page() part was missed at that time as it's newly
+added in v5.4.
+
+Link: https://lore.kernel.org/r/20201127135456.8145-1-zqiu2000@126.com
+Acked-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Signed-off-by: Zanxiong Qiu <zqiu2000@126.com>
+Signed-off-by: Steven Rostedt (VMware) <rostedt@goodmis.org>
+---
+ mm/swap.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/mm/swap.c b/mm/swap.c
+index cdb4f1fa3a48..463cac334fcf 100644
+--- a/mm/swap.c
++++ b/mm/swap.c
+@@ -666,12 +666,13 @@ void deactivate_file_page(struct page *page)
+ void deactivate_page(struct page *page)
+ {
+ 	if (PageLRU(page) && PageActive(page) && !PageUnevictable(page)) {
+-		struct pagevec *pvec = &get_cpu_var(lru_deactivate_pvecs);
++		struct pagevec *pvec = &get_locked_var(swapvec_lock,
++							lru_deactivate_pvecs);
+ 
+ 		get_page(page);
+ 		if (!pagevec_add(pvec, page) || PageCompound(page))
+ 			pagevec_lru_move_fn(pvec, lru_deactivate_fn, NULL);
+-		put_cpu_var(lru_deactivate_pvecs);
++		put_locked_var(swapvec_lock, lru_deactivate_pvecs);
+ 	}
+ }
+ 
+-- 
+2.29.2
+

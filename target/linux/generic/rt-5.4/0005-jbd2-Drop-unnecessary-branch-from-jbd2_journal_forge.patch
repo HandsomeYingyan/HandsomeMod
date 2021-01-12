@@ -1,7 +1,7 @@
-From 957a8c61118c2c82b644225873bdc0d1dc2b0f49 Mon Sep 17 00:00:00 2001
+From 75bc90e91472c2736e170ae1b52ed80ca3b30212 Mon Sep 17 00:00:00 2001
 From: Jan Kara <jack@suse.cz>
 Date: Fri, 9 Aug 2019 14:42:30 +0200
-Subject: [PATCH 005/298] jbd2: Drop unnecessary branch from
+Subject: [PATCH 005/305] jbd2: Drop unnecessary branch from
  jbd2_journal_forget()
 
 We have cleared both dirty & jbddirty bits from the bh. So there's no
@@ -15,10 +15,10 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 4 deletions(-)
 
 diff --git a/fs/jbd2/transaction.c b/fs/jbd2/transaction.c
-index 3e9ff9c2a8ba..74ddb29dc208 100644
+index a3a1c7da1e93..8f392add270d 100644
 --- a/fs/jbd2/transaction.c
 +++ b/fs/jbd2/transaction.c
-@@ -1603,10 +1603,6 @@ int jbd2_journal_forget (handle_t *handle, struct buffer_head *bh)
+@@ -1605,10 +1605,6 @@ int jbd2_journal_forget (handle_t *handle, struct buffer_head *bh)
  		} else {
  			__jbd2_journal_unfile_buffer(jh);
  			jbd2_journal_put_journal_head(jh);
@@ -30,5 +30,5 @@ index 3e9ff9c2a8ba..74ddb29dc208 100644
  		spin_unlock(&journal->j_list_lock);
  	} else if (jh->b_transaction) {
 -- 
-2.28.0
+2.29.2
 

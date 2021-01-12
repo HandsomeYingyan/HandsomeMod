@@ -1,7 +1,7 @@
-From 676dba8685c4f77fe2c23442e158b5b513f5f025 Mon Sep 17 00:00:00 2001
+From 3de0156c6f04a32b4c798f6671f89c919f60cc3c Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 28 Oct 2016 23:05:11 +0200
-Subject: [PATCH 089/298] NFSv4: replace seqcount_t with a seqlock_t
+Subject: [PATCH 089/305] NFSv4: replace seqcount_t with a seqlock_t
 
 The raw_write_seqcount_begin() in nfs4_reclaim_open_state() causes a
 preempt_disable() on -RT. The spin_lock()/spin_unlock() in that section does
@@ -45,7 +45,7 @@ index af549d70ec50..86a72d0d3817 100644
  		mutex_unlock(&sp->so_delegreturn_mutex);
  		put_nfs_open_context(ctx);
 diff --git a/fs/nfs/nfs4_fs.h b/fs/nfs/nfs4_fs.h
-index bb322d9de313..68b8ccb53fe3 100644
+index c4a98cbda6dd..a3e5bc8c463c 100644
 --- a/fs/nfs/nfs4_fs.h
 +++ b/fs/nfs/nfs4_fs.h
 @@ -115,7 +115,7 @@ struct nfs4_state_owner {
@@ -58,10 +58,10 @@ index bb322d9de313..68b8ccb53fe3 100644
  };
  
 diff --git a/fs/nfs/nfs4proc.c b/fs/nfs/nfs4proc.c
-index d0cb827b72cf..b8c70e9f1be7 100644
+index 8598eba3fc23..8b8bc0116a35 100644
 --- a/fs/nfs/nfs4proc.c
 +++ b/fs/nfs/nfs4proc.c
-@@ -2983,7 +2983,7 @@ static int _nfs4_open_and_get_state(struct nfs4_opendata *opendata,
+@@ -2969,7 +2969,7 @@ static int _nfs4_open_and_get_state(struct nfs4_opendata *opendata,
  	unsigned int seq;
  	int ret;
  
@@ -70,7 +70,7 @@ index d0cb827b72cf..b8c70e9f1be7 100644
  	dir_verifier = nfs_save_change_attribute(dir);
  
  	ret = _nfs4_proc_open(opendata, ctx);
-@@ -3037,7 +3037,7 @@ static int _nfs4_open_and_get_state(struct nfs4_opendata *opendata,
+@@ -3023,7 +3023,7 @@ static int _nfs4_open_and_get_state(struct nfs4_opendata *opendata,
  
  	if (d_inode(dentry) == state->inode) {
  		nfs_inode_attach_open_context(ctx);
@@ -132,5 +132,5 @@ index ea680f619438..09143fa7e6aa 100644
  }
  
 -- 
-2.28.0
+2.29.2
 

@@ -1,7 +1,7 @@
-From 16e84ff8a3de6c1a92d0f1c274991a09525a1cfc Mon Sep 17 00:00:00 2001
+From 3ac501eb50b94047ad85ad6c39a849afb1b93828 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 16 Jan 2020 12:00:31 +0100
-Subject: [PATCH 066/298] smp: Use smp_cond_func_t as type for the conditional
+Subject: [PATCH 066/305] smp: Use smp_cond_func_t as type for the conditional
  function
 
 Use a typdef for the conditional function instead defining it each time in
@@ -104,5 +104,5 @@ index 862b460ab97a..5c0d4f2bece2 100644
  	on_each_cpu_cond_mask(cond_func, func, info, wait, gfp_flags, NULL);
  }
 -- 
-2.28.0
+2.29.2
 

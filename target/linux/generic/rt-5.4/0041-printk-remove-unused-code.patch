@@ -1,7 +1,7 @@
-From 6d0afa0973ba73d21b2fe1c68887457d49f8f872 Mon Sep 17 00:00:00 2001
+From 506338e5c24a6b4ade1f9997340910e9d8716fec Mon Sep 17 00:00:00 2001
 From: John Ogness <john.ogness@linutronix.de>
 Date: Tue, 12 Feb 2019 15:30:03 +0100
-Subject: [PATCH 041/298] printk: remove unused code
+Subject: [PATCH 041/305] printk: remove unused code
 
 Code relating to the safe context and anything dealing with the
 previous log buffer implementation is no longer in use. Remove it.
@@ -63,7 +63,7 @@ index 2b9b466e0bdf..000000000000
 -#define printk_safe_enter_irq() local_irq_disable()
 -#define printk_safe_exit_irq() local_irq_enable()
 diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
-index e4a00edad3d5..09a0e9b64a54 100644
+index 7fddb5908947..16ceef380243 100644
 --- a/kernel/printk/printk.c
 +++ b/kernel/printk/printk.c
 @@ -61,7 +61,6 @@
@@ -271,7 +271,7 @@ index e4a00edad3d5..09a0e9b64a54 100644
  #endif /* CONFIG_PRINTK */
  
  #ifdef CONFIG_EARLY_PRINTK
-@@ -2429,15 +2356,10 @@ void console_unblank(void)
+@@ -2432,15 +2359,10 @@ void console_unblank(void)
  void console_flush_on_panic(enum con_flush_mode mode)
  {
  	/*
@@ -290,7 +290,7 @@ index e4a00edad3d5..09a0e9b64a54 100644
  }
  
  /*
-@@ -2786,46 +2708,6 @@ static int __init printk_late_init(void)
+@@ -2789,46 +2711,6 @@ static int __init printk_late_init(void)
  late_initcall(printk_late_init);
  
  #if defined CONFIG_PRINTK
@@ -337,7 +337,7 @@ index e4a00edad3d5..09a0e9b64a54 100644
  static int printk_kthread_func(void *data)
  {
  	struct prb_iterator iter;
-@@ -2891,25 +2773,9 @@ static int __init init_printk_kthread(void)
+@@ -2894,25 +2776,9 @@ static int __init init_printk_kthread(void)
  }
  late_initcall(init_printk_kthread);
  
@@ -379,5 +379,5 @@ index 8be59f84eaea..c6e083323d1b 100644
  	}
  }
 -- 
-2.28.0
+2.29.2
 

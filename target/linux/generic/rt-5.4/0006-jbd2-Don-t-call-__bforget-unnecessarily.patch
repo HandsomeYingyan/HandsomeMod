@@ -1,7 +1,7 @@
-From 892561d13a74e8b4717e00560ef622443b21e48c Mon Sep 17 00:00:00 2001
+From b41a73452d002cb4a0f1e00f6963f4faf973c390 Mon Sep 17 00:00:00 2001
 From: Jan Kara <jack@suse.cz>
 Date: Fri, 9 Aug 2019 14:42:31 +0200
-Subject: [PATCH 006/298] jbd2: Don't call __bforget() unnecessarily
+Subject: [PATCH 006/305] jbd2: Don't call __bforget() unnecessarily
 
 jbd2_journal_forget() jumps to 'not_jbd' branch which calls __bforget()
 in cases where the buffer is clean which is pointless. In case of failed
@@ -17,10 +17,10 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 4 insertions(+), 5 deletions(-)
 
 diff --git a/fs/jbd2/transaction.c b/fs/jbd2/transaction.c
-index 74ddb29dc208..eb02cd26de27 100644
+index 8f392add270d..215552d955be 100644
 --- a/fs/jbd2/transaction.c
 +++ b/fs/jbd2/transaction.c
-@@ -1554,7 +1554,7 @@ int jbd2_journal_forget (handle_t *handle, struct buffer_head *bh)
+@@ -1556,7 +1556,7 @@ int jbd2_journal_forget (handle_t *handle, struct buffer_head *bh)
  	if (!J_EXPECT_JH(jh, !jh->b_committed_data,
  			 "inconsistent data on disk")) {
  		err = -EIO;
@@ -29,7 +29,7 @@ index 74ddb29dc208..eb02cd26de27 100644
  	}
  
  	/* keep track of whether or not this transaction modified us */
-@@ -1644,7 +1644,7 @@ int jbd2_journal_forget (handle_t *handle, struct buffer_head *bh)
+@@ -1646,7 +1646,7 @@ int jbd2_journal_forget (handle_t *handle, struct buffer_head *bh)
  		if (!jh->b_cp_transaction) {
  			JBUFFER_TRACE(jh, "belongs to none transaction");
  			spin_unlock(&journal->j_list_lock);
@@ -38,7 +38,7 @@ index 74ddb29dc208..eb02cd26de27 100644
  		}
  
  		/*
-@@ -1654,7 +1654,7 @@ int jbd2_journal_forget (handle_t *handle, struct buffer_head *bh)
+@@ -1656,7 +1656,7 @@ int jbd2_journal_forget (handle_t *handle, struct buffer_head *bh)
  		if (!buffer_dirty(bh)) {
  			__jbd2_journal_remove_checkpoint(jh);
  			spin_unlock(&journal->j_list_lock);
@@ -47,7 +47,7 @@ index 74ddb29dc208..eb02cd26de27 100644
  		}
  
  		/*
-@@ -1667,10 +1667,9 @@ int jbd2_journal_forget (handle_t *handle, struct buffer_head *bh)
+@@ -1669,10 +1669,9 @@ int jbd2_journal_forget (handle_t *handle, struct buffer_head *bh)
  		__jbd2_journal_file_buffer(jh, transaction, BJ_Forget);
  		spin_unlock(&journal->j_list_lock);
  	}
@@ -60,5 +60,5 @@ index 74ddb29dc208..eb02cd26de27 100644
  		/* no need to reserve log space for this block -bzzz */
  		handle->h_buffer_credits++;
 -- 
-2.28.0
+2.29.2
 

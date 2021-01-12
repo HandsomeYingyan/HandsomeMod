@@ -1,7 +1,7 @@
-From 56f896a2ef3504728933fe0120c1d8fac7a8d09f Mon Sep 17 00:00:00 2001
+From 8e244a795cf99ee98fe1fdd14b9e049c5a889a7b Mon Sep 17 00:00:00 2001
 From: Anna-Maria Gleixner <anna-maria@linutronix.de>
 Date: Mon, 27 May 2019 16:54:06 +0200
-Subject: [PATCH 137/298] posix-timers: Add expiry lock
+Subject: [PATCH 137/305] posix-timers: Add expiry lock
 
 If a about to be removed posix timer is active then the code will retry the
 delete operation until it succeeds / the timer callback completes.
@@ -123,5 +123,5 @@ index 74b3efc3de90..327300eb2770 100644
  
  const struct k_clock clock_process = {
 -- 
-2.28.0
+2.29.2
 

@@ -1,7 +1,7 @@
-From 0ba3ea81c6c86514995082638f20afa01f75402b Mon Sep 17 00:00:00 2001
+From 0360dc6a0e47f6d4feea0aab04fd9d8e41f6ff7c Mon Sep 17 00:00:00 2001
 From: John Ogness <john.ogness@linutronix.de>
 Date: Tue, 12 Feb 2019 15:29:54 +0100
-Subject: [PATCH 032/298] printk: implement CON_PRINTBUFFER
+Subject: [PATCH 032/305] printk: implement CON_PRINTBUFFER
 
 If the CON_PRINTBUFFER flag is not set, do not replay the history
 for that console.
@@ -13,7 +13,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 6 insertions(+), 28 deletions(-)
 
 diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
-index 4ee64bf6a452..29dafad20b7b 100644
+index 7aa0ab0c9e1f..eb568567f3f4 100644
 --- a/kernel/printk/printk.c
 +++ b/kernel/printk/printk.c
 @@ -419,10 +419,6 @@ static u32 log_first_idx;
@@ -51,7 +51,7 @@ index 4ee64bf6a452..29dafad20b7b 100644
  static u64 log_first_seq;
  static u32 log_first_idx;
  static u64 log_next_seq;
-@@ -2234,15 +2232,6 @@ void console_flush_on_panic(enum con_flush_mode mode)
+@@ -2237,15 +2235,6 @@ void console_flush_on_panic(enum con_flush_mode mode)
  	 */
  	console_trylock();
  	console_may_schedule = 0;
@@ -67,7 +67,7 @@ index 4ee64bf6a452..29dafad20b7b 100644
  	console_unlock();
  }
  
-@@ -2321,7 +2310,6 @@ early_param("keep_bootcon", keep_bootcon_setup);
+@@ -2324,7 +2313,6 @@ early_param("keep_bootcon", keep_bootcon_setup);
  void register_console(struct console *newcon)
  {
  	int i;
@@ -75,7 +75,7 @@ index 4ee64bf6a452..29dafad20b7b 100644
  	struct console *bcon = NULL;
  	struct console_cmdline *c;
  	static bool has_preferred;
-@@ -2437,16 +2425,6 @@ void register_console(struct console *newcon)
+@@ -2440,16 +2428,6 @@ void register_console(struct console *newcon)
  	if (newcon->flags & CON_EXTENDED)
  		nr_ext_console_drivers++;
  
@@ -93,5 +93,5 @@ index 4ee64bf6a452..29dafad20b7b 100644
  	console_sysfs_notify();
  
 -- 
-2.28.0
+2.29.2
 

@@ -1,7 +1,7 @@
-From e387a8d620fd3f99ccb89544e43d4eecc318d860 Mon Sep 17 00:00:00 2001
+From 32f0cb9371a49f4514b9c7d70501a9a292f5a312 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 15 Nov 2019 18:04:07 +0100
-Subject: [PATCH 064/298] perf/core: Add SRCU annotation for pmus list walk
+Subject: [PATCH 064/305] perf/core: Add SRCU annotation for pmus list walk
 
 Since commit
    28875945ba98d ("rcu: Add support for consolidated-RCU reader checking")
@@ -19,7 +19,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/kernel/events/core.c b/kernel/events/core.c
-index db1f5aa755f2..adf48e266882 100644
+index 9f7c2da99299..33204f28fe99 100644
 --- a/kernel/events/core.c
 +++ b/kernel/events/core.c
 @@ -10287,7 +10287,7 @@ static struct pmu *perf_init_event(struct perf_event *event)
@@ -32,5 +32,5 @@ index db1f5aa755f2..adf48e266882 100644
  		if (!ret)
  			goto unlock;
 -- 
-2.28.0
+2.29.2
 

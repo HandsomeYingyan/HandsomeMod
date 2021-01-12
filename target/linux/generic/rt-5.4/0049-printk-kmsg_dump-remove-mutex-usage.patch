@@ -1,7 +1,7 @@
-From 58d9afed83b7001d8d7dcf3df9fead3799101943 Mon Sep 17 00:00:00 2001
+From 17d7a6c9b421f6f4cae21fe8fbc57c7aa3825074 Mon Sep 17 00:00:00 2001
 From: John Ogness <john.ogness@linutronix.de>
 Date: Wed, 24 Apr 2019 16:36:04 +0200
-Subject: [PATCH 049/298] printk: kmsg_dump: remove mutex usage
+Subject: [PATCH 049/305] printk: kmsg_dump: remove mutex usage
 
 The kmsg dumper can be called from any context, but the dumping
 helpers were using a mutex to synchronize the iterator against
@@ -19,7 +19,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 10 insertions(+), 13 deletions(-)
 
 diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
-index 99d8a100a7a5..b5eb44fd4df0 100644
+index aa412aeea89e..b30577cf5698 100644
 --- a/kernel/printk/printk.c
 +++ b/kernel/printk/printk.c
 @@ -379,8 +379,6 @@ static u64 syslog_seq;
@@ -31,7 +31,7 @@ index 99d8a100a7a5..b5eb44fd4df0 100644
  /* the next printk record to read after the last 'clear' command */
  static u64 clear_seq;
  
-@@ -2908,6 +2906,7 @@ module_param_named(always_kmsg_dump, always_kmsg_dump, bool, S_IRUGO | S_IWUSR);
+@@ -2911,6 +2909,7 @@ module_param_named(always_kmsg_dump, always_kmsg_dump, bool, S_IRUGO | S_IWUSR);
   */
  void kmsg_dump(enum kmsg_dump_reason reason)
  {
@@ -39,7 +39,7 @@ index 99d8a100a7a5..b5eb44fd4df0 100644
  	struct kmsg_dumper *dumper;
  
  	if ((reason > KMSG_DUMP_OOPS) && !always_kmsg_dump)
-@@ -2918,16 +2917,18 @@ void kmsg_dump(enum kmsg_dump_reason reason)
+@@ -2921,16 +2920,18 @@ void kmsg_dump(enum kmsg_dump_reason reason)
  		if (dumper->max_reason && reason > dumper->max_reason)
  			continue;
  
@@ -65,7 +65,7 @@ index 99d8a100a7a5..b5eb44fd4df0 100644
  	}
  	rcu_read_unlock();
  }
-@@ -3039,9 +3040,7 @@ bool kmsg_dump_get_line(struct kmsg_dumper *dumper, bool syslog,
+@@ -3042,9 +3043,7 @@ bool kmsg_dump_get_line(struct kmsg_dumper *dumper, bool syslog,
  {
  	bool ret;
  
@@ -75,7 +75,7 @@ index 99d8a100a7a5..b5eb44fd4df0 100644
  
  	return ret;
  }
-@@ -3193,9 +3192,7 @@ void kmsg_dump_rewind_nolock(struct kmsg_dumper *dumper)
+@@ -3196,9 +3195,7 @@ void kmsg_dump_rewind_nolock(struct kmsg_dumper *dumper)
   */
  void kmsg_dump_rewind(struct kmsg_dumper *dumper)
  {
@@ -86,5 +86,5 @@ index 99d8a100a7a5..b5eb44fd4df0 100644
  EXPORT_SYMBOL_GPL(kmsg_dump_rewind);
  
 -- 
-2.28.0
+2.29.2
 

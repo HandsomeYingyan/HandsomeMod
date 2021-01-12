@@ -1,7 +1,7 @@
-From ac4f8af79b508b6e9ad66d6b9843ff6599f3db5d Mon Sep 17 00:00:00 2001
+From 67f56fc4d2e32a2b059b4d486ebf2f65a36fc34a Mon Sep 17 00:00:00 2001
 From: John Ogness <john.ogness@linutronix.de>
 Date: Tue, 12 Feb 2019 15:29:45 +0100
-Subject: [PATCH 023/298] printk-rb: add functionality required by printk
+Subject: [PATCH 023/305] printk-rb: add functionality required by printk
 
 The printk subsystem needs to be able to query the size of the ring
 buffer, seek to specific entries within the ring buffer, and track
@@ -163,5 +163,5 @@ index dc9fd83e251d..9a31d7dbdc00 100644
 +	atomic_long_inc(&rb->lost);
 +}
 -- 
-2.28.0
+2.29.2
 

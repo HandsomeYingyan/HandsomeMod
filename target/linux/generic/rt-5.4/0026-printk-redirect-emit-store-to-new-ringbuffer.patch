@@ -1,7 +1,7 @@
-From d38912673e8037cb92ba5a395029846fb6fd277d Mon Sep 17 00:00:00 2001
+From f7a08b41d36464fe0bfdc87a106eb62c09fa1773 Mon Sep 17 00:00:00 2001
 From: John Ogness <john.ogness@linutronix.de>
 Date: Tue, 12 Feb 2019 15:29:48 +0100
-Subject: [PATCH 026/298] printk: redirect emit/store to new ringbuffer
+Subject: [PATCH 026/305] printk: redirect emit/store to new ringbuffer
 
 vprintk_emit and vprintk_store are the main functions that all printk
 variants eventually go through. Change these to store the message in
@@ -25,7 +25,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 52 insertions(+), 275 deletions(-)
 
 diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
-index 99a7bfa90424..e791a85535cf 100644
+index a67836c4cfb4..d79b4e1c6e70 100644
 --- a/kernel/printk/printk.c
 +++ b/kernel/printk/printk.c
 @@ -529,90 +529,6 @@ static u32 log_next(u32 idx)
@@ -430,7 +430,7 @@ index 99a7bfa90424..e791a85535cf 100644
  	return printed_len;
  }
  EXPORT_SYMBOL(vprintk_emit);
-@@ -2522,7 +2299,7 @@ void console_unlock(void)
+@@ -2525,7 +2302,7 @@ void console_unlock(void)
  		console_lock_spinning_enable();
  
  		stop_critical_timings();	/* don't trace print latency */
@@ -440,5 +440,5 @@ index 99a7bfa90424..e791a85535cf 100644
  
  		if (console_lock_spinning_disable_and_check()) {
 -- 
-2.28.0
+2.29.2
 

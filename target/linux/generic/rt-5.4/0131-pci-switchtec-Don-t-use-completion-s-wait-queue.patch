@@ -1,7 +1,7 @@
-From 5a05c98994bf85a1a7f68c3cb77ba019c651a548 Mon Sep 17 00:00:00 2001
+From 92ccafce2cf9a567a6c46fff3271fa2d85705c0f Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 4 Oct 2017 10:24:23 +0200
-Subject: [PATCH 131/298] pci/switchtec: Don't use completion's wait queue
+Subject: [PATCH 131/305] pci/switchtec: Don't use completion's wait queue
 
 The poll callback is using completion's wait_queue_head_t member and
 puts it in poll_wait() so the poll() caller gets a wakeup after command
@@ -110,5 +110,5 @@ index 2c9c3061894b..90d6eb310e70 100644
  		stuser_put(stuser);
  	}
 -- 
-2.28.0
+2.29.2
 

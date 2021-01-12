@@ -1,7 +1,7 @@
-From d737439299a2c0b79a169267cd1509cf212f5c35 Mon Sep 17 00:00:00 2001
+From 4c5c4c0ce97cd66b870676866810f4612d79806e Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 10 Jun 2011 11:04:15 +0200
-Subject: [PATCH 148/298] rtmutex: Handle the various new futex race conditions
+Subject: [PATCH 148/305] rtmutex: Handle the various new futex race conditions
 
 RT opens a few new interesting race conditions in the rtmutex/futex
 combo due to futex hash bucket lock being a 'sleeping' spinlock and
@@ -15,10 +15,10 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  3 files changed, 94 insertions(+), 21 deletions(-)
 
 diff --git a/kernel/futex.c b/kernel/futex.c
-index 5660c02b01b0..c683142b1f54 100644
+index b6dec5f79370..b0a14697cec4 100644
 --- a/kernel/futex.c
 +++ b/kernel/futex.c
-@@ -2260,6 +2260,16 @@ static int futex_requeue(u32 __user *uaddr1, unsigned int flags,
+@@ -2263,6 +2263,16 @@ static int futex_requeue(u32 __user *uaddr1, unsigned int flags,
  				requeue_pi_wake_futex(this, &key2, hb2);
  				drop_count++;
  				continue;
@@ -35,7 +35,7 @@ index 5660c02b01b0..c683142b1f54 100644
  			} else if (ret) {
  				/*
  				 * rt_mutex_start_proxy_lock() detected a
-@@ -3315,7 +3325,7 @@ static int futex_wait_requeue_pi(u32 __user *uaddr, unsigned int flags,
+@@ -3330,7 +3340,7 @@ static int futex_wait_requeue_pi(u32 __user *uaddr, unsigned int flags,
  	struct hrtimer_sleeper timeout, *to;
  	struct futex_pi_state *pi_state = NULL;
  	struct rt_mutex_waiter rt_waiter;
@@ -44,7 +44,7 @@ index 5660c02b01b0..c683142b1f54 100644
  	union futex_key key2 = FUTEX_KEY_INIT;
  	struct futex_q q = futex_q_init;
  	int res, ret;
-@@ -3367,20 +3377,55 @@ static int futex_wait_requeue_pi(u32 __user *uaddr, unsigned int flags,
+@@ -3382,20 +3392,55 @@ static int futex_wait_requeue_pi(u32 __user *uaddr, unsigned int flags,
  	/* Queue the futex_q, drop the hb lock, wait for wakeup. */
  	futex_wait_queue_me(hb, &q, to);
  
@@ -111,7 +111,7 @@ index 5660c02b01b0..c683142b1f54 100644
  
  	/* Check if the requeue code acquired the second futex for us. */
  	if (!q.rt_waiter) {
-@@ -3389,7 +3434,8 @@ static int futex_wait_requeue_pi(u32 __user *uaddr, unsigned int flags,
+@@ -3404,7 +3449,8 @@ static int futex_wait_requeue_pi(u32 __user *uaddr, unsigned int flags,
  		 * did a lock-steal - fix up the PI-state in that case.
  		 */
  		if (q.pi_state && (q.pi_state->owner != current)) {
@@ -121,7 +121,7 @@ index 5660c02b01b0..c683142b1f54 100644
  			ret = fixup_pi_state_owner(uaddr2, &q, current);
  			if (ret && rt_mutex_owner(&q.pi_state->pi_mutex) == current) {
  				pi_state = q.pi_state;
-@@ -3400,7 +3446,7 @@ static int futex_wait_requeue_pi(u32 __user *uaddr, unsigned int flags,
+@@ -3415,7 +3461,7 @@ static int futex_wait_requeue_pi(u32 __user *uaddr, unsigned int flags,
  			 * the requeue_pi() code acquired for us.
  			 */
  			put_pi_state(q.pi_state);
@@ -130,7 +130,7 @@ index 5660c02b01b0..c683142b1f54 100644
  		}
  	} else {
  		struct rt_mutex *pi_mutex;
-@@ -3414,7 +3460,8 @@ static int futex_wait_requeue_pi(u32 __user *uaddr, unsigned int flags,
+@@ -3429,7 +3475,8 @@ static int futex_wait_requeue_pi(u32 __user *uaddr, unsigned int flags,
  		pi_mutex = &q.pi_state->pi_mutex;
  		ret = rt_mutex_wait_proxy_lock(pi_mutex, to, &rt_waiter);
  
@@ -250,5 +250,5 @@ index d1d62f942be2..f4b6596d224a 100644
  extern void rt_mutex_init_proxy_locked(struct rt_mutex *lock,
  				       struct task_struct *proxy_owner);
 -- 
-2.28.0
+2.29.2
 

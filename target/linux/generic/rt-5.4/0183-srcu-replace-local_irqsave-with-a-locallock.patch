@@ -1,7 +1,7 @@
-From e8bf13452460d080969c47ae8060d8548c1da19b Mon Sep 17 00:00:00 2001
+From eb39120e35f1a71164b79c00f0a7b999100297da Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 12 Oct 2017 18:37:12 +0200
-Subject: [PATCH 183/298] srcu: replace local_irqsave() with a locallock
+Subject: [PATCH 183/305] srcu: replace local_irqsave() with a locallock
 
 There are two instances which disable interrupts in order to become a
 stable this_cpu_ptr() pointer. The restore part is coupled with
@@ -71,5 +71,5 @@ index 21acdff3bd27..331667d72711 100644
  		srcu_funnel_gp_start(ssp, sdp, s, do_norm);
  	else if (needexp)
 -- 
-2.28.0
+2.29.2
 

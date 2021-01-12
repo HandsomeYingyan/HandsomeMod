@@ -1,7 +1,7 @@
-From 42a9b5dae7d18e9ea2e778953019a324687c7d7f Mon Sep 17 00:00:00 2001
+From 06082ad6e4d07636fd105563754bd04294bbf23b Mon Sep 17 00:00:00 2001
 From: John Ogness <john.ogness@linutronix.de>
 Date: Tue, 12 Feb 2019 15:29:53 +0100
-Subject: [PATCH 031/298] printk: print history for new consoles
+Subject: [PATCH 031/305] printk: print history for new consoles
 
 When new consoles register, they currently print how many messages
 they have missed. However, many (or all) of those messages may still
@@ -29,7 +29,7 @@ index 22f2d31ca5ac..27651ab3e7c9 100644
  	struct	 console *next;
  };
 diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
-index 764f2c72d0b7..4ee64bf6a452 100644
+index 6d02f07f47cf..7aa0ab0c9e1f 100644
 --- a/kernel/printk/printk.c
 +++ b/kernel/printk/printk.c
 @@ -1588,6 +1588,77 @@ static void format_text(struct printk_log *msg, u64 seq,
@@ -122,5 +122,5 @@ index 764f2c72d0b7..4ee64bf6a452 100644
  			continue;
  		if (!cpu_online(raw_smp_processor_id()) &&
 -- 
-2.28.0
+2.29.2
 

@@ -1,7 +1,7 @@
-From f922a541795660ca388692e3378881f49c8a0b4f Mon Sep 17 00:00:00 2001
+From ce3ed3489d118de02bcddfdd8fbe33e240deaf87 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 16 Aug 2019 12:49:36 +0200
-Subject: [PATCH 080/298] cgroup: Acquire cgroup_rstat_lock with enabled
+Subject: [PATCH 080/305] cgroup: Acquire cgroup_rstat_lock with enabled
  interrupts
 
 There is no need to disable interrupts while cgroup_rstat_lock is
@@ -74,5 +74,5 @@ index 0dc835bead08..49315054a1bc 100644
  
  int cgroup_rstat_init(struct cgroup *cgrp)
 -- 
-2.28.0
+2.29.2
 

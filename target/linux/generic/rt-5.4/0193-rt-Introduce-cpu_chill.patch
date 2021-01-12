@@ -1,7 +1,7 @@
-From 1b82d45dd2cd47c1607b8862b4a4e7fd9aa27b73 Mon Sep 17 00:00:00 2001
+From 5383f8173bf76be6036909a14f0b7e97281af482 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 7 Mar 2012 20:51:03 +0100
-Subject: [PATCH 193/298] rt: Introduce cpu_chill()
+Subject: [PATCH 193/305] rt: Introduce cpu_chill()
 
 Retry loops on RT might loop forever when the modifying side was
 preempted. Add cpu_chill() to replace cpu_relax(). cpu_chill()
@@ -119,5 +119,5 @@ index c72220979260..41cc1c8530d8 100644
   * Functions related to boot-time initialization:
   */
 -- 
-2.28.0
+2.29.2
 

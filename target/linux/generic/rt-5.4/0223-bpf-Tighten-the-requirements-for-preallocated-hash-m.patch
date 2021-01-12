@@ -1,7 +1,7 @@
-From fe3cc17aefe3a1eb0ff45d608aba7bc415429ac6 Mon Sep 17 00:00:00 2001
+From e120caf8a4e1690177275c5b6037375e57ce8271 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Mon, 24 Feb 2020 15:01:32 +0100
-Subject: [PATCH 223/298] bpf: Tighten the requirements for preallocated hash
+Subject: [PATCH 223/305] bpf: Tighten the requirements for preallocated hash
  maps
 
 The assumption that only programs attached to perf NMI events can deadlock
@@ -51,10 +51,10 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 28 insertions(+), 11 deletions(-)
 
 diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
-index ae27dd77a73c..59ed5b0a525c 100644
+index a67bfa803d98..dbcd41b8c2c7 100644
 --- a/kernel/bpf/verifier.c
 +++ b/kernel/bpf/verifier.c
-@@ -7924,26 +7924,43 @@ static bool is_tracing_prog_type(enum bpf_prog_type type)
+@@ -7957,26 +7957,43 @@ static bool is_tracing_prog_type(enum bpf_prog_type type)
  	}
  }
  
@@ -110,5 +110,5 @@ index ae27dd77a73c..59ed5b0a525c 100644
  
  	if ((is_tracing_prog_type(prog->type) ||
 -- 
-2.28.0
+2.29.2
 

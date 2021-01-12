@@ -1,7 +1,7 @@
-From 8d5cb9fc142a678553ec71f14b143d1cbfb514a4 Mon Sep 17 00:00:00 2001
+From 6295dbbb0790168e8c86c9bafbe4d57ea1369be4 Mon Sep 17 00:00:00 2001
 From: "Luis Claudio R. Goncalves" <lclaudio@uudg.org>
 Date: Tue, 25 Jun 2019 11:28:04 -0300
-Subject: [PATCH 128/298] mm/zswap: Do not disable preemption in
+Subject: [PATCH 128/305] mm/zswap: Do not disable preemption in
  zswap_frontswap_store()
 
 Zswap causes "BUG: scheduling while atomic" by blocking on a rt_spin_lock() with
@@ -119,5 +119,5 @@ index 46a322316e52..21d2d3ed3d6d 100644
  freepage:
  	zswap_entry_cache_free(entry);
 -- 
-2.28.0
+2.29.2
 

@@ -1,7 +1,7 @@
-From c98fad10a66629e1266c52e3d6c27a8fd71a98e7 Mon Sep 17 00:00:00 2001
+From 9090abfe567ad363301d69c3708b4bc20cf2d112 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Mon, 24 Feb 2020 15:01:38 +0100
-Subject: [PATCH 230/298] perf/bpf: Remove preempt disable around BPF
+Subject: [PATCH 230/305] perf/bpf: Remove preempt disable around BPF
  invocation
 
 The BPF invocation from the perf event overflow handler does not require to
@@ -15,10 +15,10 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 2 deletions(-)
 
 diff --git a/kernel/events/core.c b/kernel/events/core.c
-index adf48e266882..68558ac839f3 100644
+index 33204f28fe99..495fe482a0e5 100644
 --- a/kernel/events/core.c
 +++ b/kernel/events/core.c
-@@ -8989,7 +8989,6 @@ static void bpf_overflow_handler(struct perf_event *event,
+@@ -8991,7 +8991,6 @@ static void bpf_overflow_handler(struct perf_event *event,
  	int ret = 0;
  
  	ctx.regs = perf_arch_bpf_user_pt_regs(regs);
@@ -26,7 +26,7 @@ index adf48e266882..68558ac839f3 100644
  	if (unlikely(__this_cpu_inc_return(bpf_prog_active) != 1))
  		goto out;
  	rcu_read_lock();
-@@ -8997,7 +8996,6 @@ static void bpf_overflow_handler(struct perf_event *event,
+@@ -8999,7 +8998,6 @@ static void bpf_overflow_handler(struct perf_event *event,
  	rcu_read_unlock();
  out:
  	__this_cpu_dec(bpf_prog_active);
@@ -35,5 +35,5 @@ index adf48e266882..68558ac839f3 100644
  		return;
  
 -- 
-2.28.0
+2.29.2
 

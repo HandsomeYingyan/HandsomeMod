@@ -1,7 +1,7 @@
-From 4207484cb7361d767a1e1a9c64b8b1d6552f10fd Mon Sep 17 00:00:00 2001
+From c4b2a8e40a96af679acaf22946514c6e7abe2ed4 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Sat, 27 May 2017 19:02:06 +0200
-Subject: [PATCH 173/298] kernel/sched/core: add migrate_disable()
+Subject: [PATCH 173/305] kernel/sched/core: add migrate_disable()
 
 [bristot@redhat.com: rt: Increase/decrease the nr of migratory tasks when enabling/disabling migration
  Link: https://lkml.kernel.org/r/e981d271cbeca975bca710e2fbcc6078c09741b0.1498482127.git.bristot@redhat.com
@@ -156,10 +156,10 @@ index cbc9162689d0..01ff6ed61591 100644
   * Callback to arch code if there's nosmp or maxcpus=0 on the
   * boot command line:
 diff --git a/init/init_task.c b/init/init_task.c
-index 9e5cbe5eab7b..1539bfba1bef 100644
+index bd403ed3e418..eba8446e3865 100644
 --- a/init/init_task.c
 +++ b/init/init_task.c
-@@ -73,6 +73,10 @@ struct task_struct init_task
+@@ -74,6 +74,10 @@ struct task_struct init_task
  	.cpus_ptr	= &init_task.cpus_mask,
  	.cpus_mask	= CPU_MASK_ALL,
  	.nr_cpus_allowed= NR_CPUS,
@@ -171,10 +171,10 @@ index 9e5cbe5eab7b..1539bfba1bef 100644
  	.active_mm	= &init_mm,
  	.restart_block	= {
 diff --git a/kernel/cpu.c b/kernel/cpu.c
-index 3d4c61cdf773..fc2d1c8d1b2a 100644
+index 1e54b4b2db6e..42f8b3612244 100644
 --- a/kernel/cpu.c
 +++ b/kernel/cpu.c
-@@ -864,6 +864,15 @@ static int take_cpu_down(void *_param)
+@@ -868,6 +868,15 @@ static int take_cpu_down(void *_param)
  	int err, cpu = smp_processor_id();
  	int ret;
  
@@ -190,7 +190,7 @@ index 3d4c61cdf773..fc2d1c8d1b2a 100644
  	/* Ensure this CPU doesn't handle any more interrupts. */
  	err = __cpu_disable();
  	if (err < 0)
-@@ -893,6 +902,8 @@ static int take_cpu_down(void *_param)
+@@ -897,6 +906,8 @@ static int take_cpu_down(void *_param)
  	return 0;
  }
  
@@ -199,7 +199,7 @@ index 3d4c61cdf773..fc2d1c8d1b2a 100644
  static int takedown_cpu(unsigned int cpu)
  {
  	struct cpuhp_cpu_state *st = per_cpu_ptr(&cpuhp_state, cpu);
-@@ -907,11 +918,39 @@ static int takedown_cpu(unsigned int cpu)
+@@ -911,11 +922,39 @@ static int takedown_cpu(unsigned int cpu)
  	 */
  	irq_lock_sparse();
  
@@ -239,7 +239,7 @@ index 3d4c61cdf773..fc2d1c8d1b2a 100644
  		/* CPU refused to die */
  		irq_unlock_sparse();
  		/* Unpark the hotplug thread so we can rollback there */
-@@ -930,6 +969,9 @@ static int takedown_cpu(unsigned int cpu)
+@@ -934,6 +973,9 @@ static int takedown_cpu(unsigned int cpu)
  	wait_for_ap_thread(st, false);
  	BUG_ON(st->state != CPUHP_AP_IDLE_DEAD);
  
@@ -403,10 +403,10 @@ index 087bf98617a6..d9b4b144661f 100644
  	    !t->rcu_read_unlock_special.b.blocked) {
  
 diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index 4415f028afa7..bc95987cae51 100644
+index 22677d77eca9..7ff7de493993 100644
 --- a/kernel/sched/core.c
 +++ b/kernel/sched/core.c
-@@ -1494,7 +1494,7 @@ static inline bool is_cpu_allowed(struct task_struct *p, int cpu)
+@@ -1571,7 +1571,7 @@ static inline bool is_cpu_allowed(struct task_struct *p, int cpu)
  	if (!cpumask_test_cpu(cpu, p->cpus_ptr))
  		return false;
  
@@ -415,7 +415,7 @@ index 4415f028afa7..bc95987cae51 100644
  		return cpu_online(cpu);
  
  	return cpu_active(cpu);
-@@ -1618,9 +1618,18 @@ static int migration_cpu_stop(void *data)
+@@ -1695,9 +1695,18 @@ static int migration_cpu_stop(void *data)
  void set_cpus_allowed_common(struct task_struct *p, const struct cpumask *new_mask)
  {
  	cpumask_copy(&p->cpus_mask, new_mask);
@@ -435,7 +435,7 @@ index 4415f028afa7..bc95987cae51 100644
  void do_set_cpus_allowed(struct task_struct *p, const struct cpumask *new_mask)
  {
  	struct rq *rq = task_rq(p);
-@@ -1709,7 +1718,8 @@ static int __set_cpus_allowed_ptr(struct task_struct *p,
+@@ -1786,7 +1795,8 @@ static int __set_cpus_allowed_ptr(struct task_struct *p,
  	}
  
  	/* Can the task run on the task's current CPU? If so, we're done */
@@ -445,7 +445,7 @@ index 4415f028afa7..bc95987cae51 100644
  		goto out;
  
  	if (task_running(rq, p) || p->state == TASK_WAKING) {
-@@ -4039,6 +4049,8 @@ pick_next_task(struct rq *rq, struct task_struct *prev, struct rq_flags *rf)
+@@ -4116,6 +4126,8 @@ pick_next_task(struct rq *rq, struct task_struct *prev, struct rq_flags *rf)
  	BUG();
  }
  
@@ -454,7 +454,7 @@ index 4415f028afa7..bc95987cae51 100644
  /*
   * __schedule() is the main scheduler function.
   *
-@@ -4109,6 +4121,9 @@ static void __sched notrace __schedule(bool preempt)
+@@ -4186,6 +4198,9 @@ static void __sched notrace __schedule(bool preempt)
  	rq_lock(rq, &rf);
  	smp_mb__after_spinlock();
  
@@ -464,7 +464,7 @@ index 4415f028afa7..bc95987cae51 100644
  	/* Promote REQ to ACT */
  	rq->clock_update_flags <<= 1;
  	update_rq_clock(rq);
-@@ -6349,6 +6364,7 @@ static void migrate_tasks(struct rq *dead_rq, struct rq_flags *rf)
+@@ -6423,6 +6438,7 @@ static void migrate_tasks(struct rq *dead_rq, struct rq_flags *rf)
  			break;
  
  		next = __pick_migrate_task(rq);
@@ -472,7 +472,7 @@ index 4415f028afa7..bc95987cae51 100644
  
  		/*
  		 * Rules for changing task_struct::cpus_mask are holding
-@@ -8059,3 +8075,162 @@ const u32 sched_prio_to_wmult[40] = {
+@@ -8135,3 +8151,162 @@ const u32 sched_prio_to_wmult[40] = {
  };
  
  #undef CREATE_TRACE_POINTS
@@ -651,10 +651,10 @@ index c4b702fe1d73..760d2610e223 100644
  #undef PN
  #undef __PN
 diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
-index 4a04338fdf28..c793ef3e3d8c 100644
+index 7faade2009a8..99d8b33ccddd 100644
 --- a/kernel/sched/sched.h
 +++ b/kernel/sched/sched.h
-@@ -1005,6 +1005,10 @@ struct rq {
+@@ -1001,6 +1001,10 @@ struct rq {
  	/* Must be inspected within a rcu lock section */
  	struct cpuidle_state	*idle_state;
  #endif
@@ -682,5 +682,5 @@ index bd9571653288..c3d50a18c65b 100644
  		goto out;
  
 -- 
-2.28.0
+2.29.2
 

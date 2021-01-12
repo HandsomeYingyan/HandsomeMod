@@ -1,7 +1,7 @@
-From 7e42d85088edbb723cd937d536d4e073c32e1d95 Mon Sep 17 00:00:00 2001
+From 20de9fa4a64c35d68a22650185487a031646738b Mon Sep 17 00:00:00 2001
 From: Davidlohr Bueso <dave@stgolabs.net>
 Date: Fri, 31 Jan 2020 16:07:09 +0100
-Subject: [PATCH 060/298] locking/percpu-rwsem: Fold __percpu_up_read()
+Subject: [PATCH 060/305] locking/percpu-rwsem: Fold __percpu_up_read()
 
 Now that __percpu_up_read() is only ever used from percpu_up_read()
 merge them, it's a small function.
@@ -53,7 +53,7 @@ index cc18715e01f1..6e8d3871450a 100644
  }
  
 diff --git a/kernel/exit.c b/kernel/exit.c
-index fa46977b9c07..298d7204c526 100644
+index ece64771a31f..263a45f8c066 100644
 --- a/kernel/exit.c
 +++ b/kernel/exit.c
 @@ -258,6 +258,7 @@ void rcuwait_wake_up(struct rcuwait *w)
@@ -91,5 +91,5 @@ index 26d72e0f4d46..94c901b350f4 100644
  ({									\
  	typeof(var) __sum = 0;						\
 -- 
-2.28.0
+2.29.2
 

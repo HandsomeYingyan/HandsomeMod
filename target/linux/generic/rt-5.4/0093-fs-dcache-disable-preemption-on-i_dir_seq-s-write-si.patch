@@ -1,7 +1,7 @@
-From 8d893aeda1f8dcaa76ed140f0662672ffe010463 Mon Sep 17 00:00:00 2001
+From 5607e8e8b588e37fca34f94a562731909b6045bd Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 20 Oct 2017 11:29:53 +0200
-Subject: [PATCH 093/298] fs/dcache: disable preemption on i_dir_seq's write
+Subject: [PATCH 093/305] fs/dcache: disable preemption on i_dir_seq's write
  side
 
 i_dir_seq is an opencoded seqcounter. Based on the code it looks like we
@@ -23,10 +23,10 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  3 files changed, 9 insertions(+), 7 deletions(-)
 
 diff --git a/fs/dcache.c b/fs/dcache.c
-index e88cf0554e65..d1c04e95c069 100644
+index b2a7f1765f0b..4f38c63ab356 100644
 --- a/fs/dcache.c
 +++ b/fs/dcache.c
-@@ -2482,9 +2482,10 @@ EXPORT_SYMBOL(d_rehash);
+@@ -2484,9 +2484,10 @@ EXPORT_SYMBOL(d_rehash);
  static inline unsigned start_dir_add(struct inode *dir)
  {
  
@@ -39,7 +39,7 @@ index e88cf0554e65..d1c04e95c069 100644
  			return n;
  		cpu_relax();
  	}
-@@ -2492,7 +2493,8 @@ static inline unsigned start_dir_add(struct inode *dir)
+@@ -2494,7 +2495,8 @@ static inline unsigned start_dir_add(struct inode *dir)
  
  static inline void end_dir_add(struct inode *dir, unsigned n)
  {
@@ -49,7 +49,7 @@ index e88cf0554e65..d1c04e95c069 100644
  }
  
  static void d_wait_lookup(struct dentry *dentry)
-@@ -2525,7 +2527,7 @@ struct dentry *d_alloc_parallel(struct dentry *parent,
+@@ -2527,7 +2529,7 @@ struct dentry *d_alloc_parallel(struct dentry *parent,
  
  retry:
  	rcu_read_lock();
@@ -58,7 +58,7 @@ index e88cf0554e65..d1c04e95c069 100644
  	r_seq = read_seqbegin(&rename_lock);
  	dentry = __d_lookup_rcu(parent, name, &d_seq);
  	if (unlikely(dentry)) {
-@@ -2553,7 +2555,7 @@ struct dentry *d_alloc_parallel(struct dentry *parent,
+@@ -2555,7 +2557,7 @@ struct dentry *d_alloc_parallel(struct dentry *parent,
  	}
  
  	hlist_bl_lock(b);
@@ -81,7 +81,7 @@ index c5267a4db0f5..4ef9239abd82 100644
  	inode->dirtied_when = 0;
  
 diff --git a/include/linux/fs.h b/include/linux/fs.h
-index e4b2de31ecb6..2ccad33c0b67 100644
+index 9b7524f8063f..a0f3b71f040b 100644
 --- a/include/linux/fs.h
 +++ b/include/linux/fs.h
 @@ -717,7 +717,7 @@ struct inode {
@@ -94,5 +94,5 @@ index e4b2de31ecb6..2ccad33c0b67 100644
  
  	__u32			i_generation;
 -- 
-2.28.0
+2.29.2
 

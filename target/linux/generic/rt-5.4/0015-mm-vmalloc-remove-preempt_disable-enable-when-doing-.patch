@@ -1,7 +1,7 @@
-From 7a8391a78dab6a6da075ec9cee61d7ee8e08bec5 Mon Sep 17 00:00:00 2001
+From fe0e042ce5d9885f9dc43c8b8bf22e58dd7f1b18 Mon Sep 17 00:00:00 2001
 From: "Uladzislau Rezki (Sony)" <urezki@gmail.com>
 Date: Sat, 30 Nov 2019 17:54:33 -0800
-Subject: [PATCH 015/298] mm/vmalloc: remove preempt_disable/enable when doing
+Subject: [PATCH 015/305] mm/vmalloc: remove preempt_disable/enable when doing
  preloading
 
 Some background.  The preemption was disabled before to guarantee that a
@@ -51,10 +51,10 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 20 insertions(+), 17 deletions(-)
 
 diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-index ad4d00bd7914..1cad3bf484f4 100644
+index 5797e1eeaa7e..1b39c0fa2fc5 100644
 --- a/mm/vmalloc.c
 +++ b/mm/vmalloc.c
-@@ -1078,31 +1078,34 @@ static struct vmap_area *alloc_vmap_area(unsigned long size,
+@@ -1080,31 +1080,34 @@ static struct vmap_area *alloc_vmap_area(unsigned long size,
  
  retry:
  	/*
@@ -107,5 +107,5 @@ index ad4d00bd7914..1cad3bf484f4 100644
  	/*
  	 * If an allocation fails, the "vend" address is
 -- 
-2.28.0
+2.29.2
 

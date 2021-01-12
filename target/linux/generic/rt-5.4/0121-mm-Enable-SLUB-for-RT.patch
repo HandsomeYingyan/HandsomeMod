@@ -1,7 +1,7 @@
-From 211737fa832a170f6437884eec56181d19c49acd Mon Sep 17 00:00:00 2001
+From 91e8010756ad2b48055dad4a4907231b93a34ae3 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Thu, 25 Oct 2012 10:32:35 +0100
-Subject: [PATCH 121/298] mm: Enable SLUB for RT
+Subject: [PATCH 121/305] mm: Enable SLUB for RT
 
 Avoid the memory allocation in IRQ section
 
@@ -13,10 +13,10 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 7 insertions(+)
 
 diff --git a/mm/slub.c b/mm/slub.c
-index acbf6c09ac79..b932fd062647 100644
+index 698ee1438e3c..f1c7e67b4d01 100644
 --- a/mm/slub.c
 +++ b/mm/slub.c
-@@ -3782,6 +3782,11 @@ static void list_slab_objects(struct kmem_cache *s, struct page *page,
+@@ -3797,6 +3797,11 @@ static void list_slab_objects(struct kmem_cache *s, struct page *page,
  							const char *text)
  {
  #ifdef CONFIG_SLUB_DEBUG
@@ -28,7 +28,7 @@ index acbf6c09ac79..b932fd062647 100644
  	void *addr = page_address(page);
  	void *p;
  	unsigned long *map = bitmap_zalloc(page->objects, GFP_ATOMIC);
-@@ -3801,8 +3806,10 @@ static void list_slab_objects(struct kmem_cache *s, struct page *page,
+@@ -3816,8 +3821,10 @@ static void list_slab_objects(struct kmem_cache *s, struct page *page,
  	slab_unlock(page);
  	bitmap_free(map);
  #endif
@@ -40,5 +40,5 @@ index acbf6c09ac79..b932fd062647 100644
   * Attempt to free all partial slabs on a node.
   * This is called from __kmem_cache_shutdown(). We must take list_lock
 -- 
-2.28.0
+2.29.2
 

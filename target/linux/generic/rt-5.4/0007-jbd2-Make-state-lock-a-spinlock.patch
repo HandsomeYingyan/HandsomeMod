@@ -1,7 +1,7 @@
-From b6a94aaad7f37f1e63148edea7a112bb449a63ac Mon Sep 17 00:00:00 2001
+From 6472784f206caa658b1bf1422b43aef4ebeeb398 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 9 Aug 2019 14:42:32 +0200
-Subject: [PATCH 007/298] jbd2: Make state lock a spinlock
+Subject: [PATCH 007/305] jbd2: Make state lock a spinlock
 
 Bit-spinlocks are problematic on PREEMPT_RT if functions which might sleep
 on RT, e.g. spin_lock(), alloc/free(), are invoked inside the lock held
@@ -132,10 +132,10 @@ index b7c5819bfc41..48fa60bbdc40 100644
  }
  
 diff --git a/fs/jbd2/transaction.c b/fs/jbd2/transaction.c
-index eb02cd26de27..9ba03242f1fb 100644
+index 215552d955be..bfabb5f4558a 100644
 --- a/fs/jbd2/transaction.c
 +++ b/fs/jbd2/transaction.c
-@@ -877,7 +877,7 @@ do_get_write_access(handle_t *handle, struct journal_head *jh,
+@@ -879,7 +879,7 @@ do_get_write_access(handle_t *handle, struct journal_head *jh,
  
   	start_lock = jiffies;
  	lock_buffer(bh);
@@ -144,7 +144,7 @@ index eb02cd26de27..9ba03242f1fb 100644
  
  	/* If it takes too long to lock the buffer, trace it */
  	time_lock = jbd2_time_diff(start_lock, jiffies);
-@@ -927,7 +927,7 @@ do_get_write_access(handle_t *handle, struct journal_head *jh,
+@@ -929,7 +929,7 @@ do_get_write_access(handle_t *handle, struct journal_head *jh,
  
  	error = -EROFS;
  	if (is_handle_aborted(handle)) {
@@ -153,7 +153,7 @@ index eb02cd26de27..9ba03242f1fb 100644
  		goto out;
  	}
  	error = 0;
-@@ -991,7 +991,7 @@ do_get_write_access(handle_t *handle, struct journal_head *jh,
+@@ -993,7 +993,7 @@ do_get_write_access(handle_t *handle, struct journal_head *jh,
  	 */
  	if (buffer_shadow(bh)) {
  		JBUFFER_TRACE(jh, "on shadow: sleep");
@@ -162,7 +162,7 @@ index eb02cd26de27..9ba03242f1fb 100644
  		wait_on_bit_io(&bh->b_state, BH_Shadow, TASK_UNINTERRUPTIBLE);
  		goto repeat;
  	}
-@@ -1012,7 +1012,7 @@ do_get_write_access(handle_t *handle, struct journal_head *jh,
+@@ -1014,7 +1014,7 @@ do_get_write_access(handle_t *handle, struct journal_head *jh,
  		JBUFFER_TRACE(jh, "generate frozen data");
  		if (!frozen_buffer) {
  			JBUFFER_TRACE(jh, "allocate memory for buffer");
@@ -171,7 +171,7 @@ index eb02cd26de27..9ba03242f1fb 100644
  			frozen_buffer = jbd2_alloc(jh2bh(jh)->b_size,
  						   GFP_NOFS | __GFP_NOFAIL);
  			goto repeat;
-@@ -1031,7 +1031,7 @@ do_get_write_access(handle_t *handle, struct journal_head *jh,
+@@ -1033,7 +1033,7 @@ do_get_write_access(handle_t *handle, struct journal_head *jh,
  	jh->b_next_transaction = transaction;
  
  done:
@@ -180,7 +180,7 @@ index eb02cd26de27..9ba03242f1fb 100644
  
  	/*
  	 * If we are about to journal a buffer, then any revoke pending on it is
-@@ -1173,7 +1173,7 @@ int jbd2_journal_get_create_access(handle_t *handle, struct buffer_head *bh)
+@@ -1175,7 +1175,7 @@ int jbd2_journal_get_create_access(handle_t *handle, struct buffer_head *bh)
  	 * that case: the transaction must have deleted the buffer for it to be
  	 * reused here.
  	 */
@@ -189,7 +189,7 @@ index eb02cd26de27..9ba03242f1fb 100644
  	J_ASSERT_JH(jh, (jh->b_transaction == transaction ||
  		jh->b_transaction == NULL ||
  		(jh->b_transaction == journal->j_committing_transaction &&
-@@ -1208,7 +1208,7 @@ int jbd2_journal_get_create_access(handle_t *handle, struct buffer_head *bh)
+@@ -1210,7 +1210,7 @@ int jbd2_journal_get_create_access(handle_t *handle, struct buffer_head *bh)
  		jh->b_next_transaction = transaction;
  		spin_unlock(&journal->j_list_lock);
  	}
@@ -198,7 +198,7 @@ index eb02cd26de27..9ba03242f1fb 100644
  
  	/*
  	 * akpm: I added this.  ext3_alloc_branch can pick up new indirect
-@@ -1279,13 +1279,13 @@ int jbd2_journal_get_undo_access(handle_t *handle, struct buffer_head *bh)
+@@ -1281,13 +1281,13 @@ int jbd2_journal_get_undo_access(handle_t *handle, struct buffer_head *bh)
  		committed_data = jbd2_alloc(jh2bh(jh)->b_size,
  					    GFP_NOFS|__GFP_NOFAIL);
  
@@ -214,7 +214,7 @@ index eb02cd26de27..9ba03242f1fb 100644
  			goto repeat;
  		}
  
-@@ -1293,7 +1293,7 @@ int jbd2_journal_get_undo_access(handle_t *handle, struct buffer_head *bh)
+@@ -1295,7 +1295,7 @@ int jbd2_journal_get_undo_access(handle_t *handle, struct buffer_head *bh)
  		committed_data = NULL;
  		memcpy(jh->b_committed_data, bh->b_data, bh->b_size);
  	}
@@ -223,7 +223,7 @@ index eb02cd26de27..9ba03242f1fb 100644
  out:
  	jbd2_journal_put_journal_head(jh);
  	if (unlikely(committed_data))
-@@ -1394,16 +1394,16 @@ int jbd2_journal_dirty_metadata(handle_t *handle, struct buffer_head *bh)
+@@ -1396,16 +1396,16 @@ int jbd2_journal_dirty_metadata(handle_t *handle, struct buffer_head *bh)
  	 */
  	if (jh->b_transaction != transaction &&
  	    jh->b_next_transaction != transaction) {
@@ -243,7 +243,7 @@ index eb02cd26de27..9ba03242f1fb 100644
  			if (jh->b_transaction == transaction &&
  			    jh->b_jlist != BJ_Metadata)
  				pr_err("JBD2: assertion failure: h_type=%u "
-@@ -1413,13 +1413,13 @@ int jbd2_journal_dirty_metadata(handle_t *handle, struct buffer_head *bh)
+@@ -1415,13 +1415,13 @@ int jbd2_journal_dirty_metadata(handle_t *handle, struct buffer_head *bh)
  				       jh->b_jlist);
  			J_ASSERT_JH(jh, jh->b_transaction != transaction ||
  					jh->b_jlist == BJ_Metadata);
@@ -259,7 +259,7 @@ index eb02cd26de27..9ba03242f1fb 100644
  
  	if (jh->b_modified == 0) {
  		/*
-@@ -1505,7 +1505,7 @@ int jbd2_journal_dirty_metadata(handle_t *handle, struct buffer_head *bh)
+@@ -1507,7 +1507,7 @@ int jbd2_journal_dirty_metadata(handle_t *handle, struct buffer_head *bh)
  	__jbd2_journal_file_buffer(jh, transaction, BJ_Metadata);
  	spin_unlock(&journal->j_list_lock);
  out_unlock_bh:
@@ -268,7 +268,7 @@ index eb02cd26de27..9ba03242f1fb 100644
  out:
  	JBUFFER_TRACE(jh, "exit");
  	return ret;
-@@ -1543,11 +1543,13 @@ int jbd2_journal_forget (handle_t *handle, struct buffer_head *bh)
+@@ -1545,11 +1545,13 @@ int jbd2_journal_forget (handle_t *handle, struct buffer_head *bh)
  
  	BUFFER_TRACE(bh, "entry");
  
@@ -286,7 +286,7 @@ index eb02cd26de27..9ba03242f1fb 100644
  
  	/* Critical error: attempting to delete a bitmap buffer, maybe?
  	 * Don't do any jbd operations, and return an error. */
-@@ -1668,18 +1670,14 @@ int jbd2_journal_forget (handle_t *handle, struct buffer_head *bh)
+@@ -1670,18 +1672,14 @@ int jbd2_journal_forget (handle_t *handle, struct buffer_head *bh)
  		spin_unlock(&journal->j_list_lock);
  	}
  drop:
@@ -307,7 +307,7 @@ index eb02cd26de27..9ba03242f1fb 100644
  }
  
  /**
-@@ -1878,7 +1876,7 @@ int jbd2_journal_stop(handle_t *handle)
+@@ -1880,7 +1878,7 @@ int jbd2_journal_stop(handle_t *handle)
   *
   * j_list_lock is held.
   *
@@ -316,7 +316,7 @@ index eb02cd26de27..9ba03242f1fb 100644
   */
  
  static inline void
-@@ -1902,7 +1900,7 @@ __blist_add_buffer(struct journal_head **list, struct journal_head *jh)
+@@ -1904,7 +1902,7 @@ __blist_add_buffer(struct journal_head **list, struct journal_head *jh)
   *
   * Called with j_list_lock held, and the journal may not be locked.
   *
@@ -325,7 +325,7 @@ index eb02cd26de27..9ba03242f1fb 100644
   */
  
  static inline void
-@@ -1934,7 +1932,7 @@ static void __jbd2_journal_temp_unlink_buffer(struct journal_head *jh)
+@@ -1936,7 +1934,7 @@ static void __jbd2_journal_temp_unlink_buffer(struct journal_head *jh)
  	transaction_t *transaction;
  	struct buffer_head *bh = jh2bh(jh);
  
@@ -334,7 +334,7 @@ index eb02cd26de27..9ba03242f1fb 100644
  	transaction = jh->b_transaction;
  	if (transaction)
  		assert_spin_locked(&transaction->t_journal->j_list_lock);
-@@ -1988,11 +1986,11 @@ void jbd2_journal_unfile_buffer(journal_t *journal, struct journal_head *jh)
+@@ -1993,11 +1991,11 @@ void jbd2_journal_unfile_buffer(journal_t *journal, struct journal_head *jh)
  
  	/* Get reference so that buffer cannot be freed before we unlock it */
  	get_bh(bh);
@@ -348,7 +348,7 @@ index eb02cd26de27..9ba03242f1fb 100644
  	jbd2_journal_put_journal_head(jh);
  	__brelse(bh);
  }
-@@ -2000,7 +1998,7 @@ void jbd2_journal_unfile_buffer(journal_t *journal, struct journal_head *jh)
+@@ -2005,7 +2003,7 @@ void jbd2_journal_unfile_buffer(journal_t *journal, struct journal_head *jh)
  /*
   * Called from jbd2_journal_try_to_free_buffers().
   *
@@ -357,7 +357,7 @@ index eb02cd26de27..9ba03242f1fb 100644
   */
  static void
  __journal_try_to_free_buffer(journal_t *journal, struct buffer_head *bh)
-@@ -2087,10 +2085,10 @@ int jbd2_journal_try_to_free_buffers(journal_t *journal,
+@@ -2093,10 +2091,10 @@ int jbd2_journal_try_to_free_buffers(journal_t *journal,
  		if (!jh)
  			continue;
  
@@ -369,8 +369,8 @@ index eb02cd26de27..9ba03242f1fb 100644
 -		jbd_unlock_bh_state(bh);
  		if (buffer_jbd(bh))
  			goto busy;
- 	} while ((bh = bh->b_this_page) != head);
-@@ -2111,7 +2109,7 @@ int jbd2_journal_try_to_free_buffers(journal_t *journal,
+ 
+@@ -2132,7 +2130,7 @@ int jbd2_journal_try_to_free_buffers(journal_t *journal,
   *
   * Called under j_list_lock.
   *
@@ -379,7 +379,7 @@ index eb02cd26de27..9ba03242f1fb 100644
   */
  static int __dispose_buffer(struct journal_head *jh, transaction_t *transaction)
  {
-@@ -2205,7 +2203,7 @@ static int journal_unmap_buffer(journal_t *journal, struct buffer_head *bh,
+@@ -2226,7 +2224,7 @@ static int journal_unmap_buffer(journal_t *journal, struct buffer_head *bh,
  
  	/* OK, we have data buffer in journaled mode */
  	write_lock(&journal->j_state_lock);
@@ -388,7 +388,7 @@ index eb02cd26de27..9ba03242f1fb 100644
  	spin_lock(&journal->j_list_lock);
  
  	/*
-@@ -2286,10 +2284,10 @@ static int journal_unmap_buffer(journal_t *journal, struct buffer_head *bh,
+@@ -2307,10 +2305,10 @@ static int journal_unmap_buffer(journal_t *journal, struct buffer_head *bh,
  		 * for commit and try again.
  		 */
  		if (partial_page) {
@@ -401,7 +401,7 @@ index eb02cd26de27..9ba03242f1fb 100644
  			return -EBUSY;
  		}
  		/*
-@@ -2303,10 +2301,10 @@ static int journal_unmap_buffer(journal_t *journal, struct buffer_head *bh,
+@@ -2324,10 +2322,10 @@ static int journal_unmap_buffer(journal_t *journal, struct buffer_head *bh,
  		if (journal->j_running_transaction && buffer_jbddirty(bh))
  			jh->b_next_transaction = journal->j_running_transaction;
  		jh->b_modified = 0;
@@ -414,7 +414,7 @@ index eb02cd26de27..9ba03242f1fb 100644
  		return 0;
  	} else {
  		/* Good, the buffer belongs to the running transaction.
-@@ -2330,10 +2328,10 @@ static int journal_unmap_buffer(journal_t *journal, struct buffer_head *bh,
+@@ -2351,10 +2349,10 @@ static int journal_unmap_buffer(journal_t *journal, struct buffer_head *bh,
  	 * here.
  	 */
  	jh->b_modified = 0;
@@ -427,7 +427,7 @@ index eb02cd26de27..9ba03242f1fb 100644
  zap_buffer_unlocked:
  	clear_buffer_dirty(bh);
  	J_ASSERT_BH(bh, !buffer_jbddirty(bh));
-@@ -2420,7 +2418,7 @@ void __jbd2_journal_file_buffer(struct journal_head *jh,
+@@ -2441,7 +2439,7 @@ void __jbd2_journal_file_buffer(struct journal_head *jh,
  	int was_dirty = 0;
  	struct buffer_head *bh = jh2bh(jh);
  
@@ -436,7 +436,7 @@ index eb02cd26de27..9ba03242f1fb 100644
  	assert_spin_locked(&transaction->t_journal->j_list_lock);
  
  	J_ASSERT_JH(jh, jh->b_jlist < BJ_Types);
-@@ -2482,11 +2480,11 @@ void __jbd2_journal_file_buffer(struct journal_head *jh,
+@@ -2503,11 +2501,11 @@ void __jbd2_journal_file_buffer(struct journal_head *jh,
  void jbd2_journal_file_buffer(struct journal_head *jh,
  				transaction_t *transaction, int jlist)
  {
@@ -450,7 +450,7 @@ index eb02cd26de27..9ba03242f1fb 100644
  }
  
  /*
-@@ -2496,7 +2494,7 @@ void jbd2_journal_file_buffer(struct journal_head *jh,
+@@ -2517,7 +2515,7 @@ void jbd2_journal_file_buffer(struct journal_head *jh,
   * buffer on that transaction's metadata list.
   *
   * Called under j_list_lock
@@ -459,7 +459,7 @@ index eb02cd26de27..9ba03242f1fb 100644
   *
   * When this function returns true, there's no next transaction to refile to
   * and the caller has to drop jh reference through
-@@ -2507,7 +2505,7 @@ bool __jbd2_journal_refile_buffer(struct journal_head *jh)
+@@ -2528,7 +2526,7 @@ bool __jbd2_journal_refile_buffer(struct journal_head *jh)
  	int was_dirty, jlist;
  	struct buffer_head *bh = jh2bh(jh);
  
@@ -468,7 +468,7 @@ index eb02cd26de27..9ba03242f1fb 100644
  	if (jh->b_transaction)
  		assert_spin_locked(&jh->b_transaction->t_journal->j_list_lock);
  
-@@ -2553,17 +2551,13 @@ bool __jbd2_journal_refile_buffer(struct journal_head *jh)
+@@ -2581,17 +2579,13 @@ bool __jbd2_journal_refile_buffer(struct journal_head *jh)
   */
  void jbd2_journal_refile_buffer(journal_t *journal, struct journal_head *jh)
  {
@@ -688,5 +688,5 @@ index 9fb870524314..75bc56109031 100644
  	struct journal_head *b_tnext, *b_tprev;
  
 -- 
-2.28.0
+2.29.2
 

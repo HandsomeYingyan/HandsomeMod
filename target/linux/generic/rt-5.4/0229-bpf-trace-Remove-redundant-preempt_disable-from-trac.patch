@@ -1,7 +1,7 @@
-From 5f61445dbd787bfac266360ebc950b6d3d7ea771 Mon Sep 17 00:00:00 2001
+From ab1dc6505741ddda19d29917f509bb6475358e62 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Mon, 24 Feb 2020 15:01:37 +0100
-Subject: [PATCH 229/298] bpf/trace: Remove redundant preempt_disable from
+Subject: [PATCH 229/305] bpf/trace: Remove redundant preempt_disable from
  trace_call_bpf()
 
 Similar to __bpf_trace_run this is redundant because __bpf_trace_run() is
@@ -18,7 +18,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 1 insertion(+), 2 deletions(-)
 
 diff --git a/kernel/trace/bpf_trace.c b/kernel/trace/bpf_trace.c
-index 3daf4b4a07c8..2ceeebf5288d 100644
+index 5e06f754f82c..2260e5eea0d6 100644
 --- a/kernel/trace/bpf_trace.c
 +++ b/kernel/trace/bpf_trace.c
 @@ -83,7 +83,7 @@ unsigned int trace_call_bpf(struct trace_event_call *call, void *ctx)
@@ -39,5 +39,5 @@ index 3daf4b4a07c8..2ceeebf5288d 100644
  	return ret;
  }
 -- 
-2.28.0
+2.29.2
 

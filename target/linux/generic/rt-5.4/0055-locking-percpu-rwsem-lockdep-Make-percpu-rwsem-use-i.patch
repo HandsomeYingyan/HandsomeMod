@@ -1,7 +1,7 @@
-From 9547cc7978548967ad0426fcd3a9aeddbed2aadc Mon Sep 17 00:00:00 2001
+From 36027a6397517434edd2ca5424c44de7a1b391a0 Mon Sep 17 00:00:00 2001
 From: Peter Zijlstra <peterz@infradead.org>
 Date: Fri, 31 Jan 2020 16:07:04 +0100
-Subject: [PATCH 055/298] locking/percpu-rwsem, lockdep: Make percpu-rwsem use
+Subject: [PATCH 055/305] locking/percpu-rwsem, lockdep: Make percpu-rwsem use
  its own lockdep_map
 
 As preparation for replacing the embedded rwsem, give percpu-rwsem its
@@ -114,7 +114,7 @@ index 3998cdf9cd14..dcbf4ce34fff 100644
  	if (!read)
  		atomic_long_set(&sem->rw_sem.owner, (long)current);
 diff --git a/kernel/cpu.c b/kernel/cpu.c
-index 7527825ac7da..3d4c61cdf773 100644
+index fa0e5727b4d9..1e54b4b2db6e 100644
 --- a/kernel/cpu.c
 +++ b/kernel/cpu.c
 @@ -332,12 +332,12 @@ void lockdep_assert_cpus_held(void)
@@ -227,5 +227,5 @@ index 2534ce49f648..d0d33a59622d 100644
  
  #endif /* __INTERNAL_RWSEM_H */
 -- 
-2.28.0
+2.29.2
 

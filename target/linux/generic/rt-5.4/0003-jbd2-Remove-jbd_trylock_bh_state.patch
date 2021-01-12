@@ -1,7 +1,7 @@
-From feb15ca8b763050dbda8504b750948d3f1a81109 Mon Sep 17 00:00:00 2001
+From 9e1403b6d2074b2076387ec7a6ad63f75dc97ccc Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 9 Aug 2019 14:42:28 +0200
-Subject: [PATCH 003/298] jbd2: Remove jbd_trylock_bh_state()
+Subject: [PATCH 003/305] jbd2: Remove jbd_trylock_bh_state()
 
 No users.
 
@@ -32,5 +32,5 @@ index b0e97e5de8ca..a8abc34f16be 100644
  {
  	return bit_spin_is_locked(BH_State, &bh->b_state);
 -- 
-2.28.0
+2.29.2
 

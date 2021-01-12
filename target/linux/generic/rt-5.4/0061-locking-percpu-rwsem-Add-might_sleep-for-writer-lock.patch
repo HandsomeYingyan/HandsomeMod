@@ -1,7 +1,7 @@
-From f07ba4907a74c30e48a0ebae1c6acfad69325478 Mon Sep 17 00:00:00 2001
+From 489b18d50daea98bef4b34f49b35b746c6d1f91d Mon Sep 17 00:00:00 2001
 From: Davidlohr Bueso <dave@stgolabs.net>
 Date: Fri, 31 Jan 2020 16:07:10 +0100
-Subject: [PATCH 061/298] locking/percpu-rwsem: Add might_sleep() for writer
+Subject: [PATCH 061/305] locking/percpu-rwsem: Add might_sleep() for writer
  locking
 
 We are missing this annotation in percpu_down_write(). Correct
@@ -28,5 +28,5 @@ index 94c901b350f4..e4a4a56037bb 100644
  
  	/* Notify readers to take the slow path. */
 -- 
-2.28.0
+2.29.2
 

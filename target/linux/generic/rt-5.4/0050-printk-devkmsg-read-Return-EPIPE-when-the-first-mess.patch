@@ -1,7 +1,7 @@
-From 763ad6527f687a1e351ae361d069fa441951cb5f Mon Sep 17 00:00:00 2001
+From f316c6038b656435df12dd25c5bf5d78fd84d557 Mon Sep 17 00:00:00 2001
 From: He Zhe <zhe.he@windriver.com>
 Date: Tue, 24 Sep 2019 15:26:39 +0800
-Subject: [PATCH 050/298] printk: devkmsg: read: Return EPIPE when the first
+Subject: [PATCH 050/305] printk: devkmsg: read: Return EPIPE when the first
  message user-space wants has gone
 
 When user-space wants to read the first message, that is when user->seq
@@ -22,7 +22,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 4 insertions(+), 8 deletions(-)
 
 diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
-index b5eb44fd4df0..1008f1bdf09e 100644
+index b30577cf5698..4a5ef5258326 100644
 --- a/kernel/printk/printk.c
 +++ b/kernel/printk/printk.c
 @@ -727,14 +727,10 @@ static ssize_t devkmsg_read(struct file *file, char __user *buf,
@@ -45,5 +45,5 @@ index b5eb44fd4df0..1008f1bdf09e 100644
  
  	msg = (struct printk_log *)&user->msgbuf[0];
 -- 
-2.28.0
+2.29.2
 

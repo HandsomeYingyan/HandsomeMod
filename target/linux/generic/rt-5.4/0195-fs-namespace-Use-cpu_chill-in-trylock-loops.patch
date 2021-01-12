@@ -1,7 +1,7 @@
-From be9666f9984ba11c0e726a9060cb6bb035fc4843 Mon Sep 17 00:00:00 2001
+From 7ea41daa0786c143c9760b1507d4f379005eb87b Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 7 Mar 2012 21:00:34 +0100
-Subject: [PATCH 195/298] fs: namespace: Use cpu_chill() in trylock loops
+Subject: [PATCH 195/305] fs: namespace: Use cpu_chill() in trylock loops
 
 Retry loops on RT might loop forever when the modifying side was
 preempted. Use cpu_chill() instead of cpu_relax() to let the system
@@ -13,7 +13,7 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  1 file changed, 6 insertions(+), 2 deletions(-)
 
 diff --git a/fs/namespace.c b/fs/namespace.c
-index 2adfe7b166a3..e67f6e405f36 100644
+index 76ea92994d26..d32961cf666d 100644
 --- a/fs/namespace.c
 +++ b/fs/namespace.c
 @@ -14,6 +14,7 @@
@@ -39,5 +39,5 @@ index 2adfe7b166a3..e67f6e405f36 100644
  	 * After the slowpath clears MNT_WRITE_HOLD, mnt_is_readonly will
  	 * be set to match its requirements. So we must not load that until
 -- 
-2.28.0
+2.29.2
 

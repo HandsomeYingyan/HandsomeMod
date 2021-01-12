@@ -1,7 +1,7 @@
-From fd4729785c5bf291074afb14bcb6a7b6e8c76d7d Mon Sep 17 00:00:00 2001
+From 39f695efc7c751a5343f87759877d496c181f9b9 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Thu, 14 Feb 2013 22:36:59 +0100
-Subject: [PATCH 085/298] timekeeping: Split jiffies seqlock
+Subject: [PATCH 085/305] timekeeping: Split jiffies seqlock
 
 Replace jiffies_lock seqlock with a simple seqcounter and a rawlock so
 it can be taken in atomic context on RT.
@@ -42,10 +42,10 @@ index d23b434c2ca7..eddcf4970444 100644
  }
  EXPORT_SYMBOL(get_jiffies_64);
 diff --git a/kernel/time/tick-common.c b/kernel/time/tick-common.c
-index 59225b484e4e..885cc1a86269 100644
+index 7e5d3524e924..6c9c342dd0e5 100644
 --- a/kernel/time/tick-common.c
 +++ b/kernel/time/tick-common.c
-@@ -83,13 +83,15 @@ int tick_is_oneshot_available(void)
+@@ -84,13 +84,15 @@ int tick_is_oneshot_available(void)
  static void tick_periodic(int cpu)
  {
  	if (tick_do_timer_cpu == cpu) {
@@ -63,7 +63,7 @@ index 59225b484e4e..885cc1a86269 100644
  		update_wall_time();
  	}
  
-@@ -161,9 +163,9 @@ void tick_setup_periodic(struct clock_event_device *dev, int broadcast)
+@@ -162,9 +164,9 @@ void tick_setup_periodic(struct clock_event_device *dev, int broadcast)
  		ktime_t next;
  
  		do {
@@ -76,7 +76,7 @@ index 59225b484e4e..885cc1a86269 100644
  		clockevents_switch_state(dev, CLOCK_EVT_STATE_ONESHOT);
  
 diff --git a/kernel/time/tick-sched.c b/kernel/time/tick-sched.c
-index 5c9fcc72460d..ce29af7588f9 100644
+index 4419486d7413..da8b4f3c266e 100644
 --- a/kernel/time/tick-sched.c
 +++ b/kernel/time/tick-sched.c
 @@ -65,7 +65,8 @@ static void tick_do_update_jiffies64(ktime_t now)
@@ -135,10 +135,10 @@ index 5c9fcc72460d..ce29af7588f9 100644
  	ts->timer_expires_base = basemono;
  
 diff --git a/kernel/time/timekeeping.c b/kernel/time/timekeeping.c
-index ca69290bee2a..856280d2cbd4 100644
+index 4fc2af4367a7..9ebaab13339d 100644
 --- a/kernel/time/timekeeping.c
 +++ b/kernel/time/timekeeping.c
-@@ -2397,8 +2397,10 @@ EXPORT_SYMBOL(hardpps);
+@@ -2396,8 +2396,10 @@ EXPORT_SYMBOL(hardpps);
   */
  void xtime_update(unsigned long ticks)
  {
@@ -166,5 +166,5 @@ index 141ab3ab0354..099737f6f10c 100644
  #define CS_NAME_LEN	32
  
 -- 
-2.28.0
+2.29.2
 

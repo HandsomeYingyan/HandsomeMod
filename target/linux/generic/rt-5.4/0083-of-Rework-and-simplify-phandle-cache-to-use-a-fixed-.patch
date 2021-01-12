@@ -1,7 +1,7 @@
-From c4697ace952ab3b5cd6dbead2bfaf725aad889c9 Mon Sep 17 00:00:00 2001
+From bcd1ef5ce85db1b1f205fed0eb82f84d6a24bb36 Mon Sep 17 00:00:00 2001
 From: Rob Herring <robh@kernel.org>
 Date: Wed, 11 Dec 2019 17:23:45 -0600
-Subject: [PATCH 083/298] of: Rework and simplify phandle cache to use a fixed
+Subject: [PATCH 083/305] of: Rework and simplify phandle cache to use a fixed
  size
 
 The phandle cache was added to speed up of_find_node_by_phandle() by
@@ -323,5 +323,5 @@ index 1688f576ee8a..88cdcb080e38 100644
  		if (ret_apply)
  			devicetree_state_flags |= DTSF_REVERT_FAIL;
 -- 
-2.28.0
+2.29.2
 

@@ -1,7 +1,7 @@
-From f2b30d6e8844bec83a7c0e2afbf049ed830214e4 Mon Sep 17 00:00:00 2001
+From 28c0ae69517c956409be643c245e57bbce95bfda Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Tue, 21 Aug 2012 20:38:50 +0200
-Subject: [PATCH 207/298] random: Make it work on rt
+Subject: [PATCH 207/305] random: Make it work on rt
 
 Delegate the random insertion to the forced threaded interrupt
 handler. Store the return IP of the hard interrupt handler in the irq
@@ -40,7 +40,7 @@ index 1c2f9baf8483..e7fd451ff9d2 100644
  
  	exiting_irq();
 diff --git a/drivers/char/random.c b/drivers/char/random.c
-index e877c20e0ee0..2159551a34e5 100644
+index 2c29f83ae3d5..85f9bca82234 100644
 --- a/drivers/char/random.c
 +++ b/drivers/char/random.c
 @@ -1305,28 +1305,27 @@ static __u32 get_reg(struct fast_pool *f, struct pt_regs *regs)
@@ -90,7 +90,7 @@ index cabcb66e7c5e..666a987fd17b 100644
  #include "hv_trace.h"
  
 diff --git a/drivers/hv/vmbus_drv.c b/drivers/hv/vmbus_drv.c
-index 24c38e44ed3b..fa6152779a52 100644
+index 2d2568dac2a6..a4557c7eda79 100644
 --- a/drivers/hv/vmbus_drv.c
 +++ b/drivers/hv/vmbus_drv.c
 @@ -22,6 +22,7 @@
@@ -184,5 +184,5 @@ index 3b1d0a4725a4..40a684918be0 100644
  	}
  
 -- 
-2.28.0
+2.29.2
 

@@ -1,7 +1,7 @@
-From 0877d843858965a0642b20ce847e19edda9f1dae Mon Sep 17 00:00:00 2001
+From efb8134827f6d6c0434e7d5c2449bee4b83880fa Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 9 Aug 2019 14:42:27 +0200
-Subject: [PATCH 002/298] jbd2: Simplify journal_unmap_buffer()
+Subject: [PATCH 002/305] jbd2: Simplify journal_unmap_buffer()
 
 journal_unmap_buffer() checks first whether the buffer head is a journal.
 If so it takes locks and then invokes jbd2_journal_grab_journal_head()
@@ -26,10 +26,10 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 2 insertions(+), 6 deletions(-)
 
 diff --git a/fs/jbd2/transaction.c b/fs/jbd2/transaction.c
-index de992a70ddfe..83145a211e79 100644
+index be05fb96757c..9b09078ffef8 100644
 --- a/fs/jbd2/transaction.c
 +++ b/fs/jbd2/transaction.c
-@@ -2203,7 +2203,8 @@ static int journal_unmap_buffer(journal_t *journal, struct buffer_head *bh,
+@@ -2224,7 +2224,8 @@ static int journal_unmap_buffer(journal_t *journal, struct buffer_head *bh,
  	 * holding the page lock. --sct
  	 */
  
@@ -39,7 +39,7 @@ index de992a70ddfe..83145a211e79 100644
  		goto zap_buffer_unlocked;
  
  	/* OK, we have data buffer in journaled mode */
-@@ -2211,10 +2212,6 @@ static int journal_unmap_buffer(journal_t *journal, struct buffer_head *bh,
+@@ -2232,10 +2233,6 @@ static int journal_unmap_buffer(journal_t *journal, struct buffer_head *bh,
  	jbd_lock_bh_state(bh);
  	spin_lock(&journal->j_list_lock);
  
@@ -50,7 +50,7 @@ index de992a70ddfe..83145a211e79 100644
  	/*
  	 * We cannot remove the buffer from checkpoint lists until the
  	 * transaction adding inode to orphan list (let's call it T)
-@@ -2338,7 +2335,6 @@ static int journal_unmap_buffer(journal_t *journal, struct buffer_head *bh,
+@@ -2359,7 +2356,6 @@ static int journal_unmap_buffer(journal_t *journal, struct buffer_head *bh,
  	 */
  	jh->b_modified = 0;
  	jbd2_journal_put_journal_head(jh);
@@ -59,5 +59,5 @@ index de992a70ddfe..83145a211e79 100644
  	jbd_unlock_bh_state(bh);
  	write_unlock(&journal->j_state_lock);
 -- 
-2.28.0
+2.29.2
 

@@ -1,7 +1,7 @@
-From a5ae7e7772ee64d910aefd5da691514c8b1241e5 Mon Sep 17 00:00:00 2001
+From 23c21ebace113c8561bcf75143a78bfe13653f56 Mon Sep 17 00:00:00 2001
 From: Waiman Long <longman@redhat.com>
 Date: Thu, 3 Oct 2019 16:36:08 -0400
-Subject: [PATCH 001/298] lib/smp_processor_id: Don't use cpumask_equal()
+Subject: [PATCH 001/305] lib/smp_processor_id: Don't use cpumask_equal()
 
 The check_preemption_disabled() function uses cpumask_equal() to see
 if the task is bounded to the current CPU only. cpumask_equal() calls
@@ -37,5 +37,5 @@ index 60ba93fc42ce..bd9571653288 100644
  
  	/*
 -- 
-2.28.0
+2.29.2
 

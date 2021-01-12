@@ -1,7 +1,7 @@
-From 18eea5314ad98f57d867e305eb800311bde6bf35 Mon Sep 17 00:00:00 2001
+From 1d5a593e37d68bdb0b7957f95962152b9722f1c4 Mon Sep 17 00:00:00 2001
 From: John Ogness <john.ogness@linutronix.de>
 Date: Tue, 12 Feb 2019 15:29:49 +0100
-Subject: [PATCH 027/298] printk_safe: remove printk safe code
+Subject: [PATCH 027/305] printk_safe: remove printk safe code
 
 vprintk variants are now NMI-safe so there is no longer a need for
 the "safe" calls.
@@ -27,7 +27,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  delete mode 100644 kernel/printk/printk_safe.c
 
 diff --git a/arch/powerpc/kernel/traps.c b/arch/powerpc/kernel/traps.c
-index 014ff0701f24..f77c75081bac 100644
+index 206032c9b545..4da00cfb26f2 100644
 --- a/arch/powerpc/kernel/traps.c
 +++ b/arch/powerpc/kernel/traps.c
 @@ -171,7 +171,6 @@ extern void panic_flush_kmsg_start(void)
@@ -219,7 +219,7 @@ index b2b0f526f249..2b9b466e0bdf 100644
 -static inline bool printk_percpu_data_ready(void) { return false; }
 -#endif /* CONFIG_PRINTK */
 diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
-index e791a85535cf..01511da355f5 100644
+index d79b4e1c6e70..0f88dab9615f 100644
 --- a/kernel/printk/printk.c
 +++ b/kernel/printk/printk.c
 @@ -1764,13 +1764,6 @@ static bool cont_add(u32 caller_id, int facility, int level,
@@ -248,7 +248,7 @@ index e791a85535cf..01511da355f5 100644
  asmlinkage int vprintk(const char *fmt, va_list args)
  {
  	return vprintk_func(fmt, args);
-@@ -3245,5 +3243,4 @@ void kmsg_dump_rewind(struct kmsg_dumper *dumper)
+@@ -3248,5 +3246,4 @@ void kmsg_dump_rewind(struct kmsg_dumper *dumper)
  	logbuf_unlock_irqrestore(flags);
  }
  EXPORT_SYMBOL_GPL(kmsg_dump_rewind);
@@ -667,10 +667,10 @@ index d9a659a686f3..000000000000
 -	printk_safe_flush();
 -}
 diff --git a/kernel/trace/trace.c b/kernel/trace/trace.c
-index f9c2bdbbd893..414b64193ef1 100644
+index 67af28f03cf4..09a67e1e9ff6 100644
 --- a/kernel/trace/trace.c
 +++ b/kernel/trace/trace.c
-@@ -8942,7 +8942,6 @@ void ftrace_dump(enum ftrace_dump_mode oops_dump_mode)
+@@ -8957,7 +8957,6 @@ void ftrace_dump(enum ftrace_dump_mode oops_dump_mode)
  	tracing_off();
  
  	local_irq_save(flags);
@@ -678,7 +678,7 @@ index f9c2bdbbd893..414b64193ef1 100644
  
  	/* Simulate the iterator */
  	trace_init_global_iter(&iter);
-@@ -9019,7 +9018,6 @@ void ftrace_dump(enum ftrace_dump_mode oops_dump_mode)
+@@ -9034,7 +9033,6 @@ void ftrace_dump(enum ftrace_dump_mode oops_dump_mode)
  		atomic_dec(&per_cpu_ptr(iter.trace_buffer->data, cpu)->disabled);
  	}
  	atomic_dec(&dump_running);
@@ -704,5 +704,5 @@ index 15ca78e1c7d4..77bf84987cda 100644
  	put_cpu();
  }
 -- 
-2.28.0
+2.29.2
 

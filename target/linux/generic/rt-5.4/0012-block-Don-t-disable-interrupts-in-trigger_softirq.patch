@@ -1,7 +1,7 @@
-From 73e4e28f4f5f1443b21bdcd93b0046f6ccd9129a Mon Sep 17 00:00:00 2001
+From 73e6a35a5bc280416de6084d5b44e3072985d5a1 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 15 Nov 2019 21:37:22 +0100
-Subject: [PATCH 012/298] block: Don't disable interrupts in trigger_softirq()
+Subject: [PATCH 012/305] block: Don't disable interrupts in trigger_softirq()
 
 trigger_softirq() is always invoked as a SMP-function call which is
 always invoked with disables interrupts.
@@ -37,5 +37,5 @@ index 457d9ba3eb20..6e7ec87d49fa 100644
  
  /*
 -- 
-2.28.0
+2.29.2
 

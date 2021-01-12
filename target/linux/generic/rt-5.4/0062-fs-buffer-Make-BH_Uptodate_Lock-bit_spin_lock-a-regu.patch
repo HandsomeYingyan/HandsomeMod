@@ -1,7 +1,7 @@
-From 466ddf587f5571d95c99563d283de0bb19ae18df Mon Sep 17 00:00:00 2001
+From a21961ee008b4a792dc2504b4d4b0812177a9215 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 15 Nov 2019 18:54:20 +0100
-Subject: [PATCH 062/298] fs/buffer: Make BH_Uptodate_Lock bit_spin_lock a
+Subject: [PATCH 062/305] fs/buffer: Make BH_Uptodate_Lock bit_spin_lock a
  regular spinlock_t
 
 Bit spinlocks are problematic if PREEMPT_RT is enabled, because they
@@ -26,7 +26,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  4 files changed, 16 insertions(+), 26 deletions(-)
 
 diff --git a/fs/buffer.c b/fs/buffer.c
-index 79c9562434a8..fbed1d3f79fa 100644
+index 0d7bd7712076..6d32b0752441 100644
 --- a/fs/buffer.c
 +++ b/fs/buffer.c
 @@ -275,8 +275,7 @@ static void end_buffer_async_read(struct buffer_head *bh, int uptodate)
@@ -86,7 +86,7 @@ index 79c9562434a8..fbed1d3f79fa 100644
  	return;
  }
  EXPORT_SYMBOL(end_buffer_async_write);
-@@ -3356,6 +3350,7 @@ struct buffer_head *alloc_buffer_head(gfp_t gfp_flags)
+@@ -3349,6 +3343,7 @@ struct buffer_head *alloc_buffer_head(gfp_t gfp_flags)
  	struct buffer_head *ret = kmem_cache_zalloc(bh_cachep, gfp_flags);
  	if (ret) {
  		INIT_LIST_HEAD(&ret->b_assoc_buffers);
@@ -181,5 +181,5 @@ index b56cc825f64d..15b765a181b8 100644
  
  /*
 -- 
-2.28.0
+2.29.2
 

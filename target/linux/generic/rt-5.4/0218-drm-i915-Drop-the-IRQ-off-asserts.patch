@@ -1,7 +1,7 @@
-From 4990d4c342715539ecbc515c6d566655f618229a Mon Sep 17 00:00:00 2001
+From ec18989f274c3f19e8bba15e2f6de58546c690f6 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 26 Sep 2019 12:30:21 +0200
-Subject: [PATCH 218/298] drm/i915: Drop the IRQ-off asserts
+Subject: [PATCH 218/305] drm/i915: Drop the IRQ-off asserts
 
 The lockdep_assert_irqs_disabled() check is needless. The previous
 lockdep_assert_held() check ensures that the lock is acquired and while
@@ -47,5 +47,5 @@ index f750375056de..55317081d48b 100644
  	/*
  	 * We must wait for b->irq_lock so that we know the interrupt handler
 -- 
-2.28.0
+2.29.2
 

@@ -1,7 +1,7 @@
-From b68adbd78bf5934795aded4f19c3b639b885859c Mon Sep 17 00:00:00 2001
+From 036a60165d6ea7fa0587b99c171de4c078275010 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 15 Aug 2019 18:14:16 +0200
-Subject: [PATCH 077/298] cgroup: Remove ->css_rstat_flush()
+Subject: [PATCH 077/305] cgroup: Remove ->css_rstat_flush()
 
 I was looking at the lifetime of the the ->css_rstat_flush() to see if
 cgroup_rstat_cpu_lock should remain a raw_spinlock_t. I didn't find any
@@ -122,5 +122,5 @@ index 4a942d4e9763..a64b221886b1 100644
  
  		/* if @may_sleep, play nice and yield if necessary */
 -- 
-2.28.0
+2.29.2
 

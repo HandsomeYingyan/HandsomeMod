@@ -1,7 +1,7 @@
-From 825553590cc5bf47b373d76c5bc9c5d89d644fad Mon Sep 17 00:00:00 2001
+From 652a7a158447091aff7542f220a058640d8fe629 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 14 Sep 2016 17:36:35 +0200
-Subject: [PATCH 090/298] net/Qdisc: use a seqlock instead seqcount
+Subject: [PATCH 090/305] net/Qdisc: use a seqlock instead seqcount
 
 The seqcount disables preemption on -RT while it is held which can't
 remove. Also we don't want the reader to spin for ages if the writer is
@@ -22,10 +22,10 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  create mode 100644 include/net/net_seq_lock.h
 
 diff --git a/include/linux/seqlock.h b/include/linux/seqlock.h
-index 2200901626bf..bc458c2658e4 100644
+index f390293974ea..e5207897c33e 100644
 --- a/include/linux/seqlock.h
 +++ b/include/linux/seqlock.h
-@@ -482,6 +482,15 @@ static inline void write_seqlock(seqlock_t *sl)
+@@ -489,6 +489,15 @@ static inline void write_seqlock(seqlock_t *sl)
  	__raw_write_seqcount_begin(&sl->seqcount);
  }
  
@@ -274,7 +274,7 @@ index 50794125bf02..3eefd60e3a58 100644
  		err = -EOPNOTSUPP;
  		if (sch->flags & TCQ_F_MQROOT) {
 diff --git a/net/sched/sch_generic.c b/net/sched/sch_generic.c
-index f3b2953eb03c..770c5d2b65f0 100644
+index 981f699730ce..5d9f14dc5c2a 100644
 --- a/net/sched/sch_generic.c
 +++ b/net/sched/sch_generic.c
 @@ -558,7 +558,11 @@ struct Qdisc noop_qdisc = {
@@ -315,5 +315,5 @@ index f3b2953eb03c..770c5d2b65f0 100644
  
  	return sch;
 -- 
-2.28.0
+2.29.2
 

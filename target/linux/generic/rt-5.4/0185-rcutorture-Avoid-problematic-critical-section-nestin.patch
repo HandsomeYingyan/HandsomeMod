@@ -1,7 +1,7 @@
-From 21f41c0300c3367c5d3b5bdf1d5ae4fd650575b5 Mon Sep 17 00:00:00 2001
+From feeee3fa1bc23f0493a308e715a344f53aac18f5 Mon Sep 17 00:00:00 2001
 From: Scott Wood <swood@redhat.com>
 Date: Wed, 11 Sep 2019 17:57:29 +0100
-Subject: [PATCH 185/298] rcutorture: Avoid problematic critical section
+Subject: [PATCH 185/305] rcutorture: Avoid problematic critical section
  nesting on RT
 
 rcutorture was generating some nesting scenarios that are not
@@ -190,5 +190,5 @@ index c070d103f34d..a90d6981e1e4 100644
  }
  
 -- 
-2.28.0
+2.29.2
 

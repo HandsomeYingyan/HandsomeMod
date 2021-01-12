@@ -1,7 +1,7 @@
-From b8ccfadc9823ce25006406fb822e0c43ccfd66bc Mon Sep 17 00:00:00 2001
+From 82639a0a3f1477a1ed71d08053fff5f1b5889aca Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Sat, 22 Jun 2019 00:09:22 +0200
-Subject: [PATCH 144/298] softirq: Avoid a cancel dead-lock in tasklet handling
+Subject: [PATCH 144/305] softirq: Avoid a cancel dead-lock in tasklet handling
  due to preemptible-softirq
 
 A pending / active tasklet which is preempted by a task on the same CPU
@@ -52,5 +52,5 @@ index 2b7b8d9af10a..d975a066d47d 100644
  	}
  	tasklet_unlock_wait(t);
 -- 
-2.28.0
+2.29.2
 

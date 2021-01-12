@@ -1,7 +1,7 @@
-From 748de5dd84edee9e76a0e8d9e27dc0e5314d519e Mon Sep 17 00:00:00 2001
+From 11e2ff4c7edc88a6442e480391b4fd41a0816948 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 9 Jan 2013 12:08:15 +0100
-Subject: [PATCH 122/298] slub: Enable irqs for __GFP_WAIT
+Subject: [PATCH 122/305] slub: Enable irqs for __GFP_WAIT
 
 SYSTEM_RUNNING might be too late for enabling interrupts. Allocations
 with GFP_WAIT can happen before that. So use this as an indicator.
@@ -12,10 +12,10 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  1 file changed, 9 insertions(+), 1 deletion(-)
 
 diff --git a/mm/slub.c b/mm/slub.c
-index b932fd062647..d8c462dd9426 100644
+index f1c7e67b4d01..26af808e3b58 100644
 --- a/mm/slub.c
 +++ b/mm/slub.c
-@@ -1646,10 +1646,18 @@ static struct page *allocate_slab(struct kmem_cache *s, gfp_t flags, int node)
+@@ -1656,10 +1656,18 @@ static struct page *allocate_slab(struct kmem_cache *s, gfp_t flags, int node)
  	void *start, *p, *next;
  	int idx;
  	bool shuffle;
@@ -34,7 +34,7 @@ index b932fd062647..d8c462dd9426 100644
  		local_irq_enable();
  
  	flags |= s->allocflags;
-@@ -1708,7 +1716,7 @@ static struct page *allocate_slab(struct kmem_cache *s, gfp_t flags, int node)
+@@ -1718,7 +1726,7 @@ static struct page *allocate_slab(struct kmem_cache *s, gfp_t flags, int node)
  	page->frozen = 1;
  
  out:
@@ -44,5 +44,5 @@ index b932fd062647..d8c462dd9426 100644
  	if (!page)
  		return NULL;
 -- 
-2.28.0
+2.29.2
 

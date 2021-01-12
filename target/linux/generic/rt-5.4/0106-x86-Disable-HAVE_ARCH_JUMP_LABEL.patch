@@ -1,7 +1,7 @@
-From 840e063d28c9c219878a4b6452f8dc973baf2714 Mon Sep 17 00:00:00 2001
+From 6c47f65d4a27ce0689e0334946c8f2a0b715a79d Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Mon, 1 Jul 2019 17:39:28 +0200
-Subject: [PATCH 106/298] x86: Disable HAVE_ARCH_JUMP_LABEL
+Subject: [PATCH 106/305] x86: Disable HAVE_ARCH_JUMP_LABEL
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
@@ -34,5 +34,5 @@ index 8ef85139553f..42d8027526e8 100644
  	select HAVE_ARCH_KGDB
  	select HAVE_ARCH_MMAP_RND_BITS		if MMU
 -- 
-2.28.0
+2.29.2
 

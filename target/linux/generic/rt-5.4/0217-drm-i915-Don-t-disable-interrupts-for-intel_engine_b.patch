@@ -1,7 +1,7 @@
-From a453cac5b6222b3a5249bc8e0f85aad704280f57 Mon Sep 17 00:00:00 2001
+From 225dec263573a6cedf166de8124c86c4c935f1a3 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 26 Sep 2019 12:29:05 +0200
-Subject: [PATCH 217/298] drm/i915: Don't disable interrupts for
+Subject: [PATCH 217/305] drm/i915: Don't disable interrupts for
  intel_engine_breadcrumbs_irq()
 
 The function intel_engine_breadcrumbs_irq() is always invoked from an interrupt
@@ -124,5 +124,5 @@ index 8cea42379dd7..05f965e2e132 100644
  
  static void reset_finish(struct intel_gt *gt, intel_engine_mask_t awake)
 -- 
-2.28.0
+2.29.2
 

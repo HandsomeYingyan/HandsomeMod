@@ -1,7 +1,7 @@
-From c82aaa47b7d22116aa9d6aae361ec19ddaba97d0 Mon Sep 17 00:00:00 2001
+From d6071a91fab3f5e538c9a2012a162e3672501f5a Mon Sep 17 00:00:00 2001
 From: Scott Wood <swood@redhat.com>
 Date: Sat, 12 Oct 2019 01:52:14 -0500
-Subject: [PATCH 175/298] sched: migrate_enable: Use stop_one_cpu_nowait()
+Subject: [PATCH 175/305] sched: migrate_enable: Use stop_one_cpu_nowait()
 
 migrate_enable() can be called with current->state != TASK_RUNNING.
 Avoid clobbering the existing state by using stop_one_cpu_nowait().
@@ -32,10 +32,10 @@ index f9a0c6189852..27d32887103d 100644
  
  int stop_one_cpu(unsigned int cpu, cpu_stop_fn_t fn, void *arg);
 diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index 4bfc3eb2fd47..4df704b2f7ad 100644
+index eee83d5233a4..90a6a4468488 100644
 --- a/kernel/sched/core.c
 +++ b/kernel/sched/core.c
-@@ -1543,6 +1543,7 @@ static struct rq *move_queued_task(struct rq *rq, struct rq_flags *rf,
+@@ -1620,6 +1620,7 @@ static struct rq *move_queued_task(struct rq *rq, struct rq_flags *rf,
  struct migration_arg {
  	struct task_struct *task;
  	int dest_cpu;
@@ -43,7 +43,7 @@ index 4bfc3eb2fd47..4df704b2f7ad 100644
  };
  
  /*
-@@ -1578,6 +1579,11 @@ static int migration_cpu_stop(void *data)
+@@ -1655,6 +1656,11 @@ static int migration_cpu_stop(void *data)
  	struct task_struct *p = arg->task;
  	struct rq *rq = this_rq();
  	struct rq_flags rf;
@@ -55,7 +55,7 @@ index 4bfc3eb2fd47..4df704b2f7ad 100644
  
  	/*
  	 * The original target CPU might have gone down and we might
-@@ -1600,9 +1606,9 @@ static int migration_cpu_stop(void *data)
+@@ -1677,9 +1683,9 @@ static int migration_cpu_stop(void *data)
  	 */
  	if (task_rq(p) == rq) {
  		if (task_on_rq_queued(p))
@@ -67,7 +67,7 @@ index 4bfc3eb2fd47..4df704b2f7ad 100644
  	}
  	rq_unlock(rq, &rf);
  	raw_spin_unlock(&p->pi_lock);
-@@ -8175,7 +8181,8 @@ void migrate_enable(void)
+@@ -8251,7 +8257,8 @@ void migrate_enable(void)
  
  	WARN_ON(smp_processor_id() != cpu);
  	if (!is_cpu_allowed(p, cpu)) {
@@ -77,7 +77,7 @@ index 4bfc3eb2fd47..4df704b2f7ad 100644
  		struct rq_flags rf;
  
  		rq = task_rq_lock(p, &rf);
-@@ -8183,13 +8190,13 @@ void migrate_enable(void)
+@@ -8259,13 +8266,13 @@ void migrate_enable(void)
  		arg.dest_cpu = select_fallback_rq(cpu, p);
  		task_rq_unlock(rq, p, &rf);
  
@@ -117,5 +117,5 @@ index 998d50ee2d9b..9112fc79d24b 100644
  
  	wake_up_q(&wakeq);
 -- 
-2.28.0
+2.29.2
 

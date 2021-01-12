@@ -1,7 +1,7 @@
-From b4f691b52e2b1dd60163db016a49bd46674f6f6b Mon Sep 17 00:00:00 2001
+From 577720ea224c421ab5978624038b3cca738d8487 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 14 Aug 2019 16:38:43 +0200
-Subject: [PATCH 087/298] dma-buf: Use seqlock_t instread disabling preemption
+Subject: [PATCH 087/305] dma-buf: Use seqlock_t instread disabling preemption
 
 "dma reservation" disables preemption while acquiring the write access
 for "seqcount".
@@ -20,10 +20,10 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  5 files changed, 27 insertions(+), 42 deletions(-)
 
 diff --git a/drivers/dma-buf/dma-buf.c b/drivers/dma-buf/dma-buf.c
-index eba7e3fe769c..a1b88fa006b4 100644
+index f6df6ef1b0fb..6ac054a13d0b 100644
 --- a/drivers/dma-buf/dma-buf.c
 +++ b/drivers/dma-buf/dma-buf.c
-@@ -212,7 +212,7 @@ static __poll_t dma_buf_poll(struct file *file, poll_table *poll)
+@@ -214,7 +214,7 @@ static __poll_t dma_buf_poll(struct file *file, poll_table *poll)
  		return 0;
  
  retry:
@@ -32,7 +32,7 @@ index eba7e3fe769c..a1b88fa006b4 100644
  	rcu_read_lock();
  
  	fobj = rcu_dereference(resv->fence);
-@@ -221,7 +221,7 @@ static __poll_t dma_buf_poll(struct file *file, poll_table *poll)
+@@ -223,7 +223,7 @@ static __poll_t dma_buf_poll(struct file *file, poll_table *poll)
  	else
  		shared_count = 0;
  	fence_excl = rcu_dereference(resv->fence_excl);
@@ -41,7 +41,7 @@ index eba7e3fe769c..a1b88fa006b4 100644
  		rcu_read_unlock();
  		goto retry;
  	}
-@@ -1190,12 +1190,12 @@ static int dma_buf_debug_show(struct seq_file *s, void *unused)
+@@ -1192,12 +1192,12 @@ static int dma_buf_debug_show(struct seq_file *s, void *unused)
  
  		robj = buf_obj->resv;
  		while (true) {
@@ -57,7 +57,7 @@ index eba7e3fe769c..a1b88fa006b4 100644
  			rcu_read_unlock();
  		}
 diff --git a/drivers/dma-buf/dma-resv.c b/drivers/dma-buf/dma-resv.c
-index 709002515550..b0c0d4fe0b33 100644
+index 242a9ec295cf..09c57db1241b 100644
 --- a/drivers/dma-buf/dma-resv.c
 +++ b/drivers/dma-buf/dma-resv.c
 @@ -49,12 +49,6 @@
@@ -202,7 +202,7 @@ index 709002515550..b0c0d4fe0b33 100644
  		}
  	}
 diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_gpuvm.c b/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_gpuvm.c
-index edb561baf8b9..955063260818 100644
+index f3fa271e3394..d5e5b04f5bed 100644
 --- a/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_gpuvm.c
 +++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_gpuvm.c
 @@ -252,11 +252,9 @@ static int amdgpu_amdkfd_remove_eviction_fence(struct amdgpu_bo *bo,
@@ -271,5 +271,5 @@ index ee50d10f052b..81272ca122ee 100644
  	struct dma_fence __rcu *fence_excl;
  	struct dma_resv_list __rcu *fence;
 -- 
-2.28.0
+2.29.2
 

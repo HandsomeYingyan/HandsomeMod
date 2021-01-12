@@ -1,7 +1,7 @@
-From c4065877763dafaba6982ac51a463fffe2a22b39 Mon Sep 17 00:00:00 2001
+From f68b7067445304a1ab0fda6fdf16505e4da3576a Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 21 Feb 2020 18:57:11 +0100
-Subject: [PATCH 069/298] drm/vmwgfx: Drop preempt_disable() in
+Subject: [PATCH 069/305] drm/vmwgfx: Drop preempt_disable() in
  vmw_fifo_ping_host()
 
 vmw_fifo_ping_host() disables preemption around a test and a register
@@ -37,5 +37,5 @@ index e5252ef3812f..6941689085ed 100644
  
  void vmw_fifo_release(struct vmw_private *dev_priv, struct vmw_fifo_state *fifo)
 -- 
-2.28.0
+2.29.2
 

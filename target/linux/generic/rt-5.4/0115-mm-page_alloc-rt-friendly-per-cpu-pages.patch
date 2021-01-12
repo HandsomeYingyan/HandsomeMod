@@ -1,7 +1,7 @@
-From 4597e87bcd78620cda2fb62590733399b945e01d Mon Sep 17 00:00:00 2001
+From f3f1d940d14848fade8efc7adbb302ff2c21986a Mon Sep 17 00:00:00 2001
 From: Ingo Molnar <mingo@elte.hu>
 Date: Fri, 3 Jul 2009 08:29:37 -0500
-Subject: [PATCH 115/298] mm: page_alloc: rt-friendly per-cpu pages
+Subject: [PATCH 115/305] mm: page_alloc: rt-friendly per-cpu pages
 
 rt-friendly per-cpu pages: convert the irqs-off per-cpu locking
 method into a preemptible, explicit-per-cpu-locks method.
@@ -17,7 +17,7 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  1 file changed, 32 insertions(+), 19 deletions(-)
 
 diff --git a/mm/page_alloc.c b/mm/page_alloc.c
-index 485607f98399..9faba8539b76 100644
+index bf062853c9ae..4b70ad16a6e6 100644
 --- a/mm/page_alloc.c
 +++ b/mm/page_alloc.c
 @@ -61,6 +61,7 @@
@@ -28,7 +28,7 @@ index 485607f98399..9faba8539b76 100644
  #include <linux/page_owner.h>
  #include <linux/kthread.h>
  #include <linux/memcontrol.h>
-@@ -357,6 +358,18 @@ EXPORT_SYMBOL(nr_node_ids);
+@@ -358,6 +359,18 @@ EXPORT_SYMBOL(nr_node_ids);
  EXPORT_SYMBOL(nr_online_nodes);
  #endif
  
@@ -47,7 +47,7 @@ index 485607f98399..9faba8539b76 100644
  int page_group_by_mobility_disabled __read_mostly;
  
  #ifdef CONFIG_DEFERRED_STRUCT_PAGE_INIT
-@@ -1448,10 +1461,10 @@ static void __free_pages_ok(struct page *page, unsigned int order)
+@@ -1449,10 +1462,10 @@ static void __free_pages_ok(struct page *page, unsigned int order)
  		return;
  
  	migratetype = get_pfnblock_migratetype(page, pfn);
@@ -60,7 +60,7 @@ index 485607f98399..9faba8539b76 100644
  }
  
  void __free_pages_core(struct page *page, unsigned int order)
-@@ -2821,13 +2834,13 @@ void drain_zone_pages(struct zone *zone, struct per_cpu_pages *pcp)
+@@ -2823,13 +2836,13 @@ void drain_zone_pages(struct zone *zone, struct per_cpu_pages *pcp)
  	int to_drain, batch;
  	LIST_HEAD(dst);
  
@@ -76,7 +76,7 @@ index 485607f98399..9faba8539b76 100644
  
  	if (to_drain > 0)
  		free_pcppages_bulk(zone, &dst, false);
-@@ -2849,7 +2862,7 @@ static void drain_pages_zone(unsigned int cpu, struct zone *zone)
+@@ -2851,7 +2864,7 @@ static void drain_pages_zone(unsigned int cpu, struct zone *zone)
  	LIST_HEAD(dst);
  	int count;
  
@@ -85,7 +85,7 @@ index 485607f98399..9faba8539b76 100644
  	pset = per_cpu_ptr(zone->pageset, cpu);
  
  	pcp = &pset->pcp;
-@@ -2857,7 +2870,7 @@ static void drain_pages_zone(unsigned int cpu, struct zone *zone)
+@@ -2859,7 +2872,7 @@ static void drain_pages_zone(unsigned int cpu, struct zone *zone)
  	if (count)
  		isolate_pcp_pages(count, pcp, &dst);
  
@@ -94,7 +94,7 @@ index 485607f98399..9faba8539b76 100644
  
  	if (count)
  		free_pcppages_bulk(zone, &dst, false);
-@@ -3107,9 +3120,9 @@ void free_unref_page(struct page *page)
+@@ -3109,9 +3122,9 @@ void free_unref_page(struct page *page)
  	if (!free_unref_page_prepare(page, pfn))
  		return;
  
@@ -106,7 +106,7 @@ index 485607f98399..9faba8539b76 100644
  	if (!list_empty(&dst))
  		free_pcppages_bulk(zone, &dst, false);
  }
-@@ -3136,7 +3149,7 @@ void free_unref_page_list(struct list_head *list)
+@@ -3138,7 +3151,7 @@ void free_unref_page_list(struct list_head *list)
  		set_page_private(page, pfn);
  	}
  
@@ -115,7 +115,7 @@ index 485607f98399..9faba8539b76 100644
  	list_for_each_entry_safe(page, next, list, lru) {
  		unsigned long pfn = page_private(page);
  		enum zone_type type;
-@@ -3151,12 +3164,12 @@ void free_unref_page_list(struct list_head *list)
+@@ -3153,12 +3166,12 @@ void free_unref_page_list(struct list_head *list)
  		 * a large list of pages to free.
  		 */
  		if (++batch_count == SWAP_CLUSTER_MAX) {
@@ -131,7 +131,7 @@ index 485607f98399..9faba8539b76 100644
  
  	for (i = 0; i < __MAX_NR_ZONES; ) {
  		struct page *page;
-@@ -3306,7 +3319,7 @@ static struct page *rmqueue_pcplist(struct zone *preferred_zone,
+@@ -3308,7 +3321,7 @@ static struct page *rmqueue_pcplist(struct zone *preferred_zone,
  	struct page *page;
  	unsigned long flags;
  
@@ -140,7 +140,7 @@ index 485607f98399..9faba8539b76 100644
  	pcp = &this_cpu_ptr(zone->pageset)->pcp;
  	list = &pcp->lists[migratetype];
  	page = __rmqueue_pcplist(zone,  migratetype, alloc_flags, pcp, list);
-@@ -3314,7 +3327,7 @@ static struct page *rmqueue_pcplist(struct zone *preferred_zone,
+@@ -3316,7 +3329,7 @@ static struct page *rmqueue_pcplist(struct zone *preferred_zone,
  		__count_zid_vm_events(PGALLOC, page_zonenum(page), 1);
  		zone_statistics(preferred_zone, zone);
  	}
@@ -149,7 +149,7 @@ index 485607f98399..9faba8539b76 100644
  	return page;
  }
  
-@@ -3341,7 +3354,7 @@ struct page *rmqueue(struct zone *preferred_zone,
+@@ -3343,7 +3356,7 @@ struct page *rmqueue(struct zone *preferred_zone,
  	 * allocate greater than order-1 page units with __GFP_NOFAIL.
  	 */
  	WARN_ON_ONCE((gfp_flags & __GFP_NOFAIL) && (order > 1));
@@ -158,7 +158,7 @@ index 485607f98399..9faba8539b76 100644
  
  	do {
  		page = NULL;
-@@ -3361,7 +3374,7 @@ struct page *rmqueue(struct zone *preferred_zone,
+@@ -3363,7 +3376,7 @@ struct page *rmqueue(struct zone *preferred_zone,
  
  	__count_zid_vm_events(PGALLOC, page_zonenum(page), 1 << order);
  	zone_statistics(preferred_zone, zone);
@@ -167,7 +167,7 @@ index 485607f98399..9faba8539b76 100644
  
  out:
  	/* Separate test+clear to avoid unnecessary atomics */
-@@ -3374,7 +3387,7 @@ struct page *rmqueue(struct zone *preferred_zone,
+@@ -3376,7 +3389,7 @@ struct page *rmqueue(struct zone *preferred_zone,
  	return page;
  
  failed:
@@ -176,7 +176,7 @@ index 485607f98399..9faba8539b76 100644
  	return NULL;
  }
  
-@@ -8608,7 +8621,7 @@ void zone_pcp_reset(struct zone *zone)
+@@ -8634,7 +8647,7 @@ void zone_pcp_reset(struct zone *zone)
  	struct per_cpu_pageset *pset;
  
  	/* avoid races with drain_pages()  */
@@ -185,7 +185,7 @@ index 485607f98399..9faba8539b76 100644
  	if (zone->pageset != &boot_pageset) {
  		for_each_online_cpu(cpu) {
  			pset = per_cpu_ptr(zone->pageset, cpu);
-@@ -8617,7 +8630,7 @@ void zone_pcp_reset(struct zone *zone)
+@@ -8643,7 +8656,7 @@ void zone_pcp_reset(struct zone *zone)
  		free_percpu(zone->pageset);
  		zone->pageset = &boot_pageset;
  	}
@@ -195,5 +195,5 @@ index 485607f98399..9faba8539b76 100644
  
  #ifdef CONFIG_MEMORY_HOTREMOVE
 -- 
-2.28.0
+2.29.2
 

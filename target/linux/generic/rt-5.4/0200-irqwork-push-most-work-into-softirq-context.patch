@@ -1,7 +1,7 @@
-From 12ef41fdf57bc1982328358d81beebb40f53afba Mon Sep 17 00:00:00 2001
+From 55044dff17450b4bb4fbeeac34d94dd2a5136671 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 23 Jun 2015 15:32:51 +0200
-Subject: [PATCH 200/298] irqwork: push most work into softirq context
+Subject: [PATCH 200/305] irqwork: push most work into softirq context
 
 Initially we defered all irqwork into softirq because we didn't want the
 latency spikes if perf or another user was busy and delayed the RT task.
@@ -173,7 +173,7 @@ index d42acaf81886..aab68fdbcb8d 100644
  /*
   * Synchronize against the irq_work @entry, ensures the entry is not
 diff --git a/kernel/rcu/tree.c b/kernel/rcu/tree.c
-index c006f4970f03..d9936d7383da 100644
+index 3d911eb319f8..ca917ea4f6ed 100644
 --- a/kernel/rcu/tree.c
 +++ b/kernel/rcu/tree.c
 @@ -1097,6 +1097,7 @@ static int rcu_implicit_dynticks_qs(struct rcu_data *rdp)
@@ -197,7 +197,7 @@ index ffaa97a8d405..93f51846b34f 100644
  
  	init_dl_bw(&rd->dl_bw);
 diff --git a/kernel/time/tick-sched.c b/kernel/time/tick-sched.c
-index 83a5affd75a0..a2899e2cdc3a 100644
+index 61eb19b55241..fdf5b05498b1 100644
 --- a/kernel/time/tick-sched.c
 +++ b/kernel/time/tick-sched.c
 @@ -239,6 +239,7 @@ static void nohz_full_kick_func(struct irq_work *work)
@@ -209,10 +209,10 @@ index 83a5affd75a0..a2899e2cdc3a 100644
  
  /*
 diff --git a/kernel/time/timer.c b/kernel/time/timer.c
-index a3ae244b1bcd..89078fd848b9 100644
+index 87fa73cdb90f..2279c1e04d0c 100644
 --- a/kernel/time/timer.c
 +++ b/kernel/time/timer.c
-@@ -1802,6 +1802,8 @@ static __latent_entropy void run_timer_softirq(struct softirq_action *h)
+@@ -1795,6 +1795,8 @@ static __latent_entropy void run_timer_softirq(struct softirq_action *h)
  {
  	struct timer_base *base = this_cpu_ptr(&timer_bases[BASE_STD]);
  
@@ -222,5 +222,5 @@ index a3ae244b1bcd..89078fd848b9 100644
  	if (IS_ENABLED(CONFIG_NO_HZ_COMMON))
  		__run_timers(this_cpu_ptr(&timer_bases[BASE_DEF]));
 -- 
-2.28.0
+2.29.2
 

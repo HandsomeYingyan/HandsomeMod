@@ -1,7 +1,7 @@
-From c999614050cb318d133e4dac65c5a5cc119805b2 Mon Sep 17 00:00:00 2001
+From 06420f0a2a77de0bb3d9b71c0406642a2a18381a Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 4 Feb 2020 13:29:50 +0100
-Subject: [PATCH 108/298] locallock: Include header for the `current' macro
+Subject: [PATCH 108/305] locallock: Include header for the `current' macro
 
 Include the header for `current' macro so that
 CONFIG_KERNEL_HEADER_TEST=y passes.
@@ -24,5 +24,5 @@ index 05a15110c8aa..9b6b4def52d4 100644
  #ifdef CONFIG_PREEMPT_RT
  
 -- 
-2.28.0
+2.29.2
 

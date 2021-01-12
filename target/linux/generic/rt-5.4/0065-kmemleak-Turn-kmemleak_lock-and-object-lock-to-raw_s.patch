@@ -1,7 +1,7 @@
-From ee84f599d9675b88ecac3458d70d8bb27b049dd6 Mon Sep 17 00:00:00 2001
+From 060f207a2a5103a75faaa21a0750cd4414723d82 Mon Sep 17 00:00:00 2001
 From: He Zhe <zhe.he@windriver.com>
 Date: Wed, 19 Dec 2018 16:30:57 +0100
-Subject: [PATCH 065/298] kmemleak: Turn kmemleak_lock and object->lock to
+Subject: [PATCH 065/305] kmemleak: Turn kmemleak_lock and object->lock to
  raw_spinlock_t
 
 kmemleak_lock as a rwlock on RT can possibly be acquired in atomic context
@@ -33,7 +33,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 56 insertions(+), 56 deletions(-)
 
 diff --git a/mm/kmemleak.c b/mm/kmemleak.c
-index 244607663363..3a4259eeb5a0 100644
+index 312942d78405..e362dc3d2028 100644
 --- a/mm/kmemleak.c
 +++ b/mm/kmemleak.c
 @@ -13,7 +13,7 @@
@@ -413,5 +413,5 @@ index 244607663363..3a4259eeb5a0 100644
  	rcu_read_unlock();
  
 -- 
-2.28.0
+2.29.2
 

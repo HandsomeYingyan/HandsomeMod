@@ -1,7 +1,7 @@
-From 4f413b2159efc5fa48649a27afd935c2e5dd9b92 Mon Sep 17 00:00:00 2001
+From 670d608440546a05f63e823a90463cd2bd405cbc Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 20 Mar 2020 13:28:35 +0100
-Subject: [PATCH 134/298] swait: Remove the warning with more than two waiters
+Subject: [PATCH 134/305] swait: Remove the warning with more than two waiters
 
 The warning was introduced to find callers of complete_all() having
 multiple waiters enqueued. As completa_all() wakes all waiters with
@@ -45,7 +45,7 @@ index 5030ab13db06..cd97d2c8840c 100644
  extern suspend_state_t mem_sleep_current;
  extern suspend_state_t mem_sleep_default;
 diff --git a/kernel/power/hibernate.c b/kernel/power/hibernate.c
-index ec0f84133aa4..b6c5895ced36 100644
+index 95dbcf0d51f0..69c4cd472def 100644
 --- a/kernel/power/hibernate.c
 +++ b/kernel/power/hibernate.c
 @@ -689,10 +689,6 @@ static int load_image_and_restore(void)
@@ -130,5 +130,5 @@ index c58068d2ee06..c56c315524ae 100644
  EXPORT_SYMBOL(swake_up_all_locked);
  
 -- 
-2.28.0
+2.29.2
 

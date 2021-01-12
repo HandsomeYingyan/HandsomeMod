@@ -1,7 +1,7 @@
-From 7875e40df9051265bca0e3a1b40ee5aa1a1c39f1 Mon Sep 17 00:00:00 2001
+From ba493c7b47e19762991a54564b93ac050ac5ce1e Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Thu, 12 Oct 2017 17:31:14 +0200
-Subject: [PATCH 167/298] rtmutex: wire up RT's locking
+Subject: [PATCH 167/305] rtmutex: wire up RT's locking
 
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
 Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
@@ -328,5 +328,5 @@ index 472dd462a40c..82915146c92c 100644
 +
 +#endif
 -- 
-2.28.0
+2.29.2
 

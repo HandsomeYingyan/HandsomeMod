@@ -1,7 +1,7 @@
-From 671f52a06674ec940c1e5772482166ea00c616f4 Mon Sep 17 00:00:00 2001
+From d8fa1c7249ca3a576418c3af68717dc29b368bc3 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 11 Jan 2013 11:23:51 +0100
-Subject: [PATCH 133/298] completion: Use simple wait queues
+Subject: [PATCH 133/305] completion: Use simple wait queues
 
 Completions have no long lasting callbacks and therefor do not need
 the complex waitqueue variant. Use simple waitqueues which reduces the
@@ -42,7 +42,7 @@ index 2735ec90414d..359231cea8cd 100644
  		res = -EINTR;
  	if (res) {
 diff --git a/drivers/net/wireless/intersil/orinoco/orinoco_usb.c b/drivers/net/wireless/intersil/orinoco/orinoco_usb.c
-index e753f43e0162..7e53a0ba5776 100644
+index e2368bfe3e46..68e640dbe7ef 100644
 --- a/drivers/net/wireless/intersil/orinoco/orinoco_usb.c
 +++ b/drivers/net/wireless/intersil/orinoco/orinoco_usb.c
 @@ -693,8 +693,8 @@ static void ezusb_req_ctx_wait(struct ezusb_priv *upriv,
@@ -57,10 +57,10 @@ index e753f43e0162..7e53a0ba5776 100644
  		break;
  	default:
 diff --git a/drivers/usb/gadget/function/f_fs.c b/drivers/usb/gadget/function/f_fs.c
-index f8bcfc506f4a..11c1978c6372 100644
+index df003bc67da0..a77aab2554b1 100644
 --- a/drivers/usb/gadget/function/f_fs.c
 +++ b/drivers/usb/gadget/function/f_fs.c
-@@ -1719,7 +1719,7 @@ static void ffs_data_put(struct ffs_data *ffs)
+@@ -1722,7 +1722,7 @@ static void ffs_data_put(struct ffs_data *ffs)
  		pr_info("%s(): freeing\n", __func__);
  		ffs_data_clear(ffs);
  		BUG_ON(waitqueue_active(&ffs->ev.waitq) ||
@@ -70,7 +70,7 @@ index f8bcfc506f4a..11c1978c6372 100644
  		destroy_workqueue(ffs->io_completion_wq);
  		kfree(ffs->dev_name);
 diff --git a/drivers/usb/gadget/legacy/inode.c b/drivers/usb/gadget/legacy/inode.c
-index 238f555fe494..1f332d0db93d 100644
+index cabcbb47f0ac..b00b4ee372e6 100644
 --- a/drivers/usb/gadget/legacy/inode.c
 +++ b/drivers/usb/gadget/legacy/inode.c
 @@ -344,7 +344,7 @@ ep_io (struct ep_data *epdata, void *buf, unsigned len)
@@ -163,7 +163,7 @@ index 12612823c2cb..21ae66cd41d3 100644
  extern long prepare_to_swait_event(struct swait_queue_head *q, struct swait_queue *wait, int state);
  
 diff --git a/kernel/power/hibernate.c b/kernel/power/hibernate.c
-index b6c5895ced36..ec0f84133aa4 100644
+index 69c4cd472def..95dbcf0d51f0 100644
 --- a/kernel/power/hibernate.c
 +++ b/kernel/power/hibernate.c
 @@ -689,6 +689,10 @@ static int load_image_and_restore(void)
@@ -361,5 +361,5 @@ index 091347205736..c58068d2ee06 100644
  	wait->task = current;
  	if (list_empty(&wait->task_list))
 -- 
-2.28.0
+2.29.2
 

@@ -1,7 +1,7 @@
-From 716eacc64a5de85f5f2c61bfa066732b9e289b93 Mon Sep 17 00:00:00 2001
+From 0ea48a69090b837c5e971da8eb419373c3e3b176 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 22 May 2019 12:42:26 +0200
-Subject: [PATCH 074/298] sched/swait: Add swait_event_lock_irq()
+Subject: [PATCH 074/305] sched/swait: Add swait_event_lock_irq()
 
 The swait_event_lock_irq() is inspired by wait_event_lock_irq(). This is
 required by the workqueue code once it switches to swait.
@@ -35,5 +35,5 @@ index 73e06e9986d4..12612823c2cb 100644
 +
  #endif /* _LINUX_SWAIT_H */
 -- 
-2.28.0
+2.29.2
 

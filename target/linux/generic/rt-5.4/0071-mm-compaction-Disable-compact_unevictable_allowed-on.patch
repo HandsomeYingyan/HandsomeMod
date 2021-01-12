@@ -1,7 +1,7 @@
-From 5a828afae97b601949effdb251697577fb3132bd Mon Sep 17 00:00:00 2001
+From 470c71d506f57b93f66d3259aaa0091c5a0a5237 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 8 Nov 2019 12:55:47 +0100
-Subject: [PATCH 071/298] mm/compaction: Disable compact_unevictable_allowed on
+Subject: [PATCH 071/305] mm/compaction: Disable compact_unevictable_allowed on
  RT
 
 Since commit
@@ -109,5 +109,5 @@ index 92470625f0b1..c4e69494100c 100644
  static inline void
  update_fast_start_pfn(struct compact_control *cc, unsigned long pfn)
 -- 
-2.28.0
+2.29.2
 

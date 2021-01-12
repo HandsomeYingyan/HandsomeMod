@@ -1,7 +1,7 @@
-From 193400f664851ccdffd6175bc2029e5e47705fa7 Mon Sep 17 00:00:00 2001
+From 85c6f9e3df570bfd6ea6536af1e2f3653ae8ed81 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 26 Jul 2018 09:13:42 +0200
-Subject: [PATCH 013/298] arm64: KVM: Invoke compute_layout() before
+Subject: [PATCH 013/305] arm64: KVM: Invoke compute_layout() before
  alternatives are applied
 
 compute_layout() is invoked as part of an alternative fixup under
@@ -33,7 +33,7 @@ index befe37d4bc0e..53d846f1bfe7 100644
  static inline unsigned long __kern_hyp_va(unsigned long v)
  {
 diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index 993a4aedfd37..4351ca1eb28d 100644
+index 987220ac4cfe..047f30094daa 100644
 --- a/arch/arm64/kernel/smp.c
 +++ b/arch/arm64/kernel/smp.c
 @@ -31,6 +31,7 @@
@@ -52,7 +52,7 @@ index 993a4aedfd37..4351ca1eb28d 100644
  #include <asm/mmu_context.h>
  #include <asm/numa.h>
  #include <asm/pgtable.h>
-@@ -408,6 +410,8 @@ static void __init hyp_mode_check(void)
+@@ -410,6 +412,8 @@ static void __init hyp_mode_check(void)
  			   "CPU: CPUs started in inconsistent modes");
  	else
  		pr_info("CPU: All CPU(s) started at EL1\n");
@@ -95,5 +95,5 @@ index 2cf7d4b606c3..dab1fea4752a 100644
  	 * Compute HYP VA by using the same computation as kern_hyp_va()
  	 */
 -- 
-2.28.0
+2.29.2
 

@@ -1,7 +1,7 @@
-From aae97cb8f10170e266ee6c5dd5f2258f1f1291b6 Mon Sep 17 00:00:00 2001
+From ebe6de7f74ab2aea65bd73e17b647509fe5435d1 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Thu, 17 Oct 2019 12:19:02 +0200
-Subject: [PATCH 009/298] x86/ioapic: Rename misnamed functions
+Subject: [PATCH 009/305] x86/ioapic: Rename misnamed functions
 
 ioapic_irqd_[un]mask() are misnomers as both functions do way more than
 masking and unmasking the interrupt line. Both deal with the moving the
@@ -26,7 +26,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 8 insertions(+), 8 deletions(-)
 
 diff --git a/arch/x86/kernel/apic/io_apic.c b/arch/x86/kernel/apic/io_apic.c
-index ea6d9da9b094..71c16618ec3c 100644
+index 4b6301946f45..76a6b7553a0f 100644
 --- a/arch/x86/kernel/apic/io_apic.c
 +++ b/arch/x86/kernel/apic/io_apic.c
 @@ -1725,7 +1725,7 @@ static bool io_apic_level_ack_pending(struct mp_chip_data *data)
@@ -88,5 +88,5 @@ index ea6d9da9b094..71c16618ec3c 100644
  
  static void ioapic_ir_ack_level(struct irq_data *irq_data)
 -- 
-2.28.0
+2.29.2
 

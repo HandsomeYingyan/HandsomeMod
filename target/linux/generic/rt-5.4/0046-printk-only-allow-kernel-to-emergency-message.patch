@@ -1,7 +1,7 @@
-From 42abd85794a90b40a8d32708078b771c62afef47 Mon Sep 17 00:00:00 2001
+From 8111489f97bd262a4b45daf11a7026669bdfeb09 Mon Sep 17 00:00:00 2001
 From: John Ogness <john.ogness@linutronix.de>
 Date: Sun, 17 Feb 2019 03:11:20 +0100
-Subject: [PATCH 046/298] printk: only allow kernel to emergency message
+Subject: [PATCH 046/305] printk: only allow kernel to emergency message
 
 Emergency messages exist as a mechanism for the kernel to
 communicate critical information to users. It is not meant for
@@ -15,7 +15,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 11 insertions(+), 6 deletions(-)
 
 diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
-index 0709d4bc5047..9eee2ac81355 100644
+index 60bd3b644bdc..0efce0c5715f 100644
 --- a/kernel/printk/printk.c
 +++ b/kernel/printk/printk.c
 @@ -1785,7 +1785,8 @@ static void printk_write_history(struct console *con, u64 master_seq)
@@ -57,7 +57,7 @@ index 0709d4bc5047..9eee2ac81355 100644
  
  	if ((lflags & LOG_CONT) || !(lflags & LOG_NEWLINE)) {
  		 cont_add(ctx, cpu, caller_id, facility, level, lflags, text, text_len);
-@@ -2746,8 +2751,8 @@ static int printk_kthread_func(void *data)
+@@ -2749,8 +2754,8 @@ static int printk_kthread_func(void *data)
  			    &len, printk_time);
  
  		console_lock();
@@ -69,5 +69,5 @@ index 0709d4bc5047..9eee2ac81355 100644
  			printk_delay(msg->level);
  		console_unlock();
 -- 
-2.28.0
+2.29.2
 

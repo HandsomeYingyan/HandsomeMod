@@ -1,7 +1,7 @@
-From 857f34a20118963852551aebb9879d34a1f0f638 Mon Sep 17 00:00:00 2001
+From ae2b2ae2877986044119b92866da83e40237a0e4 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 16 Jan 2020 13:13:41 +0100
-Subject: [PATCH 068/298] smp: Remove allocation mask from on_each_cpu_cond.*()
+Subject: [PATCH 068/305] smp: Remove allocation mask from on_each_cpu_cond.*()
 
 The allocation mask is no longer used by on_each_cpu_cond() and
 on_each_cpu_cond_mask() and ca be removed.
@@ -17,10 +17,10 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  6 files changed, 11 insertions(+), 20 deletions(-)
 
 diff --git a/arch/x86/mm/tlb.c b/arch/x86/mm/tlb.c
-index e6a9edc5baaf..66f96f21a7b6 100644
+index 851359b7edc5..4ebd55fb2977 100644
 --- a/arch/x86/mm/tlb.c
 +++ b/arch/x86/mm/tlb.c
-@@ -708,7 +708,7 @@ void native_flush_tlb_others(const struct cpumask *cpumask,
+@@ -714,7 +714,7 @@ void native_flush_tlb_others(const struct cpumask *cpumask,
  			       (void *)info, 1);
  	else
  		on_each_cpu_cond_mask(tlb_is_not_lazy, flush_tlb_func_remote,
@@ -30,7 +30,7 @@ index e6a9edc5baaf..66f96f21a7b6 100644
  
  /*
 diff --git a/fs/buffer.c b/fs/buffer.c
-index fbed1d3f79fa..d4a0d1de075b 100644
+index 6d32b0752441..99eabab5bf9e 100644
 --- a/fs/buffer.c
 +++ b/fs/buffer.c
 @@ -1398,7 +1398,7 @@ static bool has_bh_in_lru(int cpu, void *dummy)
@@ -126,10 +126,10 @@ index 5c0d4f2bece2..53144d056252 100644
  EXPORT_SYMBOL(on_each_cpu_cond);
  
 diff --git a/mm/slub.c b/mm/slub.c
-index 709e31002504..d1dd4b911121 100644
+index f41414571c9e..dbc80466523d 100644
 --- a/mm/slub.c
 +++ b/mm/slub.c
-@@ -2365,7 +2365,7 @@ static bool has_cpu_slab(int cpu, void *info)
+@@ -2375,7 +2375,7 @@ static bool has_cpu_slab(int cpu, void *info)
  
  static void flush_all(struct kmem_cache *s)
  {
@@ -139,5 +139,5 @@ index 709e31002504..d1dd4b911121 100644
  
  /*
 -- 
-2.28.0
+2.29.2
 

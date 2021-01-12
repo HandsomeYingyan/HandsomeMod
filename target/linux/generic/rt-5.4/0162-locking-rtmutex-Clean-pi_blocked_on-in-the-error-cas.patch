@@ -1,7 +1,7 @@
-From 9d5859824b21620afa0bb1b65e1b3289120ad98d Mon Sep 17 00:00:00 2001
+From f577c63f6c779000c56fb2248b0f83790710ebf0 Mon Sep 17 00:00:00 2001
 From: Peter Zijlstra <peterz@infradead.org>
 Date: Mon, 30 Sep 2019 18:15:44 +0200
-Subject: [PATCH 162/298] locking/rtmutex: Clean ->pi_blocked_on in the error
+Subject: [PATCH 162/305] locking/rtmutex: Clean ->pi_blocked_on in the error
  case
 
 The function rt_mutex_wait_proxy_lock() cleans ->pi_blocked_on in case
@@ -94,5 +94,5 @@ index a7641a8c273f..c60671436f4c 100644
  	raw_spin_unlock_irq(&lock->wait_lock);
  
 -- 
-2.28.0
+2.29.2
 

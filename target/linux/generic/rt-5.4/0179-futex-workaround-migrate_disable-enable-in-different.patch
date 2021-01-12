@@ -1,7 +1,7 @@
-From 5e6c2d46def6f1df60b64a0ad8ea91f18a7d020a Mon Sep 17 00:00:00 2001
+From 9c4cf1ae44326824aed48bb87475f57a2158fe0a Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Wed, 8 Mar 2017 14:23:35 +0100
-Subject: [PATCH 179/298] futex: workaround migrate_disable/enable in different
+Subject: [PATCH 179/305] futex: workaround migrate_disable/enable in different
  context
 
 migrate_enable() invokes __schedule() and it expects a preempt count of one.
@@ -22,10 +22,10 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  1 file changed, 18 insertions(+)
 
 diff --git a/kernel/futex.c b/kernel/futex.c
-index efd269419a3d..9be686d4b379 100644
+index d6b498d79904..3b929974d01a 100644
 --- a/kernel/futex.c
 +++ b/kernel/futex.c
-@@ -2997,6 +2997,14 @@ static int futex_lock_pi(u32 __user *uaddr, unsigned int flags,
+@@ -3012,6 +3012,14 @@ static int futex_lock_pi(u32 __user *uaddr, unsigned int flags,
  	 * before __rt_mutex_start_proxy_lock() is done.
  	 */
  	raw_spin_lock_irq(&q.pi_state->pi_mutex.wait_lock);
@@ -40,7 +40,7 @@ index efd269419a3d..9be686d4b379 100644
  	spin_unlock(q.lock_ptr);
  	/*
  	 * __rt_mutex_start_proxy_lock() unconditionally enqueues the @rt_waiter
-@@ -3005,6 +3013,7 @@ static int futex_lock_pi(u32 __user *uaddr, unsigned int flags,
+@@ -3020,6 +3028,7 @@ static int futex_lock_pi(u32 __user *uaddr, unsigned int flags,
  	 */
  	ret = __rt_mutex_start_proxy_lock(&q.pi_state->pi_mutex, &rt_waiter, current);
  	raw_spin_unlock_irq(&q.pi_state->pi_mutex.wait_lock);
@@ -48,7 +48,7 @@ index efd269419a3d..9be686d4b379 100644
  
  	if (ret) {
  		if (ret == 1)
-@@ -3153,10 +3162,19 @@ static int futex_unlock_pi(u32 __user *uaddr, unsigned int flags)
+@@ -3168,10 +3177,19 @@ static int futex_unlock_pi(u32 __user *uaddr, unsigned int flags)
  		 * rt_waiter. Also see the WARN in wake_futex_pi().
  		 */
  		raw_spin_lock_irq(&pi_state->pi_mutex.wait_lock);
@@ -69,5 +69,5 @@ index efd269419a3d..9be686d4b379 100644
  		put_pi_state(pi_state);
  
 -- 
-2.28.0
+2.29.2
 

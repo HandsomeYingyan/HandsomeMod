@@ -1,7 +1,7 @@
-From 1c07756eefc5d5f45f4034ad2287bdd4d064d222 Mon Sep 17 00:00:00 2001
+From 4b427d781af00a1d776fb590da7c6f92586f3fe1 Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 14 Feb 2020 14:39:19 +0100
-Subject: [PATCH 222/298] sched: Provide cant_migrate()
+Subject: [PATCH 222/305] sched: Provide cant_migrate()
 
 Some code pathes rely on preempt_disable() to prevent migration on a non RT
 enabled kernel. These preempt_disable/enable() pairs are substituted by
@@ -41,5 +41,5 @@ index 2f9abc6aab0b..f5ec1ddbfe07 100644
   * abs - return absolute value of an argument
   * @x: the value.  If it is unsigned type, it is converted to signed type first.
 -- 
-2.28.0
+2.29.2
 

@@ -1,7 +1,7 @@
-From b007f2d0d95aef7e129e35247361250394e42010 Mon Sep 17 00:00:00 2001
+From cb09065e294df04668bb6548c67f4c1bcfa36d99 Mon Sep 17 00:00:00 2001
 From: John Ogness <john.ogness@linutronix.de>
 Date: Tue, 12 Feb 2019 15:29:43 +0100
-Subject: [PATCH 021/298] printk-rb: add basic non-blocking reading interface
+Subject: [PATCH 021/305] printk-rb: add basic non-blocking reading interface
 
 Add reader iterator static declaration/initializer, dynamic
 initializer, and functions to iterate and retrieve ring buffer data.
@@ -263,5 +263,5 @@ index 90c7f9a9f861..1d1e886a0966 100644
 +	return 1;
 +}
 -- 
-2.28.0
+2.29.2
 

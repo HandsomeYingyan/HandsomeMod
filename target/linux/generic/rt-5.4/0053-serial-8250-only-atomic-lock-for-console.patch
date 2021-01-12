@@ -1,7 +1,7 @@
-From 94389977c050b581b44b5d0685f10ff79a1c54f0 Mon Sep 17 00:00:00 2001
+From 47f3472ebd39c589682ce2ef0e6a796d21a03edb Mon Sep 17 00:00:00 2001
 From: John Ogness <john.ogness@linutronix.de>
 Date: Fri, 10 Jan 2020 16:45:31 +0106
-Subject: [PATCH 053/298] serial: 8250: only atomic lock for console
+Subject: [PATCH 053/305] serial: 8250: only atomic lock for console
 
 The atomic console implementation requires that IER is synchronized
 between atomic and non-atomic usage. However, it was implemented such
@@ -181,7 +181,7 @@ index c91dafbca57c..890fa7ddaa7f 100644
  	return 0;
  err:
 diff --git a/drivers/tty/serial/8250/8250_port.c b/drivers/tty/serial/8250/8250_port.c
-index 7cc1655d5a0c..fcdf8f083eb2 100644
+index e31368f6de51..1fc608598382 100644
 --- a/drivers/tty/serial/8250/8250_port.c
 +++ b/drivers/tty/serial/8250/8250_port.c
 @@ -721,7 +721,7 @@ static void serial8250_set_sleep(struct uart_8250_port *p, int sleep)
@@ -247,7 +247,7 @@ index 7cc1655d5a0c..fcdf8f083eb2 100644
  	serial8250_rpm_put(up);
  }
  
-@@ -1991,54 +1991,6 @@ static void wait_for_xmitr(struct uart_8250_port *up, int bits)
+@@ -2005,54 +2005,6 @@ static void wait_for_xmitr(struct uart_8250_port *up, int bits)
  	}
  }
  
@@ -302,7 +302,7 @@ index 7cc1655d5a0c..fcdf8f083eb2 100644
  #ifdef CONFIG_CONSOLE_POLL
  /*
   * Console polling routines for writing and reading from the uart while
-@@ -2070,10 +2022,11 @@ static int serial8250_get_poll_char(struct uart_port *port)
+@@ -2084,10 +2036,11 @@ static int serial8250_get_poll_char(struct uart_port *port)
  static void serial8250_put_poll_char(struct uart_port *port,
  			 unsigned char c)
  {
@@ -315,7 +315,7 @@ index 7cc1655d5a0c..fcdf8f083eb2 100644
  
  	wait_for_xmitr(up, BOTH_EMPTY);
  	/*
-@@ -2086,7 +2039,7 @@ static void serial8250_put_poll_char(struct uart_port *port,
+@@ -2100,7 +2053,7 @@ static void serial8250_put_poll_char(struct uart_port *port,
  	 *	and restore the IER
  	 */
  	wait_for_xmitr(up, BOTH_EMPTY);
@@ -324,7 +324,7 @@ index 7cc1655d5a0c..fcdf8f083eb2 100644
  	serial8250_rpm_put(up);
  }
  
-@@ -2398,7 +2351,7 @@ void serial8250_do_shutdown(struct uart_port *port)
+@@ -2415,7 +2368,7 @@ void serial8250_do_shutdown(struct uart_port *port)
  	 */
  	spin_lock_irqsave(&port->lock, flags);
  	up->ier = 0;
@@ -333,7 +333,7 @@ index 7cc1655d5a0c..fcdf8f083eb2 100644
  	spin_unlock_irqrestore(&port->lock, flags);
  
  	synchronize_irq(port->irq);
-@@ -2685,7 +2638,7 @@ serial8250_do_set_termios(struct uart_port *port, struct ktermios *termios,
+@@ -2702,7 +2655,7 @@ serial8250_do_set_termios(struct uart_port *port, struct ktermios *termios,
  	if (up->capabilities & UART_CAP_RTOIE)
  		up->ier |= UART_IER_RTOIE;
  
@@ -342,7 +342,7 @@ index 7cc1655d5a0c..fcdf8f083eb2 100644
  
  	if (up->capabilities & UART_CAP_EFR) {
  		unsigned char efr = 0;
-@@ -3195,12 +3148,13 @@ void serial8250_console_write_atomic(struct uart_8250_port *up,
+@@ -3212,12 +3165,13 @@ void serial8250_console_write_atomic(struct uart_8250_port *up,
  {
  	struct uart_port *port = &up->port;
  	unsigned int flags;
@@ -357,7 +357,7 @@ index 7cc1655d5a0c..fcdf8f083eb2 100644
  
  	if (atomic_fetch_inc(&up->console_printing)) {
  		uart_console_write(port, "\n", 1,
-@@ -3210,7 +3164,7 @@ void serial8250_console_write_atomic(struct uart_8250_port *up,
+@@ -3227,7 +3181,7 @@ void serial8250_console_write_atomic(struct uart_8250_port *up,
  	atomic_dec(&up->console_printing);
  
  	wait_for_xmitr(up, BOTH_EMPTY);
@@ -366,7 +366,7 @@ index 7cc1655d5a0c..fcdf8f083eb2 100644
  
  	console_atomic_unlock(flags);
  }
-@@ -3226,13 +3180,14 @@ void serial8250_console_write(struct uart_8250_port *up, const char *s,
+@@ -3243,13 +3197,14 @@ void serial8250_console_write(struct uart_8250_port *up, const char *s,
  {
  	struct uart_port *port = &up->port;
  	unsigned long flags;
@@ -382,7 +382,7 @@ index 7cc1655d5a0c..fcdf8f083eb2 100644
  
  	/* check scratch reg to see if port powered off during system sleep */
  	if (up->canary && (up->canary != serial_port_in(port, UART_SCR))) {
-@@ -3249,7 +3204,7 @@ void serial8250_console_write(struct uart_8250_port *up, const char *s,
+@@ -3266,7 +3221,7 @@ void serial8250_console_write(struct uart_8250_port *up, const char *s,
  	 *	and restore the IER
  	 */
  	wait_for_xmitr(up, BOTH_EMPTY);
@@ -392,5 +392,5 @@ index 7cc1655d5a0c..fcdf8f083eb2 100644
  	/*
  	 *	The receive handling will happen properly because the
 -- 
-2.28.0
+2.29.2
 

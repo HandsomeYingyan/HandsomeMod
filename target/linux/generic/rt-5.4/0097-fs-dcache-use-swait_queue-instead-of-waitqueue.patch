@@ -1,7 +1,7 @@
-From 17a63f52a90b67c7ec731c56e468d93224df5b3c Mon Sep 17 00:00:00 2001
+From bc2ea08eac87b19dfee98ea2e371b75c435638d0 Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 14 Sep 2016 14:35:49 +0200
-Subject: [PATCH 097/298] fs/dcache: use swait_queue instead of waitqueue
+Subject: [PATCH 097/305] fs/dcache: use swait_queue instead of waitqueue
 
 __d_lookup_done() invokes wake_up_all() while holding a hlist_bl_lock()
 which disables preemption. As a workaround convert it to swait.
@@ -49,10 +49,10 @@ index 3925a7bfc74d..33f7723fb83e 100644
  	cifs_dbg(FYI, "%s: for %s\n", __func__, name->name);
  
 diff --git a/fs/dcache.c b/fs/dcache.c
-index c8c2d6d8a0f5..5699176ed169 100644
+index 4c4cdd7952ee..d0267103d4b3 100644
 --- a/fs/dcache.c
 +++ b/fs/dcache.c
-@@ -2499,21 +2499,24 @@ static inline void end_dir_add(struct inode *dir, unsigned n)
+@@ -2501,21 +2501,24 @@ static inline void end_dir_add(struct inode *dir, unsigned n)
  
  static void d_wait_lookup(struct dentry *dentry)
  {
@@ -88,7 +88,7 @@ index c8c2d6d8a0f5..5699176ed169 100644
  {
  	unsigned int hash = name->hash;
  	struct hlist_bl_head *b = in_lookup_hash(parent, hash);
-@@ -2628,7 +2631,7 @@ void __d_lookup_done(struct dentry *dentry)
+@@ -2630,7 +2633,7 @@ void __d_lookup_done(struct dentry *dentry)
  	hlist_bl_lock(b);
  	dentry->d_flags &= ~DCACHE_PAR_LOOKUP;
  	__hlist_bl_del(&dentry->d_u.d_in_lookup_hash);
@@ -133,7 +133,7 @@ index 5b5759d70822..2d1dce3fa9b3 100644
  	if (unlikely(IS_DEADDIR(dir_inode)))
  		return -ENOENT;
 diff --git a/fs/nfs/dir.c b/fs/nfs/dir.c
-index e30a6895d6de..5702b287e238 100644
+index 37d63320c7a6..3ec873ad794b 100644
 --- a/fs/nfs/dir.c
 +++ b/fs/nfs/dir.c
 @@ -457,7 +457,7 @@ static
@@ -145,7 +145,7 @@ index e30a6895d6de..5702b287e238 100644
  	struct dentry *dentry;
  	struct dentry *alias;
  	struct inode *dir = d_inode(parent);
-@@ -1517,7 +1517,7 @@ int nfs_atomic_open(struct inode *dir, struct dentry *dentry,
+@@ -1520,7 +1520,7 @@ int nfs_atomic_open(struct inode *dir, struct dentry *dentry,
  		    struct file *file, unsigned open_flags,
  		    umode_t mode)
  {
@@ -177,10 +177,10 @@ index 74ab24b11804..efa5adce9b30 100644
  	status = -EBUSY;
  	spin_lock(&dentry->d_lock);
 diff --git a/fs/proc/base.c b/fs/proc/base.c
-index ebea9501afb8..2dcd8fb3abb5 100644
+index b690074e65ff..6ca2307a3737 100644
 --- a/fs/proc/base.c
 +++ b/fs/proc/base.c
-@@ -1891,7 +1891,7 @@ bool proc_fill_cache(struct file *file, struct dir_context *ctx,
+@@ -1890,7 +1890,7 @@ bool proc_fill_cache(struct file *file, struct dir_context *ctx,
  
  	child = d_hash_and_lookup(dir, &qname);
  	if (!child) {
@@ -250,5 +250,5 @@ index e83a3f8449f6..091347205736 100644
  	list_splice_init(&q->task_list, &tmp);
  	while (!list_empty(&tmp)) {
 -- 
-2.28.0
+2.29.2
 

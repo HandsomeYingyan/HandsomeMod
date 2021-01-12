@@ -1,7 +1,7 @@
-From 16a09cbf9a880979888022c17483be4031a45fc6 Mon Sep 17 00:00:00 2001
+From 5c142c90edac2e1eea9229b20d924096e55422df Mon Sep 17 00:00:00 2001
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 26 Jul 2019 11:30:49 +0200
-Subject: [PATCH 072/298] Use CONFIG_PREEMPTION
+Subject: [PATCH 072/305] Use CONFIG_PREEMPTION
 
 Thisi is an all-in-one patch of the current `PREEMPTION' branch.
 
@@ -356,10 +356,10 @@ index a874b753397e..55a47df04773 100644
  	mov	r8, lr
  1:	bl	preempt_schedule_irq		@ irq en/disable is done inside
 diff --git a/arch/arm/kernel/traps.c b/arch/arm/kernel/traps.c
-index c053abd1fb53..abb7dd7e656f 100644
+index 97a512551b21..1e70e7227f0f 100644
 --- a/arch/arm/kernel/traps.c
 +++ b/arch/arm/kernel/traps.c
-@@ -248,6 +248,8 @@ void show_stack(struct task_struct *tsk, unsigned long *sp)
+@@ -250,6 +250,8 @@ void show_stack(struct task_struct *tsk, unsigned long *sp)
  
  #ifdef CONFIG_PREEMPT
  #define S_PREEMPT " PREEMPT"
@@ -485,10 +485,10 @@ index e273faca924f..999da59f03a9 100644
  			chunk = SHA256_BLOCK_SIZE -
  				sctx->count % SHA256_BLOCK_SIZE;
 diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
-index b8cf7c85ffa2..2cc0dd8bd9f7 100644
+index 4a4258f17c86..7a4ee0435f51 100644
 --- a/arch/arm64/include/asm/assembler.h
 +++ b/arch/arm64/include/asm/assembler.h
-@@ -699,8 +699,8 @@ USER(\label, ic	ivau, \tmp2)			// invalidate I line PoU
+@@ -700,8 +700,8 @@ USER(\label, ic	ivau, \tmp2)			// invalidate I line PoU
   * where <label> is optional, and marks the point where execution will resume
   * after a yield has been performed. If omitted, execution resumes right after
   * the endif_yield_neon invocation. Note that the entire sequence, including
@@ -499,7 +499,7 @@ index b8cf7c85ffa2..2cc0dd8bd9f7 100644
   *
   * As a convenience, in the case where no patchup code is required, the above
   * sequence may be abbreviated to
-@@ -728,7 +728,7 @@ USER(\label, ic	ivau, \tmp2)			// invalidate I line PoU
+@@ -729,7 +729,7 @@ USER(\label, ic	ivau, \tmp2)			// invalidate I line PoU
  	.endm
  
  	.macro		if_will_cond_yield_neon
@@ -719,10 +719,10 @@ index a9992be5718b..2ac926331500 100644
  	 * On exit:
  	 *	p6 = TRUE if work-pending-check needs to be redone
 diff --git a/arch/ia64/kernel/kprobes.c b/arch/ia64/kernel/kprobes.c
-index b8356edbde65..a6d6a0556f08 100644
+index b3dc39050c1a..943c61106581 100644
 --- a/arch/ia64/kernel/kprobes.c
 +++ b/arch/ia64/kernel/kprobes.c
-@@ -841,7 +841,7 @@ static int __kprobes pre_kprobes_handler(struct die_args *args)
+@@ -768,7 +768,7 @@ static int __kprobes pre_kprobes_handler(struct die_args *args)
  		return 1;
  	}
  
@@ -912,7 +912,7 @@ index 873bf3434da9..755240ce671e 100644
  	/*
  	 * External interrupts.
 diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
-index ad620637cbd1..5b0046d25ca4 100644
+index cb285e474c88..fa32dc9a265b 100644
 --- a/arch/powerpc/Kconfig
 +++ b/arch/powerpc/Kconfig
 @@ -106,7 +106,7 @@ config LOCKDEP_SUPPORT
@@ -969,7 +969,7 @@ index 3fd3ef352e3f..a9a1d3cdb523 100644
  	.globl	fast_exc_return_irq
  fast_exc_return_irq:
 diff --git a/arch/powerpc/kernel/traps.c b/arch/powerpc/kernel/traps.c
-index f77c75081bac..b98d5bc68a88 100644
+index 4da00cfb26f2..72ce196e6c52 100644
 --- a/arch/powerpc/kernel/traps.c
 +++ b/arch/powerpc/kernel/traps.c
 @@ -260,12 +260,17 @@ static char *get_mmu_str(void)
@@ -1154,7 +1154,7 @@ index 29aa34f11720..c5fd4b450d9b 100644
  		brnz			%l5, kern_fpucheck
  		 ldx			[%g6 + TI_FLAGS], %l5
 diff --git a/arch/xtensa/kernel/entry.S b/arch/xtensa/kernel/entry.S
-index 59671603c9c6..5ef95db788ff 100644
+index 1f07876ea2ed..7728623713ac 100644
 --- a/arch/xtensa/kernel/entry.S
 +++ b/arch/xtensa/kernel/entry.S
 @@ -525,7 +525,7 @@ common_exception_return:
@@ -1256,10 +1256,10 @@ index 98a9d6892d98..6ad87b5c95ed 100644
 -#endif /* CONFIG_PREEMPT */
 +#endif /* CONFIG_PREEMPTION */
 diff --git a/fs/btrfs/volumes.h b/fs/btrfs/volumes.h
-index 5acf5c507ec2..ad1ccf94e4b8 100644
+index aa6a6d7b2978..6fb3297ced9c 100644
 --- a/fs/btrfs/volumes.h
 +++ b/fs/btrfs/volumes.h
-@@ -179,7 +179,7 @@ btrfs_device_set_##name(struct btrfs_device *dev, u64 size)		\
+@@ -180,7 +180,7 @@ btrfs_device_set_##name(struct btrfs_device *dev, u64 size)		\
  	write_seqcount_end(&dev->data_seqcount);			\
  	preempt_enable();						\
  }
@@ -1299,7 +1299,7 @@ index 4ef2c056269d..c9830924eb12 100644
  	 *
  	 * There is none of this locking overhead in the 64-bit case.
 diff --git a/include/linux/fs.h b/include/linux/fs.h
-index 5bd384dbdca5..e4b2de31ecb6 100644
+index 4c82683e034a..9b7524f8063f 100644
 --- a/include/linux/fs.h
 +++ b/include/linux/fs.h
 @@ -856,7 +856,7 @@ static inline loff_t i_size_read(const struct inode *inode)
@@ -1321,7 +1321,7 @@ index 5bd384dbdca5..e4b2de31ecb6 100644
  	inode->i_size = i_size;
  	preempt_enable();
 diff --git a/include/linux/genhd.h b/include/linux/genhd.h
-index 62a2ec9f17df..825f7db83d99 100644
+index c1bf9956256f..48886ae362a9 100644
 --- a/include/linux/genhd.h
 +++ b/include/linux/genhd.h
 @@ -717,7 +717,7 @@ static inline void hd_free_part(struct hd_struct *part)
@@ -1494,7 +1494,7 @@ index 44d6606b8325..6208c1dae5c9 100644
   */
  void srcu_drive_gp(struct work_struct *wp)
 diff --git a/kernel/rcu/tree.c b/kernel/rcu/tree.c
-index 62e59596a30a..b1ca33e986c8 100644
+index 1b1d2b09efa9..bb63870be0db 100644
 --- a/kernel/rcu/tree.c
 +++ b/kernel/rcu/tree.c
 @@ -2668,9 +2668,9 @@ EXPORT_SYMBOL_GPL(kfree_call_rcu);
@@ -1545,10 +1545,10 @@ index f7118842a2b8..087bf98617a6 100644
  void rcu_note_context_switch(bool preempt)
  {
 diff --git a/kernel/trace/trace.c b/kernel/trace/trace.c
-index 414b64193ef1..e2ffbb64a916 100644
+index 09a67e1e9ff6..db9d18308845 100644
 --- a/kernel/trace/trace.c
 +++ b/kernel/trace/trace.c
-@@ -3662,6 +3662,8 @@ print_trace_header(struct seq_file *m, struct trace_iterator *iter)
+@@ -3668,6 +3668,8 @@ print_trace_header(struct seq_file *m, struct trace_iterator *iter)
  		   "desktop",
  #elif defined(CONFIG_PREEMPT)
  		   "preempt",
@@ -1558,10 +1558,10 @@ index 414b64193ef1..e2ffbb64a916 100644
  		   "unknown",
  #endif
 diff --git a/kernel/workqueue.c b/kernel/workqueue.c
-index 1a0c224af6fb..efa6a9a4551f 100644
+index 4aa268582a22..c3e2a91747dd 100644
 --- a/kernel/workqueue.c
 +++ b/kernel/workqueue.c
-@@ -2288,7 +2288,7 @@ __acquires(&pool->lock)
+@@ -2290,7 +2290,7 @@ __acquires(&pool->lock)
  	}
  
  	/*
@@ -1571,7 +1571,7 @@ index 1a0c224af6fb..efa6a9a4551f 100644
  	 * happen could deadlock with stop_machine as such work item could
  	 * indefinitely requeue itself while all other CPUs are trapped in
 diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
-index db8d04addd1b..9225cdc57331 100644
+index bb30740f8cb5..d66a5b6f3b26 100644
 --- a/lib/Kconfig.debug
 +++ b/lib/Kconfig.debug
 @@ -1061,7 +1061,7 @@ config DEBUG_TIMEKEEPING
@@ -1584,10 +1584,10 @@ index db8d04addd1b..9225cdc57331 100644
  	help
  	  If you say Y here then the kernel will use a debug variant of the
 diff --git a/mm/memory.c b/mm/memory.c
-index cb7c940cf800..88727ab10c26 100644
+index 2157bb28117a..e81cc9d144ee 100644
 --- a/mm/memory.c
 +++ b/mm/memory.c
-@@ -2133,7 +2133,7 @@ static inline int pte_unmap_same(struct mm_struct *mm, pmd_t *pmd,
+@@ -2145,7 +2145,7 @@ static inline int pte_unmap_same(struct mm_struct *mm, pmd_t *pmd,
  				pte_t *page_table, pte_t orig_pte)
  {
  	int same = 1;
@@ -1597,10 +1597,10 @@ index cb7c940cf800..88727ab10c26 100644
  		spinlock_t *ptl = pte_lockptr(mm, pmd);
  		spin_lock(ptl);
 diff --git a/mm/slub.c b/mm/slub.c
-index d1dd4b911121..27eb5476b1c2 100644
+index dbc80466523d..c005fc930c80 100644
 --- a/mm/slub.c
 +++ b/mm/slub.c
-@@ -1980,7 +1980,7 @@ static void *get_partial(struct kmem_cache *s, gfp_t flags, int node,
+@@ -1990,7 +1990,7 @@ static void *get_partial(struct kmem_cache *s, gfp_t flags, int node,
  	return get_any_partial(s, flags, c);
  }
  
@@ -1609,7 +1609,7 @@ index d1dd4b911121..27eb5476b1c2 100644
  /*
   * Calculate the next globally unique transaction for disambiguiation
   * during cmpxchg. The transactions start with the cpu number and are then
-@@ -2025,7 +2025,7 @@ static inline void note_cmpxchg_failure(const char *n,
+@@ -2035,7 +2035,7 @@ static inline void note_cmpxchg_failure(const char *n,
  
  	pr_info("%s %s: cmpxchg redo ", n, s->name);
  
@@ -1618,7 +1618,7 @@ index d1dd4b911121..27eb5476b1c2 100644
  	if (tid_to_cpu(tid) != tid_to_cpu(actual_tid))
  		pr_warn("due to cpu change %d -> %d\n",
  			tid_to_cpu(tid), tid_to_cpu(actual_tid));
-@@ -2671,7 +2671,7 @@ static void *__slab_alloc(struct kmem_cache *s, gfp_t gfpflags, int node,
+@@ -2681,7 +2681,7 @@ static void *__slab_alloc(struct kmem_cache *s, gfp_t gfpflags, int node,
  	unsigned long flags;
  
  	local_irq_save(flags);
@@ -1627,7 +1627,7 @@ index d1dd4b911121..27eb5476b1c2 100644
  	/*
  	 * We may have been preempted and rescheduled on a different
  	 * cpu before disabling interrupts. Need to reload cpu area
-@@ -2725,13 +2725,13 @@ static __always_inline void *slab_alloc_node(struct kmem_cache *s,
+@@ -2735,13 +2735,13 @@ static __always_inline void *slab_alloc_node(struct kmem_cache *s,
  	 * as we end up on the original cpu again when doing the cmpxchg.
  	 *
  	 * We should guarantee that tid and kmem_cache are retrieved on
@@ -1643,7 +1643,7 @@ index d1dd4b911121..27eb5476b1c2 100644
  		 unlikely(tid != READ_ONCE(c->tid)));
  
  	/*
-@@ -3005,7 +3005,7 @@ static __always_inline void do_slab_free(struct kmem_cache *s,
+@@ -3015,7 +3015,7 @@ static __always_inline void do_slab_free(struct kmem_cache *s,
  	do {
  		tid = this_cpu_read(s->cpu_slab->tid);
  		c = raw_cpu_ptr(s->cpu_slab);
@@ -1653,5 +1653,5 @@ index d1dd4b911121..27eb5476b1c2 100644
  
  	/* Same with comment on barrier() in slab_alloc_node() */
 -- 
-2.28.0
+2.29.2
 

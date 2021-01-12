@@ -1,7 +1,7 @@
-From 44683b468a5942f1ac80f9dcc1647f313deda533 Mon Sep 17 00:00:00 2001
+From 8d85d06fda6aa1d9286137769e179ddae50ebde4 Mon Sep 17 00:00:00 2001
 From: Jan Kara <jack@suse.cz>
 Date: Fri, 9 Aug 2019 14:42:29 +0200
-Subject: [PATCH 004/298] jbd2: Move dropping of jh reference out of
+Subject: [PATCH 004/305] jbd2: Move dropping of jh reference out of
  un/re-filing functions
 
 __jbd2_journal_unfile_buffer() and __jbd2_journal_refile_buffer() drop
@@ -44,10 +44,10 @@ index 88146008b3e3..6bd06afb512a 100644
  			release_buffer_page(bh);	/* Drops bh reference */
  		else
 diff --git a/fs/jbd2/transaction.c b/fs/jbd2/transaction.c
-index 83145a211e79..3e9ff9c2a8ba 100644
+index 9b09078ffef8..a3a1c7da1e93 100644
 --- a/fs/jbd2/transaction.c
 +++ b/fs/jbd2/transaction.c
-@@ -1602,6 +1602,7 @@ int jbd2_journal_forget (handle_t *handle, struct buffer_head *bh)
+@@ -1604,6 +1604,7 @@ int jbd2_journal_forget (handle_t *handle, struct buffer_head *bh)
  			__jbd2_journal_file_buffer(jh, transaction, BJ_Forget);
  		} else {
  			__jbd2_journal_unfile_buffer(jh);
@@ -55,7 +55,7 @@ index 83145a211e79..3e9ff9c2a8ba 100644
  			if (!buffer_jbd(bh)) {
  				spin_unlock(&journal->j_list_lock);
  				goto not_jbd;
-@@ -1975,11 +1975,10 @@ static void __jbd2_journal_temp_unlink_buffer(struct journal_head *jh)
+@@ -1977,11 +1978,10 @@ static void __jbd2_journal_temp_unlink_buffer(struct journal_head *jh)
  }
  
  /*
@@ -69,7 +69,7 @@ index 83145a211e79..3e9ff9c2a8ba 100644
   */
  static void __jbd2_journal_unfile_buffer(struct journal_head *jh)
  {
-@@ -1988,7 +1987,6 @@ static void __jbd2_journal_unfile_buffer(struct journal_head *jh)
+@@ -1990,7 +1990,6 @@ static void __jbd2_journal_unfile_buffer(struct journal_head *jh)
  
  	__jbd2_journal_temp_unlink_buffer(jh);
  	jh->b_transaction = NULL;
@@ -77,7 +77,7 @@ index 83145a211e79..3e9ff9c2a8ba 100644
  }
  
  void jbd2_journal_unfile_buffer(journal_t *journal, struct journal_head *jh)
-@@ -1999,6 +1998,7 @@ void jbd2_journal_unfile_buffer(journal_t *journal, struct journal_head *jh)
+@@ -2004,6 +2003,7 @@ void jbd2_journal_unfile_buffer(journal_t *journal, struct journal_head *jh)
  	__jbd2_journal_unfile_buffer(jh);
  	spin_unlock(&journal->j_list_lock);
  	jbd_unlock_bh_state(bh);
@@ -85,7 +85,7 @@ index 83145a211e79..3e9ff9c2a8ba 100644
  	__brelse(bh);
  }
  
-@@ -2137,6 +2137,7 @@ static int __dispose_buffer(struct journal_head *jh, transaction_t *transaction)
+@@ -2158,6 +2158,7 @@ static int __dispose_buffer(struct journal_head *jh, transaction_t *transaction)
  	} else {
  		JBUFFER_TRACE(jh, "on running transaction");
  		__jbd2_journal_unfile_buffer(jh);
@@ -93,7 +93,7 @@ index 83145a211e79..3e9ff9c2a8ba 100644
  	}
  	return may_free;
  }
-@@ -2502,9 +2503,11 @@ void jbd2_journal_file_buffer(struct journal_head *jh,
+@@ -2523,9 +2524,11 @@ void jbd2_journal_file_buffer(struct journal_head *jh,
   * Called under j_list_lock
   * Called under jbd_lock_bh_state(jh2bh(jh))
   *
@@ -107,7 +107,7 @@ index 83145a211e79..3e9ff9c2a8ba 100644
  {
  	int was_dirty, jlist;
  	struct buffer_head *bh = jh2bh(jh);
-@@ -2516,7 +2519,7 @@ void __jbd2_journal_refile_buffer(struct journal_head *jh)
+@@ -2537,7 +2540,7 @@ void __jbd2_journal_refile_buffer(struct journal_head *jh)
  	/* If the buffer is now unused, just drop it. */
  	if (jh->b_next_transaction == NULL) {
  		__jbd2_journal_unfile_buffer(jh);
@@ -116,7 +116,7 @@ index 83145a211e79..3e9ff9c2a8ba 100644
  	}
  
  	/*
-@@ -2544,6 +2547,7 @@ void __jbd2_journal_refile_buffer(struct journal_head *jh)
+@@ -2572,6 +2575,7 @@ void __jbd2_journal_refile_buffer(struct journal_head *jh)
  
  	if (was_dirty)
  		set_buffer_jbddirty(bh);
@@ -124,7 +124,7 @@ index 83145a211e79..3e9ff9c2a8ba 100644
  }
  
  /*
-@@ -2555,15 +2559,18 @@ void __jbd2_journal_refile_buffer(struct journal_head *jh)
+@@ -2583,15 +2587,18 @@ void __jbd2_journal_refile_buffer(struct journal_head *jh)
  void jbd2_journal_refile_buffer(journal_t *journal, struct journal_head *jh)
  {
  	struct buffer_head *bh = jh2bh(jh);
@@ -158,5 +158,5 @@ index a8abc34f16be..7c2755990107 100644
  extern void __jbd2_journal_file_buffer(struct journal_head *, transaction_t *, int);
  extern void __journal_free_buffer(struct journal_head *bh);
 -- 
-2.28.0
+2.29.2
 

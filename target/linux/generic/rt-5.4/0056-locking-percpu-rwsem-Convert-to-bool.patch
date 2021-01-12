@@ -1,7 +1,7 @@
-From e9f2ba6944b64e2cb952a02642fbd13676eddc00 Mon Sep 17 00:00:00 2001
+From d93ad9bf52fa9c9c2eafe6f51b34bf5d49199a08 Mon Sep 17 00:00:00 2001
 From: Peter Zijlstra <peterz@infradead.org>
 Date: Fri, 31 Jan 2020 16:07:05 +0100
-Subject: [PATCH 056/298] locking/percpu-rwsem: Convert to bool
+Subject: [PATCH 056/305] locking/percpu-rwsem: Convert to bool
 
 Use bool where possible.
 
@@ -79,5 +79,5 @@ index aa1d34a21a2d..edd2c8a15970 100644
  EXPORT_SYMBOL_GPL(__percpu_down_read);
  
 -- 
-2.28.0
+2.29.2
 

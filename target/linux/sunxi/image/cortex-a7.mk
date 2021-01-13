@@ -167,6 +167,17 @@ endef
 
 TARGET_DEVICES += sun8i-h3-nanopi-neo
 
+define Device/sun8i-h3-nanopi-duo2
+  DEVICE_TITLE:=FriendlyARM NanoPi Duo2
+  DEVICE_PACKAGES:=kmod-rtc-sunxi \
+	kmod-leds-gpio kmod-ledtrig-heartbeat \
+	kmod-brcmfmac brcmfmac-firmware-43430a0-sdio wpad-basic
+  SUPPORTED_DEVICES:=friendlyarm,nanopi-duo2
+  SUNXI_DTS:=sun8i-h3-nanopi-duo2
+endef
+
+TARGET_DEVICES += sun8i-h3-nanopi-duo2
+
 
 define Device/sun8i-h3-orangepi-one
   DEVICE_TITLE:=Xunlong Orange Pi One
@@ -215,6 +226,8 @@ define Device/sun8i-h3-orangepi-2
 endef
 
 TARGET_DEVICES += sun8i-h3-orangepi-2
+
+
 
 define Device/sun8i-v3s-licheepi-zero
   DEVICE_TITLE:=Lichee Pi Zero

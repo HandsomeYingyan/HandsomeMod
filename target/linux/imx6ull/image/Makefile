@@ -25,7 +25,7 @@ define Build/imx-sdcard
 		$(IMAGE_ROOTFS) \
 		$(SD_BOOT_PARTSIZE) \
 		$(CONFIG_TARGET_ROOTFS_PARTSIZE) \
-		$(STAGING_DIR_IMAGE)/$(BUILD_DEVICES)-u-boot-imx.bin
+		$(STAGING_DIR_IMAGE)/$(DEVICE_NAME)-u-boot-imx.bin
 	rm -f $@.boot
 endef
 

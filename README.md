@@ -26,7 +26,7 @@ chosen applications for your target system.
 
 ## Thanks
 
-The orginal code come form openwrt 19.07.
+The orginal code comes form openwrt 19.07.
 
 https://github.com/openwrt/openwrt
 
@@ -37,11 +37,15 @@ https://github.com/openwrt/openwrt
 
 - Allwinner Socs （Sunxi）
 
+- Freescale I.MX6ULL Family
+
 - Hi35xx (EOF)
 
-- MSMxxxx (Planing)
+- MSM8916 (Planing)
 
 - Halium (Planing)
+
+- Samsung Exynos 4412 On samsung i9300(planing)
 
 
 #  What is Moded?
@@ -92,7 +96,10 @@ https://github.com/openwrt/openwrt
 
 - CedarX With Openmax Support For Sunxi Mainline(5.4) Devices.
 
-- Sunxi Target With Spi Nand Support(F1cx00s Only Right Now).
+- Sunxi Target With Spi Nand Support(F1cx00s Only Right Now) cant boot into kernel right now.
+
+- Freescale I.MX6ULL Support.
+
 
 ## Planing... 
 
@@ -123,6 +130,8 @@ https://github.com/openwrt/openwrt
 - Libhybris Suppport For Project Halium.
 
 - Qualcomm Arm Soc (Like Msm8916) mainline support.
+
+- Samsung Exynos Soc mainline support
 
 
 Future Release Will Based On Openwrt's Latest Stable Version.

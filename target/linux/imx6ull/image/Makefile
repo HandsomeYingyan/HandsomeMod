@@ -17,7 +17,7 @@ define Build/imx-sdcard
 	rm -f $@.boot
 	mkfs.fat $@.boot -C $(FAT32_BLOCKS)
 	
-	mcopy -i $@.boot $(STAGING_DIR_IMAGE)/$(DEVICE_NAME)-boot.scr ::boot.scr
+	#mcopy -i $@.boot $(STAGING_DIR_IMAGE)/$(DEVICE_NAME)-boot.scr ::boot.scr
 	mcopy -i $@.boot $(DTS_DIR)/$(DEVICE_DTS).dtb ::dtb
 	mcopy -i $@.boot $(IMAGE_KERNEL) ::zImage
 	./gen_imx_sdcard_img.sh $@ \

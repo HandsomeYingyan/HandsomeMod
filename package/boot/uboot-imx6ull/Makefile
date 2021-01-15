@@ -33,8 +33,9 @@ UBOOT_TARGETS := \
 define Build/InstallDev
 	$(INSTALL_DIR) $(STAGING_DIR_IMAGE)
 	$(CP) $(PKG_BUILD_DIR)/$(UBOOT_IMAGE) $(STAGING_DIR_IMAGE)/$(BUILD_DEVICES)-u-boot-imx.bin
-	mkimage -C none -A arm -T script -d boot-$(UENV).txt \
-		$(STAGING_DIR_IMAGE)/$(BUILD_DEVICES)-boot.scr
+	# do not need a script for now :p
+	#mkimage -C none -A arm -T script -d boot-$(UENV).txt \
+	#	$(STAGING_DIR_IMAGE)/$(BUILD_DEVICES)-boot.scr
 endef
 
 $(eval $(call BuildPackage/U-Boot))

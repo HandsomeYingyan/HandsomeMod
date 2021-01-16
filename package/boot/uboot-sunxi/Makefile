@@ -366,6 +366,10 @@ define Build/InstallDev
 	$(CP) $(PKG_BUILD_DIR)/$(UBOOT_IMAGE) $(STAGING_DIR_IMAGE)/$(BUILD_DEVICES)-u-boot-with-spl.bin
 	mkimage -C none -A arm -T script -d uEnv-$(UENV).txt \
 		$(STAGING_DIR_IMAGE)/$(BUILD_DEVICES)-boot.scr
+	$(if $(CONFIG_SUNXI_IN_SD_NAND), mkimage -C none -A arm -T script -d uEnv-sdnand-$(UENV).txt \
+	$(STAGING_DIR_IMAGE)/$(BUILD_DEVICES)-boot.scr, \
+	 mkimage -C none -A arm -T script -d uEnv-$(UENV).txt \
+	    $(STAGING_DIR_IMAGE)/$(BUILD_DEVICES)-boot.scr)
 endef
 
 define Package/u-boot/install/default

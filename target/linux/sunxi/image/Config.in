@@ -3,6 +3,11 @@ config SUNXI_SD_BOOT_PARTSIZE
 	depends on TARGET_sunxi
 	default 20
 
+config SUNXI_IN_SD_NAND
+	bool "Boot HandsomeMod From mmc1(sd nand)"
+	depends on TARGET_sunxi
+	default n
+
 if TARGET_sunxi_arm9_nand
 
 menuconfig SUNIV_SPINAND_OPTIONS

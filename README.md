@@ -43,8 +43,6 @@ https://github.com/openwrt/openwrt
 
 - MSM8916 (Planing)
 
-- Halium (Planing)
-
 - Samsung Exynos 4412 On samsung i9300(planing)
 
 

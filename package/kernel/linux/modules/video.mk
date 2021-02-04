@@ -81,15 +81,11 @@ define KernelPackage/video-videobuf2
 	CONFIG_VIDEOBUF2_MEMOPS \
 	CONFIG_VIDEOBUF2_VMALLOC
   FILES:= \
-	$(LINUX_DIR)/drivers/media/$(V4L2_DIR)/videobuf2-core.ko@lt4.16 \
-	$(LINUX_DIR)/drivers/media/$(V4L2_DIR)/videobuf2-v4l2.ko@lt4.16 \
-	$(LINUX_DIR)/drivers/media/$(V4L2_DIR)/videobuf2-memops.ko@lt4.16 \
-	$(LINUX_DIR)/drivers/media/$(V4L2_DIR)/videobuf2-vmalloc.ko@lt4.16 \
-	$(LINUX_DIR)/drivers/media/common/videobuf2/videobuf2-common.ko@ge4.16 \
-	$(LINUX_DIR)/drivers/media/common/videobuf2/videobuf2-v4l2.ko@ge4.16 \
-	$(LINUX_DIR)/drivers/media/common/videobuf2/videobuf2-memops.ko@ge4.16 \
-	$(LINUX_DIR)/drivers/media/common/videobuf2/videobuf2-vmalloc.ko@ge4.16
-  AUTOLOAD:=$(call AutoLoad,65,videobuf2-core videobuf-v4l2@ge4.4 videobuf2-memops videobuf2-vmalloc)
+	$(LINUX_DIR)/drivers/media/common/videobuf2/videobuf2-common.ko \
+	$(LINUX_DIR)/drivers/media/common/videobuf2/videobuf2-v4l2.ko \
+	$(LINUX_DIR)/drivers/media/common/videobuf2/videobuf2-memops.ko \
+	$(LINUX_DIR)/drivers/media/common/videobuf2/videobuf2-vmalloc.ko
+  AUTOLOAD:=$(call AutoLoad,65,videobuf2-core videobuf-v4l2 videobuf2-memops videobuf2-vmalloc)
   $(call AddDepends/video)
 endef
 

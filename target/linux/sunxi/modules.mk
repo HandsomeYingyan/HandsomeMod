@@ -275,7 +275,7 @@ define KernelPackage/sunxi-cedrus
          CONFIG_CMA_SIZE_SEL_MBYTES=y \
          CONFIG_CMA_ALIGNMENT=8 \
          CONFIG_CMA_AREAS=7
-  FILES:= $(LINUX_DIR)/drivers/staging/media/sunxi/cedrus/cedrus.ko
-  AUTOLOAD:=$(call AutoProbe,cedrus)
+  FILES:= $(LINUX_DIR)/drivers/staging/media/sunxi/cedrus/sunxi-cedrus.ko
+  AUTOLOAD:=$(call AutoProbe,sunxi-cedrus)
 endef
 $(eval $(call KernelPackage,sunxi-cedrus))

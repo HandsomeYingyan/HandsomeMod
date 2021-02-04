@@ -1,7 +1,7 @@
 #
 # Copyright (C) 2009 David Cooper <dave@kupesoft.com>
 # Copyright (C) 2006-2010 OpenWrt.org
-# Copyright (C) 2020 Handsomemod Project
+# Copyright (C) 2020-2021 Handsomemod Project
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -29,6 +29,16 @@ define KernelPackage/video-core
 	CONFIG_VIDEO_V4L2=y \
   	CONFIG_VIDEO_V4L2_SUBDEV_API=y \
   	CONFIG_MEDIA_CONTROLLER=y \
+  	CONFIG_MEDIA_CONTROLLER_REQUEST_API=n \
+  	CONFIG_VIDEO_TDA1997X=n \
+  	CONFIG_VIDEO_ADV748X=n \
+  	CONFIG_VIDEO_VIDEO_ADV7604=n \
+  	CONFIG_VIDEO_MUX=n \
+  	CONFIG_VIDEO_ADV7842=n \
+  	CONFIG_VIDEO_XILINX=n \
+  	CONFIG_VIDEO_TC358743=n \
+  	CONFIG_VIDEO_ADV7511=n \
+  	CONFIG_VIDEO_AD9389B=n \
 	CONFIG_VIDEO_ALLOW_V4L1=y \
 	CONFIG_VIDEO_CAPTURE_DRIVERS=y \
 	CONFIG_V4L_USB_DRIVERS=y \
@@ -683,3 +693,87 @@ define KernelPackage/video-ov5640/description
 endef
 
 $(eval $(call KernelPackage,video-ov5640))
+
+define KernelPackage/video-ov2680
+  TITLE:=OmniVision OV5640 sensor support
+  KCONFIG:=CONFIG_VIDEO_OV2680
+  FILES:=$(LINUX_DIR)/drivers/media/i2c/ov2680.ko
+  AUTOLOAD:=$(call AutoProbe,ov2680)
+  $(call AddDepends/camera)
+endef
+
+define KernelPackage/video-ov2680/description
+ OmniVision ov2680 sensor support
+endef
+
+$(eval $(call KernelPackage,video-ov2680))
+
+define KernelPackage/video-imx214
+  TITLE:=Sony imx214 sensor support
+  KCONFIG:=CONFIG_VIDEO_IMX214
+  FILES:=$(LINUX_DIR)/drivers/media/i2c/imx214.ko
+  AUTOLOAD:=$(call AutoProbe,imx214)
+  $(call AddDepends/camera)
+endef
+
+define KernelPackage/video-imx214/description
+ Sony imx214 sensor support
+endef
+
+$(eval $(call KernelPackage,video-imx214))
+
+define KernelPackage/video-imx258
+  TITLE:=Sony imx258 sensor support
+  KCONFIG:=CONFIG_VIDEO_IMX258
+  FILES:=$(LINUX_DIR)/drivers/media/i2c/imx258.ko
+  AUTOLOAD:=$(call AutoProbe,imx258)
+  $(call AddDepends/camera)
+endef
+
+define KernelPackage/video-imx258/description
+ Sony imx258 sensor support
+endef
+
+$(eval $(call KernelPackage,video-imx258))
+
+define KernelPackage/video-imx274
+  TITLE:=Sony imx274 sensor support
+  KCONFIG:=CONFIG_VIDEO_IMX274
+  FILES:=$(LINUX_DIR)/drivers/media/i2c/imx274.ko
+  AUTOLOAD:=$(call AutoProbe,imx274)
+  $(call AddDepends/camera)
+endef
+
+define KernelPackage/video-imx274/description
+ Sony imx274 sensor support
+endef
+
+$(eval $(call KernelPackage,video-imx274))
+
+define KernelPackage/video-imx319
+  TITLE:=Sony imx319 sensor support
+  KCONFIG:=CONFIG_VIDEO_IMX319
+  FILES:=$(LINUX_DIR)/drivers/media/i2c/imx319.ko
+  AUTOLOAD:=$(call AutoProbe,imx319)
+  $(call AddDepends/camera)
+endef
+
+define KernelPackage/video-imx319/description
+ Sony imx319 sensor support
+endef
+
+$(eval $(call KernelPackage,video-imx319))
+
+define KernelPackage/video-imx355
+  TITLE:=Sony imx355 sensor support
+  KCONFIG:=CONFIG_VIDEO_IMX355
+  FILES:=$(LINUX_DIR)/drivers/media/i2c/imx355.ko
+  AUTOLOAD:=$(call AutoProbe,imx355)
+  $(call AddDepends/camera)
+endef
+
+define KernelPackage/video-imx355/description
+ Sony imx355 sensor support
+endef
+
+$(eval $(call KernelPackage,video-imx355))

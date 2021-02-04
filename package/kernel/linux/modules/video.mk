@@ -44,13 +44,14 @@ define KernelPackage/video-core
 	CONFIG_VIDEO_CAPTURE_DRIVERS=y \
 	CONFIG_V4L_USB_DRIVERS=y \
 	CONFIG_V4L_PCI_DRIVERS=y \
-	CONFIG_V4L2_FWNODE=y \
+	CONFIG_V4L2_FWNODE \
 	CONFIG_V4L_PLATFORM_DRIVERS=y \
 	CONFIG_V4L_ISA_PARPORT_DRIVERS=y
   FILES:= \
 	$(LINUX_DIR)/drivers/media/$(V4L2_DIR)/v4l2-common.ko@lt5.4 \
-	$(LINUX_DIR)/drivers/media/$(V4L2_DIR)/videodev.ko
-  AUTOLOAD:=$(call AutoLoad,60, videodev v4l2-common)
+	$(LINUX_DIR)/drivers/media/$(V4L2_DIR)/videodev.ko \
+	$(LINUX_DIR)/drivers/media/$(V4L2_DIR)/v4l2-fwnode.ko
+  AUTOLOAD:=$(call AutoLoad,60, videodev v4l2-common v4l2-fwnode)
 endef
 
 define KernelPackage/video-core/description

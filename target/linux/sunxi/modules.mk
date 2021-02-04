@@ -233,9 +233,9 @@ endef
 
 $(eval $(call KernelPackage,sun4i-csi))
 
-# nonfree codec device
+# nonfree vpu driver
 define KernelPackage/sunxi-cedarx
-  SUBMENU:=Display Support
+  SUBMENU:=Video Encoder/Decoder Support
   TITLE:=Allwinner VPU encoder/decoder module
   DEPENDS:=@TARGET_sunxi @LINUX_5_4
   KCONFIG:= CONFIG_GENERIC_ALLOCATOR=y \
@@ -252,7 +252,30 @@ define KernelPackage/sunxi-cedarx
          CONFIG_CMA_SIZE_SEL_MBYTES=y \
          CONFIG_CMA_ALIGNMENT=8 \
          CONFIG_CMA_AREAS=7
-  FILES:= $(LINUX_DIR)/cedar_ve.ko
+  FILES:= $(LINUX_DIR)/drivers/staging/media/sunxi/cedar/ve/cedar_ve.ko
   AUTOLOAD:=$(call AutoProbe,cedar_ve)
 endef
 $(eval $(call KernelPackage,sunxi-cedarx))
+
+# open-source vpu driver
+define KernelPackage/sunxi-cedrus
+  SUBMENU:=Video Encoder/Decoder Support
+  TITLE:=Allwinner Open-Source VPU Encoder/Decoder module
+  DEPENDS:=@TARGET_sunxi @LINUX_5_4 +kmod-video-core
+  KCONFIG:= CONFIG_GENERIC_ALLOCATOR=y \
+         CONFIG_STAGING_MEDIA=y \
+         CONFIG_CMA_DEBUG=n \
+         CONFIG_CMA_DEBUGFS=n \
+         CONFIG_VIDEO_SUNXI=y \
+         CONFIG_DMA_SHARED_BUFFER=y \
+         CONFIG_VIDEO_SUNXI_CEDRUS \
+         CONFIG_CMA=y \
+         CONFIG_DMA_CMA=y \
+         CONFIG_CMA_SIZE_MBYTES=21 \
+         CONFIG_CMA_SIZE_SEL_MBYTES=y \
+         CONFIG_CMA_ALIGNMENT=8 \
+         CONFIG_CMA_AREAS=7
+  FILES:= $(LINUX_DIR)/drivers/staging/media/sunxi/cedrus/cedrus.ko
+  AUTOLOAD:=$(call AutoProbe,cedrus)
+endef
+$(eval $(call KernelPackage,sunxi-cedrus))

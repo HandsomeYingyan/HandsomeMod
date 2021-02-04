@@ -207,7 +207,7 @@ define KernelPackage/sun6i-csi
   SUBMENU:=$(VIDEO_MENU)
   TITLE:=Allwinner sun6i family Camera Sensor Interface driver
   KCONFIG:= CONFIG_VIDEO_SUN6I_CSI
-  FILES:=$(LINUX_DIR)/media/platform/sunxi/sun6i-csi/sun6i-csi.ko
+  FILES:=$(LINUX_DIR)/drivers/media/platform/sunxi/sun6i-csi/sun6i-csi.ko
   AUTOLOAD:=$(call AutoLoad,54,sun6i-csi)
   DEPENDS:=@TARGET_sunxi_cortexa7 @LINUX_5_4 +kmod-video-core
 endef
@@ -222,7 +222,7 @@ define KernelPackage/sun4i-csi
   SUBMENU:=$(VIDEO_MENU)
   TITLE:=Allwinner sun4i family Camera Sensor Interface driver
   KCONFIG:= CONFIG_VIDEO_SUN4I_CSI
-  FILES:=$(LINUX_DIR)/media/platform/sunxi/sun4i-csi/sun4i-csi.ko
+  FILES:=$(LINUX_DIR)/drivers/media/platform/sunxi/sun4i-csi/sun4i-csi.ko
   AUTOLOAD:=$(call AutoLoad,55,sun4i-csi)
   DEPENDS:=@TARGET_sunxi @LINUX_5_4 +kmod-video-core
 endef

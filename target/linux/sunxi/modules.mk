@@ -268,8 +268,8 @@ define KernelPackage/sunxi-cedrus
          CONFIG_CMA_DEBUGFS=n \
          CONFIG_VIDEO_SUNXI=y \
          CONFIG_DMA_SHARED_BUFFER=y \
-         CONFIG_VIDEO_SUNXI_CEDRUS \
-         CONFIG_V4L_MEM2MEM_DRIVERS \
+         CONFIG_VIDEO_SUNXI_CEDRUS=y \
+         CONFIG_V4L_MEM2MEM_DRIVERS=y \
          CONFIG_VIDEO_MEM2MEM_DEINTERLACE=n \
          CONFIG_VIDEO_SH_VEU=n \
          CONFIG_CMA=y \
@@ -278,9 +278,5 @@ define KernelPackage/sunxi-cedrus
          CONFIG_CMA_SIZE_SEL_MBYTES=y \
          CONFIG_CMA_ALIGNMENT=8 \
          CONFIG_CMA_AREAS=7
-  FILES:= \
-      $(LINUX_DIR)/drivers/staging/media/sunxi/cedrus/sunxi-cedrus.ko \
-      $(LINUX_DIR)/drivers/media/$(V4L2_DIR)/v4l2-mem2mem.ko 
-  AUTOLOAD:=$(call AutoProbe,sunxi-cedrus v4l2-mem2mem)
 endef
 $(eval $(call KernelPackage,sunxi-cedrus))

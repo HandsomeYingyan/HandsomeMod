@@ -261,7 +261,7 @@ $(eval $(call KernelPackage,sunxi-cedarx))
 define KernelPackage/sunxi-cedrus
   SUBMENU:=Video Encoder/Decoder Support
   TITLE:=Allwinner Open-Source VPU Encoder/Decoder module
-  DEPENDS:=@TARGET_sunxi @LINUX_5_4 +kmod-video-core
+  DEPENDS:=@TARGET_sunxi @LINUX_5_4 +kmod-video-core +kmod-video-videobuf2
   KCONFIG:= CONFIG_GENERIC_ALLOCATOR=y \
          CONFIG_STAGING_MEDIA=y \
          CONFIG_CMA_DEBUG=n \
@@ -269,6 +269,7 @@ define KernelPackage/sunxi-cedrus
          CONFIG_VIDEO_SUNXI=y \
          CONFIG_DMA_SHARED_BUFFER=y \
          CONFIG_VIDEO_SUNXI_CEDRUS \
+         CONFIG_V4L_MEM2MEM_DRIVERS=y \
          CONFIG_CMA=y \
          CONFIG_DMA_CMA=y \
          CONFIG_CMA_SIZE_MBYTES=21 \

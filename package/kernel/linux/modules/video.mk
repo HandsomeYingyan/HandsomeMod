@@ -83,8 +83,9 @@ define KernelPackage/video-videobuf2
   FILES:= \
 	$(LINUX_DIR)/drivers/media/common/videobuf2/videobuf2-common.ko \
 	$(LINUX_DIR)/drivers/media/common/videobuf2/videobuf2-v4l2.ko \
-	$(LINUX_DIR)/drivers/media/common/videobuf2/videobuf2-memops.ko
-  AUTOLOAD:=$(call AutoLoad,65,videobuf2-core videobuf-v4l2 videobuf2-memops)
+	$(LINUX_DIR)/drivers/media/common/videobuf2/videobuf2-memops.ko \
+	$(LINUX_DIR)/drivers/media/common/videobuf2/videobuf2-dma-contig.ko
+  AUTOLOAD:=$(call AutoLoad,65,videobuf2-core videobuf-v4l2 videobuf2-dma-contig)
   $(call AddDepends/video)
 endef
 

@@ -209,6 +209,24 @@ endef
 
 $(eval $(call KernelPackage,input-touchscreen-silead))
 
+define KernelPackage/input-touchscreen-ft5x06
+  SUBMENU:=$(INPUT_MODULES_MENU)
+  TITLE:=ft5x06 based touchscreens
+  DEPENDS:=+kmod-hwmon-core +kmod-i2c-core +kmod-input-evdev
+  KCONFIG:= \
+	CONFIG_INPUT_TOUCHSCREEN=y \
+	CONFIG_TOUCHSCREEN_EDT_FT5X06
+  FILES:=$(LINUX_DIR)/drivers/input/touchscreen/ft5x06.ko
+  AUTOLOAD:=$(call AutoProbe,ft5x06)
+endef
+
+define KernelPackage/input-touchscreen-ft5x06/description
+  Kernel module for ft5x06 based touchscreens
+endef
+
+$(eval $(call KernelPackage,input-touchscreen-ft5x06))
+
+
 
 define KernelPackage/keyboard-imx
   SUBMENU:=$(INPUT_MODULES_MENU)

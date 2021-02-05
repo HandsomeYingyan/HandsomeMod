@@ -1039,7 +1039,7 @@ endef
 
 $(eval $(call KernelPackage,video-s5k5baf))
 
-define KernelPackage/video-smiapp
+define KernelPackage/video-simapp
   TITLE:=SMIA++/SMIA sensor support
   KCONFIG:=CONFIG_VIDEO_SMIAPP
   FILES:=$(LINUX_DIR)/drivers/media/i2c/simapp.ko

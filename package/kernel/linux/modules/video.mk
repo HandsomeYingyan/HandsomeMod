@@ -40,6 +40,15 @@ define KernelPackage/video-core
   	CONFIG_VIDEO_TC358743=n \
   	CONFIG_VIDEO_ADV7511=n \
   	CONFIG_VIDEO_AD9389B=n \
+  	CONFIG_VIDEO_AD5820=n \
+  	CONFIG_VIDEO_AK7375=n \
+  	CONFIG_VIDEO_DW9714=n \
+  	CONFIG_VIDEO_DW9807_VCM=n \
+  	CONFIG_VIDEO_ADP1653=n \
+  	CONFIG_VIDEO_LM3560=n \
+  	CONFIG_VIDEO_LM3646=n \
+  	CONFIG_VIDEO_ST_MIPID02=n \
+  	CONFIG_VIDEO_GS1662=n \
 	CONFIG_VIDEO_ALLOW_V4L1=y \
 	CONFIG_VIDEO_CAPTURE_DRIVERS=y \
 	CONFIG_V4L_USB_DRIVERS=y \
@@ -958,3 +967,116 @@ define KernelPackage/video-imx355/description
 endef
 
 $(eval $(call KernelPackage,video-imx355))
+
+define KernelPackage/video-m5mols
+  TITLE:=Fujitsu M-5MOLS 8MP sensor support
+  KCONFIG:=CONFIG_VIDEO_M5MOLS
+  FILES:=$(LINUX_DIR)/drivers/media/i2c/m5mols.ko
+  AUTOLOAD:=$(call AutoProbe,m5mols)
+  $(call AddDepends/camera)
+endef
+
+define KernelPackage/video-m5mols/description
+ Fujitsu M-5MOLS 8MP sensor support
+endef
+
+$(eval $(call KernelPackage,video-m5mols))
+
+define KernelPackage/video-s5k6aa
+  TITLE:=Samsung S5K6AAFX sensor support
+  KCONFIG:=CONFIG_VIDEO_S5K6AA
+  FILES:=$(LINUX_DIR)/drivers/media/i2c/s5k6aa.ko
+  AUTOLOAD:=$(call AutoProbe,s5k6aa)
+  $(call AddDepends/camera)
+endef
+
+define KernelPackage/video-s5k6aa/description
+ Samsung S5K6AAFX sensor support
+endef
+
+$(eval $(call KernelPackage,video-s5k6aa))
+
+define KernelPackage/video-s5k6a3
+  TITLE:=Samsung S5K6A3 sensor support
+  KCONFIG:=CONFIG_VIDEO_S5K6AA
+  FILES:=$(LINUX_DIR)/drivers/media/i2c/s5k6a3.ko
+  AUTOLOAD:=$(call AutoProbe,s5k6a3)
+  $(call AddDepends/camera)
+endef
+
+define KernelPackage/video-s5k6a3/description
+ Samsung S5K6A3 sensor support
+endef
+
+$(eval $(call KernelPackage,video-s5k6a3))
+
+define KernelPackage/video-s5k4ecgx
+  TITLE:=Samsung S5K4ECGX sensor support
+  KCONFIG:=CONFIG_VIDEO_S5K4ECGX
+  FILES:=$(LINUX_DIR)/drivers/media/i2c/s5k4ecgx.ko
+  AUTOLOAD:=$(call AutoProbe,s5k4ecgx)
+  $(call AddDepends/camera)
+endef
+
+define KernelPackage/video-s5k4ecgx/description
+ Samsung S5K4ECGX sensor support
+endef
+
+$(eval $(call KernelPackage,video-s5k4ecgx))
+
+
+define KernelPackage/video-s5k5baf
+  TITLE:=Samsung S5K5BAF sensor support
+  KCONFIG:=CONFIG_VIDEO_S5K5BAF
+  FILES:=$(LINUX_DIR)/drivers/media/i2c/s5k5baf.ko
+  AUTOLOAD:=$(call AutoProbe,s5k5baf)
+  $(call AddDepends/camera)
+endef
+
+define KernelPackage/video-s5k5baf/description
+ Samsung S5K5BAF sensor support
+endef
+
+$(eval $(call KernelPackage,video-s5k5baf))
+
+define KernelPackage/video-smiapp
+  TITLE:=SMIA++/SMIA sensor support
+  KCONFIG:=CONFIG_VIDEO_SMIAPP
+  FILES:=$(LINUX_DIR)/drivers/media/i2c/simapp.ko
+  AUTOLOAD:=$(call AutoProbe,simapp)
+  $(call AddDepends/camera)
+endef
+
+define KernelPackage/video-simapp/description
+ SMIA++/SMIA sensor support
+endef
+
+$(eval $(call KernelPackage,video-simapp))
+
+define KernelPackage/video-et8ek8
+  TITLE:=ET8EK8 camera sensor support
+  KCONFIG:=CONFIG_VIDEO_ET8EK8
+  FILES:=$(LINUX_DIR)/drivers/media/i2c/et8ek8.ko
+  AUTOLOAD:=$(call AutoProbe,et8ek8)
+  $(call AddDepends/camera)
+endef
+
+define KernelPackage/video-et8ek8/description
+ ET8EK8 camera sensor support
+endef
+
+$(eval $(call KernelPackage,video-et8ek8))
+
+define KernelPackage/video-s5c73m3
+  TITLE:=Samsung S5C73M3 sensor support
+  KCONFIG:=CONFIG_VIDEO_S5C73M3
+  FILES:=$(LINUX_DIR)/drivers/media/i2c/s5c73m3.ko
+  AUTOLOAD:=$(call AutoProbe,s5c73m3)
+  $(call AddDepends/camera)
+endef
+
+define KernelPackage/video-s5c73m3/description
+ Samsung S5C73M3 sensor support
+endef
+
+$(eval $(call KernelPackage,video-s5c73m3))

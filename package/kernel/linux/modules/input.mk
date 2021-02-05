@@ -216,8 +216,8 @@ define KernelPackage/input-touchscreen-ft5x06
   KCONFIG:= \
 	CONFIG_INPUT_TOUCHSCREEN=y \
 	CONFIG_TOUCHSCREEN_EDT_FT5X06
-  FILES:=$(LINUX_DIR)/drivers/input/touchscreen/ft5x06.ko
-  AUTOLOAD:=$(call AutoProbe,ft5x06)
+  FILES:=$(LINUX_DIR)/drivers/input/touchscreen/edt-ft5x06.ko
+  AUTOLOAD:=$(call AutoProbe,edt-ft5x06)
 endef
 
 define KernelPackage/input-touchscreen-ft5x06/description

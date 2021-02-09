@@ -274,7 +274,7 @@ endef
 $(eval $(call KernelPackage,drm-kms-helper))
 
 define KernelPackage/drm-amdgpu
-  SUBMENU:=$(VIDEO_MENU)
+  SUBMENU:=$(DISPLAY_MENU)
   TITLE:=AMDGPU DRM support
   DEPENDS:=@TARGET_x86 @DISPLAY_SUPPORT +kmod-backlight +kmod-drm-ttm \
 	+kmod-drm-kms-helper +kmod-i2c-algo-bit +amdgpu-firmware

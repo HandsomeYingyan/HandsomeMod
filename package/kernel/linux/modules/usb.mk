@@ -409,7 +409,8 @@ define KernelPackage/usb-audio
   KCONFIG:= \
 	CONFIG_USB_AUDIO \
 	CONFIG_SND_USB=y \
-	CONFIG_SND_USB_AUDIO
+	CONFIG_SND_USB_AUDIO \
+	CONFIG_MEDIA_CONTROLLER=y
   $(call AddDepends/usb)
   $(call AddDepends/sound)
   FILES:= \

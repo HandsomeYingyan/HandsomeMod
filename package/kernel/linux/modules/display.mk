@@ -274,7 +274,7 @@ endef
 $(eval $(call KernelPackage,drm-kms-helper))
 
 define KernelPackage/drm-amdgpu
-  SUBMENU:=$(DISPLAY_MENU)
+  SUBMENU:=$(VIDEO_MENU)
   TITLE:=AMDGPU DRM support
   DEPENDS:=@TARGET_x86 @DISPLAY_SUPPORT +kmod-backlight +kmod-drm-ttm \
 	+kmod-drm-kms-helper +kmod-i2c-algo-bit +amdgpu-firmware
@@ -284,8 +284,7 @@ define KernelPackage/drm-amdgpu
 	CONFIG_DRM_AMD_DC=y \
 	CONFIG_DEBUG_KERNEL_DC=n
   FILES:=$(LINUX_DIR)/drivers/gpu/drm/amd/amdgpu/amdgpu.ko \
-	$(LINUX_DIR)/drivers/gpu/drm/scheduler/gpu-sched.ko@ge4.15 \
-	$(LINUX_DIR)/drivers/gpu/drm/amd/lib/chash.ko@ge4.15
+	$(LINUX_DIR)/drivers/gpu/drm/scheduler/gpu-sched.ko
   AUTOLOAD:=$(call AutoProbe,amdgpu)
 endef
 

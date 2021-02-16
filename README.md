@@ -2,6 +2,8 @@
 ## IOT Freedom For End-user!
 ### Warning!!
 ## This Project is unstable and un-fully tested right now!
+### HandsomeMod is Not A router-only distribution.
+### Right Now Router is not Our Mainly Support Target.
 
 This is the buildsystem for the HandsomeMod Linux distribution.
 
@@ -30,6 +32,15 @@ The orginal code comes form openwrt 19.07.
 
 https://github.com/openwrt/openwrt
 
+## Project Goal
+
+- Create a ready-to-use lightweight linux distribution for single-board computer and IOT devices.
+
+- Bring package-manager to devices that has lower memory.
+
+- Maybe the first mainline-based IOT Solution?
+
+- A Simple distribution for IOT devices with screen.
 
 #  The Main Target Support By HandsomeMod
 
@@ -48,17 +59,7 @@ https://github.com/openwrt/openwrt
 
 #  What is Moded?
 
-- Use mac to distinguish different handsomemod device(wifi ssid).
-
-- Use Nginx instead of uhttpd(Luci).(uhttpd version of luci been renamed as luci-uhttpd)
-
-- Enalbe CAKE Network Queue Management in default config.
-
-- Add https://github.com/Chion82/netfilter-full-cone-nat.git kernel module.
-
 - Use ucl and upx to reduce image size.
-
-- Add some router not yet in openwrt offcial source.
 
 - Change some source mirrors (Build faster in China).
 
@@ -68,7 +69,7 @@ https://github.com/openwrt/openwrt
 
 - Add Fbdev Based mali blobs.
 
-- Add lvgl Support .
+- Add lvgl Support.
 
 - Include Socs not yet in mainline(eg. Allwinner V3s F1cx00s and HiSilicon hi35xx).
 
@@ -78,15 +79,15 @@ https://github.com/openwrt/openwrt
 
 - Non-free feeds for Allwinner cedarX and HiSilicon libs and modules.
 
-- Some Tweaks in usb gadget 
+- Some Tweaks in usb gadget .
 
-- Tweaks to support some device with screen 
+- Tweaks to support some device with screen.
 
-- Use eudev instead of the orginal one in openwrt
+- Use eudev instead of the orginal one in openwrt.
 
-- Add qt sdl directfb and other stuff!
+- qt5 sdl2 directfb support!
 
-- Connman For Wext-based wifi chips
+- Connman For Wext-based wifi chips.
 
 - Sunxi mail400 kernel module and userspace library.(Runs Pretty Well With Glmark2 Fbdev)
 
@@ -98,6 +99,11 @@ https://github.com/openwrt/openwrt
 
 - Freescale I.MX6ULL Support.
 
+- Mesa And Wayland/Weston Suppport.
+
+- Allwinner Cedrus Support. 
+
+- RetroArch Support.
 
 ## Planing... 
 
@@ -113,24 +119,17 @@ https://github.com/openwrt/openwrt
 
 - A lightweight HandsomeMod Graphics Layer.
 
-- Add wayland support.
-
-- Support the HiSilicon Himpp and rtsp steaming apps.(Hisilicon Support now EOL(end of life) due to shitty toolchain)
-
-- Opengl for Qt5 .
+- Opengl for Qt5.
 
 - Robot Os Support.
 
 - Better Support For Rapsberry Boards.
 
-- Use genimage to generate sunxi images.
-
-- Libhybris Suppport For Project Halium.
-
 - Qualcomm Arm Soc (Like Msm8916) mainline support.
 
-- Samsung Exynos Soc mainline support
+- Samsung Exynos Soc mainline support.
 
+- NetworkManager Support.
 
-Future Release Will Based On Openwrt's Latest Stable Version.
+Future Release Will Based On Openwrt Latest Stable Version.
 

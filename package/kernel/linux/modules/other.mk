@@ -1195,3 +1195,22 @@ define KernelPackage/it87-wdt/description
 endef
 
 $(eval $(call KernelPackage,it87-wdt))
+
+define KernelPackage/vboxguset
+  SUBMENU:=$(OTHER_MENU)
+  TITLE:=Virtual Box Guest integration support
+  DEPENDS:=@PCI_SUPPORT @TARGET_x86 +kmod-input-core +kmod-drm-vbox
+  KCONFIG:= CONFIG_VIRT_DRIVERS=y \
+            CONFIG_VBOXGUEST
+  FILES:= $(LINUX_DIR)/drivers/virt/vboxguest/vboxguest.ko
+  AUTOLOAD:=$(call AutoProbe,vboxguest)
+endef
+
+define KernelPackage/vboxguset/description
+	  This is a driver for the Virtual Box Guest PCI device used in
+	  Virtual Box virtual machines. Enabling this driver will add
+	  support for Virtual Box Guest integration features such as
+	  copy-and-paste, seamless mode and OpenGL pass-through.
+endef
+
+$(eval $(call KernelPackage,vboxguset))

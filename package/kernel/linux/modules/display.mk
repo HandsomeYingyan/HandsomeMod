@@ -295,6 +295,23 @@ endef
 $(eval $(call KernelPackage,drm-amdgpu))
 
 
+define KernelPackage/drm-vbox
+  SUBMENU:=$(DISPLAY_MENU)
+  TITLE:=VirtualBox DRM support
+  DEPENDS:=@TARGET_x86 @DISPLAY_SUPPORT +kmod-backlight +kmod-drm-kms-helper
+  KCONFIG:= CONFIG_DRM_VRAM_HELPER=y \
+            CONFIG_DRM_VBOXVIDEO
+  FILES:=$(LINUX_DIR)/drivers/gpu/drm/vboxvideo/vboxvideo.ko
+  AUTOLOAD:=$(call AutoProbe,vboxvideo)
+endef
+
+define KernelPackage/drm-vbox/description
+  Direct Rendering Manager (DRM) support for VirtualBox
+endef
+
+$(eval $(call KernelPackage,drm-vbox))
+
+
 define KernelPackage/drm-imx
   SUBMENU:=$(DISPLAY_MENU)
   TITLE:=Freescale i.MX DRM support

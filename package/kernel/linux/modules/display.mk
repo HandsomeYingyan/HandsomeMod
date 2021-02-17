@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2020 HandsomeMod Project (Handsomeyingyan@gmali.com)
+# Copyright (C) 2020-2021 HandsomeMod Project (Handsomeyingyan@gmali.com)
 #  
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -298,9 +298,8 @@ $(eval $(call KernelPackage,drm-amdgpu))
 define KernelPackage/drm-vbox
   SUBMENU:=$(DISPLAY_MENU)
   TITLE:=VirtualBox DRM support
-  DEPENDS:=@TARGET_x86 @DISPLAY_SUPPORT +kmod-backlight +kmod-drm-kms-helper
-  KCONFIG:= CONFIG_DRM_VRAM_HELPER=y \
-            CONFIG_DRM_VBOXVIDEO
+  DEPENDS:=@TARGET_x86 @DISPLAY_SUPPORT +kmod-backlight +kmod-drm-kms-helper +kmod-drm-ttm
+  KCONFIG:= CONFIG_DRM_VBOXVIDEO
   FILES:=$(LINUX_DIR)/drivers/gpu/drm/vboxvideo/vboxvideo.ko
   AUTOLOAD:=$(call AutoProbe,vboxvideo)
 endef
@@ -310,6 +309,24 @@ define KernelPackage/drm-vbox/description
 endef
 
 $(eval $(call KernelPackage,drm-vbox))
+
+define KernelPackage/drm-vmware
+  SUBMENU:=$(DISPLAY_MENU)
+  TITLE:=DRM driver for VMware Virtual GPU
+  DEPENDS:=@TARGET_x86 @DISPLAY_SUPPORT +kmod-backlight +kmod-drm-kms-helper +kmod-drm-ttm
+  KCONFIG:=  CONFIG_FB_DEFERRED_IO=y \
+  	CONFIG_DRM_VMWGFX_FBCON=y \
+  	CONFIG_DRM_VMWGFX 
+  FILES:=$(LINUX_DIR)/drivers/gpu/drm/vmwgfx/vmwgfx.ko
+  AUTOLOAD:=$(call AutoProbe,vmwgfx)
+endef
+
+define KernelPackage/drm-vmware/description
+  DRM driver for VMware Virtual GPU
+endef
+
+$(eval $(call KernelPackage,drm-vmware))
+
 
 
 define KernelPackage/drm-imx

@@ -1,6 +1,6 @@
 #
 # Copyright (C) 2006-2013 OpenWrt.org
-# Copyright (C) 2020 HandsomeMod Project
+# Copyright (C) 2020-2021 HandsomeMod Project
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -66,6 +66,22 @@ define KernelPackage/input-evdev/description
 endef
 
 $(eval $(call KernelPackage,input-evdev))
+
+define KernelPackage/input-mouse
+  SUBMENU:=$(INPUT_MODULES_MENU)
+  TITLE:=Input mouse device
+  DEPENDS:=+kmod-input-core
+  KCONFIG:=CONFIG_INPUT_MOUSE \
+           CONFIG_INPUT_MOUSEDEV=y
+  FILES:=$(LINUX_DIR)/drivers/input/mouse/mouse.ko
+  AUTOLOAD:=$(call AutoLoad,60,mouse)
+endef
+
+define KernelPackage/input-mouse/description
+ Kernel modules for support of mouse
+endef
+
+$(eval $(call KernelPackage,input-mouse))
 
 
 define KernelPackage/input-gpio-keys

@@ -67,21 +67,29 @@ endef
 
 $(eval $(call KernelPackage,input-evdev))
 
-define KernelPackage/input-mouse
+define KernelPackage/input-mousedev
   SUBMENU:=$(INPUT_MODULES_MENU)
   TITLE:=Input mouse device
   DEPENDS:=+kmod-input-core
-  KCONFIG:=CONFIG_INPUT_MOUSE \
-           CONFIG_INPUT_MOUSEDEV=y
-  FILES:=$(LINUX_DIR)/drivers/input/mouse/mouse.ko
-  AUTOLOAD:=$(call AutoLoad,60,mouse)
+  KCONFIG:=CONFIG_INPUT_MOUSE=y \
+           CONFIG_MOUSE_PS2=n \
+           CONFIG_MOUSE_SERIAL=n \
+           CONFIG_MOUSE_BCM5974=n \
+           CONFIG_MOUSE_CYAPA=n \
+           CONFIG_MOUSE_VSXXXAA=n \
+           CONFIG_INPUT_MOUSEDEV \
+           CONFIG_INPUT_MOUSEDEV_PSAUX=n \
+           CONFIG_INPUT_MOUSEDEV_SCREEN_X=1024 \
+           CONFIG_INPUT_MOUSEDEV_SCREEN_Y=768
+  FILES:=$(LINUX_DIR)/drivers/input/mousedev.ko
+  AUTOLOAD:=$(call AutoLoad,60,mousedev)
 endef
 
-define KernelPackage/input-mouse/description
- Kernel modules for support of mouse
+define KernelPackage/input-mousedev/description
+ Kernel modules for support of mouse devices.
 endef
 
-$(eval $(call KernelPackage,input-mouse))
+$(eval $(call KernelPackage,input-mousedev))
 
 
 define KernelPackage/input-gpio-keys

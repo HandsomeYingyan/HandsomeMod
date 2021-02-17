@@ -168,7 +168,16 @@ define KernelPackage/sun4i-drm
 	CONFIG_DRM_SUN4I_BACKEND \
 	CONFIG_DRM_SUN8I_DW_HDMI \
 	CONFIG_DRM_SUN6I_DSI \
-	CONFIG_DRM_SUN8I_MIXER 
+	CONFIG_DRM_SUN8I_MIXER \
+	CONFIG_DRM_PANEL_SIMPLE \
+	CONFIG_DRM_PANEL=y \
+	CONFIG_DRM_PANEL_SAMSUNG_LD9040=n \
+	CONFIG_DRM_PANEL_SAMSUNG_S6E8AA0=n \
+	CONFIG_DRM_PANEL_LG_LG4573=n \
+	CONFIG_DRM_PANEL_LD9040=n \
+	CONFIG_DRM_PANEL_LVDS=n \
+	CONFIG_DRM_PANEL_S6E8AA0=n \
+	CONFIG_DRM_PANEL_SITRONIX_ST7789V=n
     FILES:= \
 	$(LINUX_DIR)/drivers/gpu/drm/sun4i/sun4i-drm.ko \
 	$(LINUX_DIR)/drivers/gpu/drm/sun4i/sun4i-backend.ko \
@@ -178,8 +187,9 @@ define KernelPackage/sun4i-drm
 	$(LINUX_DIR)/drivers/gpu/drm/sun4i/sun6i_mipi_dsi.ko \
 	$(LINUX_DIR)/drivers/gpu/drm/sun4i/sun6i_drc.ko \
 	$(LINUX_DIR)/drivers/gpu/drm/sun4i/sun8i-mixer.ko \
- 	$(LINUX_DIR)/drivers/gpu/drm/sun4i/sun8i_tcon_top.ko 
-    AUTOLOAD:=$(call AutoLoad,50,sun4i-drm sun4i-backend sun4i-frontend sun4i-tcon sun4i_tv sun6i_mipi_dsi sun6i_drc sun8i-mixer sun8i_tcon_top)
+ 	$(LINUX_DIR)/drivers/gpu/drm/sun4i/sun8i_tcon_top.ko \
+ 	$(LINUX_DIR)/drivers/gpu/drm/panel/panel-simple.ko
+    AUTOLOAD:=$(call AutoLoad,50,sun4i-drm sun4i-backend sun4i-frontend sun4i-tcon sun4i_tv sun6i_mipi_dsi sun6i_drc sun8i-mixer sun8i_tcon_top panel-simple)
 endef
 
 define KernelPackage/sun4i-drm/description

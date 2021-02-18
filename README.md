@@ -1,5 +1,8 @@
 # HandsomeMod
 ## IOT Freedom For End-user!
+## Development in this branch is now discontinued!
+## 19.07 is too old for some features in HandsomeMod.
+## 21.02 based HandsomeMod will released in a short time.
 ### Warning!!
 ## This Project is unstable and un-fully tested right now!
 ### HandsomeMod is Not A router-only distribution.

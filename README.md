@@ -1,4 +1,5 @@
-# HandsomeMod
+# HandsomeMod Alpha
+# Devoloping now happen in [HandsomeMod 21.03](https://github.com/HandsomeMod/HandsomeMod)
 ## IOT Freedom For End-user!
 ## Development in this branch is now discontinued!
 ## 19.07 is too old for some features in HandsomeMod.
